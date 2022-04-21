@@ -1,6 +1,6 @@
 ﻿Imports System.Data.SqlClient
 
-Public Class Form1
+Public Class startconexion
 
     Public myConn As SqlConnection
     Dim machineName = Environment.MachineName.ToString()
@@ -108,7 +108,7 @@ Public Class Form1
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Try
             If myConn.State = ConnectionState.Open Then
-
+                Gestion.Show()
             End If
 
         Catch ex As Exception
