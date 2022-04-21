@@ -22,7 +22,7 @@ Gestor_de_academias
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
-<member name="M:Gestor_de_academias.Form1.createDatabase">
+<member name="M:Gestor_de_academias.startconexion.createDatabase">
  <summary>
  Creacion de la database y los procedures de busqueda
  </summary>
