@@ -12,3 +12,15 @@ C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\obj\Deb
 C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.startconexion.resources
 C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.Empresa.resources
 C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.Gestion.resources
+C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\bin\Debug\Microsoft.SqlServer.Smo.dll
+C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\bin\Debug\Microsoft.SqlServer.SmoExtended.dll
+C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\bin\Debug\Microsoft.SqlServer.Management.Sdk.Sfc.dll
+C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\bin\Debug\Microsoft.SqlServer.ConnectionInfo.dll
+C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\bin\Debug\Microsoft.SqlServer.SqlEnum.dll
+C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\bin\Debug\Microsoft.SqlServer.Dmf.dll
+C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\bin\Debug\Microsoft.SqlServer.ServiceBrokerEnum.dll
+C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\bin\Debug\Microsoft.SqlServer.RegSvrEnum.dll
+C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\bin\Debug\es\Microsoft.SqlServer.Management.Sdk.Sfc.resources.dll
+C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\bin\Debug\es\Microsoft.SqlServer.Dmf.resources.dll
+C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\bin\Debug\es\Microsoft.SqlServer.RegSvrEnum.resources.dll
+C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.vbproj.CopyComplete

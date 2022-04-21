@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports Microsoft.SqlServer.Management.Smo
 
 Public Class startconexion
 
@@ -6,11 +7,22 @@ Public Class startconexion
     Dim machineName = Environment.MachineName.ToString()
     Dim tryUseDB = "use gestio_empreses"
     Dim myCommand As SqlCommand
+    Dim sqlServerName
 
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim row As DataRow
+        Dim dtServers As DataTable = SmoApplication.EnumAvailableSqlServers(False)
+        For Each row In dtServers.Rows
+            sqlServerName = row.ItemArray(0)
+        Next
+
+        Dim a = 0
+
+
+
         Try
-            myConn = New SqlConnection("Server=" & machineName & "\SQLEXPRESS;" & "Integrated Security = True")
+            myConn = New SqlConnection("Server=" & sqlServerName & ";" & "Integrated Security = True")
             myCommand = New SqlCommand(tryUseDB, myConn)
             myConn.Open()
             If myConn.State = ConnectionState.Open Then
@@ -36,7 +48,7 @@ Public Class startconexion
     Private Sub createDatabase()
         Dim str As String
 
-        Dim myConn As SqlConnection = New SqlConnection("Server=" & machineName & "\SQLEXPRESS;" & "Integrated Security = True")
+        Dim myConn As SqlConnection = New SqlConnection("Server=" & sqlServerName & ";" & "Integrated Security = false")
 
         str = "CREATE DATABASE gestio_empreses"
 
@@ -48,7 +60,7 @@ Public Class startconexion
             myConn.Close()
 
 
-            myConn = New SqlConnection("Server=DESKTOP-LRLD5GA\SQLEXPRESS;" & "Initial Catalog=gestio_empreses;" & "Integrated Security = True")
+            myConn = New SqlConnection("Server=" & ";" & "Initial Catalog=gestio_empreses;" & "Integrated Security = True")
             myConn.Open()
             str = "CREATE TABLE categoria (" &
                 "cod_categoria Int PRIMARY KEY," &
@@ -114,6 +126,10 @@ Public Class startconexion
         Catch ex As Exception
             MessageBox.Show("Comprueba la conexion", "Formulas", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try
+    End Sub
+
+    Private Sub startconexion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class
 

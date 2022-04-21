@@ -55,7 +55,7 @@ Partial Class startconexion
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "desconectado"
         '
-        'Form1
+        'startconexion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -63,7 +63,7 @@ Partial Class startconexion
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
-        Me.Name = "Form1"
+        Me.Name = "startconexion"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
         Me.PerformLayout()
