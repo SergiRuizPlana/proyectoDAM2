@@ -4,7 +4,6 @@ Imports Microsoft.SqlServer.Management.Smo
 Public Class startconexion
 
     Public myConn As SqlConnection
-    Dim machineName = Environment.MachineName.ToString()
     Dim tryUseDB = "use gestio_empreses"
     Dim myCommand As SqlCommand
     Dim sqlServerName
@@ -18,9 +17,6 @@ Public Class startconexion
         Next
 
         Dim a = 0
-
-
-
         Try
             myConn = New SqlConnection("Server=" & sqlServerName & ";" & "Integrated Security = True")
             myCommand = New SqlCommand(tryUseDB, myConn)
@@ -63,7 +59,7 @@ Public Class startconexion
             myConn = New SqlConnection("Server=" & ";" & "Initial Catalog=gestio_empreses;" & "Integrated Security = True")
             myConn.Open()
             str = "CREATE TABLE categoria (" &
-                "cod_categoria Int PRIMARY KEY," &
+                "cod_categoria Int PRIMARY KEY default NEWID()," &
                 "descripcio VARCHAR(244) Not NULL" &
                 ");" &
                 "CREATE TABLE empresa (" &
