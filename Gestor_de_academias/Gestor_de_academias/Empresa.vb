@@ -20,11 +20,9 @@ Public Class Empresa
         myCommand.Parameters.Add("@email", SqlDbType.VarChar).Value = EmpresaEmail.Text
         myCommand.Parameters.Add("@categoria", SqlDbType.VarChar).Value = empresaCategoria.SelectedValue
 
-
         myCommand.ExecuteNonQuery()
 
-
-        myCommand = New SqlCommand(" Select * from empresa", startconexion.myConn)
+        myCommand = New SqlCommand("Select * from empresa", startconexion.myConn)
         Dim da As New SqlDataAdapter(myCommand)
         Dim dt As New DataTable
         da.Fill(dt)

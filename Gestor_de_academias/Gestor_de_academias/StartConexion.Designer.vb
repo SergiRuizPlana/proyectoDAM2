@@ -25,6 +25,7 @@ Partial Class startconexion
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
         Me.SuspendLayout()
         '
         'Button1
@@ -55,6 +56,10 @@ Partial Class startconexion
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "desconectado"
         '
+        'PrintDialog1
+        '
+        Me.PrintDialog1.UseEXDialog = True
+        '
         'startconexion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -73,4 +78,5 @@ Partial Class startconexion
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents Label1 As Label
+    Friend WithEvents PrintDialog1 As PrintDialog
 End Class
