@@ -25,6 +25,7 @@ Public Class startconexion
             myConn.Open()
             If myConn.State = ConnectionState.Open Then
                 Label1.Text = "Conectado"
+                Form1.Show()
             End If
             Try
                 myCommand.ExecuteNonQuery()
@@ -132,7 +133,7 @@ Public Class startconexion
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Try
             If myConn.State = ConnectionState.Open Then
-                Gestion.Show()
+                Empresa.Show()
             End If
 
         Catch ex As Exception
@@ -140,5 +141,8 @@ Public Class startconexion
         End Try
     End Sub
 
+    Private Sub startconexion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Button2.PerformClick()
+    End Sub
 End Class
 

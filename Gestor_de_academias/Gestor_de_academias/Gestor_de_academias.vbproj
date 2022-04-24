@@ -76,10 +76,22 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Empresa.Designer.vb">
-      <DependentUpon>Empresa.vb</DependentUpon>
+    <Compile Include="Albaran.Designer.vb">
+      <DependentUpon>Albaran.vb</DependentUpon>
     </Compile>
-    <Compile Include="Empresa.vb">
+    <Compile Include="Albaran.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contrato.Designer.vb">
+      <DependentUpon>Contrato.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Contrato.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Funciones.vb" />
@@ -98,10 +110,10 @@
       <DependentUpon>StartConexion.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gestion.Designer.vb">
-      <DependentUpon>Gestion.vb</DependentUpon>
+    <Compile Include="Empresa.Designer.vb">
+      <DependentUpon>Empresa.vb</DependentUpon>
     </Compile>
-    <Compile Include="Gestion.vb">
+    <Compile Include="Empresa.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -120,13 +132,25 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Test.Designer.vb">
+      <DependentUpon>Test.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Test.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Albaran.resx">
+      <DependentUpon>Albaran.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contrato.resx">
+      <DependentUpon>Contrato.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Empresa.resx">
       <DependentUpon>Empresa.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Gestion.resx">
-      <DependentUpon>Gestion.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartConexion.resx">
       <DependentUpon>StartConexion.vb</DependentUpon>
@@ -136,6 +160,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test.resx">
+      <DependentUpon>Test.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +187,27 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\albaran.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\albaran11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\contrato.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\emrpresa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\albaran111.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\contrato1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\emrpresa1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

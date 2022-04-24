@@ -11,7 +11,6 @@ C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\obj\Deb
 C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.pdb
 C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.startconexion.resources
 C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.Empresa.resources
-C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.Gestion.resources
 C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\bin\Debug\Microsoft.SqlServer.Smo.dll
 C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\bin\Debug\Microsoft.SqlServer.SmoExtended.dll
 C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\bin\Debug\Microsoft.SqlServer.Management.Sdk.Sfc.dll
@@ -24,3 +23,7 @@ C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\bin\Deb
 C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\bin\Debug\es\Microsoft.SqlServer.Dmf.resources.dll
 C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\bin\Debug\es\Microsoft.SqlServer.RegSvrEnum.resources.dll
 C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.vbproj.CopyComplete
+C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.Form1.resources
+C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.Contrato.resources
+C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.Test.resources
+C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.Albaran.resources
