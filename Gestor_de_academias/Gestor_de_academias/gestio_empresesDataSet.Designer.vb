@@ -39,15 +39,15 @@ Partial Public Class gestio_empresesDataSet
     
     Private tabletest As testDataTable
     
-    Private relationFK__albara__cif__1ED998B2 As Global.System.Data.DataRelation
+    Private relationFK__albara__cif__1FCDBCEB As Global.System.Data.DataRelation
     
-    Private relationFK__albara_te__codi___239E4DCF As Global.System.Data.DataRelation
+    Private relationFK__albara_te__codi___24927208 As Global.System.Data.DataRelation
     
-    Private relationFK__albara_te__num_a__22AA2996 As Global.System.Data.DataRelation
+    Private relationFK__albara_te__num_a__239E4DCF As Global.System.Data.DataRelation
     
     Private relationFK__contracte__cif__164452B1 As Global.System.Data.DataRelation
     
-    Private relationFK__test__cod_catego__1BFD2C07 As Global.System.Data.DataRelation
+    Private relationFK__test__cod_catego__1CF15040 As Global.System.Data.DataRelation
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -348,11 +348,11 @@ Partial Public Class gestio_empresesDataSet
                 Me.tabletest.InitVars
             End If
         End If
-        Me.relationFK__albara__cif__1ED998B2 = Me.Relations("FK__albara__cif__1ED998B2")
-        Me.relationFK__albara_te__codi___239E4DCF = Me.Relations("FK__albara_te__codi___239E4DCF")
-        Me.relationFK__albara_te__num_a__22AA2996 = Me.Relations("FK__albara_te__num_a__22AA2996")
+        Me.relationFK__albara__cif__1FCDBCEB = Me.Relations("FK__albara__cif__1FCDBCEB")
+        Me.relationFK__albara_te__codi___24927208 = Me.Relations("FK__albara_te__codi___24927208")
+        Me.relationFK__albara_te__num_a__239E4DCF = Me.Relations("FK__albara_te__num_a__239E4DCF")
         Me.relationFK__contracte__cif__164452B1 = Me.Relations("FK__contracte__cif__164452B1")
-        Me.relationFK__test__cod_catego__1BFD2C07 = Me.Relations("FK__test__cod_catego__1BFD2C07")
+        Me.relationFK__test__cod_catego__1CF15040 = Me.Relations("FK__test__cod_catego__1CF15040")
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -377,16 +377,16 @@ Partial Public Class gestio_empresesDataSet
         MyBase.Tables.Add(Me.tableempresa)
         Me.tabletest = New testDataTable()
         MyBase.Tables.Add(Me.tabletest)
-        Me.relationFK__albara__cif__1ED998B2 = New Global.System.Data.DataRelation("FK__albara__cif__1ED998B2", New Global.System.Data.DataColumn() {Me.tableempresa.cifColumn}, New Global.System.Data.DataColumn() {Me.tablealbara.cifColumn}, false)
-        Me.Relations.Add(Me.relationFK__albara__cif__1ED998B2)
-        Me.relationFK__albara_te__codi___239E4DCF = New Global.System.Data.DataRelation("FK__albara_te__codi___239E4DCF", New Global.System.Data.DataColumn() {Me.tabletest.codi_testColumn}, New Global.System.Data.DataColumn() {Me.tablealbara_test.codi_testColumn}, false)
-        Me.Relations.Add(Me.relationFK__albara_te__codi___239E4DCF)
-        Me.relationFK__albara_te__num_a__22AA2996 = New Global.System.Data.DataRelation("FK__albara_te__num_a__22AA2996", New Global.System.Data.DataColumn() {Me.tablealbara.num_albaraColumn}, New Global.System.Data.DataColumn() {Me.tablealbara_test.num_albaraColumn}, false)
-        Me.Relations.Add(Me.relationFK__albara_te__num_a__22AA2996)
+        Me.relationFK__albara__cif__1FCDBCEB = New Global.System.Data.DataRelation("FK__albara__cif__1FCDBCEB", New Global.System.Data.DataColumn() {Me.tableempresa.cifColumn}, New Global.System.Data.DataColumn() {Me.tablealbara.cifColumn}, false)
+        Me.Relations.Add(Me.relationFK__albara__cif__1FCDBCEB)
+        Me.relationFK__albara_te__codi___24927208 = New Global.System.Data.DataRelation("FK__albara_te__codi___24927208", New Global.System.Data.DataColumn() {Me.tabletest.codi_testColumn}, New Global.System.Data.DataColumn() {Me.tablealbara_test.codi_testColumn}, false)
+        Me.Relations.Add(Me.relationFK__albara_te__codi___24927208)
+        Me.relationFK__albara_te__num_a__239E4DCF = New Global.System.Data.DataRelation("FK__albara_te__num_a__239E4DCF", New Global.System.Data.DataColumn() {Me.tablealbara.num_albaraColumn}, New Global.System.Data.DataColumn() {Me.tablealbara_test.num_albaraColumn}, false)
+        Me.Relations.Add(Me.relationFK__albara_te__num_a__239E4DCF)
         Me.relationFK__contracte__cif__164452B1 = New Global.System.Data.DataRelation("FK__contracte__cif__164452B1", New Global.System.Data.DataColumn() {Me.tableempresa.cifColumn}, New Global.System.Data.DataColumn() {Me.tablecontracte.cifColumn}, false)
         Me.Relations.Add(Me.relationFK__contracte__cif__164452B1)
-        Me.relationFK__test__cod_catego__1BFD2C07 = New Global.System.Data.DataRelation("FK__test__cod_catego__1BFD2C07", New Global.System.Data.DataColumn() {Me.tablecategoria_test.cod_categoriaColumn}, New Global.System.Data.DataColumn() {Me.tabletest.cod_categoriaColumn}, false)
-        Me.Relations.Add(Me.relationFK__test__cod_catego__1BFD2C07)
+        Me.relationFK__test__cod_catego__1CF15040 = New Global.System.Data.DataRelation("FK__test__cod_catego__1CF15040", New Global.System.Data.DataColumn() {Me.tablecategoria_test.cod_categoriaColumn}, New Global.System.Data.DataColumn() {Me.tabletest.cod_categoriaColumn}, false)
+        Me.Relations.Add(Me.relationFK__test__cod_catego__1CF15040)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -522,7 +522,7 @@ Partial Public Class gestio_empresesDataSet
         
         Private columncif As Global.System.Data.DataColumn
         
-        Private columnData As Global.System.Data.DataColumn
+        Private columndata As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -577,9 +577,9 @@ Partial Public Class gestio_empresesDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property DataColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property dataColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnData
+                Return Me.columndata
             End Get
         End Property
         
@@ -620,11 +620,11 @@ Partial Public Class gestio_empresesDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddalbaraRow(ByVal num_albara As Integer, ByVal parentempresaRowByFK__albara__cif__1ED998B2 As empresaRow, ByVal Data As Date) As albaraRow
+        Public Overloads Function AddalbaraRow(ByVal num_albara As Integer, ByVal parentempresaRowByFK__albara__cif__1FCDBCEB As empresaRow, ByVal data As Date) As albaraRow
             Dim rowalbaraRow As albaraRow = CType(Me.NewRow,albaraRow)
-            Dim columnValuesArray() As Object = New Object() {num_albara, Nothing, Data}
-            If (Not (parentempresaRowByFK__albara__cif__1ED998B2) Is Nothing) Then
-                columnValuesArray(1) = parentempresaRowByFK__albara__cif__1ED998B2(0)
+            Dim columnValuesArray() As Object = New Object() {num_albara, Nothing, data}
+            If (Not (parentempresaRowByFK__albara__cif__1FCDBCEB) Is Nothing) Then
+                columnValuesArray(1) = parentempresaRowByFK__albara__cif__1FCDBCEB(0)
             End If
             rowalbaraRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowalbaraRow)
@@ -656,7 +656,7 @@ Partial Public Class gestio_empresesDataSet
         Friend Sub InitVars()
             Me.columnnum_albara = MyBase.Columns("num_albara")
             Me.columncif = MyBase.Columns("cif")
-            Me.columnData = MyBase.Columns("Data")
+            Me.columndata = MyBase.Columns("data")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -666,8 +666,8 @@ Partial Public Class gestio_empresesDataSet
             MyBase.Columns.Add(Me.columnnum_albara)
             Me.columncif = New Global.System.Data.DataColumn("cif", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columncif)
-            Me.columnData = New Global.System.Data.DataColumn("Data", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnData)
+            Me.columndata = New Global.System.Data.DataColumn("data", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndata)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnnum_albara}, true))
             Me.columnnum_albara.AllowDBNull = false
             Me.columnnum_albara.Unique = true
@@ -911,14 +911,14 @@ Partial Public Class gestio_empresesDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function Addalbara_testRow(ByVal parentalbaraRowByFK__albara_te__num_a__22AA2996 As albaraRow, ByVal parenttestRowByFK__albara_te__codi___239E4DCF As testRow, ByVal realitzat As Boolean) As albara_testRow
+        Public Overloads Function Addalbara_testRow(ByVal parentalbaraRowByFK__albara_te__num_a__239E4DCF As albaraRow, ByVal parenttestRowByFK__albara_te__codi___24927208 As testRow, ByVal realitzat As Boolean) As albara_testRow
             Dim rowalbara_testRow As albara_testRow = CType(Me.NewRow,albara_testRow)
             Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, realitzat}
-            If (Not (parentalbaraRowByFK__albara_te__num_a__22AA2996) Is Nothing) Then
-                columnValuesArray(0) = parentalbaraRowByFK__albara_te__num_a__22AA2996(0)
+            If (Not (parentalbaraRowByFK__albara_te__num_a__239E4DCF) Is Nothing) Then
+                columnValuesArray(0) = parentalbaraRowByFK__albara_te__num_a__239E4DCF(0)
             End If
-            If (Not (parenttestRowByFK__albara_te__codi___239E4DCF) Is Nothing) Then
-                columnValuesArray(1) = parenttestRowByFK__albara_te__codi___239E4DCF(0)
+            If (Not (parenttestRowByFK__albara_te__codi___24927208) Is Nothing) Then
+                columnValuesArray(1) = parenttestRowByFK__albara_te__codi___24927208(0)
             End If
             rowalbara_testRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowalbara_testRow)
@@ -1470,7 +1470,7 @@ Partial Public Class gestio_empresesDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function Addcategoria_testRow(ByVal cod_categoria As Integer, ByVal descripcio As String) As categoria_testRow
+        Public Overloads Function Addcategoria_testRow(ByVal cod_categoria As System.Guid, ByVal descripcio As String) As categoria_testRow
             Dim rowcategoria_testRow As categoria_testRow = CType(Me.NewRow,categoria_testRow)
             Dim columnValuesArray() As Object = New Object() {cod_categoria, descripcio}
             rowcategoria_testRow.ItemArray = columnValuesArray
@@ -1480,7 +1480,7 @@ Partial Public Class gestio_empresesDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function FindBycod_categoria(ByVal cod_categoria As Integer) As categoria_testRow
+        Public Function FindBycod_categoria(ByVal cod_categoria As System.Guid) As categoria_testRow
             Return CType(Me.Rows.Find(New Object() {cod_categoria}),categoria_testRow)
         End Function
         
@@ -1508,7 +1508,7 @@ Partial Public Class gestio_empresesDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitClass()
-            Me.columncod_categoria = New Global.System.Data.DataColumn("cod_categoria", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columncod_categoria = New Global.System.Data.DataColumn("cod_categoria", GetType(Global.System.Guid), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columncod_categoria)
             Me.columndescripcio = New Global.System.Data.DataColumn("descripcio", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columndescripcio)
@@ -2461,11 +2461,11 @@ Partial Public Class gestio_empresesDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddtestRow(ByVal codi_test As Integer, ByVal total_preg As Integer, ByVal parentcategoria_testRowByFK__test__cod_catego__1BFD2C07 As categoria_testRow, ByVal preu As Decimal) As testRow
+        Public Overloads Function AddtestRow(ByVal codi_test As Integer, ByVal total_preg As Integer, ByVal parentcategoria_testRowByFK__test__cod_catego__1CF15040 As categoria_testRow, ByVal preu As Decimal) As testRow
             Dim rowtestRow As testRow = CType(Me.NewRow,testRow)
             Dim columnValuesArray() As Object = New Object() {codi_test, total_preg, Nothing, preu}
-            If (Not (parentcategoria_testRowByFK__test__cod_catego__1BFD2C07) Is Nothing) Then
-                columnValuesArray(2) = parentcategoria_testRowByFK__test__cod_catego__1BFD2C07(0)
+            If (Not (parentcategoria_testRowByFK__test__cod_catego__1CF15040) Is Nothing) Then
+                columnValuesArray(2) = parentcategoria_testRowByFK__test__cod_catego__1CF15040(0)
             End If
             rowtestRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowtestRow)
@@ -2508,7 +2508,7 @@ Partial Public Class gestio_empresesDataSet
             MyBase.Columns.Add(Me.columncodi_test)
             Me.columntotal_preg = New Global.System.Data.DataColumn("total_preg", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columntotal_preg)
-            Me.columncod_categoria = New Global.System.Data.DataColumn("cod_categoria", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columncod_categoria = New Global.System.Data.DataColumn("cod_categoria", GetType(Global.System.Guid), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columncod_categoria)
             Me.columnpreu = New Global.System.Data.DataColumn("preu", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnpreu)
@@ -2689,16 +2689,16 @@ Partial Public Class gestio_empresesDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property Data() As Date
+        Public Property data() As Date
             Get
                 Try 
-                    Return CType(Me(Me.tablealbara.DataColumn),Date)
+                    Return CType(Me(Me.tablealbara.dataColumn),Date)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Data' de la tabla 'albara' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'data' de la tabla 'albara' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablealbara.DataColumn) = value
+                Me(Me.tablealbara.dataColumn) = value
             End Set
         End Property
         
@@ -2706,10 +2706,10 @@ Partial Public Class gestio_empresesDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property empresaRow() As empresaRow
             Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK__albara__cif__1ED998B2")),empresaRow)
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK__albara__cif__1FCDBCEB")),empresaRow)
             End Get
             Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("FK__albara__cif__1ED998B2"))
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK__albara__cif__1FCDBCEB"))
             End Set
         End Property
         
@@ -2727,23 +2727,23 @@ Partial Public Class gestio_empresesDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsDataNull() As Boolean
-            Return Me.IsNull(Me.tablealbara.DataColumn)
+        Public Function IsdataNull() As Boolean
+            Return Me.IsNull(Me.tablealbara.dataColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetDataNull()
-            Me(Me.tablealbara.DataColumn) = Global.System.Convert.DBNull
+        Public Sub SetdataNull()
+            Me(Me.tablealbara.dataColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function Getalbara_testRows() As albara_testRow()
-            If (Me.Table.ChildRelations("FK__albara_te__num_a__22AA2996") Is Nothing) Then
+            If (Me.Table.ChildRelations("FK__albara_te__num_a__239E4DCF") Is Nothing) Then
                 Return New albara_testRow(-1) {}
             Else
-                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK__albara_te__num_a__22AA2996")),albara_testRow())
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK__albara_te__num_a__239E4DCF")),albara_testRow())
             End If
         End Function
     End Class
@@ -2804,10 +2804,10 @@ Partial Public Class gestio_empresesDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property testRow() As testRow
             Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK__albara_te__codi___239E4DCF")),testRow)
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK__albara_te__codi___24927208")),testRow)
             End Get
             Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("FK__albara_te__codi___239E4DCF"))
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK__albara_te__codi___24927208"))
             End Set
         End Property
         
@@ -2815,10 +2815,10 @@ Partial Public Class gestio_empresesDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property albaraRow() As albaraRow
             Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK__albara_te__num_a__22AA2996")),albaraRow)
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK__albara_te__num_a__239E4DCF")),albaraRow)
             End Get
             Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("FK__albara_te__num_a__22AA2996"))
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK__albara_te__num_a__239E4DCF"))
             End Set
         End Property
         
@@ -2890,9 +2890,9 @@ Partial Public Class gestio_empresesDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property cod_categoria() As Integer
+        Public Property cod_categoria() As System.Guid
             Get
-                Return CType(Me(Me.tablecategoria_test.cod_categoriaColumn),Integer)
+                Return CType(Me(Me.tablecategoria_test.cod_categoriaColumn),Global.System.Guid)
             End Get
             Set
                 Me(Me.tablecategoria_test.cod_categoriaColumn) = value
@@ -2913,10 +2913,10 @@ Partial Public Class gestio_empresesDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function GettestRows() As testRow()
-            If (Me.Table.ChildRelations("FK__test__cod_catego__1BFD2C07") Is Nothing) Then
+            If (Me.Table.ChildRelations("FK__test__cod_catego__1CF15040") Is Nothing) Then
                 Return New testRow(-1) {}
             Else
-                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK__test__cod_catego__1BFD2C07")),testRow())
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK__test__cod_catego__1CF15040")),testRow())
             End If
         End Function
     End Class
@@ -3264,10 +3264,10 @@ Partial Public Class gestio_empresesDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function GetalbaraRows() As albaraRow()
-            If (Me.Table.ChildRelations("FK__albara__cif__1ED998B2") Is Nothing) Then
+            If (Me.Table.ChildRelations("FK__albara__cif__1FCDBCEB") Is Nothing) Then
                 Return New albaraRow(-1) {}
             Else
-                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK__albara__cif__1ED998B2")),albaraRow())
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK__albara__cif__1FCDBCEB")),albaraRow())
             End If
         End Function
         
@@ -3321,10 +3321,10 @@ Partial Public Class gestio_empresesDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property cod_categoria() As Integer
+        Public Property cod_categoria() As System.Guid
             Get
                 Try 
-                    Return CType(Me(Me.tabletest.cod_categoriaColumn),Integer)
+                    Return CType(Me(Me.tabletest.cod_categoriaColumn),Global.System.Guid)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'cod_categoria' de la tabla 'test' es DBNull.", e)
                 End Try
@@ -3349,10 +3349,10 @@ Partial Public Class gestio_empresesDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property categoria_testRow() As categoria_testRow
             Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK__test__cod_catego__1BFD2C07")),categoria_testRow)
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK__test__cod_catego__1CF15040")),categoria_testRow)
             End Get
             Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("FK__test__cod_catego__1BFD2C07"))
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK__test__cod_catego__1CF15040"))
             End Set
         End Property
         
@@ -3371,10 +3371,10 @@ Partial Public Class gestio_empresesDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function Getalbara_testRows() As albara_testRow()
-            If (Me.Table.ChildRelations("FK__albara_te__codi___239E4DCF") Is Nothing) Then
+            If (Me.Table.ChildRelations("FK__albara_te__codi___24927208") Is Nothing) Then
                 Return New albara_testRow(-1) {}
             Else
-                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK__albara_te__codi___239E4DCF")),albara_testRow())
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK__albara_te__codi___24927208")),albara_testRow())
             End If
         End Function
     End Class
@@ -3763,44 +3763,44 @@ Namespace gestio_empresesDataSetTableAdapters
             tableMapping.DataSetTable = "albara"
             tableMapping.ColumnMappings.Add("num_albara", "num_albara")
             tableMapping.ColumnMappings.Add("cif", "cif")
-            tableMapping.ColumnMappings.Add("Data", "Data")
+            tableMapping.ColumnMappings.Add("data", "data")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
             Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[albara] WHERE (([num_albara] = @Original_num_albara) AND ((@Is"& _ 
-                "Null_cif = 1 AND [cif] IS NULL) OR ([cif] = @Original_cif)) AND ((@IsNull_Data ="& _ 
-                " 1 AND [Data] IS NULL) OR ([Data] = @Original_Data)))"
+                "Null_cif = 1 AND [cif] IS NULL) OR ([cif] = @Original_cif)) AND ((@IsNull_data ="& _ 
+                " 1 AND [data] IS NULL) OR ([data] = @Original_data)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_num_albara", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "num_albara", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_cif", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cif", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_cif", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cif", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Data", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Data", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Data", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Data", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_data", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "data", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_data", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "data", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[albara] ([num_albara], [cif], [Data]) VALUES (@num_albara, @ci"& _ 
-                "f, @Data);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT num_albara, cif, Data FROM albara WHERE (num_albara = @num_al"& _ 
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[albara] ([num_albara], [cif], [data]) VALUES (@num_albara, @ci"& _ 
+                "f, @data);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT num_albara, cif, data FROM albara WHERE (num_albara = @num_al"& _ 
                 "bara)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@num_albara", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "num_albara", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cif", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cif", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Data", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Data", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@data", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "data", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[albara] SET [num_albara] = @num_albara, [cif] = @cif, [Data] = @Dat"& _ 
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[albara] SET [num_albara] = @num_albara, [cif] = @cif, [data] = @dat"& _ 
                 "a WHERE (([num_albara] = @Original_num_albara) AND ((@IsNull_cif = 1 AND [cif] I"& _ 
-                "S NULL) OR ([cif] = @Original_cif)) AND ((@IsNull_Data = 1 AND [Data] IS NULL) O"& _ 
-                "R ([Data] = @Original_Data)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT num_albara, cif, Data FROM albara WHERE ("& _ 
+                "S NULL) OR ([cif] = @Original_cif)) AND ((@IsNull_data = 1 AND [data] IS NULL) O"& _ 
+                "R ([data] = @Original_data)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT num_albara, cif, data FROM albara WHERE ("& _ 
                 "num_albara = @num_albara)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@num_albara", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "num_albara", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cif", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cif", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Data", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Data", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@data", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "data", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_num_albara", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "num_albara", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_cif", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cif", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_cif", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cif", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Data", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Data", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Data", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Data", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_data", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "data", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_data", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "data", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3816,7 +3816,7 @@ Namespace gestio_empresesDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT num_albara, cif, Data FROM dbo.albara"
+            Me._commandCollection(0).CommandText = "SELECT num_albara, cif, data FROM dbo.albara"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -3876,7 +3876,7 @@ Namespace gestio_empresesDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_num_albara As Integer, ByVal Original_cif As String, ByVal Original_Data As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_num_albara As Integer, ByVal Original_cif As String, ByVal Original_data As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_num_albara,Integer)
             If (Original_cif Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
@@ -3885,9 +3885,9 @@ Namespace gestio_empresesDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_cif,String)
             End If
-            If (Original_Data.HasValue = true) Then
+            If (Original_data.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Data.Value,Date)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_data.Value,Date)
             Else
                 Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
@@ -3911,15 +3911,15 @@ Namespace gestio_empresesDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal num_albara As Integer, ByVal cif As String, ByVal Data As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Insert(ByVal num_albara As Integer, ByVal cif As String, ByVal data As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.InsertCommand.Parameters(0).Value = CType(num_albara,Integer)
             If (cif Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.InsertCommand.Parameters(1).Value = CType(cif,String)
             End If
-            If (Data.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(Data.Value,Date)
+            If (data.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(data.Value,Date)
             Else
                 Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
@@ -3942,15 +3942,15 @@ Namespace gestio_empresesDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal num_albara As Integer, ByVal cif As String, ByVal Data As Global.System.Nullable(Of Date), ByVal Original_num_albara As Integer, ByVal Original_cif As String, ByVal Original_Data As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Update(ByVal num_albara As Integer, ByVal cif As String, ByVal data As Global.System.Nullable(Of Date), ByVal Original_num_albara As Integer, ByVal Original_cif As String, ByVal Original_data As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.UpdateCommand.Parameters(0).Value = CType(num_albara,Integer)
             If (cif Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(1).Value = CType(cif,String)
             End If
-            If (Data.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Data.Value,Date)
+            If (data.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(data.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
@@ -3962,9 +3962,9 @@ Namespace gestio_empresesDataSetTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(4).Value = CType(0,Object)
                 Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_cif,String)
             End If
-            If (Original_Data.HasValue = true) Then
+            If (Original_data.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(6).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_Data.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_data.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(6).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
@@ -3988,8 +3988,8 @@ Namespace gestio_empresesDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal cif As String, ByVal Data As Global.System.Nullable(Of Date), ByVal Original_num_albara As Integer, ByVal Original_cif As String, ByVal Original_Data As Global.System.Nullable(Of Date)) As Integer
-            Return Me.Update(Original_num_albara, cif, Data, Original_num_albara, Original_cif, Original_Data)
+        Public Overloads Overridable Function Update(ByVal cif As String, ByVal data As Global.System.Nullable(Of Date), ByVal Original_num_albara As Integer, ByVal Original_cif As String, ByVal Original_data As Global.System.Nullable(Of Date)) As Integer
+            Return Me.Update(Original_num_albara, cif, data, Original_num_albara, Original_cif, Original_data)
         End Function
     End Class
     
@@ -4126,9 +4126,9 @@ Namespace gestio_empresesDataSetTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [albara_test] WHERE (([num_albara] = @Original_num_albara) AND ([codi"& _ 
-                "_test] = @Original_codi_test) AND ((@IsNull_realitzat = 1 AND [realitzat] IS NUL"& _ 
-                "L) OR ([realitzat] = @Original_realitzat)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[albara_test] WHERE (([num_albara] = @Original_num_albara) AND "& _ 
+                "([codi_test] = @Original_codi_test) AND ((@IsNull_realitzat = 1 AND [realitzat] "& _ 
+                "IS NULL) OR ([realitzat] = @Original_realitzat)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_num_albara", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "num_albara", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_codi_test", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "codi_test", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -4136,21 +4136,21 @@ Namespace gestio_empresesDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_realitzat", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "realitzat", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [albara_test] ([num_albara], [codi_test], [realitzat]) VALUES (@num_a"& _ 
-                "lbara, @codi_test, @realitzat);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT num_albara, codi_test, realitzat FROM al"& _ 
-                "bara_test WHERE (codi_test = @codi_test) AND (num_albara = @num_albara)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[albara_test] ([num_albara], [codi_test], [realitzat]) VALUES ("& _ 
+                "@num_albara, @codi_test, @realitzat);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT num_albara, codi_test, realitzat F"& _ 
+                "ROM albara_test WHERE (codi_test = @codi_test) AND (num_albara = @num_albara)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@num_albara", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "num_albara", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@codi_test", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "codi_test", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@realitzat", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "realitzat", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [albara_test] SET [num_albara] = @num_albara, [codi_test] = @codi_test, [r"& _ 
-                "ealitzat] = @realitzat WHERE (([num_albara] = @Original_num_albara) AND ([codi_t"& _ 
-                "est] = @Original_codi_test) AND ((@IsNull_realitzat = 1 AND [realitzat] IS NULL)"& _ 
-                " OR ([realitzat] = @Original_realitzat)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT num_albara, codi_test, realit"& _ 
-                "zat FROM albara_test WHERE (codi_test = @codi_test) AND (num_albara = @num_albar"& _ 
-                "a)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[albara_test] SET [num_albara] = @num_albara, [codi_test] = @codi_te"& _ 
+                "st, [realitzat] = @realitzat WHERE (([num_albara] = @Original_num_albara) AND (["& _ 
+                "codi_test] = @Original_codi_test) AND ((@IsNull_realitzat = 1 AND [realitzat] IS"& _ 
+                " NULL) OR ([realitzat] = @Original_realitzat)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT num_albara, codi_test, "& _ 
+                "realitzat FROM albara_test WHERE (codi_test = @codi_test) AND (num_albara = @num"& _ 
+                "_albara)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@num_albara", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "num_albara", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@codi_test", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "codi_test", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -4174,7 +4174,7 @@ Namespace gestio_empresesDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT num_albara, codi_test, realitzat FROM albara_test"
+            Me._commandCollection(0).CommandText = "SELECT num_albara, codi_test, realitzat FROM dbo.albara_test"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -4463,25 +4463,25 @@ Namespace gestio_empresesDataSetTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [categoria] WHERE (([cod_categoria] = @Original_cod_categoria) AND (["& _ 
-                "descripcio] = @Original_descripcio))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[categoria] WHERE (([cod_categoria] = @Original_cod_categoria) "& _ 
+                "AND ([descripcio] = @Original_descripcio))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_cod_categoria", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cod_categoria", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_descripcio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "descripcio", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [categoria] ([cod_categoria], [descripcio]) VALUES (@cod_categoria, @"& _ 
-                "descripcio);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT cod_categoria, descripcio FROM categoria WHERE (cod_categor"& _ 
-                "ia = @cod_categoria)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[categoria] ([cod_categoria], [descripcio]) VALUES (@cod_catego"& _ 
+                "ria, @descripcio);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT cod_categoria, descripcio FROM categoria WHERE (cod_c"& _ 
+                "ategoria = @cod_categoria)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cod_categoria", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cod_categoria", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@descripcio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "descripcio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [categoria] SET [cod_categoria] = @cod_categoria, [descripcio] = @descripc"& _ 
-                "io WHERE (([cod_categoria] = @Original_cod_categoria) AND ([descripcio] = @Origi"& _ 
-                "nal_descripcio));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT cod_categoria, descripcio FROM categoria WHERE (cod_ca"& _ 
-                "tegoria = @cod_categoria)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[categoria] SET [cod_categoria] = @cod_categoria, [descripcio] = @de"& _ 
+                "scripcio WHERE (([cod_categoria] = @Original_cod_categoria) AND ([descripcio] = "& _ 
+                "@Original_descripcio));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT cod_categoria, descripcio FROM categoria WHERE ("& _ 
+                "cod_categoria = @cod_categoria)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cod_categoria", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cod_categoria", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@descripcio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "descripcio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -4502,7 +4502,7 @@ Namespace gestio_empresesDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        cod_categoria, descripcio"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            categoria"
+            Me._commandCollection(0).CommandText = "SELECT cod_categoria, descripcio FROM dbo.categoria"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -4786,7 +4786,7 @@ Namespace gestio_empresesDataSetTableAdapters
             Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[categoria_test] WHERE (([cod_categoria] = @Original_cod_catego"& _ 
                 "ria) AND ([descripcio] = @Original_descripcio))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_cod_categoria", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cod_categoria", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_cod_categoria", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cod_categoria", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_descripcio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "descripcio", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
@@ -4794,7 +4794,7 @@ Namespace gestio_empresesDataSetTableAdapters
                 "ategoria, @descripcio);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT cod_categoria, descripcio FROM categoria_test WH"& _ 
                 "ERE (cod_categoria = @cod_categoria)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cod_categoria", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cod_categoria", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cod_categoria", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cod_categoria", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@descripcio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "descripcio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
@@ -4803,9 +4803,9 @@ Namespace gestio_empresesDataSetTableAdapters
                 "o] = @Original_descripcio));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT cod_categoria, descripcio FROM categoria_te"& _ 
                 "st WHERE (cod_categoria = @cod_categoria)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cod_categoria", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cod_categoria", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cod_categoria", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cod_categoria", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@descripcio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "descripcio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_cod_categoria", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cod_categoria", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_cod_categoria", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cod_categoria", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_descripcio", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "descripcio", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
@@ -4882,8 +4882,8 @@ Namespace gestio_empresesDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_cod_categoria As Integer, ByVal Original_descripcio As String) As Integer
-            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_cod_categoria,Integer)
+        Public Overloads Overridable Function Delete(ByVal Original_cod_categoria As System.Guid, ByVal Original_descripcio As String) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_cod_categoria,System.Guid)
             If (Original_descripcio Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_descripcio")
             Else
@@ -4908,8 +4908,8 @@ Namespace gestio_empresesDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal cod_categoria As Integer, ByVal descripcio As String) As Integer
-            Me.Adapter.InsertCommand.Parameters(0).Value = CType(cod_categoria,Integer)
+        Public Overloads Overridable Function Insert(ByVal cod_categoria As System.Guid, ByVal descripcio As String) As Integer
+            Me.Adapter.InsertCommand.Parameters(0).Value = CType(cod_categoria,System.Guid)
             If (descripcio Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("descripcio")
             Else
@@ -4934,14 +4934,14 @@ Namespace gestio_empresesDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal cod_categoria As Integer, ByVal descripcio As String, ByVal Original_cod_categoria As Integer, ByVal Original_descripcio As String) As Integer
-            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(cod_categoria,Integer)
+        Public Overloads Overridable Function Update(ByVal cod_categoria As System.Guid, ByVal descripcio As String, ByVal Original_cod_categoria As System.Guid, ByVal Original_descripcio As String) As Integer
+            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(cod_categoria,System.Guid)
             If (descripcio Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("descripcio")
             Else
                 Me.Adapter.UpdateCommand.Parameters(1).Value = CType(descripcio,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Original_cod_categoria,Integer)
+            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Original_cod_categoria,System.Guid)
             If (Original_descripcio Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_descripcio")
             Else
@@ -4966,7 +4966,7 @@ Namespace gestio_empresesDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal descripcio As String, ByVal Original_cod_categoria As Integer, ByVal Original_descripcio As String) As Integer
+        Public Overloads Overridable Function Update(ByVal descripcio As String, ByVal Original_cod_categoria As System.Guid, ByVal Original_descripcio As String) As Integer
             Return Me.Update(Original_cod_categoria, descripcio, Original_cod_categoria, Original_descripcio)
         End Function
     End Class
@@ -5105,11 +5105,11 @@ Namespace gestio_empresesDataSetTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [contracte] WHERE (([cod_contracte] = @Original_cod_contracte) AND (("& _ 
-                "@IsNull_cif = 1 AND [cif] IS NULL) OR ([cif] = @Original_cif)) AND ((@IsNull_dat"& _ 
-                "a_inici = 1 AND [data_inici] IS NULL) OR ([data_inici] = @Original_data_inici)) "& _ 
-                "AND ((@IsNull_tests_mensuals = 1 AND [tests_mensuals] IS NULL) OR ([tests_mensua"& _ 
-                "ls] = @Original_tests_mensuals)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[contracte] WHERE (([cod_contracte] = @Original_cod_contracte) "& _ 
+                "AND ((@IsNull_cif = 1 AND [cif] IS NULL) OR ([cif] = @Original_cif)) AND ((@IsNu"& _ 
+                "ll_data_inici = 1 AND [data_inici] IS NULL) OR ([data_inici] = @Original_data_in"& _ 
+                "ici)) AND ((@IsNull_tests_mensuals = 1 AND [tests_mensuals] IS NULL) OR ([tests_"& _ 
+                "mensuals] = @Original_tests_mensuals)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_cod_contracte", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cod_contracte", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_cif", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cif", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
@@ -5120,10 +5120,10 @@ Namespace gestio_empresesDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_tests_mensuals", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "tests_mensuals", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [contracte] ([cod_contracte], [cif], [data_inici], [tests_mensuals]) "& _ 
-                "VALUES (@cod_contracte, @cif, @data_inici, @tests_mensuals);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT cod_contrac"& _ 
-                "te, cif, data_inici, tests_mensuals FROM contracte WHERE (cod_contracte = @cod_c"& _ 
-                "ontracte)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[contracte] ([cod_contracte], [cif], [data_inici], [tests_mensu"& _ 
+                "als]) VALUES (@cod_contracte, @cif, @data_inici, @tests_mensuals);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT cod_c"& _ 
+                "ontracte, cif, data_inici, tests_mensuals FROM contracte WHERE (cod_contracte = "& _ 
+                "@cod_contracte)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cod_contracte", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cod_contracte", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cif", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cif", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -5131,14 +5131,14 @@ Namespace gestio_empresesDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@tests_mensuals", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "tests_mensuals", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [contracte] SET [cod_contracte] = @cod_contracte, [cif] = @cif, [data_inic"& _ 
-                "i] = @data_inici, [tests_mensuals] = @tests_mensuals WHERE (([cod_contracte] = @"& _ 
-                "Original_cod_contracte) AND ((@IsNull_cif = 1 AND [cif] IS NULL) OR ([cif] = @Or"& _ 
-                "iginal_cif)) AND ((@IsNull_data_inici = 1 AND [data_inici] IS NULL) OR ([data_in"& _ 
-                "ici] = @Original_data_inici)) AND ((@IsNull_tests_mensuals = 1 AND [tests_mensua"& _ 
-                "ls] IS NULL) OR ([tests_mensuals] = @Original_tests_mensuals)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT cod_con"& _ 
-                "tracte, cif, data_inici, tests_mensuals FROM contracte WHERE (cod_contracte = @c"& _ 
-                "od_contracte)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[contracte] SET [cod_contracte] = @cod_contracte, [cif] = @cif, [dat"& _ 
+                "a_inici] = @data_inici, [tests_mensuals] = @tests_mensuals WHERE (([cod_contract"& _ 
+                "e] = @Original_cod_contracte) AND ((@IsNull_cif = 1 AND [cif] IS NULL) OR ([cif]"& _ 
+                " = @Original_cif)) AND ((@IsNull_data_inici = 1 AND [data_inici] IS NULL) OR ([d"& _ 
+                "ata_inici] = @Original_data_inici)) AND ((@IsNull_tests_mensuals = 1 AND [tests_"& _ 
+                "mensuals] IS NULL) OR ([tests_mensuals] = @Original_tests_mensuals)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT c"& _ 
+                "od_contracte, cif, data_inici, tests_mensuals FROM contracte WHERE (cod_contract"& _ 
+                "e = @cod_contracte)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cod_contracte", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cod_contracte", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cif", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cif", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -5166,7 +5166,7 @@ Namespace gestio_empresesDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT cod_contracte, cif, data_inici, tests_mensuals FROM contracte"
+            Me._commandCollection(0).CommandText = "SELECT cod_contracte, cif, data_inici, tests_mensuals FROM dbo.contracte"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -5542,7 +5542,7 @@ Namespace gestio_empresesDataSetTableAdapters
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "INSERT INTO empresa"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (cif, nom, adreca, telf, email, cod"& _ 
                 "_categoria)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES        (@cif,@nom,@adreca,@telf,@email,@cod_categoria);     "& _ 
-                ""
+                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cif", Global.System.Data.SqlDbType.VarChar, 30, Global.System.Data.ParameterDirection.Input, 0, 0, "cif", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@nom", Global.System.Data.SqlDbType.VarChar, 30, Global.System.Data.ParameterDirection.Input, 0, 0, "nom", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -5835,7 +5835,7 @@ Namespace gestio_empresesDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_codi_test", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "codi_test", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_total_preg", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "total_preg", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_cod_categoria", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cod_categoria", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_cod_categoria", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cod_categoria", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_cod_categoria", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cod_categoria", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_preu", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 3, 2, "preu", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
@@ -5845,7 +5845,7 @@ Namespace gestio_empresesDataSetTableAdapters
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@codi_test", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "codi_test", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@total_preg", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "total_preg", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cod_categoria", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cod_categoria", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cod_categoria", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cod_categoria", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@preu", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 3, 2, "preu", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
@@ -5858,12 +5858,12 @@ Namespace gestio_empresesDataSetTableAdapters
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@codi_test", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "codi_test", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@total_preg", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "total_preg", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cod_categoria", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cod_categoria", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cod_categoria", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cod_categoria", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@preu", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 3, 2, "preu", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_codi_test", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "codi_test", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_total_preg", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "total_preg", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_cod_categoria", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cod_categoria", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_cod_categoria", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cod_categoria", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_cod_categoria", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cod_categoria", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_preu", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 3, 2, "preu", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
@@ -5940,12 +5940,12 @@ Namespace gestio_empresesDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_codi_test As Integer, ByVal Original_total_preg As Integer, ByVal Original_cod_categoria As Global.System.Nullable(Of Integer), ByVal Original_preu As Decimal) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_codi_test As Integer, ByVal Original_total_preg As Integer, ByVal Original_cod_categoria As Global.System.Nullable(Of Global.System.Guid), ByVal Original_preu As Decimal) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_codi_test,Integer)
             Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_total_preg,Integer)
             If (Original_cod_categoria.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(2).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_cod_categoria.Value,Integer)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_cod_categoria.Value,System.Guid)
             Else
                 Me.Adapter.DeleteCommand.Parameters(2).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(3).Value = Global.System.DBNull.Value
@@ -5970,11 +5970,11 @@ Namespace gestio_empresesDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal codi_test As Integer, ByVal total_preg As Integer, ByVal cod_categoria As Global.System.Nullable(Of Integer), ByVal preu As Decimal) As Integer
+        Public Overloads Overridable Function Insert(ByVal codi_test As Integer, ByVal total_preg As Integer, ByVal cod_categoria As Global.System.Nullable(Of Global.System.Guid), ByVal preu As Decimal) As Integer
             Me.Adapter.InsertCommand.Parameters(0).Value = CType(codi_test,Integer)
             Me.Adapter.InsertCommand.Parameters(1).Value = CType(total_preg,Integer)
             If (cod_categoria.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(cod_categoria.Value,Integer)
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(cod_categoria.Value,System.Guid)
             Else
                 Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
@@ -5998,11 +5998,11 @@ Namespace gestio_empresesDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal codi_test As Integer, ByVal total_preg As Integer, ByVal cod_categoria As Global.System.Nullable(Of Integer), ByVal preu As Decimal, ByVal Original_codi_test As Integer, ByVal Original_total_preg As Integer, ByVal Original_cod_categoria As Global.System.Nullable(Of Integer), ByVal Original_preu As Decimal) As Integer
+        Public Overloads Overridable Function Update(ByVal codi_test As Integer, ByVal total_preg As Integer, ByVal cod_categoria As Global.System.Nullable(Of Global.System.Guid), ByVal preu As Decimal, ByVal Original_codi_test As Integer, ByVal Original_total_preg As Integer, ByVal Original_cod_categoria As Global.System.Nullable(Of Global.System.Guid), ByVal Original_preu As Decimal) As Integer
             Me.Adapter.UpdateCommand.Parameters(0).Value = CType(codi_test,Integer)
             Me.Adapter.UpdateCommand.Parameters(1).Value = CType(total_preg,Integer)
             If (cod_categoria.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(cod_categoria.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(cod_categoria.Value,System.Guid)
             Else
                 Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
@@ -6011,7 +6011,7 @@ Namespace gestio_empresesDataSetTableAdapters
             Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_total_preg,Integer)
             If (Original_cod_categoria.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(6).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_cod_categoria.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_cod_categoria.Value,System.Guid)
             Else
                 Me.Adapter.UpdateCommand.Parameters(6).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
@@ -6036,7 +6036,7 @@ Namespace gestio_empresesDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal total_preg As Integer, ByVal cod_categoria As Global.System.Nullable(Of Integer), ByVal preu As Decimal, ByVal Original_codi_test As Integer, ByVal Original_total_preg As Integer, ByVal Original_cod_categoria As Global.System.Nullable(Of Integer), ByVal Original_preu As Decimal) As Integer
+        Public Overloads Overridable Function Update(ByVal total_preg As Integer, ByVal cod_categoria As Global.System.Nullable(Of Global.System.Guid), ByVal preu As Decimal, ByVal Original_codi_test As Integer, ByVal Original_total_preg As Integer, ByVal Original_cod_categoria As Global.System.Nullable(Of Global.System.Guid), ByVal Original_preu As Decimal) As Integer
             Return Me.Update(Original_codi_test, total_preg, cod_categoria, preu, Original_codi_test, Original_total_preg, Original_cod_categoria, Original_preu)
         End Function
     End Class

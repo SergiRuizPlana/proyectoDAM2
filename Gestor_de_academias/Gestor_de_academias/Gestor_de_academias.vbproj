@@ -107,14 +107,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>gestio_empresesDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="gestio_empresesDataSet.vb">
-      <DependentUpon>gestio_empresesDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="gestio_empresesDataSet1.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>gestio_empresesDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="StartConexion.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -183,8 +175,8 @@
     </None>
     <None Include="gestio_empresesDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>gestio_empresesDataSet.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
-      <LastGenOutput>gestio_empresesDataSet1.Designer.vb</LastGenOutput>
     </None>
     <None Include="gestio_empresesDataSet.xss">
       <DependentUpon>gestio_empresesDataSet.xsd</DependentUpon>

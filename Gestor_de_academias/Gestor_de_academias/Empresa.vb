@@ -4,7 +4,7 @@ Public Class Empresa
 
     Dim insert = False
     Dim cifEmpresa = ""
-    Private Sub empresas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub Empresas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'Gestio_empresesDataSet.categoria' Puede moverla o quitarla según sea necesario.
         Me.CategoriaTableAdapter.Fill(Me.Gestio_empresesDataSet.categoria)
         'TODO: esta línea de código carga datos en la tabla 'Gestio_empresesDataSet.empresa' Puede moverla o quitarla según sea necesario.
@@ -25,7 +25,7 @@ Public Class Empresa
         insert = True
     End Sub
 
-    Private Sub searchEmp_Click(sender As Object, e As EventArgs) Handles searchEmp.Click
+    Private Sub SearchEmp_Click(sender As Object, e As EventArgs) Handles searchEmp.Click
         Dim condicion = ""
         If TextBox1.Text <> "" Then
             condicion += "e.cif like '%" & TextBox1.Text & "%' "
@@ -97,8 +97,14 @@ Public Class Empresa
         empresaAdresa.Text = DataGridView1.SelectedRows(0).Cells.Item(2).Value
         empresaPhone.Text = DataGridView1.SelectedRows(0).Cells.Item(3).Value
         EmpresaEmail.Text = DataGridView1.SelectedRows(0).Cells.Item(4).Value
-        empresaCategoria.SelectedText = ""
-        empresaCategoria.SelectedText = DataGridView1.SelectedRows(0).Cells.Item(5).Value
+
+        Dim myCommand = New SqlCommand(" Select cod_categoria from categoria where descripcio=@descripcio ", startconexion.myConn)
+        myCommand.Parameters.Add("@descripcio", SqlDbType.VarChar).Value = DataGridView1.SelectedRows(0).Cells.Item(5).Value
+        Dim da As New SqlDataAdapter(myCommand)
+        Dim dt As New DataTable
+        da.Fill(dt)
+        empresaCategoria.SelectedValue = dt.Rows(0).Item(0)
+
         insert = False
     End Sub
 End Class
