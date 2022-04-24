@@ -1,26 +1,31 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class Empresa
+
+    Dim insert = False
+    Dim cifEmpresa = ""
     Private Sub empresas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'Gestio_empresesDataSet.categoria' Puede moverla o quitarla según sea necesario.
         Me.CategoriaTableAdapter.Fill(Me.Gestio_empresesDataSet.categoria)
         'TODO: esta línea de código carga datos en la tabla 'Gestio_empresesDataSet.empresa' Puede moverla o quitarla según sea necesario.
         Me.EmpresaTableAdapter.Fill(Me.Gestio_empresesDataSet.empresa)
 
-
+        Funciones.setRadius(Panel1)
+        Funciones.setRadius(Panel2)
 
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        My.Application.DoEvents()
-        While Panel2.Width > 600
-            Panel2.Width -= 10
-            Threading.Thread.Sleep(10)
-        End While
+        empresaCif.Text = ""
+        empresaNombre.Text = ""
+        empresaAdresa.Text = ""
+        empresaPhone.Text = ""
+        EmpresaEmail.Text = ""
         Panel1.Visible = True
+        insert = True
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub searchEmp_Click(sender As Object, e As EventArgs) Handles searchEmp.Click
         Dim condicion = ""
         If TextBox1.Text <> "" Then
             condicion += "e.cif like '%" & TextBox1.Text & "%' "
@@ -70,42 +75,30 @@ Public Class Empresa
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         Panel1.Visible = False
-        My.Application.DoEvents()
-
-        While Panel2.Width < 1000
-            DataGridView1.Width += 5
-            Threading.Thread.Sleep(1)
-        End While
-        Dim a = empresaCategoria.SelectedValue.ToString
-        Me.EmpresaTableAdapter.InsertQuery(empresaCif.Text, empresaNombre.Text, empresaAdresa.Text, empresaPhone.Text, EmpresaEmail.Text, empresaCategoria.SelectedValue)
+        If insert Then
+            Me.EmpresaTableAdapter.InsertQuery(empresaCif.Text, empresaNombre.Text, empresaAdresa.Text, empresaPhone.Text, EmpresaEmail.Text, empresaCategoria.SelectedValue)
+        Else
+            Me.EmpresaTableAdapter.UpdateQuery(empresaNombre.Text, empresaAdresa.Text, empresaPhone.Text, EmpresaEmail.Text, empresaCategoria.SelectedValue, cifEmpresa)
+        End If
         Me.EmpresaTableAdapter.Fill(Me.Gestio_empresesDataSet.empresa)
-    End Sub
-
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-
     End Sub
 
     Private Sub DataGridView1_Click(sender As Object, e As EventArgs) Handles DataGridView1.Click
         Panel1.Visible = False
-        My.Application.DoEvents()
-
-        While DataGridView1.Width < 1000
-            DataGridView1.Width += 5
-            Threading.Thread.Sleep(1)
-        End While
     End Sub
 
     Private Sub EditEmpresa_Click(sender As Object, e As EventArgs) Handles EditEmpresa.Click
-        Dim cifEmpresa = DataGridView1.SelectedRows(0).Cells.Item(0).Value
+
+        Panel1.Visible = True
+        cifEmpresa = DataGridView1.SelectedRows(0).Cells.Item(0).Value
 
         empresaCif.Text = DataGridView1.SelectedRows(0).Cells.Item(0).Value
         empresaNombre.Text = DataGridView1.SelectedRows(0).Cells.Item(1).Value
         empresaAdresa.Text = DataGridView1.SelectedRows(0).Cells.Item(2).Value
         empresaPhone.Text = DataGridView1.SelectedRows(0).Cells.Item(3).Value
         EmpresaEmail.Text = DataGridView1.SelectedRows(0).Cells.Item(4).Value
-        ComboBox1.SelectedText = DataGridView1.SelectedRows(0).Cells.Item(5).Value
-
-        Me.EmpresaTableAdapter.UpdateQuery(empresaNombre.Text, empresaAdresa.Text, empresaPhone.Text, EmpresaEmail.Text, empresaCategoria.SelectedValue, cifEmpresa)
-        Me.EmpresaTableAdapter.Fill(Me.Gestio_empresesDataSet.empresa)
+        empresaCategoria.SelectedText = ""
+        empresaCategoria.SelectedText = DataGridView1.SelectedRows(0).Cells.Item(5).Value
+        insert = False
     End Sub
 End Class

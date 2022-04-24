@@ -56,7 +56,6 @@ Partial Class Empresa
         Me.empresaAdresa = New System.Windows.Forms.TextBox()
         Me.empresaCif = New System.Windows.Forms.TextBox()
         Me.empresaNombre = New System.Windows.Forms.TextBox()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -70,6 +69,7 @@ Partial Class Empresa
         Me.EmpresaTableAdapter = New Gestor_de_academias.gestio_empresesDataSetTableAdapters.empresaTableAdapter()
         Me.TableAdapterManager = New Gestor_de_academias.gestio_empresesDataSetTableAdapters.TableAdapterManager()
         Me.CategoriaTableAdapter = New Gestor_de_academias.gestio_empresesDataSetTableAdapters.categoriaTableAdapter()
+        Me.searchEmp = New FontAwesome.Sharp.IconButton()
         Me.Panel2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmpresaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -80,38 +80,39 @@ Partial Class Empresa
         '
         'Panel2
         '
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(253, Byte), Integer))
         Me.Panel2.Controls.Add(Me.EmpresaAlbara)
         Me.Panel2.Controls.Add(Me.EmpresaContrato)
         Me.Panel2.Controls.Add(Me.EditEmpresa)
         Me.Panel2.Controls.Add(Me.DataGridView1)
-        Me.Panel2.Location = New System.Drawing.Point(12, 115)
+        Me.Panel2.Location = New System.Drawing.Point(12, 76)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1123, 471)
+        Me.Panel2.Size = New System.Drawing.Size(1158, 471)
         Me.Panel2.TabIndex = 18
         '
         'EmpresaAlbara
         '
-        Me.EmpresaAlbara.Location = New System.Drawing.Point(1070, 61)
+        Me.EmpresaAlbara.Location = New System.Drawing.Point(1070, 95)
         Me.EmpresaAlbara.Name = "EmpresaAlbara"
-        Me.EmpresaAlbara.Size = New System.Drawing.Size(50, 23)
+        Me.EmpresaAlbara.Size = New System.Drawing.Size(85, 23)
         Me.EmpresaAlbara.TabIndex = 21
         Me.EmpresaAlbara.Text = "Albara"
         Me.EmpresaAlbara.UseVisualStyleBackColor = True
         '
         'EmpresaContrato
         '
-        Me.EmpresaContrato.Location = New System.Drawing.Point(1070, 32)
+        Me.EmpresaContrato.Location = New System.Drawing.Point(1070, 66)
         Me.EmpresaContrato.Name = "EmpresaContrato"
-        Me.EmpresaContrato.Size = New System.Drawing.Size(50, 23)
+        Me.EmpresaContrato.Size = New System.Drawing.Size(85, 23)
         Me.EmpresaContrato.TabIndex = 20
         Me.EmpresaContrato.Text = "Contrato"
         Me.EmpresaContrato.UseVisualStyleBackColor = True
         '
         'EditEmpresa
         '
-        Me.EditEmpresa.Location = New System.Drawing.Point(1070, 3)
+        Me.EditEmpresa.Location = New System.Drawing.Point(1070, 37)
         Me.EditEmpresa.Name = "EditEmpresa"
-        Me.EditEmpresa.Size = New System.Drawing.Size(50, 23)
+        Me.EditEmpresa.Size = New System.Drawing.Size(85, 23)
         Me.EditEmpresa.TabIndex = 19
         Me.EditEmpresa.Text = "Edit"
         Me.EditEmpresa.UseVisualStyleBackColor = True
@@ -121,15 +122,16 @@ Partial Class Empresa
         Me.DataGridView1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView1.AutoGenerateColumns = False
+        Me.DataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(253, Byte), Integer))
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CifDataGridViewTextBoxColumn, Me.NomDataGridViewTextBoxColumn, Me.AdrecaDataGridViewTextBoxColumn, Me.TelfDataGridViewTextBoxColumn, Me.EmailDataGridViewTextBoxColumn, Me.CategoriaDataGridViewTextBoxColumn, Me.TotaltestsDataGridViewTextBoxColumn, Me.TestsrealitzatsDataGridViewTextBoxColumn, Me.TestsdisponiblesDataGridViewTextBoxColumn, Me.PreutotalDataGridViewTextBoxColumn})
         Me.DataGridView1.DataSource = Me.EmpresaBindingSource
-        Me.DataGridView1.Location = New System.Drawing.Point(3, 5)
+        Me.DataGridView1.Location = New System.Drawing.Point(20, 37)
         Me.DataGridView1.MultiSelect = False
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(1061, 408)
+        Me.DataGridView1.Size = New System.Drawing.Size(1044, 408)
         Me.DataGridView1.TabIndex = 0
         '
         'CifDataGridViewTextBoxColumn
@@ -215,7 +217,7 @@ Partial Class Empresa
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(436, 27)
+        Me.Label11.Location = New System.Drawing.Point(433, 27)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(52, 13)
         Me.Label11.TabIndex = 17
@@ -223,6 +225,7 @@ Partial Class Empresa
         '
         'Panel1
         '
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(253, Byte), Integer))
         Me.Panel1.Controls.Add(Me.Button4)
         Me.Panel1.Controls.Add(Me.Label10)
         Me.Panel1.Controls.Add(Me.Label9)
@@ -236,7 +239,7 @@ Partial Class Empresa
         Me.Panel1.Controls.Add(Me.empresaAdresa)
         Me.Panel1.Controls.Add(Me.empresaCif)
         Me.Panel1.Controls.Add(Me.empresaNombre)
-        Me.Panel1.Location = New System.Drawing.Point(1156, 56)
+        Me.Panel1.Location = New System.Drawing.Point(1176, 76)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(363, 407)
         Me.Panel1.TabIndex = 13
@@ -244,9 +247,9 @@ Partial Class Empresa
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(230, 381)
+        Me.Button4.Location = New System.Drawing.Point(277, 370)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(130, 23)
+        Me.Button4.Size = New System.Drawing.Size(73, 23)
         Me.Button4.TabIndex = 17
         Me.Button4.Text = "Guardar"
         Me.Button4.UseVisualStyleBackColor = True
@@ -309,6 +312,7 @@ Partial Class Empresa
         '
         Me.empresaCategoria.DataSource = Me.CategoriaBindingSource
         Me.empresaCategoria.DisplayMember = "descripcio"
+        Me.empresaCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.empresaCategoria.FormattingEnabled = True
         Me.empresaCategoria.Location = New System.Drawing.Point(51, 165)
         Me.empresaCategoria.Name = "empresaCategoria"
@@ -323,6 +327,7 @@ Partial Class Empresa
         '
         'EmpresaEmail
         '
+        Me.EmpresaEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.EmpresaEmail.Location = New System.Drawing.Point(51, 138)
         Me.EmpresaEmail.Name = "EmpresaEmail"
         Me.EmpresaEmail.Size = New System.Drawing.Size(138, 20)
@@ -330,6 +335,7 @@ Partial Class Empresa
         '
         'empresaPhone
         '
+        Me.empresaPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.empresaPhone.Location = New System.Drawing.Point(51, 112)
         Me.empresaPhone.Name = "empresaPhone"
         Me.empresaPhone.Size = New System.Drawing.Size(138, 20)
@@ -337,6 +343,7 @@ Partial Class Empresa
         '
         'empresaAdresa
         '
+        Me.empresaAdresa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.empresaAdresa.Location = New System.Drawing.Point(51, 86)
         Me.empresaAdresa.Name = "empresaAdresa"
         Me.empresaAdresa.Size = New System.Drawing.Size(138, 20)
@@ -344,6 +351,7 @@ Partial Class Empresa
         '
         'empresaCif
         '
+        Me.empresaCif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.empresaCif.Location = New System.Drawing.Point(51, 60)
         Me.empresaCif.Name = "empresaCif"
         Me.empresaCif.Size = New System.Drawing.Size(138, 20)
@@ -351,26 +359,19 @@ Partial Class Empresa
         '
         'empresaNombre
         '
+        Me.empresaNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.empresaNombre.Location = New System.Drawing.Point(51, 34)
         Me.empresaNombre.Name = "empresaNombre"
         Me.empresaNombre.Size = New System.Drawing.Size(138, 20)
         Me.empresaNombre.TabIndex = 6
         '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(580, 44)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 11
-        Me.Button2.Text = "Buscar"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
         'ComboBox1
         '
         Me.ComboBox1.DataSource = Me.CategoriaBindingSource
         Me.ComboBox1.DisplayMember = "descripcio"
+        Me.ComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(439, 44)
+        Me.ComboBox1.Location = New System.Drawing.Point(436, 44)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(122, 21)
         Me.ComboBox1.TabIndex = 10
@@ -379,7 +380,7 @@ Partial Class Empresa
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(330, 27)
+        Me.Label4.Location = New System.Drawing.Point(327, 27)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(32, 13)
         Me.Label4.TabIndex = 9
@@ -388,7 +389,7 @@ Partial Class Empresa
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(224, 28)
+        Me.Label3.Location = New System.Drawing.Point(221, 28)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(40, 13)
         Me.Label3.TabIndex = 8
@@ -397,7 +398,7 @@ Partial Class Empresa
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(118, 27)
+        Me.Label2.Location = New System.Drawing.Point(115, 27)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(29, 13)
         Me.Label2.TabIndex = 7
@@ -406,7 +407,7 @@ Partial Class Empresa
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(15, 27)
+        Me.Label1.Location = New System.Drawing.Point(12, 27)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(23, 13)
         Me.Label1.TabIndex = 6
@@ -414,35 +415,39 @@ Partial Class Empresa
         '
         'TextBox4
         '
-        Me.TextBox4.Location = New System.Drawing.Point(333, 44)
+        Me.TextBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBox4.Location = New System.Drawing.Point(330, 44)
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(100, 20)
         Me.TextBox4.TabIndex = 5
         '
         'TextBox3
         '
-        Me.TextBox3.Location = New System.Drawing.Point(227, 44)
+        Me.TextBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBox3.Location = New System.Drawing.Point(224, 44)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(100, 20)
         Me.TextBox3.TabIndex = 4
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(121, 44)
+        Me.TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBox2.Location = New System.Drawing.Point(118, 44)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(100, 20)
         Me.TextBox2.TabIndex = 3
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(15, 44)
+        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBox1.Location = New System.Drawing.Point(12, 44)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(100, 20)
         Me.TextBox1.TabIndex = 2
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(965, 56)
+        Me.Button1.Location = New System.Drawing.Point(1156, 27)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 1
@@ -468,16 +473,31 @@ Partial Class Empresa
         '
         Me.CategoriaTableAdapter.ClearBeforeFill = True
         '
+        'searchEmp
+        '
+        Me.searchEmp.BackColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(107, Byte), Integer), CType(CType(206, Byte), Integer))
+        Me.searchEmp.FlatAppearance.BorderSize = 0
+        Me.searchEmp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.searchEmp.IconChar = FontAwesome.Sharp.IconChar.Search
+        Me.searchEmp.IconColor = System.Drawing.SystemColors.ButtonFace
+        Me.searchEmp.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.searchEmp.IconSize = 30
+        Me.searchEmp.Location = New System.Drawing.Point(580, 36)
+        Me.searchEmp.Name = "searchEmp"
+        Me.searchEmp.Size = New System.Drawing.Size(42, 35)
+        Me.searchEmp.TabIndex = 19
+        Me.searchEmp.UseVisualStyleBackColor = False
+        '
         'Empresa
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(244, Byte), Integer), CType(CType(252, Byte), Integer))
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(96, Byte), Integer), CType(CType(171, Byte), Integer), CType(CType(251, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1551, 1227)
+        Me.Controls.Add(Me.searchEmp)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.TextBox1)
@@ -525,7 +545,6 @@ Partial Class Empresa
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents Button2 As Button
     Friend WithEvents TableAdapterManager As gestio_empresesDataSetTableAdapters.TableAdapterManager
     Friend WithEvents CategoriaTableAdapter As gestio_empresesDataSetTableAdapters.categoriaTableAdapter
     Friend WithEvents CategoriaBindingSource As BindingSource
@@ -548,4 +567,5 @@ Partial Class Empresa
     Friend WithEvents EmpresaAlbara As Button
     Friend WithEvents EmpresaContrato As Button
     Friend WithEvents EditEmpresa As Button
+    Friend WithEvents searchEmp As FontAwesome.Sharp.IconButton
 End Class

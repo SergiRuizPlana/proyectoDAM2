@@ -41,7 +41,7 @@ descripcio VARCHAR(244) NOT NULL
 GO 
 
 CREATE TABLE test (
-codi_test INT PRIMARY KEY, 
+codi_test INT PRIMARY KEY default NEWID(), 
 total_preg INT NOT NULL,
 cod_categoria varchar(30) REFERENCES categoria_test(cod_categoria),
 preu DECIMAL(3,2) NOT NULL,
