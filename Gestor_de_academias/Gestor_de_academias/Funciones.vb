@@ -20,6 +20,12 @@
         obj.Region = New Region(dgp)
     End Sub
 
+    Sub SetMultyRadius(controls As Array)
+        For Each control In controls
+            SetRadius(control)
+        Next
+    End Sub
+
 
 
 

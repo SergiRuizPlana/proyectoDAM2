@@ -117,7 +117,7 @@ Public Class startconexion
                " albara_test AS at ON at.num_albara = a.num_albara LEFT JOIN" &
                " test AS t ON t.codi_test = at.codi_test INNER JOIN" &
                " categoria AS c ON e.cod_categoria = c.cod_categoria" &
-               " where '+@codicion+'" &
+               "  ' +@codicion+' " &
                " GROUP BY e.cif, e.nom, e.adreca, e.telf, e.email, c.descripcio'" &
                " exec sp_executesql  @query" &
                " End"
