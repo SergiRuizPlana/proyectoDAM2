@@ -23,15 +23,14 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Tests = New System.Windows.Forms.Button()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Albaranes = New System.Windows.Forms.Button()
         Me.Contratos = New System.Windows.Forms.Button()
         Me.Empresas = New System.Windows.Forms.Button()
-        Me.HomeB = New System.Windows.Forms.Button()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.HomeBtn = New FontAwesome.Sharp.IconButton()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -40,7 +39,6 @@ Partial Class Form1
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(253, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.Tests)
         Me.Panel1.Controls.Add(Me.Albaranes)
         Me.Panel1.Controls.Add(Me.Contratos)
         Me.Panel1.Controls.Add(Me.Empresas)
@@ -51,44 +49,113 @@ Partial Class Form1
         Me.Panel1.Size = New System.Drawing.Size(197, 659)
         Me.Panel1.TabIndex = 0
         '
-        'Tests
+        'Albaranes
         '
-        Me.Tests.Location = New System.Drawing.Point(0, 359)
-        Me.Tests.Margin = New System.Windows.Forms.Padding(3, 10, 3, 20)
-        Me.Tests.Name = "Tests"
-        Me.Tests.Size = New System.Drawing.Size(197, 40)
-        Me.Tests.TabIndex = 5
-        Me.Tests.Text = "Tests"
-        Me.Tests.UseVisualStyleBackColor = True
+        Me.Albaranes.BackColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(253, Byte), Integer))
+        Me.Albaranes.FlatAppearance.BorderSize = 0
+        Me.Albaranes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.Albaranes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(225, Byte), Integer))
+        Me.Albaranes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Albaranes.Font = New System.Drawing.Font("Reem Kufi", 14.25!)
+        Me.Albaranes.ForeColor = System.Drawing.Color.Cornsilk
+        Me.Albaranes.Image = Global.Gestor_de_academias.My.Resources.Resources.albaran11
+        Me.Albaranes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Albaranes.Location = New System.Drawing.Point(0, 289)
+        Me.Albaranes.Margin = New System.Windows.Forms.Padding(3, 10, 3, 20)
+        Me.Albaranes.Name = "Albaranes"
+        Me.Albaranes.Size = New System.Drawing.Size(197, 47)
+        Me.Albaranes.TabIndex = 4
+        Me.Albaranes.Text = "Albarans"
+        Me.Albaranes.UseVisualStyleBackColor = False
+        '
+        'Contratos
+        '
+        Me.Contratos.BackColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(253, Byte), Integer))
+        Me.Contratos.FlatAppearance.BorderSize = 0
+        Me.Contratos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.Contratos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(225, Byte), Integer))
+        Me.Contratos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Contratos.Font = New System.Drawing.Font("Reem Kufi", 14.25!)
+        Me.Contratos.ForeColor = System.Drawing.Color.Cornsilk
+        Me.Contratos.Image = Global.Gestor_de_academias.My.Resources.Resources.contrato1
+        Me.Contratos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Contratos.Location = New System.Drawing.Point(0, 219)
+        Me.Contratos.Margin = New System.Windows.Forms.Padding(3, 10, 3, 20)
+        Me.Contratos.Name = "Contratos"
+        Me.Contratos.Size = New System.Drawing.Size(197, 47)
+        Me.Contratos.TabIndex = 3
+        Me.Contratos.Text = "Contratos"
+        Me.Contratos.UseVisualStyleBackColor = False
+        '
+        'Empresas
+        '
+        Me.Empresas.BackColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(253, Byte), Integer))
+        Me.Empresas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Empresas.FlatAppearance.BorderSize = 0
+        Me.Empresas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.Empresas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(225, Byte), Integer))
+        Me.Empresas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Empresas.Font = New System.Drawing.Font("Reem Kufi", 14.25!)
+        Me.Empresas.ForeColor = System.Drawing.Color.Cornsilk
+        Me.Empresas.Image = Global.Gestor_de_academias.My.Resources.Resources.emrpresa1
+        Me.Empresas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Empresas.Location = New System.Drawing.Point(0, 149)
+        Me.Empresas.Margin = New System.Windows.Forms.Padding(3, 10, 3, 20)
+        Me.Empresas.Name = "Empresas"
+        Me.Empresas.Size = New System.Drawing.Size(197, 47)
+        Me.Empresas.TabIndex = 2
+        Me.Empresas.Text = "Empresas"
+        Me.Empresas.UseVisualStyleBackColor = False
         '
         'Panel3
         '
-        Me.Panel3.Controls.Add(Me.HomeB)
+        Me.Panel3.Controls.Add(Me.HomeBtn)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(197, 140)
         Me.Panel3.TabIndex = 1
         '
+        'HomeBtn
+        '
+        Me.HomeBtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.HomeBtn.FlatAppearance.BorderSize = 0
+        Me.HomeBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.HomeBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(225, Byte), Integer))
+        Me.HomeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.HomeBtn.Font = New System.Drawing.Font("Reem Kufi", 14.25!)
+        Me.HomeBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.HomeBtn.IconChar = FontAwesome.Sharp.IconChar.Home
+        Me.HomeBtn.IconColor = System.Drawing.Color.Black
+        Me.HomeBtn.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.HomeBtn.IconSize = 40
+        Me.HomeBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.HomeBtn.Location = New System.Drawing.Point(0, 0)
+        Me.HomeBtn.Name = "HomeBtn"
+        Me.HomeBtn.Size = New System.Drawing.Size(197, 49)
+        Me.HomeBtn.TabIndex = 7
+        Me.HomeBtn.Text = "Home"
+        Me.HomeBtn.UseVisualStyleBackColor = True
+        '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(70, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(252, Byte), Integer))
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(84, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Panel2.Controls.Add(Me.Label1)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(197, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1224, 100)
+        Me.Panel2.Size = New System.Drawing.Size(1224, 126)
         Me.Panel2.TabIndex = 1
         '
         'Label1
         '
         Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Reem Kufi", 20.25!, System.Drawing.FontStyle.Bold)
         Me.Label1.ForeColor = System.Drawing.Color.Cornsilk
-        Me.Label1.Location = New System.Drawing.Point(597, 31)
+        Me.Label1.Location = New System.Drawing.Point(595, 21)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(90, 31)
+        Me.Label1.Size = New System.Drawing.Size(98, 51)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Home"
         '
@@ -97,60 +164,10 @@ Partial Class Form1
         Me.Panel4.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel4.Location = New System.Drawing.Point(197, 100)
+        Me.Panel4.Location = New System.Drawing.Point(197, 121)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(1224, 559)
+        Me.Panel4.Size = New System.Drawing.Size(1224, 545)
         Me.Panel4.TabIndex = 2
-        '
-        'Albaranes
-        '
-        Me.Albaranes.Image = Global.Gestor_de_academias.My.Resources.Resources.albaran11
-        Me.Albaranes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Albaranes.Location = New System.Drawing.Point(0, 289)
-        Me.Albaranes.Margin = New System.Windows.Forms.Padding(3, 10, 3, 20)
-        Me.Albaranes.Name = "Albaranes"
-        Me.Albaranes.Size = New System.Drawing.Size(197, 40)
-        Me.Albaranes.TabIndex = 4
-        Me.Albaranes.Text = "Albarans"
-        Me.Albaranes.UseVisualStyleBackColor = True
-        '
-        'Contratos
-        '
-        Me.Contratos.Image = Global.Gestor_de_academias.My.Resources.Resources.contrato1
-        Me.Contratos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Contratos.Location = New System.Drawing.Point(0, 219)
-        Me.Contratos.Margin = New System.Windows.Forms.Padding(3, 10, 3, 20)
-        Me.Contratos.Name = "Contratos"
-        Me.Contratos.Size = New System.Drawing.Size(197, 40)
-        Me.Contratos.TabIndex = 3
-        Me.Contratos.Text = "Contratos"
-        Me.Contratos.UseVisualStyleBackColor = True
-        '
-        'Empresas
-        '
-        Me.Empresas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Empresas.Image = Global.Gestor_de_academias.My.Resources.Resources.emrpresa1
-        Me.Empresas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Empresas.Location = New System.Drawing.Point(0, 149)
-        Me.Empresas.Margin = New System.Windows.Forms.Padding(3, 10, 3, 20)
-        Me.Empresas.Name = "Empresas"
-        Me.Empresas.Size = New System.Drawing.Size(197, 40)
-        Me.Empresas.TabIndex = 2
-        Me.Empresas.Text = "Empresas"
-        Me.Empresas.UseVisualStyleBackColor = True
-        '
-        'HomeB
-        '
-        Me.HomeB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.HomeB.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.HomeB.Location = New System.Drawing.Point(0, 0)
-        Me.HomeB.Margin = New System.Windows.Forms.Padding(3, 10, 3, 20)
-        Me.HomeB.Name = "HomeB"
-        Me.HomeB.Size = New System.Drawing.Size(197, 40)
-        Me.HomeB.TabIndex = 6
-        Me.HomeB.Text = "Home"
-        Me.HomeB.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -175,7 +192,6 @@ Partial Class Form1
     End Sub
 
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents Tests As Button
     Friend WithEvents Albaranes As Button
     Friend WithEvents Contratos As Button
     Friend WithEvents Empresas As Button
@@ -183,5 +199,5 @@ Partial Class Form1
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel4 As Panel
-    Friend WithEvents HomeB As Button
+    Friend WithEvents HomeBtn As FontAwesome.Sharp.IconButton
 End Class

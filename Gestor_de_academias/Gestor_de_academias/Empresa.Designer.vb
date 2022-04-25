@@ -23,6 +23,7 @@ Partial Class Empresa
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.EditEmpresa = New FontAwesome.Sharp.IconButton()
         Me.createEmpresa = New FontAwesome.Sharp.IconButton()
@@ -43,6 +44,8 @@ Partial Class Empresa
         Me.Gestio_empresesDataSet = New Gestor_de_academias.gestio_empresesDataSet()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.createLabel = New System.Windows.Forms.Label()
+        Me.CategoriaCreate = New FontAwesome.Sharp.IconButton()
         Me.CancelEmpresa = New FontAwesome.Sharp.IconButton()
         Me.SaveEmpresa = New FontAwesome.Sharp.IconButton()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -58,6 +61,18 @@ Partial Class Empresa
         Me.empresaAdresa = New System.Windows.Forms.TextBox()
         Me.empresaCif = New System.Windows.Forms.TextBox()
         Me.empresaNombre = New System.Windows.Forms.TextBox()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.IconButton2 = New FontAwesome.Sharp.IconButton()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.catdescripcio = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.saveCat = New FontAwesome.Sharp.IconButton()
+        Me.IconButton1 = New FontAwesome.Sharp.IconButton()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -72,34 +87,34 @@ Partial Class Empresa
         Me.CategoriaTableAdapter = New Gestor_de_academias.gestio_empresesDataSetTableAdapters.categoriaTableAdapter()
         Me.searchEmp = New FontAwesome.Sharp.IconButton()
         Me.categEmpFilter = New System.Windows.Forms.Panel()
-        Me.createLabel = New System.Windows.Forms.Label()
         Me.RestartFilterEmp = New FontAwesome.Sharp.IconButton()
-        Me.CategoriaCreate = New FontAwesome.Sharp.IconButton()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.catdescripcio = New System.Windows.Forms.TextBox()
-        Me.saveCat = New FontAwesome.Sharp.IconButton()
-        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.IconButton4 = New FontAwesome.Sharp.IconButton()
+        Me.EditCat = New FontAwesome.Sharp.IconButton()
         Me.Panel2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmpresaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Gestio_empresesDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.CategoriaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.categEmpFilter.SuspendLayout()
         Me.Panel3.SuspendLayout()
+        Me.Panel4.SuspendLayout()
+        Me.categEmpFilter.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(253, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.EditCat)
         Me.Panel2.Controls.Add(Me.EditEmpresa)
         Me.Panel2.Controls.Add(Me.createEmpresa)
         Me.Panel2.Controls.Add(Me.EmpresaAlbara)
         Me.Panel2.Controls.Add(Me.EmpresaContrato)
         Me.Panel2.Controls.Add(Me.DataGridView1)
+        Me.Panel2.ForeColor = System.Drawing.Color.Black
         Me.Panel2.Location = New System.Drawing.Point(12, 76)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1204, 471)
+        Me.Panel2.Size = New System.Drawing.Size(1204, 582)
         Me.Panel2.TabIndex = 18
         '
         'EditEmpresa
@@ -107,7 +122,7 @@ Partial Class Empresa
         Me.EditEmpresa.BackColor = System.Drawing.Color.FromArgb(CType(CType(174, Byte), Integer), CType(CType(225, Byte), Integer), CType(CType(252, Byte), Integer))
         Me.EditEmpresa.FlatAppearance.BorderSize = 0
         Me.EditEmpresa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.EditEmpresa.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EditEmpresa.Font = New System.Drawing.Font("Rockwell", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EditEmpresa.ForeColor = System.Drawing.SystemColors.ControlText
         Me.EditEmpresa.IconChar = FontAwesome.Sharp.IconChar.Edit
         Me.EditEmpresa.IconColor = System.Drawing.Color.Black
@@ -119,6 +134,7 @@ Partial Class Empresa
         Me.EditEmpresa.Size = New System.Drawing.Size(85, 28)
         Me.EditEmpresa.TabIndex = 24
         Me.EditEmpresa.Text = "     Editar"
+        Me.ToolTip1.SetToolTip(Me.EditEmpresa, "editar empresa")
         Me.EditEmpresa.UseVisualStyleBackColor = False
         '
         'createEmpresa
@@ -126,7 +142,7 @@ Partial Class Empresa
         Me.createEmpresa.BackColor = System.Drawing.Color.FromArgb(CType(CType(174, Byte), Integer), CType(CType(225, Byte), Integer), CType(CType(252, Byte), Integer))
         Me.createEmpresa.FlatAppearance.BorderSize = 0
         Me.createEmpresa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.createEmpresa.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.createEmpresa.Font = New System.Drawing.Font("Rockwell", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.createEmpresa.ForeColor = System.Drawing.SystemColors.ControlText
         Me.createEmpresa.IconChar = FontAwesome.Sharp.IconChar.Plus
         Me.createEmpresa.IconColor = System.Drawing.Color.Black
@@ -138,11 +154,12 @@ Partial Class Empresa
         Me.createEmpresa.Size = New System.Drawing.Size(85, 31)
         Me.createEmpresa.TabIndex = 23
         Me.createEmpresa.Text = "    Crear"
+        Me.ToolTip1.SetToolTip(Me.createEmpresa, "crear nova empresa")
         Me.createEmpresa.UseVisualStyleBackColor = False
         '
         'EmpresaAlbara
         '
-        Me.EmpresaAlbara.Location = New System.Drawing.Point(1103, 181)
+        Me.EmpresaAlbara.Location = New System.Drawing.Point(1103, 294)
         Me.EmpresaAlbara.Name = "EmpresaAlbara"
         Me.EmpresaAlbara.Size = New System.Drawing.Size(85, 23)
         Me.EmpresaAlbara.TabIndex = 21
@@ -151,7 +168,7 @@ Partial Class Empresa
         '
         'EmpresaContrato
         '
-        Me.EmpresaContrato.Location = New System.Drawing.Point(1103, 210)
+        Me.EmpresaContrato.Location = New System.Drawing.Point(1103, 323)
         Me.EmpresaContrato.Name = "EmpresaContrato"
         Me.EmpresaContrato.Size = New System.Drawing.Size(85, 23)
         Me.EmpresaContrato.TabIndex = 20
@@ -165,6 +182,15 @@ Partial Class Empresa
         Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(253, Byte), Integer))
         Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.DataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ButtonShadow
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Cambria", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.HotTrack
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CifDataGridViewTextBoxColumn, Me.NomDataGridViewTextBoxColumn, Me.AdrecaDataGridViewTextBoxColumn, Me.TelfDataGridViewTextBoxColumn, Me.EmailDataGridViewTextBoxColumn, Me.CategoriaDataGridViewTextBoxColumn, Me.TotaltestsDataGridViewTextBoxColumn, Me.TestsrealitzatsDataGridViewTextBoxColumn, Me.TestsdisponiblesDataGridViewTextBoxColumn, Me.PreutotalDataGridViewTextBoxColumn})
         Me.DataGridView1.DataSource = Me.EmpresaBindingSource
@@ -172,8 +198,9 @@ Partial Class Empresa
         Me.DataGridView1.MultiSelect = False
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(1090, 408)
+        Me.DataGridView1.Size = New System.Drawing.Size(1077, 475)
         Me.DataGridView1.TabIndex = 0
         '
         'CifDataGridViewTextBoxColumn
@@ -231,6 +258,7 @@ Partial Class Empresa
         Me.TestsrealitzatsDataGridViewTextBoxColumn.HeaderText = "tests_realitzats"
         Me.TestsrealitzatsDataGridViewTextBoxColumn.Name = "TestsrealitzatsDataGridViewTextBoxColumn"
         Me.TestsrealitzatsDataGridViewTextBoxColumn.ReadOnly = True
+        Me.TestsrealitzatsDataGridViewTextBoxColumn.Width = 115
         '
         'TestsdisponiblesDataGridViewTextBoxColumn
         '
@@ -238,6 +266,7 @@ Partial Class Empresa
         Me.TestsdisponiblesDataGridViewTextBoxColumn.HeaderText = "tests_disponibles"
         Me.TestsdisponiblesDataGridViewTextBoxColumn.Name = "TestsdisponiblesDataGridViewTextBoxColumn"
         Me.TestsdisponiblesDataGridViewTextBoxColumn.ReadOnly = True
+        Me.TestsdisponiblesDataGridViewTextBoxColumn.Width = 120
         '
         'PreutotalDataGridViewTextBoxColumn
         '
@@ -259,18 +288,18 @@ Partial Class Empresa
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(434, 8)
+        Me.Label11.Font = New System.Drawing.Font("Reem Kufi", 8.999999!)
+        Me.Label11.Location = New System.Drawing.Point(423, 9)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(52, 13)
+        Me.Label11.Size = New System.Drawing.Size(64, 23)
         Me.Label11.TabIndex = 17
         Me.Label11.Text = "Categoria"
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(253, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.Panel3)
-        Me.Panel1.Controls.Add(Me.CategoriaCreate)
         Me.Panel1.Controls.Add(Me.createLabel)
+        Me.Panel1.Controls.Add(Me.CategoriaCreate)
         Me.Panel1.Controls.Add(Me.CancelEmpresa)
         Me.Panel1.Controls.Add(Me.SaveEmpresa)
         Me.Panel1.Controls.Add(Me.Label10)
@@ -287,9 +316,34 @@ Partial Class Empresa
         Me.Panel1.Controls.Add(Me.empresaNombre)
         Me.Panel1.Location = New System.Drawing.Point(1222, 76)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(317, 407)
+        Me.Panel1.Size = New System.Drawing.Size(317, 483)
         Me.Panel1.TabIndex = 13
         Me.Panel1.Visible = False
+        '
+        'createLabel
+        '
+        Me.createLabel.AutoSize = True
+        Me.createLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.createLabel.Location = New System.Drawing.Point(22, 9)
+        Me.createLabel.Name = "createLabel"
+        Me.createLabel.Size = New System.Drawing.Size(59, 25)
+        Me.createLabel.TabIndex = 27
+        Me.createLabel.Text = "Nom"
+        '
+        'CategoriaCreate
+        '
+        Me.CategoriaCreate.FlatAppearance.BorderSize = 0
+        Me.CategoriaCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CategoriaCreate.IconChar = FontAwesome.Sharp.IconChar.Edit
+        Me.CategoriaCreate.IconColor = System.Drawing.Color.SeaShell
+        Me.CategoriaCreate.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.CategoriaCreate.IconSize = 30
+        Me.CategoriaCreate.Location = New System.Drawing.Point(243, 212)
+        Me.CategoriaCreate.Name = "CategoriaCreate"
+        Me.CategoriaCreate.Size = New System.Drawing.Size(38, 28)
+        Me.CategoriaCreate.TabIndex = 28
+        Me.ToolTip1.SetToolTip(Me.CategoriaCreate, "Crear nueva categoria")
+        Me.CategoriaCreate.UseVisualStyleBackColor = True
         '
         'CancelEmpresa
         '
@@ -299,7 +353,7 @@ Partial Class Empresa
         Me.CancelEmpresa.IconColor = System.Drawing.Color.Red
         Me.CancelEmpresa.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.CancelEmpresa.IconSize = 37
-        Me.CancelEmpresa.Location = New System.Drawing.Point(51, 331)
+        Me.CancelEmpresa.Location = New System.Drawing.Point(57, 440)
         Me.CancelEmpresa.Name = "CancelEmpresa"
         Me.CancelEmpresa.Size = New System.Drawing.Size(51, 40)
         Me.CancelEmpresa.TabIndex = 26
@@ -313,7 +367,7 @@ Partial Class Empresa
         Me.SaveEmpresa.IconColor = System.Drawing.Color.Lime
         Me.SaveEmpresa.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.SaveEmpresa.IconSize = 35
-        Me.SaveEmpresa.Location = New System.Drawing.Point(230, 331)
+        Me.SaveEmpresa.Location = New System.Drawing.Point(230, 440)
         Me.SaveEmpresa.Name = "SaveEmpresa"
         Me.SaveEmpresa.Size = New System.Drawing.Size(51, 40)
         Me.SaveEmpresa.TabIndex = 25
@@ -322,60 +376,60 @@ Partial Class Empresa
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(24, 218)
+        Me.Label10.Font = New System.Drawing.Font("Reem Kufi", 9.749999!)
+        Me.Label10.Location = New System.Drawing.Point(25, 213)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(67, 16)
+        Me.Label10.Size = New System.Drawing.Size(72, 25)
         Me.Label10.TabIndex = 16
         Me.Label10.Text = "Categoria"
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(27, 151)
+        Me.Label9.Font = New System.Drawing.Font("Reem Kufi", 9.749999!)
+        Me.Label9.Location = New System.Drawing.Point(28, 146)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(25, 16)
+        Me.Label9.Size = New System.Drawing.Size(32, 25)
         Me.Label9.TabIndex = 15
         Me.Label9.Text = "telf"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(24, 188)
+        Me.Label8.Font = New System.Drawing.Font("Reem Kufi", 9.749999!)
+        Me.Label8.Location = New System.Drawing.Point(25, 183)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(42, 16)
+        Me.Label8.Size = New System.Drawing.Size(46, 25)
         Me.Label8.TabIndex = 14
         Me.Label8.Text = "Email"
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(24, 118)
+        Me.Label7.Font = New System.Drawing.Font("Reem Kufi", 9.749999!)
+        Me.Label7.Location = New System.Drawing.Point(25, 113)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(52, 16)
+        Me.Label7.Size = New System.Drawing.Size(54, 25)
         Me.Label7.TabIndex = 14
         Me.Label7.Text = "Adresa"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(24, 52)
+        Me.Label6.Font = New System.Drawing.Font("Reem Kufi", 9.749999!)
+        Me.Label6.Location = New System.Drawing.Point(25, 47)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(37, 16)
+        Me.Label6.Size = New System.Drawing.Size(41, 25)
         Me.Label6.TabIndex = 14
         Me.Label6.Text = "Nom"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(24, 85)
+        Me.Label5.Font = New System.Drawing.Font("Reem Kufi", 9.749999!)
+        Me.Label5.Location = New System.Drawing.Point(25, 80)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(28, 16)
+        Me.Label5.Size = New System.Drawing.Size(33, 25)
         Me.Label5.TabIndex = 14
         Me.Label5.Text = "CIF"
         '
@@ -442,13 +496,158 @@ Partial Class Empresa
         Me.empresaNombre.Size = New System.Drawing.Size(138, 20)
         Me.empresaNombre.TabIndex = 6
         '
+        'Panel3
+        '
+        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(253, Byte), Integer))
+        Me.Panel3.Controls.Add(Me.IconButton4)
+        Me.Panel3.Controls.Add(Me.Label15)
+        Me.Panel3.Controls.Add(Me.IconButton2)
+        Me.Panel3.Controls.Add(Me.TextBox1)
+        Me.Panel3.Controls.Add(Me.Label14)
+        Me.Panel3.Controls.Add(Me.ComboBox2)
+        Me.Panel3.Controls.Add(Me.Panel4)
+        Me.Panel3.Controls.Add(Me.IconButton1)
+        Me.Panel3.Location = New System.Drawing.Point(1222, 565)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(317, 255)
+        Me.Panel3.TabIndex = 25
+        Me.Panel3.Visible = False
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Reem Kufi", 9.749999!)
+        Me.Label15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label15.Location = New System.Drawing.Point(25, 182)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(140, 25)
+        Me.Label15.TabIndex = 33
+        Me.Label15.Text = "Editar nom/desrcipcio"
+        '
+        'IconButton2
+        '
+        Me.IconButton2.FlatAppearance.BorderSize = 0
+        Me.IconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IconButton2.IconChar = FontAwesome.Sharp.IconChar.Save
+        Me.IconButton2.IconColor = System.Drawing.Color.Lime
+        Me.IconButton2.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.IconButton2.IconSize = 25
+        Me.IconButton2.Location = New System.Drawing.Point(178, 205)
+        Me.IconButton2.Name = "IconButton2"
+        Me.IconButton2.Size = New System.Drawing.Size(38, 26)
+        Me.IconButton2.TabIndex = 38
+        Me.IconButton2.UseVisualStyleBackColor = True
+        '
+        'TextBox1
+        '
+        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBox1.Location = New System.Drawing.Point(27, 210)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(3, 3, 3, 10)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(138, 20)
+        Me.TextBox1.TabIndex = 33
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Reem Kufi", 9.749999!)
+        Me.Label14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label14.Location = New System.Drawing.Point(25, 127)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(117, 25)
+        Me.Label14.TabIndex = 37
+        Me.Label14.Text = "Borrar Categorias"
+        '
+        'ComboBox2
+        '
+        Me.ComboBox2.DataSource = Me.CategoriaBindingSource
+        Me.ComboBox2.DisplayMember = "descripcio"
+        Me.ComboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(27, 155)
+        Me.ComboBox2.Margin = New System.Windows.Forms.Padding(3, 3, 3, 10)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(138, 21)
+        Me.ComboBox2.TabIndex = 35
+        Me.ComboBox2.ValueMember = "cod_categoria"
+        '
+        'Panel4
+        '
+        Me.Panel4.Controls.Add(Me.Label13)
+        Me.Panel4.Controls.Add(Me.catdescripcio)
+        Me.Panel4.Controls.Add(Me.Label12)
+        Me.Panel4.Controls.Add(Me.saveCat)
+        Me.Panel4.Location = New System.Drawing.Point(3, 3)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(213, 100)
+        Me.Panel4.TabIndex = 34
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Reem Kufi", 9.749999!)
+        Me.Label13.ForeColor = System.Drawing.Color.Black
+        Me.Label13.Location = New System.Drawing.Point(3, 17)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(106, 25)
+        Me.Label13.TabIndex = 32
+        Me.Label13.Text = "Nova categoria:"
+        '
+        'catdescripcio
+        '
+        Me.catdescripcio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.catdescripcio.Location = New System.Drawing.Point(24, 70)
+        Me.catdescripcio.Margin = New System.Windows.Forms.Padding(3, 3, 3, 10)
+        Me.catdescripcio.Name = "catdescripcio"
+        Me.catdescripcio.Size = New System.Drawing.Size(138, 20)
+        Me.catdescripcio.TabIndex = 29
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Reem Kufi", 9.749999!)
+        Me.Label12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label12.Location = New System.Drawing.Point(22, 42)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(100, 25)
+        Me.Label12.TabIndex = 30
+        Me.Label12.Text = "nom/desrcipcio"
+        '
+        'saveCat
+        '
+        Me.saveCat.FlatAppearance.BorderSize = 0
+        Me.saveCat.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.saveCat.IconChar = FontAwesome.Sharp.IconChar.Save
+        Me.saveCat.IconColor = System.Drawing.Color.Lime
+        Me.saveCat.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.saveCat.IconSize = 25
+        Me.saveCat.Location = New System.Drawing.Point(171, 70)
+        Me.saveCat.Name = "saveCat"
+        Me.saveCat.Size = New System.Drawing.Size(38, 26)
+        Me.saveCat.TabIndex = 31
+        Me.saveCat.UseVisualStyleBackColor = True
+        '
+        'IconButton1
+        '
+        Me.IconButton1.FlatAppearance.BorderSize = 0
+        Me.IconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IconButton1.IconChar = FontAwesome.Sharp.IconChar.Trash
+        Me.IconButton1.IconColor = System.Drawing.Color.Red
+        Me.IconButton1.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.IconButton1.IconSize = 25
+        Me.IconButton1.Location = New System.Drawing.Point(174, 150)
+        Me.IconButton1.Name = "IconButton1"
+        Me.IconButton1.Size = New System.Drawing.Size(38, 28)
+        Me.IconButton1.TabIndex = 32
+        Me.IconButton1.UseVisualStyleBackColor = True
+        '
         'ComboBox1
         '
         Me.ComboBox1.DataSource = Me.CategoriaBindingSource
         Me.ComboBox1.DisplayMember = "descripcio"
         Me.ComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(437, 25)
+        Me.ComboBox1.Location = New System.Drawing.Point(427, 34)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(122, 21)
         Me.ComboBox1.TabIndex = 10
@@ -457,43 +656,47 @@ Partial Class Empresa
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(328, 8)
+        Me.Label4.Font = New System.Drawing.Font("Reem Kufi", 8.999999!)
+        Me.Label4.Location = New System.Drawing.Point(317, 9)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(32, 13)
+        Me.Label4.Size = New System.Drawing.Size(41, 23)
         Me.Label4.TabIndex = 9
         Me.Label4.Text = "Email"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(222, 9)
+        Me.Label3.Font = New System.Drawing.Font("Reem Kufi", 8.999999!)
+        Me.Label3.Location = New System.Drawing.Point(211, 10)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(40, 13)
+        Me.Label3.Size = New System.Drawing.Size(48, 23)
         Me.Label3.TabIndex = 8
         Me.Label3.Text = "Adresa"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(116, 8)
+        Me.Label2.Font = New System.Drawing.Font("Reem Kufi", 8.999999!)
+        Me.Label2.Location = New System.Drawing.Point(105, 9)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(29, 13)
+        Me.Label2.Size = New System.Drawing.Size(37, 23)
         Me.Label2.TabIndex = 7
         Me.Label2.Text = "Nom"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(13, 8)
+        Me.Label1.Font = New System.Drawing.Font("Reem Kufi", 8.999999!)
+        Me.Label1.Location = New System.Drawing.Point(2, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(23, 13)
+        Me.Label1.Size = New System.Drawing.Size(29, 23)
         Me.Label1.TabIndex = 6
         Me.Label1.Text = "CIF"
         '
         'emailEmpFilter
         '
         Me.emailEmpFilter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.emailEmpFilter.Location = New System.Drawing.Point(331, 25)
+        Me.emailEmpFilter.Location = New System.Drawing.Point(321, 34)
         Me.emailEmpFilter.Name = "emailEmpFilter"
         Me.emailEmpFilter.Size = New System.Drawing.Size(100, 20)
         Me.emailEmpFilter.TabIndex = 5
@@ -501,7 +704,7 @@ Partial Class Empresa
         'adresaEmpFilter
         '
         Me.adresaEmpFilter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.adresaEmpFilter.Location = New System.Drawing.Point(225, 25)
+        Me.adresaEmpFilter.Location = New System.Drawing.Point(215, 34)
         Me.adresaEmpFilter.Name = "adresaEmpFilter"
         Me.adresaEmpFilter.Size = New System.Drawing.Size(100, 20)
         Me.adresaEmpFilter.TabIndex = 4
@@ -509,7 +712,7 @@ Partial Class Empresa
         'nomEmpFilter
         '
         Me.nomEmpFilter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.nomEmpFilter.Location = New System.Drawing.Point(119, 25)
+        Me.nomEmpFilter.Location = New System.Drawing.Point(109, 34)
         Me.nomEmpFilter.Name = "nomEmpFilter"
         Me.nomEmpFilter.Size = New System.Drawing.Size(100, 20)
         Me.nomEmpFilter.TabIndex = 3
@@ -517,7 +720,7 @@ Partial Class Empresa
         'cifEmpFilter
         '
         Me.cifEmpFilter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.cifEmpFilter.Location = New System.Drawing.Point(13, 25)
+        Me.cifEmpFilter.Location = New System.Drawing.Point(3, 34)
         Me.cifEmpFilter.Name = "cifEmpFilter"
         Me.cifEmpFilter.Size = New System.Drawing.Size(100, 20)
         Me.cifEmpFilter.TabIndex = 2
@@ -550,10 +753,11 @@ Partial Class Empresa
         Me.searchEmp.IconColor = System.Drawing.SystemColors.ButtonFace
         Me.searchEmp.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.searchEmp.IconSize = 30
-        Me.searchEmp.Location = New System.Drawing.Point(600, 16)
+        Me.searchEmp.Location = New System.Drawing.Point(590, 25)
         Me.searchEmp.Name = "searchEmp"
         Me.searchEmp.Size = New System.Drawing.Size(42, 35)
         Me.searchEmp.TabIndex = 19
+        Me.ToolTip1.SetToolTip(Me.searchEmp, "Cercar")
         Me.searchEmp.UseVisualStyleBackColor = False
         '
         'categEmpFilter
@@ -570,20 +774,10 @@ Partial Class Empresa
         Me.categEmpFilter.Controls.Add(Me.Label3)
         Me.categEmpFilter.Controls.Add(Me.nomEmpFilter)
         Me.categEmpFilter.Controls.Add(Me.Label4)
-        Me.categEmpFilter.Location = New System.Drawing.Point(32, 13)
+        Me.categEmpFilter.Location = New System.Drawing.Point(32, 3)
         Me.categEmpFilter.Name = "categEmpFilter"
-        Me.categEmpFilter.Size = New System.Drawing.Size(707, 57)
+        Me.categEmpFilter.Size = New System.Drawing.Size(707, 67)
         Me.categEmpFilter.TabIndex = 20
-        '
-        'createLabel
-        '
-        Me.createLabel.AutoSize = True
-        Me.createLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.createLabel.Location = New System.Drawing.Point(22, 9)
-        Me.createLabel.Name = "createLabel"
-        Me.createLabel.Size = New System.Drawing.Size(59, 25)
-        Me.createLabel.TabIndex = 27
-        Me.createLabel.Text = "Nom"
         '
         'RestartFilterEmp
         '
@@ -594,75 +788,59 @@ Partial Class Empresa
         Me.RestartFilterEmp.IconColor = System.Drawing.SystemColors.ButtonFace
         Me.RestartFilterEmp.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.RestartFilterEmp.IconSize = 30
-        Me.RestartFilterEmp.Location = New System.Drawing.Point(648, 16)
+        Me.RestartFilterEmp.Location = New System.Drawing.Point(638, 25)
         Me.RestartFilterEmp.Name = "RestartFilterEmp"
         Me.RestartFilterEmp.Size = New System.Drawing.Size(42, 35)
         Me.RestartFilterEmp.TabIndex = 20
+        Me.ToolTip1.SetToolTip(Me.RestartFilterEmp, "Borrar filtres")
         Me.RestartFilterEmp.UseVisualStyleBackColor = False
         '
-        'CategoriaCreate
+        'ToolTip1
         '
-        Me.CategoriaCreate.FlatAppearance.BorderSize = 0
-        Me.CategoriaCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CategoriaCreate.IconChar = FontAwesome.Sharp.IconChar.PlusCircle
-        Me.CategoriaCreate.IconColor = System.Drawing.Color.SeaShell
-        Me.CategoriaCreate.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.CategoriaCreate.IconSize = 30
-        Me.CategoriaCreate.Location = New System.Drawing.Point(243, 215)
-        Me.CategoriaCreate.Name = "CategoriaCreate"
-        Me.CategoriaCreate.Size = New System.Drawing.Size(38, 28)
-        Me.CategoriaCreate.TabIndex = 28
-        Me.CategoriaCreate.UseVisualStyleBackColor = True
+        Me.ToolTip1.AutoPopDelay = 5000
+        Me.ToolTip1.InitialDelay = 700
+        Me.ToolTip1.ReshowDelay = 100
         '
-        'Label12
+        'IconButton4
         '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(4, 14)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(104, 16)
-        Me.Label12.TabIndex = 30
-        Me.Label12.Text = "Nom/desrcipcio"
+        Me.IconButton4.FlatAppearance.BorderSize = 0
+        Me.IconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IconButton4.IconChar = FontAwesome.Sharp.IconChar.Times
+        Me.IconButton4.IconColor = System.Drawing.Color.Red
+        Me.IconButton4.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.IconButton4.IconSize = 28
+        Me.IconButton4.Location = New System.Drawing.Point(282, 3)
+        Me.IconButton4.Name = "IconButton4"
+        Me.IconButton4.Size = New System.Drawing.Size(32, 23)
+        Me.IconButton4.TabIndex = 27
+        Me.IconButton4.UseVisualStyleBackColor = True
         '
-        'catdescripcio
+        'EditCat
         '
-        Me.catdescripcio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.catdescripcio.Location = New System.Drawing.Point(7, 33)
-        Me.catdescripcio.Margin = New System.Windows.Forms.Padding(3, 3, 3, 10)
-        Me.catdescripcio.Name = "catdescripcio"
-        Me.catdescripcio.Size = New System.Drawing.Size(138, 20)
-        Me.catdescripcio.TabIndex = 29
-        '
-        'saveCat
-        '
-        Me.saveCat.FlatAppearance.BorderSize = 0
-        Me.saveCat.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.saveCat.IconChar = FontAwesome.Sharp.IconChar.Save
-        Me.saveCat.IconColor = System.Drawing.Color.Lime
-        Me.saveCat.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.saveCat.IconSize = 25
-        Me.saveCat.Location = New System.Drawing.Point(151, 33)
-        Me.saveCat.Name = "saveCat"
-        Me.saveCat.Size = New System.Drawing.Size(38, 26)
-        Me.saveCat.TabIndex = 31
-        Me.saveCat.UseVisualStyleBackColor = True
-        '
-        'Panel3
-        '
-        Me.Panel3.Controls.Add(Me.saveCat)
-        Me.Panel3.Controls.Add(Me.catdescripcio)
-        Me.Panel3.Controls.Add(Me.Label12)
-        Me.Panel3.Location = New System.Drawing.Point(92, 249)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(207, 76)
-        Me.Panel3.TabIndex = 25
+        Me.EditCat.FlatAppearance.BorderSize = 0
+        Me.EditCat.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.EditCat.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EditCat.IconChar = FontAwesome.Sharp.IconChar.Edit
+        Me.EditCat.IconColor = System.Drawing.Color.SeaShell
+        Me.EditCat.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.EditCat.IconSize = 27
+        Me.EditCat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.EditCat.Location = New System.Drawing.Point(1096, 118)
+        Me.EditCat.Name = "EditCat"
+        Me.EditCat.Size = New System.Drawing.Size(92, 35)
+        Me.EditCat.TabIndex = 29
+        Me.EditCat.Text = "categoria"
+        Me.EditCat.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.ToolTip1.SetToolTip(Me.EditCat, "Crear nueva categoria")
+        Me.EditCat.UseVisualStyleBackColor = True
         '
         'Empresa
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(96, Byte), Integer), CType(CType(171, Byte), Integer), CType(CType(251, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1551, 1227)
+        Me.ClientSize = New System.Drawing.Size(1551, 1061)
+        Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.categEmpFilter)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel2)
@@ -675,10 +853,12 @@ Partial Class Empresa
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.CategoriaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.categEmpFilter.ResumeLayout(False)
-        Me.categEmpFilter.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
+        Me.Panel4.ResumeLayout(False)
+        Me.Panel4.PerformLayout()
+        Me.categEmpFilter.ResumeLayout(False)
+        Me.categEmpFilter.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -686,16 +866,6 @@ Partial Class Empresa
     Friend WithEvents Gestio_empresesDataSet As gestio_empresesDataSet
     Friend WithEvents EmpresaBindingSource As BindingSource
     Friend WithEvents EmpresaTableAdapter As gestio_empresesDataSetTableAdapters.empresaTableAdapter
-    Friend WithEvents CifDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents NomDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents AdrecaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents TelfDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents EmailDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents CategoriaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents TotaltestsDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents TestsrealitzatsDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents TestsdisponiblesDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents PreutotalDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
@@ -738,4 +908,25 @@ Partial Class Empresa
     Friend WithEvents catdescripcio As TextBox
     Friend WithEvents Label12 As Label
     Friend WithEvents CategoriaCreate As FontAwesome.Sharp.IconButton
+    Friend WithEvents IconButton1 As FontAwesome.Sharp.IconButton
+    Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents CifDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents NomDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents AdrecaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents TelfDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents EmailDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CategoriaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents TotaltestsDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents TestsrealitzatsDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents TestsdisponiblesDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents PreutotalDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents Label14 As Label
+    Friend WithEvents Label13 As Label
+    Friend WithEvents Label15 As Label
+    Friend WithEvents IconButton2 As FontAwesome.Sharp.IconButton
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents IconButton4 As FontAwesome.Sharp.IconButton
+    Friend WithEvents EditCat As FontAwesome.Sharp.IconButton
 End Class

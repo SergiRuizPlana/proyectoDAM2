@@ -11,7 +11,7 @@ Public Class Empresa
         'TODO: esta línea de código carga datos en la tabla 'Gestio_empresesDataSet.empresa' Puede moverla o quitarla según sea necesario.
         Me.EmpresaTableAdapter.Fill(Me.Gestio_empresesDataSet.empresa)
 
-        Dim controls = {Panel1, Panel2}
+        Dim controls = {Panel1, Panel2, Panel3}
         Funciones.SetMultyRadius(controls)
 
         ComboBox1.SelectedValue = ""
@@ -93,7 +93,7 @@ Public Class Empresa
                 Me.EmpresaTableAdapter.UpdateQuery(empresaNombre.Text, empresaAdresa.Text, empresaPhone.Text, EmpresaEmail.Text, empresaCategoria.SelectedValue, cifEmpresa)
             End If
             Me.EmpresaTableAdapter.Fill(Me.Gestio_empresesDataSet.empresa)
-
+            DataGridView1.DataSource = Me.Gestio_empresesDataSet.empresa
         Catch ex As Exception
 
         End Try
@@ -152,6 +152,10 @@ Public Class Empresa
     Private Sub saveCat_Click(sender As Object, e As EventArgs) Handles saveCat.Click
         Me.CategoriaTableAdapter.Insert(Guid.NewGuid, catdescripcio.Text)
         Panel3.Visible = False
+        CategoriaCreate.IconChar = FontAwesome.Sharp.IconChar.PlusCircle
+        CategoriaCreate.IconColor = Color.White
+        Me.CategoriaTableAdapter.Fill(Me.Gestio_empresesDataSet.categoria)
+        catCreate = False
 
     End Sub
 
@@ -159,7 +163,46 @@ Public Class Empresa
         If Not catCreate Then
             CategoriaCreate.IconChar = FontAwesome.Sharp.IconChar.TimesCircle
             CategoriaCreate.IconColor = Color.Red
-            Panel2.Visible = True
+            Panel3.Visible = True
+            catCreate = True
+        Else
+            CategoriaCreate.IconChar = FontAwesome.Sharp.IconChar.Edit
+            CategoriaCreate.IconColor = Color.White
+            Panel3.Visible = False
+            catCreate = False
         End If
+    End Sub
+
+    Private Sub IconButton1_Click_1(sender As Object, e As EventArgs) Handles IconButton1.Click
+        Try
+            Me.CategoriaTableAdapter.Delete(ComboBox2.SelectedValue, ComboBox2.Text)
+
+        Catch ex As Exception
+            Dim a = 0
+        End Try
+    End Sub
+
+    Private Sub ComboBox2_SelectedValueChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedValueChanged
+        TextBox1.Text = ComboBox2.Text
+    End Sub
+
+    Private Sub IconButton2_Click(sender As Object, e As EventArgs) Handles IconButton2.Click
+        Try
+            Me.CategoriaTableAdapter.UpdateQuery(TextBox1.Text, ComboBox2.SelectedValue)
+            Me.CategoriaTableAdapter.Fill(Me.Gestio_empresesDataSet.categoria)
+            RestartFilterEmp.PerformClick()
+            Panel3.Visible = False
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
+
+    Private Sub IconButton4_Click(sender As Object, e As EventArgs) Handles IconButton4.Click
+        Panel3.Visible = False
+    End Sub
+
+    Private Sub EditCat_Click(sender As Object, e As EventArgs) Handles EditCat.Click
+        Panel3.Visible = True
     End Sub
 End Class

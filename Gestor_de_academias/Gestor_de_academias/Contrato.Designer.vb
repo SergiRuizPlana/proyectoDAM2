@@ -40,7 +40,7 @@ Partial Class Contrato
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Fuchsia
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(1438, 631)
         Me.Controls.Add(Me.Label1)
         Me.Name = "Contrato"
         Me.Text = "Contrato"

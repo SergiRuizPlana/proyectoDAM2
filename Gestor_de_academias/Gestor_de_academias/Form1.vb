@@ -18,29 +18,35 @@
     Private Sub Empresas_Click(sender As Object, e As EventArgs) Handles Empresas.Click
         openForm(Empresa)
         Label1.Text = "Empreses"
+        Funciones.setColorToCOntrols({HomeBtn, Empresas, Albaranes, Contratos}, {81, 112, 253})
+        sender.BackColor = Color.FromArgb(81, 140, 225)
     End Sub
 
     Private Sub Contratos_Click(sender As Object, e As EventArgs) Handles Contratos.Click
         openForm(Contrato)
         Label1.Text = "Contractes"
+        Funciones.setColorToCOntrols({HomeBtn, Empresas, Albaranes, Contratos}, {81, 112, 253})
+        sender.BackColor = Color.FromArgb(81, 140, 225)
     End Sub
 
     Private Sub Albaranes_Click(sender As Object, e As EventArgs) Handles Albaranes.Click
         openForm(Albaran)
         Label1.Text = "Albarans"
+        Funciones.setColorToCOntrols({HomeBtn, Empresas, Albaranes, Contratos}, {81, 112, 253})
+        sender.BackColor = Color.FromArgb(81, 140, 225)
     End Sub
 
-    Private Sub Test_Click(sender As Object, e As EventArgs) Handles Tests.Click
-        openForm(Test)
-    End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
         startconexion.Visible = False
     End Sub
 
-    Private Sub HomeB_Click(sender As Object, e As EventArgs) Handles HomeB.Click
+    Private Sub HomeB_Click(sender As Object, e As EventArgs) Handles HomeBtn.Click
         If currentForm IsNot Nothing Then currentForm.Close()
+        Funciones.setColorToCOntrols({HomeBtn, Empresas, Albaranes, Contratos}, {81, 112, 253})
+        sender.BackColor = Color.FromArgb(81, 140, 225)
 
         Label1.Text = "Home"
     End Sub
+
 End Class

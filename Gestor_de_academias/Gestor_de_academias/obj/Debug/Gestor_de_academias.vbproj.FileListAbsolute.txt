@@ -25,6 +25,5 @@ C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\bin\Deb
 C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.vbproj.CopyComplete
 C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.Form1.resources
 C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.Contrato.resources
-C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.Test.resources
 C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.Albaran.resources
 C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\bin\Debug\FontAwesome.Sharp.dll

@@ -37,6 +37,11 @@ Gestor_de_academias
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="M:Gestor_de_academias.Funciones.createDatabase(System.Object)">
+ <summary>
+ Creacion de la database y los procedures de busqueda
+ </summary>
+</member>
 <member name="T:Gestor_de_academias.gestio_empresesDataSet">
 <summary>
 Represents a strongly typed in-memory cache of data.
@@ -221,11 +226,6 @@ Update Order Option
 <summary>
 Used to sort self-referenced table's rows
 </summary>
-</member>
-<member name="M:Gestor_de_academias.startconexion.createDatabase">
- <summary>
- Creacion de la database y los procedures de busqueda
- </summary>
 </member>
 </members>
 </doc>
