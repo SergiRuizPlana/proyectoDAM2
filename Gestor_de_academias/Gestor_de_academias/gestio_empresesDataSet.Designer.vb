@@ -45,8 +45,6 @@ Partial Public Class gestio_empresesDataSet
     
     Private relationFK__albara_te__num_a__239E4DCF As Global.System.Data.DataRelation
     
-    Private relationFK__contracte__cif__164452B1 As Global.System.Data.DataRelation
-    
     Private relationFK__test__cod_catego__1CF15040 As Global.System.Data.DataRelation
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
@@ -351,7 +349,6 @@ Partial Public Class gestio_empresesDataSet
         Me.relationFK__albara__cif__1FCDBCEB = Me.Relations("FK__albara__cif__1FCDBCEB")
         Me.relationFK__albara_te__codi___24927208 = Me.Relations("FK__albara_te__codi___24927208")
         Me.relationFK__albara_te__num_a__239E4DCF = Me.Relations("FK__albara_te__num_a__239E4DCF")
-        Me.relationFK__contracte__cif__164452B1 = Me.Relations("FK__contracte__cif__164452B1")
         Me.relationFK__test__cod_catego__1CF15040 = Me.Relations("FK__test__cod_catego__1CF15040")
     End Sub
     
@@ -383,8 +380,6 @@ Partial Public Class gestio_empresesDataSet
         Me.Relations.Add(Me.relationFK__albara_te__codi___24927208)
         Me.relationFK__albara_te__num_a__239E4DCF = New Global.System.Data.DataRelation("FK__albara_te__num_a__239E4DCF", New Global.System.Data.DataColumn() {Me.tablealbara.num_albaraColumn}, New Global.System.Data.DataColumn() {Me.tablealbara_test.num_albaraColumn}, false)
         Me.Relations.Add(Me.relationFK__albara_te__num_a__239E4DCF)
-        Me.relationFK__contracte__cif__164452B1 = New Global.System.Data.DataRelation("FK__contracte__cif__164452B1", New Global.System.Data.DataColumn() {Me.tableempresa.cifColumn}, New Global.System.Data.DataColumn() {Me.tablecontracte.cifColumn}, false)
-        Me.Relations.Add(Me.relationFK__contracte__cif__164452B1)
         Me.relationFK__test__cod_catego__1CF15040 = New Global.System.Data.DataRelation("FK__test__cod_catego__1CF15040", New Global.System.Data.DataColumn() {Me.tablecategoria_test.cod_categoriaColumn}, New Global.System.Data.DataColumn() {Me.tabletest.cod_categoriaColumn}, false)
         Me.Relations.Add(Me.relationFK__test__cod_catego__1CF15040)
     End Sub
@@ -1654,13 +1649,13 @@ Partial Public Class gestio_empresesDataSet
     Partial Public Class contracteDataTable
         Inherits Global.System.Data.TypedTableBase(Of contracteRow)
         
-        Private columncod_contracte As Global.System.Data.DataColumn
+        Private columnCode_contracte As Global.System.Data.DataColumn
         
-        Private columncif As Global.System.Data.DataColumn
+        Private columnEmpresa As Global.System.Data.DataColumn
         
-        Private columndata_inici As Global.System.Data.DataColumn
+        Private columnData_inici As Global.System.Data.DataColumn
         
-        Private columntests_mensuals As Global.System.Data.DataColumn
+        Private columnTests_mensuals As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -1699,33 +1694,33 @@ Partial Public Class gestio_empresesDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property cod_contracteColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property Code_contracteColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columncod_contracte
+                Return Me.columnCode_contracte
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property cifColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property EmpresaColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columncif
+                Return Me.columnEmpresa
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property data_iniciColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property Data_iniciColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columndata_inici
+                Return Me.columnData_inici
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property tests_mensualsColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property Tests_mensualsColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columntests_mensuals
+                Return Me.columnTests_mensuals
             End Get
         End Property
         
@@ -1766,12 +1761,9 @@ Partial Public Class gestio_empresesDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddcontracteRow(ByVal cod_contracte As Integer, ByVal parentempresaRowByFK__contracte__cif__164452B1 As empresaRow, ByVal data_inici As Date, ByVal tests_mensuals As Integer) As contracteRow
+        Public Overloads Function AddcontracteRow(ByVal Code_contracte As Integer, ByVal Empresa As String, ByVal Data_inici As Date, ByVal Tests_mensuals As Integer) As contracteRow
             Dim rowcontracteRow As contracteRow = CType(Me.NewRow,contracteRow)
-            Dim columnValuesArray() As Object = New Object() {cod_contracte, Nothing, data_inici, tests_mensuals}
-            If (Not (parentempresaRowByFK__contracte__cif__164452B1) Is Nothing) Then
-                columnValuesArray(1) = parentempresaRowByFK__contracte__cif__164452B1(0)
-            End If
+            Dim columnValuesArray() As Object = New Object() {Code_contracte, Empresa, Data_inici, Tests_mensuals}
             rowcontracteRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowcontracteRow)
             Return rowcontracteRow
@@ -1779,8 +1771,8 @@ Partial Public Class gestio_empresesDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function FindBycod_contracte(ByVal cod_contracte As Integer) As contracteRow
-            Return CType(Me.Rows.Find(New Object() {cod_contracte}),contracteRow)
+        Public Function FindByCode_contracte(ByVal Code_contracte As Integer) As contracteRow
+            Return CType(Me.Rows.Find(New Object() {Code_contracte}),contracteRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1800,27 +1792,28 @@ Partial Public Class gestio_empresesDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columncod_contracte = MyBase.Columns("cod_contracte")
-            Me.columncif = MyBase.Columns("cif")
-            Me.columndata_inici = MyBase.Columns("data_inici")
-            Me.columntests_mensuals = MyBase.Columns("tests_mensuals")
+            Me.columnCode_contracte = MyBase.Columns("Code_contracte")
+            Me.columnEmpresa = MyBase.Columns("Empresa")
+            Me.columnData_inici = MyBase.Columns("Data_inici")
+            Me.columnTests_mensuals = MyBase.Columns("Tests_mensuals")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitClass()
-            Me.columncod_contracte = New Global.System.Data.DataColumn("cod_contracte", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columncod_contracte)
-            Me.columncif = New Global.System.Data.DataColumn("cif", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columncif)
-            Me.columndata_inici = New Global.System.Data.DataColumn("data_inici", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columndata_inici)
-            Me.columntests_mensuals = New Global.System.Data.DataColumn("tests_mensuals", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columntests_mensuals)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columncod_contracte}, true))
-            Me.columncod_contracte.AllowDBNull = false
-            Me.columncod_contracte.Unique = true
-            Me.columncif.MaxLength = 30
+            Me.columnCode_contracte = New Global.System.Data.DataColumn("Code_contracte", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCode_contracte)
+            Me.columnEmpresa = New Global.System.Data.DataColumn("Empresa", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEmpresa)
+            Me.columnData_inici = New Global.System.Data.DataColumn("Data_inici", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnData_inici)
+            Me.columnTests_mensuals = New Global.System.Data.DataColumn("Tests_mensuals", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTests_mensuals)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCode_contracte}, true))
+            Me.columnCode_contracte.AllowDBNull = false
+            Me.columnCode_contracte.Unique = true
+            Me.columnEmpresa.AllowDBNull = false
+            Me.columnEmpresa.MaxLength = 30
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2938,105 +2931,78 @@ Partial Public Class gestio_empresesDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property cod_contracte() As Integer
+        Public Property Code_contracte() As Integer
             Get
-                Return CType(Me(Me.tablecontracte.cod_contracteColumn),Integer)
+                Return CType(Me(Me.tablecontracte.Code_contracteColumn),Integer)
             End Get
             Set
-                Me(Me.tablecontracte.cod_contracteColumn) = value
+                Me(Me.tablecontracte.Code_contracteColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property cif() As String
+        Public Property Empresa() As String
+            Get
+                Return CType(Me(Me.tablecontracte.EmpresaColumn),String)
+            End Get
+            Set
+                Me(Me.tablecontracte.EmpresaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property Data_inici() As Date
             Get
                 Try 
-                    Return CType(Me(Me.tablecontracte.cifColumn),String)
+                    Return CType(Me(Me.tablecontracte.Data_iniciColumn),Date)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'cif' de la tabla 'contracte' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Data_inici' de la tabla 'contracte' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablecontracte.cifColumn) = value
+                Me(Me.tablecontracte.Data_iniciColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property data_inici() As Date
+        Public Property Tests_mensuals() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tablecontracte.data_iniciColumn),Date)
+                    Return CType(Me(Me.tablecontracte.Tests_mensualsColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'data_inici' de la tabla 'contracte' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Tests_mensuals' de la tabla 'contracte' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablecontracte.data_iniciColumn) = value
+                Me(Me.tablecontracte.Tests_mensualsColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property tests_mensuals() As Integer
-            Get
-                Try 
-                    Return CType(Me(Me.tablecontracte.tests_mensualsColumn),Integer)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'tests_mensuals' de la tabla 'contracte' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablecontracte.tests_mensualsColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property empresaRow() As empresaRow
-            Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK__contracte__cif__164452B1")),empresaRow)
-            End Get
-            Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("FK__contracte__cif__164452B1"))
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IscifNull() As Boolean
-            Return Me.IsNull(Me.tablecontracte.cifColumn)
+        Public Function IsData_iniciNull() As Boolean
+            Return Me.IsNull(Me.tablecontracte.Data_iniciColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetcifNull()
-            Me(Me.tablecontracte.cifColumn) = Global.System.Convert.DBNull
+        Public Sub SetData_iniciNull()
+            Me(Me.tablecontracte.Data_iniciColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Isdata_iniciNull() As Boolean
-            Return Me.IsNull(Me.tablecontracte.data_iniciColumn)
+        Public Function IsTests_mensualsNull() As Boolean
+            Return Me.IsNull(Me.tablecontracte.Tests_mensualsColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Setdata_iniciNull()
-            Me(Me.tablecontracte.data_iniciColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Istests_mensualsNull() As Boolean
-            Return Me.IsNull(Me.tablecontracte.tests_mensualsColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Settests_mensualsNull()
-            Me(Me.tablecontracte.tests_mensualsColumn) = Global.System.Convert.DBNull
+        Public Sub SetTests_mensualsNull()
+            Me(Me.tablecontracte.Tests_mensualsColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -3268,16 +3234,6 @@ Partial Public Class gestio_empresesDataSet
                 Return New albaraRow(-1) {}
             Else
                 Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK__albara__cif__1FCDBCEB")),albaraRow())
-            End If
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function GetcontracteRows() As contracteRow()
-            If (Me.Table.ChildRelations("FK__contracte__cif__164452B1") Is Nothing) Then
-                Return New contracteRow(-1) {}
-            Else
-                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK__contracte__cif__164452B1")),contracteRow())
             End If
         End Function
     End Class
@@ -5134,59 +5090,11 @@ Namespace gestio_empresesDataSetTableAdapters
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "contracte"
-            tableMapping.ColumnMappings.Add("cod_contracte", "cod_contracte")
-            tableMapping.ColumnMappings.Add("cif", "cif")
-            tableMapping.ColumnMappings.Add("data_inici", "data_inici")
-            tableMapping.ColumnMappings.Add("tests_mensuals", "tests_mensuals")
+            tableMapping.ColumnMappings.Add("Code_contracte", "Code_contracte")
+            tableMapping.ColumnMappings.Add("Empresa", "Empresa")
+            tableMapping.ColumnMappings.Add("Data_inici", "Data_inici")
+            tableMapping.ColumnMappings.Add("Tests_mensuals", "Tests_mensuals")
             Me._adapter.TableMappings.Add(tableMapping)
-            Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
-            Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[contracte] WHERE (([cod_contracte] = @Original_cod_contracte) "& _ 
-                "AND ((@IsNull_cif = 1 AND [cif] IS NULL) OR ([cif] = @Original_cif)) AND ((@IsNu"& _ 
-                "ll_data_inici = 1 AND [data_inici] IS NULL) OR ([data_inici] = @Original_data_in"& _ 
-                "ici)) AND ((@IsNull_tests_mensuals = 1 AND [tests_mensuals] IS NULL) OR ([tests_"& _ 
-                "mensuals] = @Original_tests_mensuals)))"
-            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_cod_contracte", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cod_contracte", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_cif", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cif", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_cif", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cif", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_data_inici", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "data_inici", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_data_inici", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "data_inici", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_tests_mensuals", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "tests_mensuals", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_tests_mensuals", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "tests_mensuals", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
-            Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[contracte] ([cod_contracte], [cif], [data_inici], [tests_mensu"& _ 
-                "als]) VALUES (@cod_contracte, @cif, @data_inici, @tests_mensuals);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT cod_c"& _ 
-                "ontracte, cif, data_inici, tests_mensuals FROM contracte WHERE (cod_contracte = "& _ 
-                "@cod_contracte)"
-            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cod_contracte", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cod_contracte", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cif", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cif", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@data_inici", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "data_inici", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@tests_mensuals", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "tests_mensuals", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
-            Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[contracte] SET [cod_contracte] = @cod_contracte, [cif] = @cif, [dat"& _ 
-                "a_inici] = @data_inici, [tests_mensuals] = @tests_mensuals WHERE (([cod_contract"& _ 
-                "e] = @Original_cod_contracte) AND ((@IsNull_cif = 1 AND [cif] IS NULL) OR ([cif]"& _ 
-                " = @Original_cif)) AND ((@IsNull_data_inici = 1 AND [data_inici] IS NULL) OR ([d"& _ 
-                "ata_inici] = @Original_data_inici)) AND ((@IsNull_tests_mensuals = 1 AND [tests_"& _ 
-                "mensuals] IS NULL) OR ([tests_mensuals] = @Original_tests_mensuals)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT c"& _ 
-                "od_contracte, cif, data_inici, tests_mensuals FROM contracte WHERE (cod_contract"& _ 
-                "e = @cod_contracte)"
-            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cod_contracte", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cod_contracte", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cif", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cif", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@data_inici", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "data_inici", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@tests_mensuals", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "tests_mensuals", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_cod_contracte", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cod_contracte", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_cif", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cif", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_cif", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cif", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_data_inici", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "data_inici", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_data_inici", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "data_inici", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_tests_mensuals", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "tests_mensuals", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_tests_mensuals", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "tests_mensuals", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5202,7 +5110,9 @@ Namespace gestio_empresesDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT cod_contracte, cif, data_inici, tests_mensuals FROM dbo.contracte"
+            Me._commandCollection(0).CommandText = "SELECT        c.cod_contracte AS Code_contracte, e.nom AS Empresa, c.data_inici A"& _ 
+                "S Data_inici, c.tests_mensuals AS Tests_mensuals"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            contracte AS c"& _ 
+                " INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         empresa AS e ON e.cif = c.cif"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -5228,178 +5138,6 @@ Namespace gestio_empresesDataSetTableAdapters
             Dim dataTable As gestio_empresesDataSet.contracteDataTable = New gestio_empresesDataSet.contracteDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As gestio_empresesDataSet.contracteDataTable) As Integer
-            Return Me.Adapter.Update(dataTable)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataSet As gestio_empresesDataSet) As Integer
-            Return Me.Adapter.Update(dataSet, "contracte")
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(dataRows)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_cod_contracte As Integer, ByVal Original_cif As String, ByVal Original_data_inici As Global.System.Nullable(Of Date), ByVal Original_tests_mensuals As Global.System.Nullable(Of Integer)) As Integer
-            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_cod_contracte,Integer)
-            If (Original_cif Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_cif,String)
-            End If
-            If (Original_data_inici.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_data_inici.Value,Date)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
-            End If
-            If (Original_tests_mensuals.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_tests_mensuals.Value,Integer)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
-            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.DeleteCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.DeleteCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal cod_contracte As Integer, ByVal cif As String, ByVal data_inici As Global.System.Nullable(Of Date), ByVal tests_mensuals As Global.System.Nullable(Of Integer)) As Integer
-            Me.Adapter.InsertCommand.Parameters(0).Value = CType(cod_contracte,Integer)
-            If (cif Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(cif,String)
-            End If
-            If (data_inici.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(data_inici.Value,Date)
-            Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
-            End If
-            If (tests_mensuals.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(tests_mensuals.Value,Integer)
-            Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
-            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.InsertCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.InsertCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal cod_contracte As Integer, ByVal cif As String, ByVal data_inici As Global.System.Nullable(Of Date), ByVal tests_mensuals As Global.System.Nullable(Of Integer), ByVal Original_cod_contracte As Integer, ByVal Original_cif As String, ByVal Original_data_inici As Global.System.Nullable(Of Date), ByVal Original_tests_mensuals As Global.System.Nullable(Of Integer)) As Integer
-            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(cod_contracte,Integer)
-            If (cif Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(cif,String)
-            End If
-            If (data_inici.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(data_inici.Value,Date)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
-            End If
-            If (tests_mensuals.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(tests_mensuals.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
-            End If
-            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_cod_contracte,Integer)
-            If (Original_cif Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_cif,String)
-            End If
-            If (Original_data_inici.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_data_inici.Value,Date)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
-            End If
-            If (Original_tests_mensuals.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_tests_mensuals.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
-            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.UpdateCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.UpdateCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal cif As String, ByVal data_inici As Global.System.Nullable(Of Date), ByVal tests_mensuals As Global.System.Nullable(Of Integer), ByVal Original_cod_contracte As Integer, ByVal Original_cif As String, ByVal Original_data_inici As Global.System.Nullable(Of Date), ByVal Original_tests_mensuals As Global.System.Nullable(Of Integer)) As Integer
-            Return Me.Update(Original_cod_contracte, cif, data_inici, tests_mensuals, Original_cod_contracte, Original_cif, Original_data_inici, Original_tests_mensuals)
         End Function
     End Class
     
@@ -6098,8 +5836,6 @@ Namespace gestio_empresesDataSetTableAdapters
         
         Private _categoria_testTableAdapter As categoria_testTableAdapter
         
-        Private _contracteTableAdapter As contracteTableAdapter
-        
         Private _testTableAdapter As testTableAdapter
         
         Private _backupDataSetBeforeUpdate As Boolean
@@ -6178,20 +5914,6 @@ Namespace gestio_empresesDataSetTableAdapters
          Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
             "a", "System.Drawing.Design.UITypeEditor")>  _
-        Public Property contracteTableAdapter() As contracteTableAdapter
-            Get
-                Return Me._contracteTableAdapter
-            End Get
-            Set
-                Me._contracteTableAdapter = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
-            "a", "System.Drawing.Design.UITypeEditor")>  _
         Public Property testTableAdapter() As testTableAdapter
             Get
                 Return Me._testTableAdapter
@@ -6236,10 +5958,6 @@ Namespace gestio_empresesDataSetTableAdapters
                             AndAlso (Not (Me._categoria_testTableAdapter.Connection) Is Nothing)) Then
                     Return Me._categoria_testTableAdapter.Connection
                 End If
-                If ((Not (Me._contracteTableAdapter) Is Nothing)  _
-                            AndAlso (Not (Me._contracteTableAdapter.Connection) Is Nothing)) Then
-                    Return Me._contracteTableAdapter.Connection
-                End If
                 If ((Not (Me._testTableAdapter) Is Nothing)  _
                             AndAlso (Not (Me._testTableAdapter.Connection) Is Nothing)) Then
                     Return Me._testTableAdapter.Connection
@@ -6267,9 +5985,6 @@ Namespace gestio_empresesDataSetTableAdapters
                     count = (count + 1)
                 End If
                 If (Not (Me._categoria_testTableAdapter) Is Nothing) Then
-                    count = (count + 1)
-                End If
-                If (Not (Me._contracteTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
                 If (Not (Me._testTableAdapter) Is Nothing) Then
@@ -6331,15 +6046,6 @@ Namespace gestio_empresesDataSetTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._contracteTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.contracte.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._contracteTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
             Return result
         End Function
         
@@ -6390,14 +6096,6 @@ Namespace gestio_empresesDataSetTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._contracteTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.contracte.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._contracteTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
             Return result
         End Function
         
@@ -6408,14 +6106,6 @@ Namespace gestio_empresesDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Function UpdateDeletedRows(ByVal dataSet As gestio_empresesDataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._contracteTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.contracte.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._contracteTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
             If (Not (Me._categoriaTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.categoria.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
@@ -6517,11 +6207,6 @@ Namespace gestio_empresesDataSetTableAdapters
                 Throw New Global.System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi"& _ 
                         "sma cadena de conexión.")
             End If
-            If ((Not (Me._contracteTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._contracteTableAdapter.Connection) = false)) Then
-                Throw New Global.System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi"& _ 
-                        "sma cadena de conexión.")
-            End If
             If ((Not (Me._testTableAdapter) Is Nothing)  _
                         AndAlso (Me.MatchTableAdapterConnection(Me._testTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi"& _ 
@@ -6593,15 +6278,6 @@ Namespace gestio_empresesDataSetTableAdapters
                     If Me._categoria_testTableAdapter.Adapter.AcceptChangesDuringUpdate Then
                         Me._categoria_testTableAdapter.Adapter.AcceptChangesDuringUpdate = false
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._categoria_testTableAdapter.Adapter)
-                    End If
-                End If
-                If (Not (Me._contracteTableAdapter) Is Nothing) Then
-                    revertConnections.Add(Me._contracteTableAdapter, Me._contracteTableAdapter.Connection)
-                    Me._contracteTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
-                    Me._contracteTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
-                    If Me._contracteTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._contracteTableAdapter.Adapter.AcceptChangesDuringUpdate = false
-                        adaptersWithAcceptChangesDuringUpdate.Add(Me._contracteTableAdapter.Adapter)
                     End If
                 End If
                 If (Not (Me._testTableAdapter) Is Nothing) Then
@@ -6688,10 +6364,6 @@ Namespace gestio_empresesDataSetTableAdapters
                 If (Not (Me._categoria_testTableAdapter) Is Nothing) Then
                     Me._categoria_testTableAdapter.Connection = CType(revertConnections(Me._categoria_testTableAdapter),Global.System.Data.SqlClient.SqlConnection)
                     Me._categoria_testTableAdapter.Transaction = Nothing
-                End If
-                If (Not (Me._contracteTableAdapter) Is Nothing) Then
-                    Me._contracteTableAdapter.Connection = CType(revertConnections(Me._contracteTableAdapter),Global.System.Data.SqlClient.SqlConnection)
-                    Me._contracteTableAdapter.Transaction = Nothing
                 End If
                 If (Not (Me._testTableAdapter) Is Nothing) Then
                     Me._testTableAdapter.Connection = CType(revertConnections(Me._testTableAdapter),Global.System.Data.SqlClient.SqlConnection)

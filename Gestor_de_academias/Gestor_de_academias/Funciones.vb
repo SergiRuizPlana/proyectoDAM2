@@ -32,14 +32,14 @@ Module Funciones
     ''' <summary>
     ''' Creacion de la database y los procedures de busqueda
     ''' </summary>
-    Sub createDatabase(ByVal sqlServerName)
+    Sub CreateDatabase(ByVal sqlServerName)
         Dim str As String
 
-        Dim myConn As SqlConnection = New SqlConnection("Server=" & sqlServerName & ";" & "Integrated Security = false")
+        Dim myConn As New SqlConnection("Server=" & sqlServerName & ";" & "Integrated Security = false")
 
         str = "CREATE DATABASE gestio_empreses"
 
-        Dim myCommand As SqlCommand = New SqlCommand(str, myConn)
+        Dim myCommand As New SqlCommand(str, myConn)
 
         Try
             myConn.Open()
@@ -122,7 +122,7 @@ Module Funciones
     End Sub
 
 
-    Sub setColorToCOntrols(ByVal controls As Array, ByVal colorRgb As Array)
+    Sub SetColorToCOntrols(ByVal controls As Array, ByVal colorRgb As Array)
         For Each control In controls
             control.BackColor = Color.FromArgb(colorRgb(0), colorRgb(1), colorRgb(2))
         Next

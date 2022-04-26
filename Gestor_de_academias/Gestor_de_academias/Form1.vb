@@ -2,7 +2,7 @@
 
     Private currentForm As Form
 
-    Public Sub openForm(form As Form)
+    Public Sub OpenForm(form As Form)
         If currentForm IsNot form Then
             If currentForm IsNot Nothing Then currentForm.Close()
             currentForm = form
@@ -48,5 +48,6 @@
 
         Label1.Text = "Home"
     End Sub
+
 
 End Class

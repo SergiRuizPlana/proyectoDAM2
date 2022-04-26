@@ -17,6 +17,8 @@ Public Class Empresa
         ComboBox1.SelectedValue = ""
         ComboBox1.SelectedText = ""
 
+
+
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles createEmpresa.Click
@@ -149,7 +151,7 @@ Public Class Empresa
 
     End Sub
 
-    Private Sub saveCat_Click(sender As Object, e As EventArgs) Handles saveCat.Click
+    Private Sub SaveCat_Click(sender As Object, e As EventArgs) Handles saveCat.Click
         Me.CategoriaTableAdapter.Insert(Guid.NewGuid, catdescripcio.Text)
         Panel3.Visible = False
         CategoriaCreate.IconChar = FontAwesome.Sharp.IconChar.PlusCircle
@@ -178,7 +180,7 @@ Public Class Empresa
             Me.CategoriaTableAdapter.Delete(ComboBox2.SelectedValue, ComboBox2.Text)
 
         Catch ex As Exception
-            Dim a = 0
+
         End Try
     End Sub
 

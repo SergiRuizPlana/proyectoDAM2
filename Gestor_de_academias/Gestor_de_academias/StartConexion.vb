@@ -4,7 +4,7 @@ Imports Microsoft.SqlServer.Management.Smo
 Public Class startconexion
 
     Public myConn As SqlConnection
-    Dim tryUseDB = "use gestio_empreses"
+    ReadOnly tryUseDB = "use gestio_empreses"
     Dim myCommand As SqlCommand
     Dim sqlServerName = "DESKTOP-LRLD5GA\SQLEXPRESS"
 
@@ -52,7 +52,7 @@ Public Class startconexion
         End Try
     End Sub
 
-    Private Sub startconexion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub Startconexion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Button2.PerformClick()
     End Sub
 End Class

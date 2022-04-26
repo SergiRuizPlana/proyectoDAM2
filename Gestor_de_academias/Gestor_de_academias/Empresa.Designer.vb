@@ -736,7 +736,6 @@ Partial Class Empresa
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.categoria_testTableAdapter = Nothing
         Me.TableAdapterManager.categoriaTableAdapter = Me.CategoriaTableAdapter
-        Me.TableAdapterManager.contracteTableAdapter = Nothing
         Me.TableAdapterManager.testTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = Gestor_de_academias.gestio_empresesDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
