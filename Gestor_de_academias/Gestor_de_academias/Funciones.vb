@@ -112,6 +112,8 @@ Module Funciones
                " GROUP BY e.cif, e.nom, e.adreca, e.telf, e.email, c.descripcio'" &
                " exec sp_executesql  @query" &
                " End"
+
+
             myCommand = New SqlCommand(str, myConn)
             myCommand.ExecuteNonQuery()
             MessageBox.Show("Nota par que funcionen los filtros de busqueda hay que reiniciar la aplicacion.", "Formulas", MessageBoxButtons.OK, MessageBoxIcon.Warning)

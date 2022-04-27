@@ -6,7 +6,7 @@ Public Class startconexion
     Public myConn As SqlConnection
     ReadOnly tryUseDB = "use gestio_empreses"
     Dim myCommand As SqlCommand
-    Dim sqlServerName = "DESKTOP-LRLD5GA\SQLEXPRESS"
+    Dim sqlServerName = "DESKTOP-ASGK7M9\SQLSERVER"
 
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click

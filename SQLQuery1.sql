@@ -43,10 +43,10 @@ descripcio VARCHAR(244) NOT NULL
 GO 
 
 CREATE TABLE test (
-codi_test INT PRIMARY KEY default NEWID(), 
+codi_test VARCHAR(30) PRIMARY KEY default NEWID(), 
 total_preg INT NOT NULL,
 cod_categoria varchar(30) REFERENCES categoria_test(cod_categoria),
-preu DECIMAL(3,2) NOT NULL,
+preu DECIMAL(8,2) NOT NULL,
 );
 
 GO 
@@ -60,7 +60,7 @@ fecha_ultima_modificaio date default  GETDATE()
 
 CREATE TABLE albara_test (
 num_albara INT REFERENCES albara(num_albara),
-codi_test INT REFERENCES test(codi_test),
+codi_test VARCHAR(30) REFERENCES test(codi_test),
 realitzat bit DEFAULT 0,
 PRIMARY KEY(num_albara, codi_test)
 );

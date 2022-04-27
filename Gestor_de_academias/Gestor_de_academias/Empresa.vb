@@ -207,4 +207,5 @@ Public Class Empresa
     Private Sub EditCat_Click(sender As Object, e As EventArgs) Handles EditCat.Click
         Panel3.Visible = True
     End Sub
+
 End Class
