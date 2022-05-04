@@ -29,9 +29,9 @@ Module Funciones
     End Sub
 
 
-    ''' <summary>
-    ''' Creacion de la database y los procedures de busqueda
-    ''' </summary>
+    '' <summary>
+    '' Creacion de la database y los procedures de busqueda
+    '' </summary>
     Sub CreateDatabase(ByVal sqlServerName)
         Dim str As String
 
@@ -50,16 +50,20 @@ Module Funciones
             myConn = New SqlConnection("Server=" & sqlServerName & ";" & "Initial Catalog=gestio_empreses;" & "Integrated Security = True")
             myConn.Open()
             str = "CREATE TABLE categoria (" &
-                " cod_categoria varchar(30) PRIMARY KEY default NEWID()," &
+                " cod_categoria uniqueidentifier PRIMARY KEY  default NEWID()" &
                 " descripcio VARCHAR(244) Not NULL" &
                 " );" &
                 " CREATE TABLE empresa (" &
-                " cif VARCHAR(30) PRIMARY KEY," &
-                " nom VARCHAR(30) Not NULL," &
+                " cif VARCHAR(15) PRIMARY KEY," &
+                " nom VARCHAR(30) NOT NULL," &
                 " adreca VARCHAR(50)," &
+                " cp VARCHAR(10)," &
+                " ciutat VARCHAR(30)," &
+                " regio VARCHAR(30)," &
+                " pais VARCHAR(30)," &
                 " telf VARCHAR(14) Not NULL," &
                 " email VARCHAR(50)," &
-                " cod_categoria varchar(30) REFERENCES categoria(cod_categoria)," &
+                " cod_categoria uniqueidentifier REFERENCES categoria(cod_categoria)," &
                  "fecha_ultima_modificaio date default  GETDATE()" &
                 " );" &
                 " CREATE TABLE contracte (" &
@@ -70,24 +74,24 @@ Module Funciones
                 "fecha_ultima_modificaio date default  GETDATE()" &
                 " );" &
                 " CREATE TABLE categoria_test (" &
-                " cod_categoria varchar(30) PRIMARY KEY default NEWID()," &
+                " cod_categoria uniqueidentifier PRIMARY KEY  default NEWID()," &
                 " descripcio VARCHAR(244) Not NULL" &
+                " tamany INT NOT NULL," &
+                " preu DECIMAL(6,2) NOT NULL" &
                 " ); " &
                 " CREATE TABLE test (" &
-                " codi_test Int PRIMARY KEY, " &
-                " total_preg Int Not NULL," &
-                " cod_categoria varchar(30) REFERENCES categoria_test(cod_categoria)," &
-                " preu Decimal(3, 2) Not NULL," &
+                " codi_test uniqueidentifier PRIMARY KEY default NEWID()," &
+                " cod_categoria uniqueidentifier  REFERENCES categoria_test(cod_categoria)" &
                 " );" &
                 " CREATE TABLE albara (" &
-                " num_albara Int PRIMARY KEY," &
-                " cif VARCHAR(30) REFERENCES empresa(cif)," &
-                " Data Date DEFAULT GETDATE()," &
-                "fecha_ultima_modificaio date default  GETDATE()" &
+                " num_albara varchar(30) PRIMARY KEY" &
+                " cif VARCHAR(15) REFERENCES empresa(cif)," &
+                " Data DATE DEFAULT GETDATE()," &
+                " fecha_ultima_modificaio date default  GETDATE()" &
                 " );" &
                 "CREATE TABLE albara_test (" &
-                " num_albara Int REFERENCES albara(num_albara)," &
-                " codi_test Int REFERENCES test(codi_test)," &
+                " num_albara varchar(30) REFERENCES albara(num_albara)," &
+                " codi_test uniqueidentifier REFERENCES test(codi_test)," &
                 " realitzat bit DEFAULT 0," &
                 " PRIMARY KEY(num_albara, codi_test)" &
                 " );"

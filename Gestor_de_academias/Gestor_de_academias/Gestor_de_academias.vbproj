@@ -172,6 +172,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
@@ -213,6 +214,11 @@
     <Compile Include="Contrato.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Gestio_empresesDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Gestio_empresesDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
     </Compile>
@@ -226,14 +232,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Funciones.vb" />
-    <Compile Include="gestio_empresesDataSet.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>gestio_empresesDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="gestio_empresesDataSet.vb">
-      <DependentUpon>gestio_empresesDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="StartConexion.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -291,16 +289,16 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="gestio_empresesDataSet.xsc">
-      <DependentUpon>gestio_empresesDataSet.xsd</DependentUpon>
+    <None Include="Gestio_empresesDataSet.xsc">
+      <DependentUpon>Gestio_empresesDataSet.xsd</DependentUpon>
     </None>
-    <None Include="gestio_empresesDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>gestio_empresesDataSet.Designer.vb</LastGenOutput>
+    <None Include="Gestio_empresesDataSet.xsd">
       <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Gestio_empresesDataSet.Designer.vb</LastGenOutput>
     </None>
-    <None Include="gestio_empresesDataSet.xss">
-      <DependentUpon>gestio_empresesDataSet.xsd</DependentUpon>
+    <None Include="Gestio_empresesDataSet.xss">
+      <DependentUpon>Gestio_empresesDataSet.xsd</DependentUpon>
     </None>
     <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
@@ -377,6 +375,9 @@
     <Content Include="webfonts\fa-brands-400.svg" />
     <Content Include="webfonts\fa-regular-400.svg" />
     <Content Include="webfonts\fa-solid-900.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.4.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.4.0\build\MaterialDesignThemes.targets')" />

@@ -37,11 +37,6 @@ Gestor_de_academias
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
-<member name="M:Gestor_de_academias.Funciones.CreateDatabase(System.Object)">
- <summary>
- Creacion de la database y los procedures de busqueda
- </summary>
-</member>
 <member name="T:Gestor_de_academias.gestio_empresesDataSet">
 <summary>
 Represents a strongly typed in-memory cache of data.

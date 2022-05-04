@@ -5,7 +5,7 @@ Public Class Empresa
     Dim insert = False
     Dim cifEmpresa = ""
     Dim catCreate = False
-    Private Sub Empresas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub Empresas_Load(sender As Object, e As EventArgs)
         'TODO: esta línea de código carga datos en la tabla 'Gestio_empresesDataSet.categoria' Puede moverla o quitarla según sea necesario.
         Me.CategoriaTableAdapter.Fill(Me.Gestio_empresesDataSet.categoria)
         'TODO: esta línea de código carga datos en la tabla 'Gestio_empresesDataSet.empresa' Puede moverla o quitarla según sea necesario.
@@ -21,7 +21,7 @@ Public Class Empresa
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles createEmpresa.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
 
         createLabel.Text = "Crear nueva Empresa"
         empresaCif.Text = ""
@@ -34,7 +34,7 @@ Public Class Empresa
         insert = True
     End Sub
 
-    Private Sub SearchEmp_Click(sender As Object, e As EventArgs) Handles searchEmp.Click
+    Private Sub SearchEmp_Click(sender As Object, e As EventArgs)
         Dim condicion = ""
         Try
             If cifEmpFilter.Text <> "" Then
@@ -86,7 +86,7 @@ Public Class Empresa
 
     End Sub
 
-    Private Sub SaveEmpresa_Click(sender As Object, e As EventArgs) Handles SaveEmpresa.Click
+    Private Sub SaveEmpresa_Click(sender As Object, e As EventArgs)
         Panel1.Visible = False
         Try
             If insert Then
@@ -101,11 +101,11 @@ Public Class Empresa
         End Try
     End Sub
 
-    Private Sub DataGridView1_Click(sender As Object, e As EventArgs) Handles DataGridView1.Click
+    Private Sub DataGridView1_Click(sender As Object, e As EventArgs)
         Panel1.Visible = False
     End Sub
 
-    Private Sub EditEmpresa_Click(sender As Object, e As EventArgs) Handles EditEmpresa.Click
+    Private Sub EditEmpresa_Click(sender As Object, e As EventArgs)
         Try
             Panel1.Visible = True
             cifEmpresa = DataGridView1.SelectedRows(0).Cells.Item(0).Value
@@ -132,11 +132,11 @@ Public Class Empresa
         End Try
     End Sub
 
-    Private Sub CancelEmpresa_Click(sender As Object, e As EventArgs) Handles CancelEmpresa.Click
+    Private Sub CancelEmpresa_Click(sender As Object, e As EventArgs)
         Panel1.Visible = False
     End Sub
 
-    Private Sub RestartFilterEmp_Click(sender As Object, e As EventArgs) Handles RestartFilterEmp.Click
+    Private Sub RestartFilterEmp_Click(sender As Object, e As EventArgs)
         Try
             cifEmpFilter.Text = ""
             nomEmpFilter.Text = ""
@@ -151,7 +151,7 @@ Public Class Empresa
 
     End Sub
 
-    Private Sub SaveCat_Click(sender As Object, e As EventArgs) Handles saveCat.Click
+    Private Sub SaveCat_Click(sender As Object, e As EventArgs)
         Me.CategoriaTableAdapter.Insert(Guid.NewGuid, catdescripcio.Text)
         Panel3.Visible = False
         CategoriaCreate.IconChar = FontAwesome.Sharp.IconChar.PlusCircle
@@ -161,7 +161,7 @@ Public Class Empresa
 
     End Sub
 
-    Private Sub IconButton1_Click(sender As Object, e As EventArgs) Handles CategoriaCreate.Click
+    Private Sub IconButton1_Click(sender As Object, e As EventArgs)
         If Not catCreate Then
             CategoriaCreate.IconChar = FontAwesome.Sharp.IconChar.TimesCircle
             CategoriaCreate.IconColor = Color.Red
@@ -175,7 +175,7 @@ Public Class Empresa
         End If
     End Sub
 
-    Private Sub IconButton1_Click_1(sender As Object, e As EventArgs) Handles IconButton1.Click
+    Private Sub IconButton1_Click_1(sender As Object, e As EventArgs)
         Try
             Me.CategoriaTableAdapter.Delete(ComboBox2.SelectedValue, ComboBox2.Text)
 
@@ -184,11 +184,11 @@ Public Class Empresa
         End Try
     End Sub
 
-    Private Sub ComboBox2_SelectedValueChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedValueChanged
+    Private Sub ComboBox2_SelectedValueChanged(sender As Object, e As EventArgs)
         TextBox1.Text = ComboBox2.Text
     End Sub
 
-    Private Sub IconButton2_Click(sender As Object, e As EventArgs) Handles IconButton2.Click
+    Private Sub IconButton2_Click(sender As Object, e As EventArgs)
         Try
             Me.CategoriaTableAdapter.UpdateQuery(TextBox1.Text, ComboBox2.SelectedValue)
             Me.CategoriaTableAdapter.Fill(Me.Gestio_empresesDataSet.categoria)
@@ -200,11 +200,11 @@ Public Class Empresa
 
     End Sub
 
-    Private Sub IconButton4_Click(sender As Object, e As EventArgs) Handles IconButton4.Click
+    Private Sub IconButton4_Click(sender As Object, e As EventArgs)
         Panel3.Visible = False
     End Sub
 
-    Private Sub EditCat_Click(sender As Object, e As EventArgs) Handles EditCat.Click
+    Private Sub EditCat_Click(sender As Object, e As EventArgs)
         Panel3.Visible = True
     End Sub
 

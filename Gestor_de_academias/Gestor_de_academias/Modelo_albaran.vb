@@ -1,5 +1,5 @@
 ﻿Public Class Modelo_albaran
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridAlbara.CellContentClick
 
     End Sub
 
