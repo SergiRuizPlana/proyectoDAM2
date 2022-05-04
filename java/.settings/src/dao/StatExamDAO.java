@@ -9,8 +9,28 @@ import model.StatExam;
 
 public class StatExamDAO {
 
+	public static boolean insertStatExam(String examId,String nif,int hits,int misses,int blank) {
+		String sqlComand="insert into statExam (id_exam,nif,hits,misses,blank) values (?,?,?,?,?)";
+		try {
+			Conection.openConnection();
+			PreparedStatement pstm = Conection.conn.prepareStatement(sqlComand);
+			pstm.setString(1, examId);
+			pstm.setString(2, nif);
+			pstm.setInt(3, hits);
+			pstm.setInt(4,misses );
+			pstm.setInt(5, blank);
+			pstm.executeUpdate();
+			pstm.close();
+			Conection.closeConnection();
+			return true;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+		return false;
+	}
 
-	public StatExam obtainByNifAndExam(String nif,String exam) {
+	public static StatExam obtainByNifAndExam(String nif,String exam) {
 		String sqlComand="select * from statExam where id_exam=? and nif=?";
 		StatExam statExam=null;
 		try {
@@ -18,7 +38,7 @@ public class StatExamDAO {
 			PreparedStatement pstm = Conection.conn.prepareStatement(sqlComand);
 			pstm.setString(1, exam);
 			pstm.setString(2, nif);
-			ResultSet r = pstm.executeQuery(sqlComand); 
+			ResultSet r = pstm.executeQuery(); 
 			if(r.next()) {
 				statExam=new StatExam(r.getString("id_exam"),r.getString("nif"), r.getInt("hits"), r.getInt("misses"), r.getInt("blank"), r.getDate("stat_date"));
 			}
@@ -34,7 +54,7 @@ public class StatExamDAO {
 
 
 
-	public ArrayList<StatExam> obtainAllStats() {
+	public static ArrayList<StatExam> obtainAllStats() {
 		ArrayList<StatExam>statExams=new ArrayList<>();
 		String sqlComand="select * from statExam";
 		StatExam statExam=null;
@@ -56,14 +76,14 @@ public class StatExamDAO {
 		return null;
 	}
 
-	public Double getStatsbyUser(String userId) {
+	public static Double getStatsbyUser(String userId) {
 		String sqlComand="select sum(hits),sum(hits+misses) from statExam where nif=? group by nif";
 		int totalQuestions=0,totalCorrect=0;
 		try {
 			Conection.openConnection();
 			PreparedStatement pstm = Conection.conn.prepareStatement(sqlComand);
 			pstm.setString(1, userId);
-			ResultSet r = pstm.executeQuery(sqlComand); 
+			ResultSet r = pstm.executeQuery(); 
 			if(r.next()) {
 				totalCorrect=r.getInt(1);
 				totalQuestions=r.getInt(2);
@@ -79,14 +99,14 @@ public class StatExamDAO {
 	}
 
 
-	public Double getStatsbyTopic(String topicId) {
-		String sqlComand="select sum(hits),sum(hits+misses) from statExam where id_topic=? group by id_topic";
-		int totalQuestions=0,totalCorrect=0;
+	public static Double getStatsbyTopic(String topicId) {
+		String sqlComand="select sum(hits),sum(hits+misses) from statExam s inner join exam e on e.id_exam=s.id_exam where id_topic=? group by id_topic";
+		int totalQuestions=1,totalCorrect=0;
 		try {
 			Conection.openConnection();
 			PreparedStatement pstm = Conection.conn.prepareStatement(sqlComand);
 			pstm.setString(1, topicId);
-			ResultSet r = pstm.executeQuery(sqlComand); 
+			ResultSet r = pstm.executeQuery(); 
 			if(r.next()) {
 				totalCorrect=r.getInt(1);
 				totalQuestions=r.getInt(2);
@@ -101,14 +121,14 @@ public class StatExamDAO {
 		return 0.0;
 	}
 
-	public int getTotalExams(String userId) {
+	public static int getTotalExams(String nif) {
 		String sqlComand="select count(nif) from statExam where nif=? ";
 		int totalExams=0;
 		try {
 			Conection.openConnection();
 			PreparedStatement pstm = Conection.conn.prepareStatement(sqlComand);
-			pstm.setString(1, userId);
-			ResultSet r = pstm.executeQuery(sqlComand); 
+			pstm.setString(1, nif);
+			ResultSet r = pstm.executeQuery(); 
 			if(r.next()) {
 				totalExams=r.getInt(1);
 			}

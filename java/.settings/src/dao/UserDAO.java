@@ -8,6 +8,7 @@ import java.util.TreeMap;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import model.User;
 import model.UserFx;
 
 public class UserDAO {
@@ -27,7 +28,7 @@ public class UserDAO {
 			stm = Conection.conn.createStatement();
 			ResultSet r = stm.executeQuery(sqlComand); 
 			while(r.next()) {
-				UserFx ufx = new UserFx(r.getString("nif"),r.getString("fname"),r.getString("lname"),r.getString("userName"),r.getString("address"),r.getString("city"),r.getString("zip"),r.getString("phone"),r.getString("psswd"),r.getString("role"));
+				UserFx ufx = new UserFx(r.getString("nif"),r.getString("fname"),r.getString("lname"),r.getString("userName"),r.getString("address"),r.getString("city"),r.getString("zip"),r.getString("phone"),r.getString("email") ,r.getString("psswd"),r.getString("role"));
 				resultado.add(ufx);
 
 			}
@@ -73,35 +74,46 @@ public class UserDAO {
 	 * 
 	 */
 
-	public static ObservableList<UserFx> searchByNif() {
+	public static ObservableList<UserFx> searchByNif(String nif) {
 
 		ObservableList<UserFx> resultado=  FXCollections.observableArrayList();
-		String sqlComand= "select * from usr";
-		Statement stm;
+		String sqlComand= "select * from usr where nif like ? ";
+
 		try {
 			Conection.openConnection();
-			stm = Conection.conn.createStatement();
-			ResultSet r = stm.executeQuery(sqlComand); 
+			PreparedStatement	stm = Conection.conn.prepareStatement(sqlComand);
+			stm.setString(1,"%"+nif+"%");
+			ResultSet r = stm.executeQuery();
 			while(r.next()) {
-				UserFx ufx = new  UserFx(r.getString("nif"),r.getString("fname"),r.getString("lname"),r.getString("userName"),r.getString("address"),r.getString("city"),r.getString("zip"),r.getString("phone"),r.getString("psswd"),r.getString("role"));
+				UserFx ufx = new  UserFx(r.getString("nif"),r.getString("fname"),r.getString("lname"),r.getString("userName"),r.getString("address"),r.getString("city"),r.getString("zip"),r.getString("phone"),r.getString("email") ,r.getString("psswd"),r.getString("role"));
 				resultado.add(ufx);
 			}
 			stm.close();
 			r.close();
 			Conection.closeConnection();
+			return resultado;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return resultado;
+		return null;
 	}
 
-	public boolean insertUser(String role,String[] userData) {
+	
+	/***
+	 * 
+	 * @param role: the role of current user
+	 * @param userData array of all user info (nif, username, fname, lname, address, city, zip, phone, psswd) IN THIS ORDER!!
+	 * @return true: if the user was created successfully 
+	 * 					false: if the user was not created
+	 */
+	
+	public static boolean insertUser(String role,String[] userData) {
 		String sqlComand="";
 		if(role.equalsIgnoreCase("ADMIN")) {
-			sqlComand="insert into usr('nif','userName','fname','lname','address','city','zip','phone','psswd','role') values(?,?,?,?,?,?,?,?,?,'TEACHER')";		
+			sqlComand="insert into usr(nif,userName,fname,lname,address,city,zip,phone,psswd,role) values(?,?,?,?,?,?,?,?,?,'TEACHER')";		
 		}else {
-			sqlComand="insert into usr('nif','userName','fname','lname','address','city','zip','phone','psswd','role') values(?,?,?,?,?,?,?,?,?,'STUDENT')";	
+			sqlComand="insert into usr(nif,userName,fname,lname,address,city,zip,phone,psswd,role) values(?,?,?,?,?,?,?,?,?,'STUDENT')";	
 		}
 
 		try {
@@ -121,14 +133,15 @@ public class UserDAO {
 			Conection.closeConnection();
 			return true;
 		} catch (Exception e) {
+			e.printStackTrace();
 			return false;
 		}
-
+	
 	}
 
-	public UserFx checkCredentials(String userName,String psswd) {
+	public static User checkCredentials(String userName,String psswd) {
 		String sqlComand="select * from usr where userName=? and psswd=?";
-		UserFx usr=null;
+		User usr=null;
 		try {
 			Conection.openConnection();
 			PreparedStatement pstm =Conection.conn.prepareStatement(sqlComand);
@@ -136,7 +149,7 @@ public class UserDAO {
 			pstm.setString(2, psswd);
 			ResultSet r =pstm.executeQuery();
 			if(r.next()) {
-				usr = new UserFx(r.getString("nif"),r.getString("fname"),r.getString("lname"),r.getString("userName"),r.getString("address"),r.getString("city"),r.getString("zip"),r.getString("phone"),r.getString("psswd"),r.getString("role"));
+				usr = new User(r.getString("nif"),r.getString("fname"),r.getString("lname"),r.getString("userName"),r.getString("address"),r.getString("city"),r.getString("zip"),r.getString("phone"),r.getString("psswd"),r.getString("role"));
 			}
 			pstm.close();
 			Conection.closeConnection();
@@ -149,12 +162,14 @@ public class UserDAO {
 	}
 	
 	
-	public boolean changePasswd(String username, String passwd) {
-		String sqlComand="update usr set psswd=?";		
+	
+	public static boolean changePasswd(String username, String passwd) {
+		String sqlComand="update usr set psswd=? where userName=?";		
 		try {
 			Conection.openConnection();
 			PreparedStatement pstm= Conection.conn.prepareStatement(sqlComand);
 			pstm.setString(1,passwd );
+			pstm.setString(2,username );
 			pstm.executeUpdate();
 			pstm.close();
 			Conection.closeConnection();
@@ -164,9 +179,14 @@ public class UserDAO {
 		}
 	}
 	
-	public boolean updateUser(String[] userInfo) {
-		
-		String sqlComand="upadte usr set nif=?,userName=?,fname=?,lname=?,address=?,city=?,zip=?,phone=?";		
+	/***
+	 * 
+	 * @param userInfo 
+	 * @return
+	 */
+	
+	public  static boolean updateUser(String[] userInfo,String userName) {
+		String sqlComand="update usr set nif=?,userName=?,fname=?,lname=?,address=?,city=?,zip=?,phone=? where userName=?";		
 		try {
 			Conection.openConnection();
 			PreparedStatement pstm= Conection.conn.prepareStatement(sqlComand);
@@ -178,6 +198,7 @@ public class UserDAO {
 			pstm.setString(6,userInfo[5] );
 			pstm.setString(7,userInfo[6] );
 			pstm.setString(8,userInfo[7] );
+			pstm.setString(9,userName );
 			pstm.executeUpdate();
 			pstm.close();
 			Conection.closeConnection();

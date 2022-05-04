@@ -7,19 +7,21 @@ public class User {
 	private String nif;
 	private String fname;
 	private String lname;
+	private String userName;
 	private String adress;
 	private String city;
 	private String zip;
 	private String phone;
 	private String psswd;
-	private Role role;
+	private String role;
 
-	public User(String nif, String fname, String lname, String adress, String city, String zip, String phone,
-			String psswd, Role role) {
+	public User(String nif, String fname, String lname,String userName, String adress, String city, String zip, String phone,
+			String psswd, String role) {
 		super();
 		this.nif = nif;
 		this.fname = fname;
 		this.lname = lname;
+		this.userName=userName;
 		this.adress = adress;
 		this.city = city;
 		this.zip = zip;
@@ -64,6 +66,14 @@ public class User {
 		return city;
 	}
 
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
 	public void setCity(String city) {
 		this.city = city;
 	}
@@ -92,20 +102,22 @@ public class User {
 		this.psswd = psswd;
 	}
 
-	public Role getRole() {
+	public String getRole() {
 		return role;
 	}
 
-	public void setRole(Role role) {
+	public void setRole(String role) {
 		this.role = role;
 	}
 
+
 	@Override
 	public String toString() {
-		return "User [nif=" + nif + ", fname=" + fname + ", lname=" + lname + ", adress=" + adress + ", city=" + city
-				+ ", zip=" + zip + ", phone=" + phone + ", psswd=" + psswd + ", role=" + role + "]";
+		return "User [nif=" + nif + ", fname=" + fname + ", lname=" + lname + ", userName=" + userName + ", adress="
+				+ adress + ", city=" + city + ", zip=" + zip + ", phone=" + phone + ", psswd=" + psswd + ", role="
+				+ role + "]";
 	}
-	
+
 	public String getFullName() {
 		return fname +" "+ lname;
 	}

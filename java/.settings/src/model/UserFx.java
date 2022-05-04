@@ -14,13 +14,14 @@ public class UserFx {
 	private StringProperty lname = new SimpleStringProperty();
 	private StringProperty adress = new SimpleStringProperty();
 	private StringProperty city = new SimpleStringProperty();
+	private StringProperty email=new SimpleStringProperty();
 	private StringProperty zip = new SimpleStringProperty();
 	private StringProperty phone= new SimpleStringProperty();
 	private StringProperty psswd= new SimpleStringProperty();
 	private StringProperty role= new SimpleStringProperty();
 	
 	public UserFx(String nif, String fname, String lname, String userName, String adress,
-			String city, String zip, String phone, String psswd, String role) {
+			String city, String zip, String phone,String email, String psswd, String role) {
 		super();
 		this.nif = new SimpleStringProperty(nif);
 		this.fname = new SimpleStringProperty(fname);
@@ -30,6 +31,7 @@ public class UserFx {
 		this.city = new SimpleStringProperty(city);
 		this.zip = new SimpleStringProperty(zip);
 		this.phone = new SimpleStringProperty(phone);
+		this.email = new SimpleStringProperty(email);
 		this.psswd = new SimpleStringProperty(psswd);
 		this.role = new SimpleStringProperty(role);
 	}
@@ -185,6 +187,32 @@ public class UserFx {
 	public final void setUserName(final String userName) {
 		this.userNameProperty().set(userName);
 	}
+
+
+	@Override
+	public String toString() {
+		return "\nUserFx [nif=" + nif + ", fname=" + fname + ", userName=" + userName + ", lname=" + lname + ", adress="
+				+ adress + ", city=" + city + ", zip=" + zip + ", phone=" + phone +". email"+email+ ", psswd=" + psswd + ", role="
+				+ role + "]";
+	}
+
+
+	public final StringProperty emailProperty() {
+		return this.email;
+	}
+	
+
+
+	public final String getEmail() {
+		return this.emailProperty().get();
+	}
+	
+
+
+	public final void setEmail(final String email) {
+		this.emailProperty().set(email);
+	}
+	
 	
 	
 

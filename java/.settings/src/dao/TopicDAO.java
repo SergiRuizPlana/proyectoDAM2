@@ -90,5 +90,26 @@ public class TopicDAO {
 		return false;
 	}
 	
+	
+	public static Topic getById(String topicId) {
+		String sqlComand="select * from topic where id_topic=?";
+		Topic topic=null;
+		try {
+			Conection.openConnection();
+			PreparedStatement pstm = Conection.conn.prepareStatement(sqlComand);
+			pstm.setString(1, topicId);
+			ResultSet  r = pstm.executeQuery(); 
+			if(r.next()) {
+				topic=new Topic(r.getString("id_topic"), r.getString("description"));
+			}
+			pstm.close();
+			Conection.closeConnection();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return topic;
+	}
+	
 
 }

@@ -59,6 +59,13 @@ public class StatQuestion {
 	}
 
 
+	@Override
+	public String toString() {
+		return "StatQuestion [questionId=" + questionId + ", total_hits=" + total_hits + ", total_misses="
+				+ total_misses + ", total_blank=" + total_blank + "]";
+	}
+
+
 
 
 

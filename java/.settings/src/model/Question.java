@@ -93,6 +93,13 @@ public class Question {
 		this.answer4 = answer4;
 	}
 
+	@Override
+	public String toString() {
+		return "Question [id_question=" + id_question + ", question=" + question + ", answer1=" + answer1 + ", answer2="
+				+ answer2 + ", answer3=" + answer3 + ", answer4=" + answer4 + ", correctanswer=" + correctanswer
+				+ ", topic=" + topic + "]";
+	}
+
 	
 
 

@@ -1,18 +1,32 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Exam {
 	
 	private String id;
-	private String topic;
+	private Topic topic;
 	private String description;
-	private int n_questions;
+	private List<Question> questions=new ArrayList<>();
 	
-	public Exam(String id, String topic, String description, int n_questions) {
+	public Exam(String id, String Topic, String description) {
 		super();
 		this.id = id;
 		this.topic = topic;
 		this.description = description;
-		this.n_questions = n_questions;
+	}
+	
+	public Exam(String id, String description) {
+		super();
+		this.id = id;
+		this.description = description;
+	}
+	
+	public Exam(Topic topic, String description) {
+		super();
+		this.topic = topic;
+		this.description = description;
 	}
 
 	public String getId() {
@@ -23,11 +37,11 @@ public class Exam {
 		this.id = id;
 	}
 
-	public String getTopic() {
+	public Topic getTopic() {
 		return topic;
 	}
 
-	public void setTopic(String topic) {
+	public void setTopic(Topic topic) {
 		this.topic = topic;
 	}
 
@@ -39,17 +53,23 @@ public class Exam {
 		this.description = description;
 	}
 
-	public int getN_questions() {
-		return n_questions;
+	
+
+	public List<Question> getQuestions() {
+		return questions;
 	}
 
-	public void setN_questions(int n_questions) {
-		this.n_questions = n_questions;
+	public void setQuestions(List<Question> questions) {
+		this.questions = questions;
+	}
+	
+	public void addQuestions(Question question) {
+		this.questions.add(question);
 	}
 
 	@Override
 	public String toString() {
-		return "Exam [ description=" + description  + ", Topic=" + topic+ ",  num_questions"+n_questions+" ]";
+		return "Exam [ description=" + description  + ", Topic=" + topic+ ",  num_questions"+" ]";
 	}
 	
 	
