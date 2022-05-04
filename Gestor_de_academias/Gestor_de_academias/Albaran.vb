@@ -32,7 +32,7 @@ Public Class Albaran
 
     Private Sub Albaran_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'Gestio_empresesDataSet.empresa' Puede moverla o quitarla según sea necesario.
-        Me.EmpresaTableAdapter1.Fill(Me.Gestio_empresesDataSet.empresa)
+        Me.EmpresaTableAdapter1.Fill(Me.Gestio_empresesDataSet1.empresa)
 
 
         OpenForm(Modelo_albaran)
@@ -89,6 +89,13 @@ Public Class Albaran
     Private Sub ComboBoxSearchEmpAlbara_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxSearchEmpAlbara.SelectedIndexChanged
 
         If ComboBoxSearchEmpAlbara.SelectedIndex > -1 Then
+
+            'Me.EmpresaTableAdapter1.Fill(Me.Gestio_empresesDataSet1.empresa)
+            'Modelo_albaran.lblEmpresa.Text = Me.Gestio_empresesDataSet1.empresa.Rows(0)("nom")
+
+
+
+
             nom = Me.EmpresaTableAdapter1.GetNom(ComboBoxSearchEmpAlbara.Text)
             cif = Me.EmpresaTableAdapter1.GetCif(ComboBoxSearchEmpAlbara.Text)
             adreca = Me.EmpresaTableAdapter1.GetAddress(ComboBoxSearchEmpAlbara.Text)
@@ -160,14 +167,14 @@ Public Class Albaran
         Dim basetotal As Decimal
         Dim ivafinal As Decimal
         If TextBoxInsertQtyTest.Text.Length > 0 Then
-            codi_c = Me.Categoria_testTableAdapter.GetCodCategoria(ComboBoxCategoriaTest.Text).ToString
+            codi_c = Me.Categoria_testTableAdapter1.GetCodCategoria(ComboBoxCategoriaTest.Text).ToString
             codcat = codi_c.ToCharArray
             desc_c = ComboBoxCategoriaTest.Text.ToCharArray
             codi_producte = desc_c(0).ToString.ToUpper & desc_c(1).ToString.ToUpper & desc_c(2).ToString.ToUpper & "-" & codcat(0).ToString.ToUpper & codcat(1).ToString.ToUpper & codcat(2).ToString.ToUpper & codcat(3).ToString.ToUpper & codcat(4).ToString.ToUpper
-            descompte = ((Me.Categoria_testTableAdapter.GetPreu(ComboBoxCategoriaTest.Text, ComboBoxTamanyTest.Text) * TextBoxInsertQtyTest.Text) * TextBoxDiscountAlb.Text) / 100
-            basetotal = (TextBoxInsertQtyTest.Text * Me.Categoria_testTableAdapter.GetPreu(ComboBoxCategoriaTest.Text, ComboBoxTamanyTest.Text).ToString) - descompte
+            descompte = ((Me.Categoria_testTableAdapter1.GetPreu(ComboBoxCategoriaTest.Text, ComboBoxTamanyTest.Text) * TextBoxInsertQtyTest.Text) * TextBoxDiscountAlb.Text) / 100
+            basetotal = (TextBoxInsertQtyTest.Text * Me.Categoria_testTableAdapter1.GetPreu(ComboBoxCategoriaTest.Text, ComboBoxTamanyTest.Text).ToString) - descompte
             ivafinal = (basetotal * TextBoxIVAAlb.Text) / 100
-            Modelo_albaran.DataGridAlbara.Rows.Add(codi_producte, TextBoxInsertQtyTest.Text, Me.Categoria_testTableAdapter.GetPreu(ComboBoxCategoriaTest.Text, ComboBoxTamanyTest.Text).ToString, TextBoxDiscountAlb.Text, Decimal.Round(basetotal, 2), TextBoxIVAAlb.Text, Decimal.Round(ivafinal, 2))
+            Modelo_albaran.DataGridAlbara.Rows.Add(codi_producte, TextBoxInsertQtyTest.Text, Me.Categoria_testTableAdapter1.GetPreu(ComboBoxCategoriaTest.Text, ComboBoxTamanyTest.Text).ToString, TextBoxDiscountAlb.Text, Decimal.Round(basetotal, 2), TextBoxIVAAlb.Text, Decimal.Round(ivafinal, 2))
 
         Else
             ErrorProvider1.SetError(TextBoxInsertQtyTest, "Inserta una quantitat")
@@ -193,7 +200,7 @@ Public Class Albaran
 
     Private Sub FillBy1ToolStripButton_Click(sender As Object, e As EventArgs)
         Try
-            Me.Categoria_testTableAdapter.FillBy1(Me.Gestio_empresesDataSet.categoria_test)
+            Me.Categoria_testTableAdapter1.FillBy1(Me.Gestio_empresesDataSet1.categoria_test)
         Catch ex As System.Exception
             System.Windows.Forms.MessageBox.Show(ex.Message)
         End Try

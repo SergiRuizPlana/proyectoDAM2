@@ -188,3 +188,4 @@ C:\Users\PC-Dell\Documents\proyectoDAM2\Gestor_de_academias\Gestor_de_academias\
 C:\Users\PC-Dell\Documents\proyectoDAM2\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.xml
 C:\Users\PC-Dell\Documents\proyectoDAM2\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.pdb
 C:\Users\PC-Dell\Documents\proyectoDAM2\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.Modelo_albaran.resources
+C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.Modelo_albaran.resources

@@ -62,6 +62,10 @@ Partial Class Albaran
         Me.SearchQtyTestAlb = New FontAwesome.Sharp.IconButton()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.CategoriaTableAdapter1 = New Gestor_de_academias.Gestio_empresesDataSetTableAdapters.categoriaTableAdapter()
+        Me.Categoria_testTableAdapter1 = New Gestor_de_academias.Gestio_empresesDataSetTableAdapters.categoria_testTableAdapter()
+        Me.EmpresaTableAdapter1 = New Gestor_de_academias.Gestio_empresesDataSetTableAdapters.empresaTableAdapter()
+        Me.Gestio_empresesDataSet1 = New Gestor_de_academias.Gestio_empresesDataSet()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridAlbara, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel0.SuspendLayout()
@@ -69,6 +73,7 @@ Partial Class Albaran
         Me.GroupBoxBuscarEmpresa.SuspendLayout()
         Me.GroupBoxQtyTests.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Gestio_empresesDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -328,6 +333,7 @@ Partial Class Albaran
         'ComboBoxSearchEmpAlbara
         '
         Me.ComboBoxSearchEmpAlbara.BackColor = System.Drawing.Color.LightBlue
+        Me.ComboBoxSearchEmpAlbara.DisplayMember = "cif"
         Me.ComboBoxSearchEmpAlbara.FormattingEnabled = True
         Me.ComboBoxSearchEmpAlbara.Location = New System.Drawing.Point(6, 50)
         Me.ComboBoxSearchEmpAlbara.Name = "ComboBoxSearchEmpAlbara"
@@ -508,6 +514,23 @@ Partial Class Albaran
         '
         Me.ErrorProvider1.ContainerControl = Me
         '
+        'CategoriaTableAdapter1
+        '
+        Me.CategoriaTableAdapter1.ClearBeforeFill = True
+        '
+        'Categoria_testTableAdapter1
+        '
+        Me.Categoria_testTableAdapter1.ClearBeforeFill = True
+        '
+        'EmpresaTableAdapter1
+        '
+        Me.EmpresaTableAdapter1.ClearBeforeFill = True
+        '
+        'Gestio_empresesDataSet1
+        '
+        Me.Gestio_empresesDataSet1.DataSetName = "Gestio_empresesDataSet"
+        Me.Gestio_empresesDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'Albaran
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -529,6 +552,7 @@ Partial Class Albaran
         Me.GroupBoxQtyTests.ResumeLayout(False)
         Me.GroupBoxQtyTests.PerformLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Gestio_empresesDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -572,4 +596,8 @@ Partial Class Albaran
     Friend WithEvents Label10 As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents ComboBoxTamanyTest As ComboBox
+    Friend WithEvents CategoriaTableAdapter1 As Gestio_empresesDataSetTableAdapters.categoriaTableAdapter
+    Friend WithEvents Categoria_testTableAdapter1 As Gestio_empresesDataSetTableAdapters.categoria_testTableAdapter
+    Friend WithEvents EmpresaTableAdapter1 As Gestio_empresesDataSetTableAdapters.empresaTableAdapter
+    Friend WithEvents Gestio_empresesDataSet1 As Gestio_empresesDataSet
 End Class
