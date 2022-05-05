@@ -17,6 +17,29 @@
    <children>
       <StackPane prefHeight="150.0" prefWidth="200.0">
          <children>
+            <AnchorPane fx:id="showStudentsPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #A4D792;">
+               <children>
+                  <ToolBar prefHeight="40.0" prefWidth="985.0" AnchorPane.rightAnchor="0.0">
+                     <items>
+                        <Button fx:id="showStudentBtn" mnemonicParsing="false" text="ver Alumnos" />
+                        <Button fx:id="createStudentBtn" mnemonicParsing="false" text="Crear nuevo" />
+                        <Button mnemonicParsing="false" text="Button" />
+                     </items>
+                  </ToolBar>
+                  <TableView fx:id="studentsList" layoutX="14.0" layoutY="54.0" prefHeight="535.0" prefWidth="956.0">
+                     <columns>
+                        <TableColumn fx:id="fnameCol" prefWidth="75.0" text="Nom" />
+                        <TableColumn fx:id="lnameCol" prefWidth="75.0" text="Cognom" />
+                        <TableColumn fx:id="nifCol" prefWidth="75.0" text="nif" />
+                        <TableColumn fx:id="phoneCol" prefWidth="75.0" text="telefon" />
+                        <TableColumn fx:id="emailCol" prefWidth="75.0" text="correo" />
+                        <TableColumn fx:id="addresCol" prefWidth="75.0" text="adreça" />
+                        <TableColumn fx:id="cityCol" prefWidth="75.0" text="ciutat" />
+                        <TableColumn fx:id="editCol" prefWidth="75.0" />
+                     </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
                   <ToolBar prefHeight="40.0" prefWidth="985.0">
@@ -101,29 +124,6 @@
                         <Font name="Caladea" size="16.0" />
                      </font>
                   </Text>
-               </children>
-            </AnchorPane>
-            <AnchorPane fx:id="showStudentsPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #A4D792;">
-               <children>
-                  <ToolBar prefHeight="40.0" prefWidth="985.0" AnchorPane.rightAnchor="0.0">
-                     <items>
-                        <Button fx:id="showStudentBtn" mnemonicParsing="false" text="ver Alumnos" />
-                        <Button fx:id="createStudentBtn" mnemonicParsing="false" text="Crear nuevo" />
-                        <Button mnemonicParsing="false" text="Button" />
-                     </items>
-                  </ToolBar>
-                  <TableView fx:id="studentsList" layoutX="14.0" layoutY="54.0" prefHeight="535.0" prefWidth="956.0">
-                     <columns>
-                        <TableColumn fx:id="fnameCol" prefWidth="75.0" text="Nom" />
-                        <TableColumn fx:id="lnameCol" prefWidth="75.0" text="Cognom" />
-                        <TableColumn fx:id="nifCol" prefWidth="75.0" text="nif" />
-                        <TableColumn fx:id="phoneCol" prefWidth="75.0" text="telefon" />
-                        <TableColumn fx:id="emailCol" prefWidth="75.0" text="correo" />
-                        <TableColumn fx:id="addresCol" prefWidth="75.0" text="adreça" />
-                        <TableColumn fx:id="cityCol" prefWidth="75.0" text="ciutat" />
-                        <TableColumn fx:id="editCol" prefWidth="75.0" />
-                     </columns>
-                  </TableView>
                </children>
             </AnchorPane>
          </children>
