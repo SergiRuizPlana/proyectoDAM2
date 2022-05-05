@@ -28,17 +28,19 @@ Partial Class Contrato
         Me.IconButton3 = New FontAwesome.Sharp.IconButton()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.CodecontracteDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.EmpresaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DatainiciDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TestsmensualsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ContracteBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Gestio_empresesDataSet = New Gestor_de_academias.gestio_empresesDataSet()
+        Me.Gestio_empresesDataSet = New Gestor_de_academias.Gestio_empresesDataSet()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ContracteTableAdapter = New Gestor_de_academias.gestio_empresesDataSetTableAdapters.contracteTableAdapter()
+        Me.ContracteTableAdapter = New Gestor_de_academias.Gestio_empresesDataSetTableAdapters.contracteTableAdapter()
+        Me.CodcontracteDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CifDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DatainiciDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TestsmensualsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FechaultimamodificaioDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ContracteBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -48,8 +50,6 @@ Partial Class Contrato
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(96, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(251, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.IconButton1)
-        Me.Panel1.Controls.Add(Me.IconButton3)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.DataGridView1)
         Me.Panel1.Controls.Add(Me.Panel4)
@@ -58,7 +58,7 @@ Partial Class Contrato
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Location = New System.Drawing.Point(12, 76)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1423, 546)
+        Me.Panel1.Size = New System.Drawing.Size(685, 552)
         Me.Panel1.TabIndex = 0
         '
         'IconButton1
@@ -75,7 +75,7 @@ Partial Class Contrato
         Me.IconButton1.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconButton1.IconSize = 40
         Me.IconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.IconButton1.Location = New System.Drawing.Point(251, 285)
+        Me.IconButton1.Location = New System.Drawing.Point(12, 30)
         Me.IconButton1.Name = "IconButton1"
         Me.IconButton1.Size = New System.Drawing.Size(206, 40)
         Me.IconButton1.TabIndex = 8
@@ -97,7 +97,7 @@ Partial Class Contrato
         Me.IconButton3.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconButton3.IconSize = 35
         Me.IconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.IconButton3.Location = New System.Drawing.Point(34, 285)
+        Me.IconButton3.Location = New System.Drawing.Point(224, 30)
         Me.IconButton3.Name = "IconButton3"
         Me.IconButton3.Size = New System.Drawing.Size(206, 40)
         Me.IconButton3.TabIndex = 7
@@ -110,10 +110,10 @@ Partial Class Contrato
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Label2.Font = New System.Drawing.Font("Reem Kufi", 14.25!)
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!)
         Me.Label2.Location = New System.Drawing.Point(88, 130)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(203, 36)
+        Me.Label2.Size = New System.Drawing.Size(204, 24)
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "No hi ha cap contracte!"
         Me.Label2.Visible = False
@@ -122,37 +122,12 @@ Partial Class Contrato
         '
         Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CodecontracteDataGridViewTextBoxColumn, Me.EmpresaDataGridViewTextBoxColumn, Me.DatainiciDataGridViewTextBoxColumn, Me.TestsmensualsDataGridViewTextBoxColumn})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CodcontracteDataGridViewTextBoxColumn, Me.CifDataGridViewTextBoxColumn, Me.DatainiciDataGridViewTextBoxColumn, Me.TestsmensualsDataGridViewTextBoxColumn, Me.FechaultimamodificaioDataGridViewTextBoxColumn})
         Me.DataGridView1.DataSource = Me.ContracteBindingSource
         Me.DataGridView1.Location = New System.Drawing.Point(50, 86)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(474, 115)
+        Me.DataGridView1.Size = New System.Drawing.Size(543, 218)
         Me.DataGridView1.TabIndex = 3
-        '
-        'CodecontracteDataGridViewTextBoxColumn
-        '
-        Me.CodecontracteDataGridViewTextBoxColumn.DataPropertyName = "Code_contracte"
-        Me.CodecontracteDataGridViewTextBoxColumn.HeaderText = "Code_contracte"
-        Me.CodecontracteDataGridViewTextBoxColumn.Name = "CodecontracteDataGridViewTextBoxColumn"
-        '
-        'EmpresaDataGridViewTextBoxColumn
-        '
-        Me.EmpresaDataGridViewTextBoxColumn.DataPropertyName = "Empresa"
-        Me.EmpresaDataGridViewTextBoxColumn.HeaderText = "Empresa"
-        Me.EmpresaDataGridViewTextBoxColumn.Name = "EmpresaDataGridViewTextBoxColumn"
-        Me.EmpresaDataGridViewTextBoxColumn.Width = 130
-        '
-        'DatainiciDataGridViewTextBoxColumn
-        '
-        Me.DatainiciDataGridViewTextBoxColumn.DataPropertyName = "Data_inici"
-        Me.DatainiciDataGridViewTextBoxColumn.HeaderText = "Data_inici"
-        Me.DatainiciDataGridViewTextBoxColumn.Name = "DatainiciDataGridViewTextBoxColumn"
-        '
-        'TestsmensualsDataGridViewTextBoxColumn
-        '
-        Me.TestsmensualsDataGridViewTextBoxColumn.DataPropertyName = "Tests_mensuals"
-        Me.TestsmensualsDataGridViewTextBoxColumn.HeaderText = "Tests_mensuals"
-        Me.TestsmensualsDataGridViewTextBoxColumn.Name = "TestsmensualsDataGridViewTextBoxColumn"
         '
         'ContracteBindingSource
         '
@@ -169,15 +144,15 @@ Partial Class Contrato
         Me.Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(96, Byte), Integer), CType(CType(150, Byte), Integer), CType(CType(251, Byte), Integer))
         Me.Panel4.Location = New System.Drawing.Point(34, 67)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(10, 181)
+        Me.Panel4.Size = New System.Drawing.Size(10, 253)
         Me.Panel4.TabIndex = 2
         '
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(96, Byte), Integer), CType(CType(150, Byte), Integer), CType(CType(251, Byte), Integer))
-        Me.Panel3.Location = New System.Drawing.Point(34, 238)
+        Me.Panel3.Location = New System.Drawing.Point(34, 310)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1386, 13)
+        Me.Panel3.Size = New System.Drawing.Size(584, 13)
         Me.Panel3.TabIndex = 2
         '
         'Panel2
@@ -192,23 +167,63 @@ Partial Class Contrato
         '
         Me.Label1.AutoSize = True
         Me.Label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Label1.Font = New System.Drawing.Font("Reem Kufi", 14.25!)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!)
         Me.Label1.Location = New System.Drawing.Point(33, 28)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(258, 36)
+        Me.Label1.Size = New System.Drawing.Size(156, 24)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Ultims Contractes modificats:"
+        Me.Label1.Text = "Últims contractes:"
         '
         'ContracteTableAdapter
         '
         Me.ContracteTableAdapter.ClearBeforeFill = True
+        '
+        'CodcontracteDataGridViewTextBoxColumn
+        '
+        Me.CodcontracteDataGridViewTextBoxColumn.DataPropertyName = "cod_contracte"
+        Me.CodcontracteDataGridViewTextBoxColumn.HeaderText = "cod_contracte"
+        Me.CodcontracteDataGridViewTextBoxColumn.Name = "CodcontracteDataGridViewTextBoxColumn"
+        '
+        'CifDataGridViewTextBoxColumn
+        '
+        Me.CifDataGridViewTextBoxColumn.DataPropertyName = "cif"
+        Me.CifDataGridViewTextBoxColumn.HeaderText = "cif"
+        Me.CifDataGridViewTextBoxColumn.Name = "CifDataGridViewTextBoxColumn"
+        '
+        'DatainiciDataGridViewTextBoxColumn
+        '
+        Me.DatainiciDataGridViewTextBoxColumn.DataPropertyName = "data_inici"
+        Me.DatainiciDataGridViewTextBoxColumn.HeaderText = "data_inici"
+        Me.DatainiciDataGridViewTextBoxColumn.Name = "DatainiciDataGridViewTextBoxColumn"
+        '
+        'TestsmensualsDataGridViewTextBoxColumn
+        '
+        Me.TestsmensualsDataGridViewTextBoxColumn.DataPropertyName = "tests_mensuals"
+        Me.TestsmensualsDataGridViewTextBoxColumn.HeaderText = "tests_mensuals"
+        Me.TestsmensualsDataGridViewTextBoxColumn.Name = "TestsmensualsDataGridViewTextBoxColumn"
+        '
+        'FechaultimamodificaioDataGridViewTextBoxColumn
+        '
+        Me.FechaultimamodificaioDataGridViewTextBoxColumn.DataPropertyName = "fecha_ultima_modificaio"
+        Me.FechaultimamodificaioDataGridViewTextBoxColumn.HeaderText = "fecha_ultima_modificaio"
+        Me.FechaultimamodificaioDataGridViewTextBoxColumn.Name = "FechaultimamodificaioDataGridViewTextBoxColumn"
+        '
+        'Panel5
+        '
+        Me.Panel5.Location = New System.Drawing.Point(890, 12)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(590, 799)
+        Me.Panel5.TabIndex = 24
         '
         'Contrato
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(96, Byte), Integer), CType(CType(171, Byte), Integer), CType(CType(251, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1626, 631)
+        Me.ClientSize = New System.Drawing.Size(1577, 823)
+        Me.Controls.Add(Me.Panel5)
+        Me.Controls.Add(Me.IconButton3)
+        Me.Controls.Add(Me.IconButton1)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "Contrato"
         Me.Text = "Contrato"
@@ -237,4 +252,8 @@ Partial Class Contrato
     Friend WithEvents Label2 As Label
     Friend WithEvents IconButton3 As FontAwesome.Sharp.IconButton
     Friend WithEvents IconButton1 As FontAwesome.Sharp.IconButton
+    Friend WithEvents CodcontracteDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CifDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents FechaultimamodificaioDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents Panel5 As Panel
 End Class

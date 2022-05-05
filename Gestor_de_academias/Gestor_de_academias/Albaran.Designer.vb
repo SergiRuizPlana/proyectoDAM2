@@ -44,6 +44,8 @@ Partial Class Albaran
         Me.ButtonOkEmpresa = New FontAwesome.Sharp.IconButton()
         Me.ButtonSearchEmpAlb = New FontAwesome.Sharp.IconButton()
         Me.ComboBoxSearchEmpAlbara = New System.Windows.Forms.ComboBox()
+        Me.EmpresaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Gestio_empresesDataSet1 = New Gestor_de_academias.Gestio_empresesDataSet()
         Me.TextSearchEmpAlbara = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBoxQtyTests = New System.Windows.Forms.GroupBox()
@@ -59,21 +61,23 @@ Partial Class Albaran
         Me.TextBoxInsertQtyTest = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.ComboBoxCategoriaTest = New System.Windows.Forms.ComboBox()
+        Me.CategoriatestBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.SearchQtyTestAlb = New FontAwesome.Sharp.IconButton()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.CategoriaTableAdapter1 = New Gestor_de_academias.Gestio_empresesDataSetTableAdapters.categoriaTableAdapter()
         Me.Categoria_testTableAdapter1 = New Gestor_de_academias.Gestio_empresesDataSetTableAdapters.categoria_testTableAdapter()
         Me.EmpresaTableAdapter1 = New Gestor_de_academias.Gestio_empresesDataSetTableAdapters.empresaTableAdapter()
-        Me.Gestio_empresesDataSet1 = New Gestor_de_academias.Gestio_empresesDataSet()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridAlbara, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel0.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.GroupBoxBuscarEmpresa.SuspendLayout()
-        Me.GroupBoxQtyTests.SuspendLayout()
-        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmpresaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Gestio_empresesDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBoxQtyTests.SuspendLayout()
+        CType(Me.CategoriatestBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -333,13 +337,24 @@ Partial Class Albaran
         'ComboBoxSearchEmpAlbara
         '
         Me.ComboBoxSearchEmpAlbara.BackColor = System.Drawing.Color.LightBlue
-        Me.ComboBoxSearchEmpAlbara.DisplayMember = "cif"
+        Me.ComboBoxSearchEmpAlbara.DataSource = Me.EmpresaBindingSource
+        Me.ComboBoxSearchEmpAlbara.DisplayMember = "nom"
         Me.ComboBoxSearchEmpAlbara.FormattingEnabled = True
         Me.ComboBoxSearchEmpAlbara.Location = New System.Drawing.Point(6, 50)
         Me.ComboBoxSearchEmpAlbara.Name = "ComboBoxSearchEmpAlbara"
         Me.ComboBoxSearchEmpAlbara.Size = New System.Drawing.Size(257, 21)
         Me.ComboBoxSearchEmpAlbara.TabIndex = 0
-        Me.ComboBoxSearchEmpAlbara.ValueMember = "cif"
+        Me.ComboBoxSearchEmpAlbara.ValueMember = "nom"
+        '
+        'EmpresaBindingSource
+        '
+        Me.EmpresaBindingSource.DataMember = "empresa"
+        Me.EmpresaBindingSource.DataSource = Me.Gestio_empresesDataSet1
+        '
+        'Gestio_empresesDataSet1
+        '
+        Me.Gestio_empresesDataSet1.DataSetName = "Gestio_empresesDataSet"
+        Me.Gestio_empresesDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'TextSearchEmpAlbara
         '
@@ -480,11 +495,17 @@ Partial Class Albaran
         'ComboBoxCategoriaTest
         '
         Me.ComboBoxCategoriaTest.BackColor = System.Drawing.Color.LightBlue
+        Me.ComboBoxCategoriaTest.DataSource = Me.CategoriatestBindingSource
         Me.ComboBoxCategoriaTest.FormattingEnabled = True
         Me.ComboBoxCategoriaTest.Location = New System.Drawing.Point(64, 19)
         Me.ComboBoxCategoriaTest.Name = "ComboBoxCategoriaTest"
         Me.ComboBoxCategoriaTest.Size = New System.Drawing.Size(198, 21)
         Me.ComboBoxCategoriaTest.TabIndex = 33
+        '
+        'CategoriatestBindingSource
+        '
+        Me.CategoriatestBindingSource.DataMember = "categoria_test"
+        Me.CategoriatestBindingSource.DataSource = Me.Gestio_empresesDataSet1
         '
         'SearchQtyTestAlb
         '
@@ -526,11 +547,6 @@ Partial Class Albaran
         '
         Me.EmpresaTableAdapter1.ClearBeforeFill = True
         '
-        'Gestio_empresesDataSet1
-        '
-        Me.Gestio_empresesDataSet1.DataSetName = "Gestio_empresesDataSet"
-        Me.Gestio_empresesDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'Albaran
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -549,10 +565,12 @@ Partial Class Albaran
         Me.Panel3.ResumeLayout(False)
         Me.GroupBoxBuscarEmpresa.ResumeLayout(False)
         Me.GroupBoxBuscarEmpresa.PerformLayout()
+        CType(Me.EmpresaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Gestio_empresesDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBoxQtyTests.ResumeLayout(False)
         Me.GroupBoxQtyTests.PerformLayout()
+        CType(Me.CategoriatestBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Gestio_empresesDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -600,4 +618,6 @@ Partial Class Albaran
     Friend WithEvents Categoria_testTableAdapter1 As Gestio_empresesDataSetTableAdapters.categoria_testTableAdapter
     Friend WithEvents EmpresaTableAdapter1 As Gestio_empresesDataSetTableAdapters.empresaTableAdapter
     Friend WithEvents Gestio_empresesDataSet1 As Gestio_empresesDataSet
+    Friend WithEvents CategoriatestBindingSource As BindingSource
+    Friend WithEvents EmpresaBindingSource As BindingSource
 End Class

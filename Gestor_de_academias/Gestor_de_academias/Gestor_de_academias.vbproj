@@ -232,6 +232,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Funciones.vb" />
+    <Compile Include="Modelo_contrato.Designer.vb">
+      <DependentUpon>Modelo_contrato.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo_contrato.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="StartConexion.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -277,6 +283,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modelo_albaran.resx">
       <DependentUpon>Modelo_albaran.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modelo_contrato.resx">
+      <DependentUpon>Modelo_contrato.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartConexion.resx">
       <DependentUpon>StartConexion.vb</DependentUpon>

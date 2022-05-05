@@ -37,187 +37,187 @@ Gestor_de_academias
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
-<member name="T:Gestor_de_academias.gestio_empresesDataSet">
+<member name="T:Gestor_de_academias.Gestio_empresesDataSet">
 <summary>
 Represents a strongly typed in-memory cache of data.
 </summary>
 </member>
-<member name="T:Gestor_de_academias.gestio_empresesDataSet.albaraDataTable">
+<member name="T:Gestor_de_academias.Gestio_empresesDataSet.albaraDataTable">
 <summary>
 Represents the strongly named DataTable class.
 </summary>
 </member>
-<member name="T:Gestor_de_academias.gestio_empresesDataSet.albara_testDataTable">
+<member name="T:Gestor_de_academias.Gestio_empresesDataSet.albara_testDataTable">
 <summary>
 Represents the strongly named DataTable class.
 </summary>
 </member>
-<member name="T:Gestor_de_academias.gestio_empresesDataSet.categoriaDataTable">
+<member name="T:Gestor_de_academias.Gestio_empresesDataSet.categoriaDataTable">
 <summary>
 Represents the strongly named DataTable class.
 </summary>
 </member>
-<member name="T:Gestor_de_academias.gestio_empresesDataSet.categoria_testDataTable">
+<member name="T:Gestor_de_academias.Gestio_empresesDataSet.categoria_testDataTable">
 <summary>
 Represents the strongly named DataTable class.
 </summary>
 </member>
-<member name="T:Gestor_de_academias.gestio_empresesDataSet.contracteDataTable">
+<member name="T:Gestor_de_academias.Gestio_empresesDataSet.contracteDataTable">
 <summary>
 Represents the strongly named DataTable class.
 </summary>
 </member>
-<member name="T:Gestor_de_academias.gestio_empresesDataSet.empresaDataTable">
+<member name="T:Gestor_de_academias.Gestio_empresesDataSet.empresaDataTable">
 <summary>
 Represents the strongly named DataTable class.
 </summary>
 </member>
-<member name="T:Gestor_de_academias.gestio_empresesDataSet.testDataTable">
+<member name="T:Gestor_de_academias.Gestio_empresesDataSet.testDataTable">
 <summary>
 Represents the strongly named DataTable class.
 </summary>
 </member>
-<member name="T:Gestor_de_academias.gestio_empresesDataSet.albaraRow">
+<member name="T:Gestor_de_academias.Gestio_empresesDataSet.albaraRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
 </member>
-<member name="T:Gestor_de_academias.gestio_empresesDataSet.albara_testRow">
+<member name="T:Gestor_de_academias.Gestio_empresesDataSet.albara_testRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
 </member>
-<member name="T:Gestor_de_academias.gestio_empresesDataSet.categoriaRow">
+<member name="T:Gestor_de_academias.Gestio_empresesDataSet.categoriaRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
 </member>
-<member name="T:Gestor_de_academias.gestio_empresesDataSet.categoria_testRow">
+<member name="T:Gestor_de_academias.Gestio_empresesDataSet.categoria_testRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
 </member>
-<member name="T:Gestor_de_academias.gestio_empresesDataSet.contracteRow">
+<member name="T:Gestor_de_academias.Gestio_empresesDataSet.contracteRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
 </member>
-<member name="T:Gestor_de_academias.gestio_empresesDataSet.empresaRow">
+<member name="T:Gestor_de_academias.Gestio_empresesDataSet.empresaRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
 </member>
-<member name="T:Gestor_de_academias.gestio_empresesDataSet.testRow">
+<member name="T:Gestor_de_academias.Gestio_empresesDataSet.testRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
 </member>
-<member name="T:Gestor_de_academias.gestio_empresesDataSet.albaraRowChangeEvent">
+<member name="T:Gestor_de_academias.Gestio_empresesDataSet.albaraRowChangeEvent">
 <summary>
 Row event argument class
 </summary>
 </member>
-<member name="T:Gestor_de_academias.gestio_empresesDataSet.albara_testRowChangeEvent">
+<member name="T:Gestor_de_academias.Gestio_empresesDataSet.albara_testRowChangeEvent">
 <summary>
 Row event argument class
 </summary>
 </member>
-<member name="T:Gestor_de_academias.gestio_empresesDataSet.categoriaRowChangeEvent">
+<member name="T:Gestor_de_academias.Gestio_empresesDataSet.categoriaRowChangeEvent">
 <summary>
 Row event argument class
 </summary>
 </member>
-<member name="T:Gestor_de_academias.gestio_empresesDataSet.categoria_testRowChangeEvent">
+<member name="T:Gestor_de_academias.Gestio_empresesDataSet.categoria_testRowChangeEvent">
 <summary>
 Row event argument class
 </summary>
 </member>
-<member name="T:Gestor_de_academias.gestio_empresesDataSet.contracteRowChangeEvent">
+<member name="T:Gestor_de_academias.Gestio_empresesDataSet.contracteRowChangeEvent">
 <summary>
 Row event argument class
 </summary>
 </member>
-<member name="T:Gestor_de_academias.gestio_empresesDataSet.empresaRowChangeEvent">
+<member name="T:Gestor_de_academias.Gestio_empresesDataSet.empresaRowChangeEvent">
 <summary>
 Row event argument class
 </summary>
 </member>
-<member name="T:Gestor_de_academias.gestio_empresesDataSet.testRowChangeEvent">
+<member name="T:Gestor_de_academias.Gestio_empresesDataSet.testRowChangeEvent">
 <summary>
 Row event argument class
 </summary>
 </member>
-<member name="T:Gestor_de_academias.gestio_empresesDataSetTableAdapters.albaraTableAdapter">
+<member name="T:Gestor_de_academias.Gestio_empresesDataSetTableAdapters.albaraTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member>
-<member name="T:Gestor_de_academias.gestio_empresesDataSetTableAdapters.albara_testTableAdapter">
+<member name="T:Gestor_de_academias.Gestio_empresesDataSetTableAdapters.albara_testTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member>
-<member name="T:Gestor_de_academias.gestio_empresesDataSetTableAdapters.categoriaTableAdapter">
+<member name="T:Gestor_de_academias.Gestio_empresesDataSetTableAdapters.categoriaTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member>
-<member name="T:Gestor_de_academias.gestio_empresesDataSetTableAdapters.categoria_testTableAdapter">
+<member name="T:Gestor_de_academias.Gestio_empresesDataSetTableAdapters.categoria_testTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member>
-<member name="T:Gestor_de_academias.gestio_empresesDataSetTableAdapters.contracteTableAdapter">
+<member name="T:Gestor_de_academias.Gestio_empresesDataSetTableAdapters.contracteTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member>
-<member name="T:Gestor_de_academias.gestio_empresesDataSetTableAdapters.empresaTableAdapter">
+<member name="T:Gestor_de_academias.Gestio_empresesDataSetTableAdapters.empresaTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member>
-<member name="T:Gestor_de_academias.gestio_empresesDataSetTableAdapters.testTableAdapter">
+<member name="T:Gestor_de_academias.Gestio_empresesDataSetTableAdapters.testTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member>
-<member name="T:Gestor_de_academias.gestio_empresesDataSetTableAdapters.TableAdapterManager">
+<member name="T:Gestor_de_academias.Gestio_empresesDataSetTableAdapters.TableAdapterManager">
 <summary>
 TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
 </summary>
 </member>
-<member name="M:Gestor_de_academias.gestio_empresesDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(Gestor_de_academias.gestio_empresesDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<member name="M:Gestor_de_academias.Gestio_empresesDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(Gestor_de_academias.Gestio_empresesDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
 <summary>
 Update rows in top-down order.
 </summary>
 </member>
-<member name="M:Gestor_de_academias.gestio_empresesDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(Gestor_de_academias.gestio_empresesDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<member name="M:Gestor_de_academias.Gestio_empresesDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(Gestor_de_academias.Gestio_empresesDataSet,System.Collections.Generic.List{System.Data.DataRow})">
 <summary>
 Insert rows in top-down order.
 </summary>
 </member>
-<member name="M:Gestor_de_academias.gestio_empresesDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(Gestor_de_academias.gestio_empresesDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<member name="M:Gestor_de_academias.Gestio_empresesDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(Gestor_de_academias.Gestio_empresesDataSet,System.Collections.Generic.List{System.Data.DataRow})">
 <summary>
 Delete rows in bottom-up order.
 </summary>
 </member>
-<member name="M:Gestor_de_academias.gestio_empresesDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<member name="M:Gestor_de_academias.Gestio_empresesDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
 <summary>
 Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
 </summary>
 </member>
-<member name="M:Gestor_de_academias.gestio_empresesDataSetTableAdapters.TableAdapterManager.UpdateAll(Gestor_de_academias.gestio_empresesDataSet)">
+<member name="M:Gestor_de_academias.Gestio_empresesDataSetTableAdapters.TableAdapterManager.UpdateAll(Gestor_de_academias.Gestio_empresesDataSet)">
 <summary>
 Update all changes to the dataset.
 </summary>
 </member>
-<member name="T:Gestor_de_academias.gestio_empresesDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+<member name="T:Gestor_de_academias.Gestio_empresesDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
 <summary>
 Update Order Option
 </summary>
 </member>
-<member name="T:Gestor_de_academias.gestio_empresesDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<member name="T:Gestor_de_academias.Gestio_empresesDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
 <summary>
 Used to sort self-referenced table's rows
 </summary>
