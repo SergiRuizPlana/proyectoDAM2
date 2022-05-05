@@ -53,7 +53,6 @@ public class Exam {
 		this.description = description;
 	}
 
-	
 
 	public List<Question> getQuestions() {
 		return questions;
@@ -71,6 +70,8 @@ public class Exam {
 	public String toString() {
 		return "Exam [ description=" + description  + ", Topic=" + topic+ ",  num_questions"+" ]";
 	}
+	
+	
 	
 	
 	

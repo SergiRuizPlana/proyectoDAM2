@@ -186,7 +186,7 @@ public class UserDAO {
 	 */
 	
 	public  static boolean updateUser(String[] userInfo,String userName) {
-		String sqlComand="update usr set nif=?,userName=?,fname=?,lname=?,address=?,city=?,zip=?,phone=? where userName=?";		
+		String sqlComand="update usr set nif=?, fname=?, lname=?, address=?, city=?, zip=?, phone=?, email=? where userName=?";		
 		try {
 			Conection.openConnection();
 			PreparedStatement pstm= Conection.conn.prepareStatement(sqlComand);
@@ -204,6 +204,7 @@ public class UserDAO {
 			Conection.closeConnection();
 			return true;
 		} catch (Exception e) {
+		e.printStackTrace();
 			return false;
 		}
 		
