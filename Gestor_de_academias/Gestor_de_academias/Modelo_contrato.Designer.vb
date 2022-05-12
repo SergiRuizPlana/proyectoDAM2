@@ -53,16 +53,16 @@ Partial Class Modelo_contrato
         Me.Label29 = New System.Windows.Forms.Label()
         Me.Label30 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label37 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label39 = New System.Windows.Forms.Label()
+        Me.Label38 = New System.Windows.Forms.Label()
         Me.Label31 = New System.Windows.Forms.Label()
         Me.Label32 = New System.Windows.Forms.Label()
         Me.Label33 = New System.Windows.Forms.Label()
         Me.Label34 = New System.Windows.Forms.Label()
         Me.Label35 = New System.Windows.Forms.Label()
         Me.Label36 = New System.Windows.Forms.Label()
-        Me.Label37 = New System.Windows.Forms.Label()
-        Me.Label38 = New System.Windows.Forms.Label()
-        Me.Label39 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
@@ -256,7 +256,7 @@ Partial Class Modelo_contrato
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(89, 385)
+        Me.Label20.Location = New System.Drawing.Point(130, 385)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(377, 13)
         Me.Label20.TabIndex = 29
@@ -365,6 +365,15 @@ Partial Class Modelo_contrato
         Me.Panel1.Size = New System.Drawing.Size(201, 74)
         Me.Panel1.TabIndex = 40
         '
+        'Label37
+        '
+        Me.Label37.AutoSize = True
+        Me.Label37.Location = New System.Drawing.Point(1, 3)
+        Me.Label37.Name = "Label37"
+        Me.Label37.Size = New System.Drawing.Size(176, 13)
+        Me.Label37.TabIndex = 47
+        Me.Label37.Text = "Signatura PART SUBMINISTRADA"
+        '
         'Panel2
         '
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -374,6 +383,26 @@ Partial Class Modelo_contrato
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(199, 74)
         Me.Panel2.TabIndex = 41
+        '
+        'Label39
+        '
+        Me.Label39.AutoSize = True
+        Me.Label39.Font = New System.Drawing.Font("Ink Free", 12.0!, CType(((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic) _
+                Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label39.Location = New System.Drawing.Point(37, 35)
+        Me.Label39.Name = "Label39"
+        Me.Label39.Size = New System.Drawing.Size(114, 20)
+        Me.Label39.TabIndex = 49
+        Me.Label39.Text = "YS TESTS SL"
+        '
+        'Label38
+        '
+        Me.Label38.AutoSize = True
+        Me.Label38.Location = New System.Drawing.Point(3, 3)
+        Me.Label38.Name = "Label38"
+        Me.Label38.Size = New System.Drawing.Size(192, 13)
+        Me.Label38.TabIndex = 48
+        Me.Label38.Text = "Signatura PART SUBMINISTRADORA"
         '
         'Label31
         '
@@ -431,35 +460,6 @@ Partial Class Modelo_contrato
         Me.Label36.TabIndex = 47
         Me.Label36.Text = "durant el període d'un any, si aquest contracte no es cancel·la es renovarà autom" &
     "àticament."
-        '
-        'Label37
-        '
-        Me.Label37.AutoSize = True
-        Me.Label37.Location = New System.Drawing.Point(1, 3)
-        Me.Label37.Name = "Label37"
-        Me.Label37.Size = New System.Drawing.Size(176, 13)
-        Me.Label37.TabIndex = 47
-        Me.Label37.Text = "Signatura PART SUBMINISTRADA"
-        '
-        'Label38
-        '
-        Me.Label38.AutoSize = True
-        Me.Label38.Location = New System.Drawing.Point(3, 3)
-        Me.Label38.Name = "Label38"
-        Me.Label38.Size = New System.Drawing.Size(192, 13)
-        Me.Label38.TabIndex = 48
-        Me.Label38.Text = "Signatura PART SUBMINISTRADORA"
-        '
-        'Label39
-        '
-        Me.Label39.AutoSize = True
-        Me.Label39.Font = New System.Drawing.Font("Ink Free", 12.0!, CType(((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic) _
-                Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label39.Location = New System.Drawing.Point(37, 35)
-        Me.Label39.Name = "Label39"
-        Me.Label39.Size = New System.Drawing.Size(114, 20)
-        Me.Label39.TabIndex = 49
-        Me.Label39.Text = "YS TESTS SL"
         '
         'Modelo_contrato
         '

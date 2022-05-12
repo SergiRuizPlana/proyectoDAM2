@@ -2262,7 +2262,6 @@ Partial Public Class Gestio_empresesDataSet
             Me.columntelf.AllowDBNull = false
             Me.columntelf.MaxLength = 14
             Me.columnemail.MaxLength = 50
-            Me.columncategoria.AllowDBNull = false
             Me.columncategoria.MaxLength = 244
             Me.columntotal_tests.ReadOnly = true
             Me.columntests_realitzats.ReadOnly = true
@@ -3227,7 +3226,11 @@ Partial Public Class Gestio_empresesDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property categoria() As String
             Get
-                Return CType(Me(Me.tableempresa.categoriaColumn),String)
+                Try 
+                    Return CType(Me(Me.tableempresa.categoriaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'categoria' de la tabla 'empresa' es DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableempresa.categoriaColumn) = value
@@ -3316,6 +3319,18 @@ Partial Public Class Gestio_empresesDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetemailNull()
             Me(Me.tableempresa.emailColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IscategoriaNull() As Boolean
+            Return Me.IsNull(Me.tableempresa.categoriaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetcategoriaNull()
+            Me(Me.tableempresa.categoriaColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5514,12 +5529,23 @@ Namespace Gestio_empresesDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT cod_contracte, cif, data_inici, tests_mensuals, fecha_ultima_modificaio FR"& _ 
                 "OM dbo.contracte"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "INSERT INTO [dbo].[contracte] ([cod_contracte], [cif], [data_inici], [tests_mensu"& _ 
+                "als], [fecha_ultima_modificaio]) VALUES (@cod_contracte, @cif, @data_inici, @tes"& _ 
+                "ts_mensuals, @fecha_ultima_modificaio);"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cod_contracte", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "cod_contracte", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cif", Global.System.Data.SqlDbType.VarChar, 15, Global.System.Data.ParameterDirection.Input, 0, 0, "cif", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@data_inici", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "data_inici", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@tests_mensuals", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "tests_mensuals", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha_ultima_modificaio", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "fecha_ultima_modificaio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5741,6 +5767,49 @@ Namespace Gestio_empresesDataSetTableAdapters
         Public Overloads Overridable Function Update(ByVal cif As String, ByVal data_inici As Global.System.Nullable(Of Date), ByVal tests_mensuals As Global.System.Nullable(Of Integer), ByVal fecha_ultima_modificaio As Global.System.Nullable(Of Date), ByVal Original_cod_contracte As Integer, ByVal Original_cif As String, ByVal Original_data_inici As Global.System.Nullable(Of Date), ByVal Original_tests_mensuals As Global.System.Nullable(Of Integer), ByVal Original_fecha_ultima_modificaio As Global.System.Nullable(Of Date)) As Integer
             Return Me.Update(Original_cod_contracte, cif, data_inici, tests_mensuals, fecha_ultima_modificaio, Original_cod_contracte, Original_cif, Original_data_inici, Original_tests_mensuals, Original_fecha_ultima_modificaio)
         End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
+        Public Overloads Overridable Function InsertQuery(ByVal cod_contracte As Integer, ByVal cif As String, ByVal data_inici As String, ByVal tests_mensuals As Global.System.Nullable(Of Integer), ByVal fecha_ultima_modificaio As String) As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(1)
+            command.Parameters(0).Value = CType(cod_contracte,Integer)
+            If (cif Is Nothing) Then
+                command.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(1).Value = CType(cif,String)
+            End If
+            If (data_inici Is Nothing) Then
+                command.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(2).Value = CType(data_inici,String)
+            End If
+            If (tests_mensuals.HasValue = true) Then
+                command.Parameters(3).Value = CType(tests_mensuals.Value,Integer)
+            Else
+                command.Parameters(3).Value = Global.System.DBNull.Value
+            End If
+            If (fecha_ultima_modificaio Is Nothing) Then
+                command.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(4).Value = CType(fecha_ultima_modificaio,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Integer
+            Try 
+                returnValue = command.ExecuteNonQuery
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            Return returnValue
+        End Function
     End Class
     
     '''<summary>
@@ -5909,10 +5978,10 @@ Namespace Gestio_empresesDataSetTableAdapters
                 ".cif) AND (at2.realitzat = 0)) AS tests_disponibles, SUM(ct.preu) AS preu_total"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            empresa AS e LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         albara A"& _ 
                 "S a ON a.cif = e.cif LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         albara_test AS at"& _ 
                 " ON at.num_albara = a.num_albara LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         test "& _ 
-                "AS t ON t.codi_test = at.codi_test INNER JOIN "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         categor"& _ 
-                "ia_test AS ct ON ct.cod_categoria = t.cod_categoria INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
-                "         categoria AS c ON e.cod_categoria = c.cod_categoria"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY e.cif, e."& _ 
-                "nom, e.adreca, e.telf, e.email, c.descripcio"
+                "AS t ON t.codi_test = at.codi_test LEFT OUTER JOIN "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ca"& _ 
+                "tegoria_test AS ct ON ct.cod_categoria = t.cod_categoria LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"      "& _ 
+                "                   categoria AS c ON e.cod_categoria = c.cod_categoria"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY"& _ 
+                " e.cif, e.nom, e.adreca, e.telf, e.email, c.descripcio"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection

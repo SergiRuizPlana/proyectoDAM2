@@ -59,8 +59,6 @@ Partial Class Albaran
         Me.TextBoxDiscountAlb = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.TextBoxInsertQtyTest = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.ComboBoxCategoriaTest = New System.Windows.Forms.ComboBox()
         Me.CategoriatestBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.SearchQtyTestAlb = New FontAwesome.Sharp.IconButton()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -68,6 +66,8 @@ Partial Class Albaran
         Me.CategoriaTableAdapter1 = New Gestor_de_academias.Gestio_empresesDataSetTableAdapters.categoriaTableAdapter()
         Me.Categoria_testTableAdapter1 = New Gestor_de_academias.Gestio_empresesDataSetTableAdapters.categoria_testTableAdapter()
         Me.EmpresaTableAdapter1 = New Gestor_de_academias.Gestio_empresesDataSetTableAdapters.empresaTableAdapter()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.ComboBoxCategoriaTest = New System.Windows.Forms.ComboBox()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridAlbara, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel0.SuspendLayout()
@@ -328,7 +328,7 @@ Partial Class Albaran
         Me.ButtonSearchEmpAlb.IconColor = System.Drawing.SystemColors.ButtonFace
         Me.ButtonSearchEmpAlb.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.ButtonSearchEmpAlb.IconSize = 20
-        Me.ButtonSearchEmpAlb.Location = New System.Drawing.Point(221, 18)
+        Me.ButtonSearchEmpAlb.Location = New System.Drawing.Point(232, 18)
         Me.ButtonSearchEmpAlb.Name = "ButtonSearchEmpAlb"
         Me.ButtonSearchEmpAlb.Size = New System.Drawing.Size(30, 26)
         Me.ButtonSearchEmpAlb.TabIndex = 33
@@ -374,6 +374,8 @@ Partial Class Albaran
         '
         'GroupBoxQtyTests
         '
+        Me.GroupBoxQtyTests.Controls.Add(Me.Label6)
+        Me.GroupBoxQtyTests.Controls.Add(Me.ComboBoxCategoriaTest)
         Me.GroupBoxQtyTests.Controls.Add(Me.Label12)
         Me.GroupBoxQtyTests.Controls.Add(Me.ComboBoxTamanyTest)
         Me.GroupBoxQtyTests.Controls.Add(Me.Label11)
@@ -384,8 +386,6 @@ Partial Class Albaran
         Me.GroupBoxQtyTests.Controls.Add(Me.TextBoxDiscountAlb)
         Me.GroupBoxQtyTests.Controls.Add(Me.Label7)
         Me.GroupBoxQtyTests.Controls.Add(Me.TextBoxInsertQtyTest)
-        Me.GroupBoxQtyTests.Controls.Add(Me.Label6)
-        Me.GroupBoxQtyTests.Controls.Add(Me.ComboBoxCategoriaTest)
         Me.GroupBoxQtyTests.Controls.Add(Me.SearchQtyTestAlb)
         Me.GroupBoxQtyTests.Controls.Add(Me.Label5)
         Me.GroupBoxQtyTests.Location = New System.Drawing.Point(12, 133)
@@ -483,25 +483,6 @@ Partial Class Albaran
         Me.TextBoxInsertQtyTest.Size = New System.Drawing.Size(76, 20)
         Me.TextBoxInsertQtyTest.TabIndex = 30
         '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(6, 23)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(52, 13)
-        Me.Label6.TabIndex = 34
-        Me.Label6.Text = "Categoria"
-        '
-        'ComboBoxCategoriaTest
-        '
-        Me.ComboBoxCategoriaTest.BackColor = System.Drawing.Color.LightBlue
-        Me.ComboBoxCategoriaTest.DataSource = Me.CategoriatestBindingSource
-        Me.ComboBoxCategoriaTest.FormattingEnabled = True
-        Me.ComboBoxCategoriaTest.Location = New System.Drawing.Point(64, 19)
-        Me.ComboBoxCategoriaTest.Name = "ComboBoxCategoriaTest"
-        Me.ComboBoxCategoriaTest.Size = New System.Drawing.Size(198, 21)
-        Me.ComboBoxCategoriaTest.TabIndex = 33
-        '
         'CategoriatestBindingSource
         '
         Me.CategoriatestBindingSource.DataMember = "categoria_test"
@@ -547,12 +528,33 @@ Partial Class Albaran
         '
         Me.EmpresaTableAdapter1.ClearBeforeFill = True
         '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(6, 23)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(52, 13)
+        Me.Label6.TabIndex = 49
+        Me.Label6.Text = "Categoria"
+        '
+        'ComboBoxCategoriaTest
+        '
+        Me.ComboBoxCategoriaTest.BackColor = System.Drawing.Color.LightBlue
+        Me.ComboBoxCategoriaTest.DataSource = Me.CategoriatestBindingSource
+        Me.ComboBoxCategoriaTest.DisplayMember = "descripcio"
+        Me.ComboBoxCategoriaTest.FormattingEnabled = True
+        Me.ComboBoxCategoriaTest.Location = New System.Drawing.Point(64, 19)
+        Me.ComboBoxCategoriaTest.Name = "ComboBoxCategoriaTest"
+        Me.ComboBoxCategoriaTest.Size = New System.Drawing.Size(198, 21)
+        Me.ComboBoxCategoriaTest.TabIndex = 48
+        Me.ComboBoxCategoriaTest.ValueMember = "cod_categoria"
+        '
         'Albaran
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Lavender
-        Me.ClientSize = New System.Drawing.Size(1501, 814)
+        Me.ClientSize = New System.Drawing.Size(1531, 828)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel0)
@@ -602,8 +604,6 @@ Partial Class Albaran
     Friend WithEvents DataCreacioFilter As DateTimePicker
     Friend WithEvents IconButton1 As FontAwesome.Sharp.IconButton
     Friend WithEvents ButtonOkEmpresa As FontAwesome.Sharp.IconButton
-    Friend WithEvents Label6 As Label
-    Friend WithEvents ComboBoxCategoriaTest As ComboBox
     Friend WithEvents ErrorProvider1 As ErrorProvider
     Friend WithEvents Label8 As Label
     Friend WithEvents TextBoxDiscountAlb As TextBox
@@ -620,4 +620,6 @@ Partial Class Albaran
     Friend WithEvents Gestio_empresesDataSet1 As Gestio_empresesDataSet
     Friend WithEvents CategoriatestBindingSource As BindingSource
     Friend WithEvents EmpresaBindingSource As BindingSource
+    Friend WithEvents Label6 As Label
+    Friend WithEvents ComboBoxCategoriaTest As ComboBox
 End Class

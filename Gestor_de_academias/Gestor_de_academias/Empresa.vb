@@ -6,6 +6,7 @@ Public Class Empresa
     Dim cifEmpresa = ""
     Dim catCreate = False
     Private Sub Empresas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         'TODO: esta línea de código carga datos en la tabla 'Gestio_empresesDataSet.categoria' Puede moverla o quitarla según sea necesario.
         Me.CategoriaTableAdapter.Fill(Me.Gestio_empresesDataSet.categoria)
         'TODO: esta línea de código carga datos en la tabla 'Gestio_empresesDataSet.empresa' Puede moverla o quitarla según sea necesario.
@@ -16,8 +17,6 @@ Public Class Empresa
 
         ComboBox1.SelectedValue = ""
         ComboBox1.SelectedText = ""
-
-
 
     End Sub
 
@@ -32,6 +31,7 @@ Public Class Empresa
         empresaCif.Enabled = True
         Panel1.Visible = True
         insert = True
+
     End Sub
 
     Private Sub SearchEmp_Click(sender As Object, e As EventArgs) Handles searchEmp.Click

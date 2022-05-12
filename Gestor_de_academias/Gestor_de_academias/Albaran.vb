@@ -41,7 +41,6 @@ Public Class Albaran
 
     Private Sub createAlbara_Click(sender As Object, e As EventArgs) Handles createAlbara.Click
         Panel3.Visible = True
-        'ComboBoxCategoriaTest.SelectedIndex = 0
 
     End Sub
 
@@ -90,12 +89,6 @@ Public Class Albaran
 
         If ComboBoxSearchEmpAlbara.SelectedIndex > -1 Then
 
-            'Me.EmpresaTableAdapter1.Fill(Me.Gestio_empresesDataSet1.empresa)
-            'Modelo_albaran.lblEmpresa.Text = Me.Gestio_empresesDataSet1.empresa.Rows(0)("nom")
-
-
-
-
             nom = Me.EmpresaTableAdapter1.GetNom(ComboBoxSearchEmpAlbara.Text)
             cif = Me.EmpresaTableAdapter1.GetCif(ComboBoxSearchEmpAlbara.Text)
             adreca = Me.EmpresaTableAdapter1.GetAddress(ComboBoxSearchEmpAlbara.Text)
@@ -134,10 +127,13 @@ Public Class Albaran
     End Sub
 
     Private Sub ButtonOkEmpresa_Click(sender As Object, e As EventArgs) Handles ButtonOkEmpresa.Click
+
+        Dim dt As New Gestio_empresesDataSet.categoria_testDataTable
         Dim cat() As Char
         Dim data As String
         Dim dat() As Char
         Dim c() As Char
+        Dim i As Integer = 0
         data = Date.Now.ToString
         Modelo_albaran.lblDate.Text = data
 
@@ -152,6 +148,8 @@ Public Class Albaran
         Else
             MsgBox("Selecciona una empresa.")
         End If
+
+
 
     End Sub
 
@@ -194,18 +192,11 @@ Public Class Albaran
         End If
     End Sub
 
-    Private Sub ComboBoxCategoriaTest_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxCategoriaTest.SelectedIndexChanged
+    Private Sub ComboBoxCategoriaTest_SelectedIndexChanged(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub FillBy1ToolStripButton_Click(sender As Object, e As EventArgs)
-        Try
-            'Me.Categoria_testTableAdapter1.FillBy1(Me.Gestio_empresesDataSet1.categoria_test)
-        Catch ex As System.Exception
-            System.Windows.Forms.MessageBox.Show(ex.Message)
-        End Try
 
-    End Sub
 
     Private Sub FillByDescripcioForComboToolStripButton_Click(sender As Object, e As EventArgs)
         Try
