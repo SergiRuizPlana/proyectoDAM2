@@ -36,21 +36,12 @@
 
         If Me.Gestio_empresesDataSet.contracte.Rows.Count = 0 Then
             DataGridView1.Visible = False
-            Label2.Visible = True
         End If
         Funciones.SetMultyRadius({Panel1})
         OpenForm(Modelo_contrato)
 
     End Sub
 
-    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
-
-    End Sub
-
-    Private Sub IconButton1_Click(sender As Object, e As EventArgs) Handles IconButton1.Click
-        Panel5.Visible = True
-        Panel6.Visible = True
-    End Sub
 
     Private Sub closeCreateAlbara_Click(sender As Object, e As EventArgs) Handles closeCreateAlbara.Click
         Panel5.Visible = False
@@ -168,5 +159,10 @@
         num_contracte = data2(0) & data2(1) & data2(3) & data2(4) & data2(8) & data2(9) & data2(11) & data2(12) & data2(14) & data2(15)
         Modelo_contrato.Label32.Text = num_contracte
 
+    End Sub
+
+    Private Sub crearContracte_Click(sender As Object, e As EventArgs) Handles crearContracte.Click
+        Panel5.Visible = True
+        Panel6.Visible = True
     End Sub
 End Class

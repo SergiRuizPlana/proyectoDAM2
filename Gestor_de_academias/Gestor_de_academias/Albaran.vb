@@ -31,6 +31,10 @@ Public Class Albaran
 
 
     Private Sub Albaran_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'Gestio_empresesDataSet1.albara_test' Puede moverla o quitarla según sea necesario.
+        Me.Albara_testTableAdapter.Fill(Me.Gestio_empresesDataSet1.albara_test)
+        'TODO: esta línea de código carga datos en la tabla 'Gestio_empresesDataSet1.albara' Puede moverla o quitarla según sea necesario.
+        Me.AlbaraTableAdapter.Fill(Me.Gestio_empresesDataSet1.albara)
         'TODO: esta línea de código carga datos en la tabla 'Gestio_empresesDataSet.empresa' Puede moverla o quitarla según sea necesario.
         Me.EmpresaTableAdapter1.Fill(Me.Gestio_empresesDataSet1.empresa)
 

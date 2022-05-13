@@ -11,11 +11,11 @@
     <Shape ID="DesignTable:categoria" ZOrder="10" X="334" Y="535" Height="153" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
     <Shape ID="DesignTable:categoria_test" ZOrder="9" X="1097" Y="70" Height="248" Width="234" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
     <Shape ID="DesignTable:contracte" ZOrder="8" X="334" Y="293" Height="172" Width="199" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
-    <Shape ID="DesignTable:empresa" ZOrder="7" X="-23" Y="55" Height="343" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="216" />
-    <Shape ID="DesignTable:test" ZOrder="6" X="861" Y="70" Height="115" Width="166" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
+    <Shape ID="DesignTable:empresa" ZOrder="1" X="-23" Y="55" Height="381" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="24" SplitterPosition="254" />
+    <Shape ID="DesignTable:test" ZOrder="7" X="861" Y="70" Height="115" Width="166" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
   </Shapes>
   <Connectors>
-    <Connector ID="DesignRelation:FK__albara_te__num_a__276EDEB3" ZOrder="5" LineWidth="11">
+    <Connector ID="DesignRelation:FK__albara_te__num_a__276EDEB3" ZOrder="6" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>514</X>
@@ -27,7 +27,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK__albara__cif__22AA2996" ZOrder="4" LineWidth="11">
+    <Connector ID="DesignRelation:FK__albara__cif__22AA2996" ZOrder="5" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>277</X>
@@ -39,23 +39,23 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK__contracte__cif__173876EA" ZOrder="3" LineWidth="11">
+    <Connector ID="DesignRelation:FK__contracte__cif__173876EA" ZOrder="4" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>224</X>
-          <Y>398</Y>
+          <Y>436</Y>
         </Point>
         <Point>
           <X>224</X>
-          <Y>425</Y>
+          <Y>463</Y>
         </Point>
         <Point>
           <X>334</X>
-          <Y>425</Y>
+          <Y>463</Y>
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK__albara_te__codi___286302EC" ZOrder="2" LineWidth="11">
+    <Connector ID="DesignRelation:FK__albara_te__codi___286302EC" ZOrder="3" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>861</X>
@@ -67,7 +67,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK__test__cod_catego__1FCDBCEB" ZOrder="1" LineWidth="11">
+    <Connector ID="DesignRelation:FK__test__cod_catego__1FCDBCEB" ZOrder="2" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>1097</X>

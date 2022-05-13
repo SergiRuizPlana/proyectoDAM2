@@ -49,6 +49,9 @@ Partial Class Albaran
         Me.TextSearchEmpAlbara = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBoxQtyTests = New System.Windows.Forms.GroupBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.ComboBoxCategoriaTest = New System.Windows.Forms.ComboBox()
+        Me.CategoriatestBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label12 = New System.Windows.Forms.Label()
         Me.ComboBoxTamanyTest = New System.Windows.Forms.ComboBox()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -59,15 +62,18 @@ Partial Class Albaran
         Me.TextBoxDiscountAlb = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.TextBoxInsertQtyTest = New System.Windows.Forms.TextBox()
-        Me.CategoriatestBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.SearchQtyTestAlb = New FontAwesome.Sharp.IconButton()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.CategoriaTableAdapter1 = New Gestor_de_academias.Gestio_empresesDataSetTableAdapters.categoriaTableAdapter()
         Me.Categoria_testTableAdapter1 = New Gestor_de_academias.Gestio_empresesDataSetTableAdapters.categoria_testTableAdapter()
         Me.EmpresaTableAdapter1 = New Gestor_de_academias.Gestio_empresesDataSetTableAdapters.empresaTableAdapter()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.ComboBoxCategoriaTest = New System.Windows.Forms.ComboBox()
+        Me.AlbaraBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.AlbaraTableAdapter = New Gestor_de_academias.Gestio_empresesDataSetTableAdapters.albaraTableAdapter()
+        Me.FKalbaratenuma276EDEB3BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Albara_testTableAdapter = New Gestor_de_academias.Gestio_empresesDataSetTableAdapters.albara_testTableAdapter()
+        Me.NumalbaraDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AlbaraBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridAlbara, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel0.SuspendLayout()
@@ -78,6 +84,9 @@ Partial Class Albaran
         Me.GroupBoxQtyTests.SuspendLayout()
         CType(Me.CategoriatestBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AlbaraBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FKalbaratenuma276EDEB3BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AlbaraBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -130,12 +139,15 @@ Partial Class Albaran
         '
         'DataGridAlbara
         '
+        Me.DataGridAlbara.AutoGenerateColumns = False
         Me.DataGridAlbara.BackgroundColor = System.Drawing.Color.LightSkyBlue
         Me.DataGridAlbara.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DataGridAlbara.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridAlbara.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NumalbaraDataGridViewTextBoxColumn})
+        Me.DataGridAlbara.DataSource = Me.AlbaraBindingSource1
         Me.DataGridAlbara.Location = New System.Drawing.Point(31, 18)
         Me.DataGridAlbara.Name = "DataGridAlbara"
-        Me.DataGridAlbara.Size = New System.Drawing.Size(344, 560)
+        Me.DataGridAlbara.Size = New System.Drawing.Size(363, 560)
         Me.DataGridAlbara.TabIndex = 22
         '
         'Panel0
@@ -394,6 +406,32 @@ Partial Class Albaran
         Me.GroupBoxQtyTests.TabIndex = 35
         Me.GroupBoxQtyTests.TabStop = False
         '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(6, 23)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(52, 13)
+        Me.Label6.TabIndex = 49
+        Me.Label6.Text = "Categoria"
+        '
+        'ComboBoxCategoriaTest
+        '
+        Me.ComboBoxCategoriaTest.BackColor = System.Drawing.Color.LightBlue
+        Me.ComboBoxCategoriaTest.DataSource = Me.CategoriatestBindingSource
+        Me.ComboBoxCategoriaTest.DisplayMember = "descripcio"
+        Me.ComboBoxCategoriaTest.FormattingEnabled = True
+        Me.ComboBoxCategoriaTest.Location = New System.Drawing.Point(64, 19)
+        Me.ComboBoxCategoriaTest.Name = "ComboBoxCategoriaTest"
+        Me.ComboBoxCategoriaTest.Size = New System.Drawing.Size(198, 21)
+        Me.ComboBoxCategoriaTest.TabIndex = 48
+        Me.ComboBoxCategoriaTest.ValueMember = "cod_categoria"
+        '
+        'CategoriatestBindingSource
+        '
+        Me.CategoriatestBindingSource.DataMember = "categoria_test"
+        Me.CategoriatestBindingSource.DataSource = Me.Gestio_empresesDataSet1
+        '
         'Label12
         '
         Me.Label12.AutoSize = True
@@ -483,11 +521,6 @@ Partial Class Albaran
         Me.TextBoxInsertQtyTest.Size = New System.Drawing.Size(76, 20)
         Me.TextBoxInsertQtyTest.TabIndex = 30
         '
-        'CategoriatestBindingSource
-        '
-        Me.CategoriatestBindingSource.DataMember = "categoria_test"
-        Me.CategoriatestBindingSource.DataSource = Me.Gestio_empresesDataSet1
-        '
         'SearchQtyTestAlb
         '
         Me.SearchQtyTestAlb.BackColor = System.Drawing.Color.Teal
@@ -528,26 +561,34 @@ Partial Class Albaran
         '
         Me.EmpresaTableAdapter1.ClearBeforeFill = True
         '
-        'Label6
+        'AlbaraBindingSource
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(6, 23)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(52, 13)
-        Me.Label6.TabIndex = 49
-        Me.Label6.Text = "Categoria"
+        Me.AlbaraBindingSource.DataMember = "albara"
+        Me.AlbaraBindingSource.DataSource = Me.Gestio_empresesDataSet1
         '
-        'ComboBoxCategoriaTest
+        'AlbaraTableAdapter
         '
-        Me.ComboBoxCategoriaTest.BackColor = System.Drawing.Color.LightBlue
-        Me.ComboBoxCategoriaTest.DataSource = Me.CategoriatestBindingSource
-        Me.ComboBoxCategoriaTest.DisplayMember = "descripcio"
-        Me.ComboBoxCategoriaTest.FormattingEnabled = True
-        Me.ComboBoxCategoriaTest.Location = New System.Drawing.Point(64, 19)
-        Me.ComboBoxCategoriaTest.Name = "ComboBoxCategoriaTest"
-        Me.ComboBoxCategoriaTest.Size = New System.Drawing.Size(198, 21)
-        Me.ComboBoxCategoriaTest.TabIndex = 48
-        Me.ComboBoxCategoriaTest.ValueMember = "cod_categoria"
+        Me.AlbaraTableAdapter.ClearBeforeFill = True
+        '
+        'FKalbaratenuma276EDEB3BindingSource
+        '
+        Me.FKalbaratenuma276EDEB3BindingSource.DataMember = "FK__albara_te__num_a__276EDEB3"
+        Me.FKalbaratenuma276EDEB3BindingSource.DataSource = Me.AlbaraBindingSource
+        '
+        'Albara_testTableAdapter
+        '
+        Me.Albara_testTableAdapter.ClearBeforeFill = True
+        '
+        'NumalbaraDataGridViewTextBoxColumn
+        '
+        Me.NumalbaraDataGridViewTextBoxColumn.DataPropertyName = "num_albara"
+        Me.NumalbaraDataGridViewTextBoxColumn.HeaderText = "num_albara"
+        Me.NumalbaraDataGridViewTextBoxColumn.Name = "NumalbaraDataGridViewTextBoxColumn"
+        '
+        'AlbaraBindingSource1
+        '
+        Me.AlbaraBindingSource1.DataMember = "albara"
+        Me.AlbaraBindingSource1.DataSource = Me.Gestio_empresesDataSet1
         '
         'Albaran
         '
@@ -573,6 +614,9 @@ Partial Class Albaran
         Me.GroupBoxQtyTests.PerformLayout()
         CType(Me.CategoriatestBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AlbaraBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FKalbaratenuma276EDEB3BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AlbaraBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -622,4 +666,10 @@ Partial Class Albaran
     Friend WithEvents EmpresaBindingSource As BindingSource
     Friend WithEvents Label6 As Label
     Friend WithEvents ComboBoxCategoriaTest As ComboBox
+    Friend WithEvents AlbaraBindingSource As BindingSource
+    Friend WithEvents AlbaraTableAdapter As Gestio_empresesDataSetTableAdapters.albaraTableAdapter
+    Friend WithEvents FKalbaratenuma276EDEB3BindingSource As BindingSource
+    Friend WithEvents Albara_testTableAdapter As Gestio_empresesDataSetTableAdapters.albara_testTableAdapter
+    Friend WithEvents NumalbaraDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents AlbaraBindingSource1 As BindingSource
 End Class

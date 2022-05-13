@@ -43,15 +43,15 @@ GO
 CREATE TABLE categoria_test (
 cod_categoria uniqueidentifier PRIMARY KEY  default NEWID(),
 descripcio VARCHAR(244) NOT NULL,
-tamany INT NOT NULL
+tamany INT NOT NULL,
+preu DECIMAL(6,2) NOT NULL
 ); 
 
 GO 
 
 CREATE TABLE test (
 codi_test uniqueidentifier PRIMARY KEY default NEWID(), 
-cod_categoria uniqueidentifier  REFERENCES categoria_test(cod_categoria),
-preu DECIMAL(3,2) NOT NULL,
+cod_categoria uniqueidentifier  REFERENCES categoria_test(cod_categoria)
 );
 
 GO 

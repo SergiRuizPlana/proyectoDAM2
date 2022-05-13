@@ -385,6 +385,47 @@ SELECT cod_contracte, cif, data_inici, tests_mensuals, fecha_ultima_modificaio F
               <DbSource ConnectionRef="gestio_empresesConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        e.cif, e.nom, e.adreca, e.cp, e.ciutat, e.regio, e.pais, e.telf, e.email, c.descripcio AS categoria, COUNT(at.num_albara) AS total_tests,
+                             (SELECT        COUNT(at2.num_albara) AS Expr1
+                               FROM            albara_test AS at2 INNER JOIN
+                                                         albara AS a2 ON a2.num_albara = at2.num_albara
+                               WHERE        (a2.cif = e.cif) AND (at2.realitzat = 1)) AS tests_realitzats,
+                             (SELECT        COUNT(at2.num_albara) AS Expr1
+                               FROM            albara_test AS at2 INNER JOIN
+                                                         albara AS a2 ON a2.num_albara = at2.num_albara
+                               WHERE        (a2.cif = e.cif) AND (at2.realitzat = 0)) AS tests_disponibles, SUM(ct.preu) AS preu_total
+FROM            empresa AS e LEFT OUTER JOIN
+                         albara AS a ON a.cif = e.cif LEFT OUTER JOIN
+                         albara_test AS at ON at.num_albara = a.num_albara LEFT OUTER JOIN
+                         test AS t ON t.codi_test = at.codi_test LEFT OUTER JOIN 
+                         categoria_test AS ct ON ct.cod_categoria = t.cod_categoria LEFT OUTER JOIN
+                         categoria AS c ON e.cod_categoria = c.cod_categoria
+GROUP BY e.cif, e.nom, e.adreca, e.cp, e.ciutat, e.regio, e.pais, e.telf, e.email, c.descripcio</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="cif" DataSetColumn="cif" />
+              <Mapping SourceColumn="nom" DataSetColumn="nom" />
+              <Mapping SourceColumn="adreca" DataSetColumn="adreca" />
+              <Mapping SourceColumn="telf" DataSetColumn="telf" />
+              <Mapping SourceColumn="email" DataSetColumn="email" />
+              <Mapping SourceColumn="categoria" DataSetColumn="categoria" />
+              <Mapping SourceColumn="total_tests" DataSetColumn="total_tests" />
+              <Mapping SourceColumn="tests_realitzats" DataSetColumn="tests_realitzats" />
+              <Mapping SourceColumn="tests_disponibles" DataSetColumn="tests_disponibles" />
+              <Mapping SourceColumn="preu_total" DataSetColumn="preu_total" />
+              <Mapping SourceColumn="cp" DataSetColumn="cp" />
+              <Mapping SourceColumn="ciutat" DataSetColumn="ciutat" />
+              <Mapping SourceColumn="regio" DataSetColumn="regio" />
+              <Mapping SourceColumn="pais" DataSetColumn="pais" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="gestio_empresesConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy11" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>SELECT        e.cif, e.nom, e.adreca, e.telf, e.email, c.descripcio AS categoria, COUNT(at.num_albara) AS total_tests,
                              (SELECT        COUNT(at2.num_albara) AS Expr1
                                FROM            albara_test AS at2 INNER JOIN
@@ -405,20 +446,6 @@ GROUP BY e.cif, e.nom, e.adreca, e.telf, e.email, c.descripcio</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="cif" DataSetColumn="cif" />
-              <Mapping SourceColumn="nom" DataSetColumn="nom" />
-              <Mapping SourceColumn="adreca" DataSetColumn="adreca" />
-              <Mapping SourceColumn="telf" DataSetColumn="telf" />
-              <Mapping SourceColumn="email" DataSetColumn="email" />
-              <Mapping SourceColumn="categoria" DataSetColumn="categoria" />
-              <Mapping SourceColumn="total_tests" DataSetColumn="total_tests" />
-              <Mapping SourceColumn="tests_realitzats" DataSetColumn="tests_realitzats" />
-              <Mapping SourceColumn="tests_disponibles" DataSetColumn="tests_disponibles" />
-              <Mapping SourceColumn="preu_total" DataSetColumn="preu_total" />
-            </Mappings>
-            <Sources>
               <DbSource ConnectionRef="gestio_empresesConnectionString (MySettings)" DbObjectName="gestio_empreses.dbo.empresa" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="GetAddress" Modifier="Public" Name="GetAddress" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="GetAddress">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
@@ -531,13 +558,17 @@ WHERE e.nom = @param</CommandText>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO empresa
-                         (cif, nom, adreca, telf, email, cod_categoria)
-VALUES        (@cif,@nom,@adreca,@telf,@email,@cod_categoria);     
+                         (cif, nom, adreca, cp, ciutat, regio, pais, telf, email, cod_categoria)
+VALUES        (@cif,@nom,@adreca,@cp, @ciutat, @regio, @pais, @telf,@email,@cod_categoria);     
 </CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="cif" ColumnName="cif" DataSourceName="gestio_empreses.dbo.empresa" DataTypeServer="varchar(15)" DbType="AnsiString" Direction="Input" ParameterName="@cif" Precision="0" ProviderType="VarChar" Scale="0" Size="15" SourceColumn="cif" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="nom" ColumnName="nom" DataSourceName="gestio_empreses.dbo.empresa" DataTypeServer="varchar(30)" DbType="AnsiString" Direction="Input" ParameterName="@nom" Precision="0" ProviderType="VarChar" Scale="0" Size="30" SourceColumn="nom" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="adreca" ColumnName="adreca" DataSourceName="gestio_empreses.dbo.empresa" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@adreca" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="adreca" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="cp" ColumnName="cp" DataSourceName="gestio_empreses.dbo.empresa" DataTypeServer="varchar(10)" DbType="AnsiString" Direction="Input" ParameterName="@cp" Precision="0" ProviderType="VarChar" Scale="0" Size="10" SourceColumn="cp" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="ciutat" ColumnName="ciutat" DataSourceName="gestio_empreses.dbo.empresa" DataTypeServer="varchar(30)" DbType="AnsiString" Direction="Input" ParameterName="@ciutat" Precision="0" ProviderType="VarChar" Scale="0" Size="30" SourceColumn="ciutat" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="regio" ColumnName="regio" DataSourceName="gestio_empreses.dbo.empresa" DataTypeServer="varchar(30)" DbType="AnsiString" Direction="Input" ParameterName="@regio" Precision="0" ProviderType="VarChar" Scale="0" Size="30" SourceColumn="regio" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="pais" ColumnName="pais" DataSourceName="gestio_empreses.dbo.empresa" DataTypeServer="varchar(30)" DbType="AnsiString" Direction="Input" ParameterName="@pais" Precision="0" ProviderType="VarChar" Scale="0" Size="30" SourceColumn="pais" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="telf" ColumnName="telf" DataSourceName="gestio_empreses.dbo.empresa" DataTypeServer="varchar(14)" DbType="AnsiString" Direction="Input" ParameterName="@telf" Precision="0" ProviderType="VarChar" Scale="0" Size="14" SourceColumn="telf" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="email" ColumnName="email" DataSourceName="gestio_empreses.dbo.empresa" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@email" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="email" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="cod_categoria" ColumnName="cod_categoria" DataSourceName="gestio_empreses.dbo.empresa" DataTypeServer="uniqueidentifier" DbType="Guid" Direction="Input" ParameterName="@cod_categoria" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="16" SourceColumn="cod_categoria" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -622,7 +653,7 @@ SELECT codi_test, cod_categoria FROM test WHERE (codi_test = @codi_test)</Comman
   <xs:element name="Gestio_empresesDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Gestio_empresesDataSet" msprop:Generator_UserDSName="Gestio_empresesDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="albara" msprop:Generator_TableClassName="albaraDataTable" msprop:Generator_TableVarName="tablealbara" msprop:Generator_RowChangedName="albaraRowChanged" msprop:Generator_TablePropName="albara" msprop:Generator_RowDeletingName="albaraRowDeleting" msprop:Generator_RowChangingName="albaraRowChanging" msprop:Generator_RowEvHandlerName="albaraRowChangeEventHandler" msprop:Generator_RowDeletedName="albaraRowDeleted" msprop:Generator_RowClassName="albaraRow" msprop:Generator_UserTableName="albara" msprop:Generator_RowEvArgName="albaraRowChangeEvent">
+        <xs:element name="albara" msprop:Generator_TableClassName="albaraDataTable" msprop:Generator_TableVarName="tablealbara" msprop:Generator_TablePropName="albara" msprop:Generator_RowDeletingName="albaraRowDeleting" msprop:Generator_RowChangingName="albaraRowChanging" msprop:Generator_RowEvHandlerName="albaraRowChangeEventHandler" msprop:Generator_RowDeletedName="albaraRowDeleted" msprop:Generator_UserTableName="albara" msprop:Generator_RowChangedName="albaraRowChanged" msprop:Generator_RowEvArgName="albaraRowChangeEvent" msprop:Generator_RowClassName="albaraRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="num_albara" msprop:Generator_ColumnVarNameInTable="columnnum_albara" msprop:Generator_ColumnPropNameInRow="num_albara" msprop:Generator_ColumnPropNameInTable="num_albaraColumn" msprop:Generator_UserColumnName="num_albara">
@@ -644,7 +675,7 @@ SELECT codi_test, cod_categoria FROM test WHERE (codi_test = @codi_test)</Comman
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="albara_test" msprop:Generator_TableClassName="albara_testDataTable" msprop:Generator_TableVarName="tablealbara_test" msprop:Generator_RowChangedName="albara_testRowChanged" msprop:Generator_TablePropName="albara_test" msprop:Generator_RowDeletingName="albara_testRowDeleting" msprop:Generator_RowChangingName="albara_testRowChanging" msprop:Generator_RowEvHandlerName="albara_testRowChangeEventHandler" msprop:Generator_RowDeletedName="albara_testRowDeleted" msprop:Generator_RowClassName="albara_testRow" msprop:Generator_UserTableName="albara_test" msprop:Generator_RowEvArgName="albara_testRowChangeEvent">
+        <xs:element name="albara_test" msprop:Generator_TableClassName="albara_testDataTable" msprop:Generator_TableVarName="tablealbara_test" msprop:Generator_TablePropName="albara_test" msprop:Generator_RowDeletingName="albara_testRowDeleting" msprop:Generator_RowChangingName="albara_testRowChanging" msprop:Generator_RowEvHandlerName="albara_testRowChangeEventHandler" msprop:Generator_RowDeletedName="albara_testRowDeleted" msprop:Generator_UserTableName="albara_test" msprop:Generator_RowChangedName="albara_testRowChanged" msprop:Generator_RowEvArgName="albara_testRowChangeEvent" msprop:Generator_RowClassName="albara_testRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="num_albara" msprop:Generator_ColumnVarNameInTable="columnnum_albara" msprop:Generator_ColumnPropNameInRow="num_albara" msprop:Generator_ColumnPropNameInTable="num_albaraColumn" msprop:Generator_UserColumnName="num_albara">
@@ -659,7 +690,7 @@ SELECT codi_test, cod_categoria FROM test WHERE (codi_test = @codi_test)</Comman
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="categoria" msprop:Generator_TableClassName="categoriaDataTable" msprop:Generator_TableVarName="tablecategoria" msprop:Generator_RowChangedName="categoriaRowChanged" msprop:Generator_TablePropName="categoria" msprop:Generator_RowDeletingName="categoriaRowDeleting" msprop:Generator_RowChangingName="categoriaRowChanging" msprop:Generator_RowEvHandlerName="categoriaRowChangeEventHandler" msprop:Generator_RowDeletedName="categoriaRowDeleted" msprop:Generator_RowClassName="categoriaRow" msprop:Generator_UserTableName="categoria" msprop:Generator_RowEvArgName="categoriaRowChangeEvent">
+        <xs:element name="categoria" msprop:Generator_TableClassName="categoriaDataTable" msprop:Generator_TableVarName="tablecategoria" msprop:Generator_TablePropName="categoria" msprop:Generator_RowDeletingName="categoriaRowDeleting" msprop:Generator_RowChangingName="categoriaRowChanging" msprop:Generator_RowEvHandlerName="categoriaRowChangeEventHandler" msprop:Generator_RowDeletedName="categoriaRowDeleted" msprop:Generator_UserTableName="categoria" msprop:Generator_RowChangedName="categoriaRowChanged" msprop:Generator_RowEvArgName="categoriaRowChangeEvent" msprop:Generator_RowClassName="categoriaRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="cod_categoria" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columncod_categoria" msprop:Generator_ColumnPropNameInRow="cod_categoria" msprop:Generator_ColumnPropNameInTable="cod_categoriaColumn" msprop:Generator_UserColumnName="cod_categoria" type="xs:string" />
@@ -673,7 +704,7 @@ SELECT codi_test, cod_categoria FROM test WHERE (codi_test = @codi_test)</Comman
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="categoria_test" msprop:Generator_TableClassName="categoria_testDataTable" msprop:Generator_TableVarName="tablecategoria_test" msprop:Generator_RowChangedName="categoria_testRowChanged" msprop:Generator_TablePropName="categoria_test" msprop:Generator_RowDeletingName="categoria_testRowDeleting" msprop:Generator_RowChangingName="categoria_testRowChanging" msprop:Generator_RowEvHandlerName="categoria_testRowChangeEventHandler" msprop:Generator_RowDeletedName="categoria_testRowDeleted" msprop:Generator_RowClassName="categoria_testRow" msprop:Generator_UserTableName="categoria_test" msprop:Generator_RowEvArgName="categoria_testRowChangeEvent">
+        <xs:element name="categoria_test" msprop:Generator_TableClassName="categoria_testDataTable" msprop:Generator_TableVarName="tablecategoria_test" msprop:Generator_TablePropName="categoria_test" msprop:Generator_RowDeletingName="categoria_testRowDeleting" msprop:Generator_RowChangingName="categoria_testRowChanging" msprop:Generator_RowEvHandlerName="categoria_testRowChangeEventHandler" msprop:Generator_RowDeletedName="categoria_testRowDeleted" msprop:Generator_UserTableName="categoria_test" msprop:Generator_RowChangedName="categoria_testRowChanged" msprop:Generator_RowEvArgName="categoria_testRowChangeEvent" msprop:Generator_RowClassName="categoria_testRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="cod_categoria" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columncod_categoria" msprop:Generator_ColumnPropNameInRow="cod_categoria" msprop:Generator_ColumnPropNameInTable="cod_categoriaColumn" msprop:Generator_UserColumnName="cod_categoria" type="xs:string" />
@@ -689,7 +720,7 @@ SELECT codi_test, cod_categoria FROM test WHERE (codi_test = @codi_test)</Comman
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="contracte" msprop:Generator_TableClassName="contracteDataTable" msprop:Generator_TableVarName="tablecontracte" msprop:Generator_RowChangedName="contracteRowChanged" msprop:Generator_TablePropName="contracte" msprop:Generator_RowDeletingName="contracteRowDeleting" msprop:Generator_RowChangingName="contracteRowChanging" msprop:Generator_RowEvHandlerName="contracteRowChangeEventHandler" msprop:Generator_RowDeletedName="contracteRowDeleted" msprop:Generator_RowClassName="contracteRow" msprop:Generator_UserTableName="contracte" msprop:Generator_RowEvArgName="contracteRowChangeEvent">
+        <xs:element name="contracte" msprop:Generator_TableClassName="contracteDataTable" msprop:Generator_TableVarName="tablecontracte" msprop:Generator_TablePropName="contracte" msprop:Generator_RowDeletingName="contracteRowDeleting" msprop:Generator_RowChangingName="contracteRowChanging" msprop:Generator_RowEvHandlerName="contracteRowChangeEventHandler" msprop:Generator_RowDeletedName="contracteRowDeleted" msprop:Generator_UserTableName="contracte" msprop:Generator_RowChangedName="contracteRowChanged" msprop:Generator_RowEvArgName="contracteRowChangeEvent" msprop:Generator_RowClassName="contracteRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="cod_contracte" msprop:Generator_ColumnVarNameInTable="columncod_contracte" msprop:Generator_ColumnPropNameInRow="cod_contracte" msprop:Generator_ColumnPropNameInTable="cod_contracteColumn" msprop:Generator_UserColumnName="cod_contracte" type="xs:int" />
@@ -706,7 +737,7 @@ SELECT codi_test, cod_categoria FROM test WHERE (codi_test = @codi_test)</Comman
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="empresa" msprop:Generator_TableClassName="empresaDataTable" msprop:Generator_TableVarName="tableempresa" msprop:Generator_RowChangedName="empresaRowChanged" msprop:Generator_TablePropName="empresa" msprop:Generator_RowDeletingName="empresaRowDeleting" msprop:Generator_RowChangingName="empresaRowChanging" msprop:Generator_RowEvHandlerName="empresaRowChangeEventHandler" msprop:Generator_RowDeletedName="empresaRowDeleted" msprop:Generator_RowClassName="empresaRow" msprop:Generator_UserTableName="empresa" msprop:Generator_RowEvArgName="empresaRowChangeEvent">
+        <xs:element name="empresa" msprop:Generator_TableClassName="empresaDataTable" msprop:Generator_TableVarName="tableempresa" msprop:Generator_TablePropName="empresa" msprop:Generator_RowDeletingName="empresaRowDeleting" msprop:Generator_RowChangingName="empresaRowChanging" msprop:Generator_RowEvHandlerName="empresaRowChangeEventHandler" msprop:Generator_RowDeletedName="empresaRowDeleted" msprop:Generator_UserTableName="empresa" msprop:Generator_RowChangedName="empresaRowChanged" msprop:Generator_RowEvArgName="empresaRowChangeEvent" msprop:Generator_RowClassName="empresaRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="cif" msprop:Generator_ColumnVarNameInTable="columncif" msprop:Generator_ColumnPropNameInRow="cif" msprop:Generator_ColumnPropNameInTable="cifColumn" msprop:Generator_UserColumnName="cif">
@@ -755,10 +786,14 @@ SELECT codi_test, cod_categoria FROM test WHERE (codi_test = @codi_test)</Comman
               <xs:element name="tests_realitzats" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columntests_realitzats" msprop:Generator_ColumnPropNameInRow="tests_realitzats" msprop:Generator_ColumnPropNameInTable="tests_realitzatsColumn" msprop:Generator_UserColumnName="tests_realitzats" type="xs:int" minOccurs="0" />
               <xs:element name="tests_disponibles" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columntests_disponibles" msprop:Generator_ColumnPropNameInRow="tests_disponibles" msprop:Generator_ColumnPropNameInTable="tests_disponiblesColumn" msprop:Generator_UserColumnName="tests_disponibles" type="xs:int" minOccurs="0" />
               <xs:element name="preu_total" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnpreu_total" msprop:Generator_ColumnPropNameInRow="preu_total" msprop:Generator_ColumnPropNameInTable="preu_totalColumn" msprop:Generator_UserColumnName="preu_total" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cp" msprop:Generator_ColumnVarNameInTable="columncp" msprop:Generator_ColumnPropNameInRow="cp" msprop:Generator_ColumnPropNameInTable="cpColumn" msprop:Generator_UserColumnName="cp" type="xs:string" minOccurs="0" />
+              <xs:element name="ciutat" msprop:Generator_ColumnVarNameInTable="columnciutat" msprop:Generator_ColumnPropNameInRow="ciutat" msprop:Generator_ColumnPropNameInTable="ciutatColumn" msprop:Generator_UserColumnName="ciutat" type="xs:string" minOccurs="0" />
+              <xs:element name="regio" msprop:Generator_ColumnVarNameInTable="columnregio" msprop:Generator_ColumnPropNameInRow="regio" msprop:Generator_ColumnPropNameInTable="regioColumn" msprop:Generator_UserColumnName="regio" type="xs:string" minOccurs="0" />
+              <xs:element name="pais" msprop:Generator_ColumnVarNameInTable="columnpais" msprop:Generator_ColumnPropNameInRow="pais" msprop:Generator_ColumnPropNameInTable="paisColumn" msprop:Generator_UserColumnName="pais" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="test" msprop:Generator_TableClassName="testDataTable" msprop:Generator_TableVarName="tabletest" msprop:Generator_RowChangedName="testRowChanged" msprop:Generator_TablePropName="test" msprop:Generator_RowDeletingName="testRowDeleting" msprop:Generator_RowChangingName="testRowChanging" msprop:Generator_RowEvHandlerName="testRowChangeEventHandler" msprop:Generator_RowDeletedName="testRowDeleted" msprop:Generator_RowClassName="testRow" msprop:Generator_UserTableName="test" msprop:Generator_RowEvArgName="testRowChangeEvent">
+        <xs:element name="test" msprop:Generator_TableClassName="testDataTable" msprop:Generator_TableVarName="tabletest" msprop:Generator_TablePropName="test" msprop:Generator_RowDeletingName="testRowDeleting" msprop:Generator_RowChangingName="testRowChanging" msprop:Generator_RowEvHandlerName="testRowChangeEventHandler" msprop:Generator_RowDeletedName="testRowDeleted" msprop:Generator_UserTableName="test" msprop:Generator_RowChangedName="testRowChanged" msprop:Generator_RowEvArgName="testRowChangeEvent" msprop:Generator_RowClassName="testRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="codi_test" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columncodi_test" msprop:Generator_ColumnPropNameInRow="codi_test" msprop:Generator_ColumnPropNameInTable="codi_testColumn" msprop:Generator_UserColumnName="codi_test" type="xs:string" />
@@ -800,11 +835,11 @@ SELECT codi_test, cod_categoria FROM test WHERE (codi_test = @codi_test)</Comman
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK__albara_te__num_a__276EDEB3" msdata:parent="albara" msdata:child="albara_test" msdata:parentkey="num_albara" msdata:childkey="num_albara" msprop:Generator_UserChildTable="albara_test" msprop:Generator_ChildPropName="Getalbara_testRows" msprop:Generator_UserRelationName="FK__albara_te__num_a__276EDEB3" msprop:Generator_RelationVarName="relationFK__albara_te__num_a__276EDEB3" msprop:Generator_UserParentTable="albara" msprop:Generator_ParentPropName="albaraRow" />
-      <msdata:Relationship name="FK__albara__cif__22AA2996" msdata:parent="empresa" msdata:child="albara" msdata:parentkey="cif" msdata:childkey="cif" msprop:Generator_UserChildTable="albara" msprop:Generator_ChildPropName="GetalbaraRows" msprop:Generator_UserRelationName="FK__albara__cif__22AA2996" msprop:Generator_ParentPropName="empresaRow" msprop:Generator_RelationVarName="relationFK__albara__cif__22AA2996" msprop:Generator_UserParentTable="empresa" />
-      <msdata:Relationship name="FK__contracte__cif__173876EA" msdata:parent="empresa" msdata:child="contracte" msdata:parentkey="cif" msdata:childkey="cif" msprop:Generator_UserChildTable="contracte" msprop:Generator_ChildPropName="GetcontracteRows" msprop:Generator_UserRelationName="FK__contracte__cif__173876EA" msprop:Generator_ParentPropName="empresaRow" msprop:Generator_RelationVarName="relationFK__contracte__cif__173876EA" msprop:Generator_UserParentTable="empresa" />
-      <msdata:Relationship name="FK__albara_te__codi___286302EC" msdata:parent="test" msdata:child="albara_test" msdata:parentkey="codi_test" msdata:childkey="codi_test" msprop:Generator_UserChildTable="albara_test" msprop:Generator_ChildPropName="Getalbara_testRows" msprop:Generator_UserRelationName="FK__albara_te__codi___286302EC" msprop:Generator_ParentPropName="testRow" msprop:Generator_RelationVarName="relationFK__albara_te__codi___286302EC" msprop:Generator_UserParentTable="test" />
-      <msdata:Relationship name="FK__test__cod_catego__1FCDBCEB" msdata:parent="categoria_test" msdata:child="test" msdata:parentkey="cod_categoria" msdata:childkey="cod_categoria" msprop:Generator_UserChildTable="test" msprop:Generator_ChildPropName="GettestRows" msprop:Generator_UserRelationName="FK__test__cod_catego__1FCDBCEB" msprop:Generator_RelationVarName="relationFK__test__cod_catego__1FCDBCEB" msprop:Generator_UserParentTable="categoria_test" msprop:Generator_ParentPropName="categoria_testRow" />
+      <msdata:Relationship name="FK__albara_te__num_a__276EDEB3" msdata:parent="albara" msdata:child="albara_test" msdata:parentkey="num_albara" msdata:childkey="num_albara" msprop:Generator_UserChildTable="albara_test" msprop:Generator_ChildPropName="Getalbara_testRows" msprop:Generator_UserRelationName="FK__albara_te__num_a__276EDEB3" msprop:Generator_ParentPropName="albaraRow" msprop:Generator_RelationVarName="relationFK__albara_te__num_a__276EDEB3" msprop:Generator_UserParentTable="albara" />
+      <msdata:Relationship name="FK__albara__cif__22AA2996" msdata:parent="empresa" msdata:child="albara" msdata:parentkey="cif" msdata:childkey="cif" msprop:Generator_UserChildTable="albara" msprop:Generator_ChildPropName="GetalbaraRows" msprop:Generator_UserRelationName="FK__albara__cif__22AA2996" msprop:Generator_RelationVarName="relationFK__albara__cif__22AA2996" msprop:Generator_UserParentTable="empresa" msprop:Generator_ParentPropName="empresaRow" />
+      <msdata:Relationship name="FK__contracte__cif__173876EA" msdata:parent="empresa" msdata:child="contracte" msdata:parentkey="cif" msdata:childkey="cif" msprop:Generator_UserChildTable="contracte" msprop:Generator_ChildPropName="GetcontracteRows" msprop:Generator_UserRelationName="FK__contracte__cif__173876EA" msprop:Generator_RelationVarName="relationFK__contracte__cif__173876EA" msprop:Generator_UserParentTable="empresa" msprop:Generator_ParentPropName="empresaRow" />
+      <msdata:Relationship name="FK__albara_te__codi___286302EC" msdata:parent="test" msdata:child="albara_test" msdata:parentkey="codi_test" msdata:childkey="codi_test" msprop:Generator_UserChildTable="albara_test" msprop:Generator_ChildPropName="Getalbara_testRows" msprop:Generator_UserRelationName="FK__albara_te__codi___286302EC" msprop:Generator_RelationVarName="relationFK__albara_te__codi___286302EC" msprop:Generator_UserParentTable="test" msprop:Generator_ParentPropName="testRow" />
+      <msdata:Relationship name="FK__test__cod_catego__1FCDBCEB" msdata:parent="categoria_test" msdata:child="test" msdata:parentkey="cod_categoria" msdata:childkey="cod_categoria" msprop:Generator_UserChildTable="test" msprop:Generator_ChildPropName="GettestRows" msprop:Generator_UserRelationName="FK__test__cod_catego__1FCDBCEB" msprop:Generator_ParentPropName="categoria_testRow" msprop:Generator_RelationVarName="relationFK__test__cod_catego__1FCDBCEB" msprop:Generator_UserParentTable="categoria_test" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
