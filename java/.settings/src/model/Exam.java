@@ -9,8 +9,9 @@ public class Exam {
 	private Topic topic;
 	private String description;
 	private List<Question> questions=new ArrayList<>();
+ 
 	
-	public Exam(String id, String Topic, String description) {
+	public Exam(String id, Topic topic, String description) {
 		super();
 		this.id = id;
 		this.topic = topic;
@@ -32,6 +33,9 @@ public class Exam {
 	public String getId() {
 		return id;
 	}
+ 
+
+ 
 
 	public void setId(String id) {
 		this.id = id;

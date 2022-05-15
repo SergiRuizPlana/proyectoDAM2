@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 import model.Exam;
 import model.Question;
@@ -129,19 +130,19 @@ public class ExamDao {
 	
 	
 	
-	public static ArrayList<Exam> getByTopic(String topicId){
-		String sqlComand="select e.id_exam,e.id_topic,e.description,count(eq.id_exam) as num_questions from exam e left join examQuestion eq on eq.id_exam=e.id_exam where id_topic=? group by e.id_exam,e.id_topic,e.description";
+	public static List<Exam> getByTopic(String topicId){
+		String sqlComand="select e.id_exam,e.id_topic,e.description,count(eq.id_exam) as num_questions from exam e left join examQuestion eq on eq.id_exam=e.id_exam "
+				+ "left join topic t on e.id_topic=t.id_topic where id_topic=? group by e.id_exam,e.id_topic, e.description ";
 		Exam exam=null;
-		ArrayList<Exam> exams=new ArrayList<>();
+		List<Exam> exams=new ArrayList<>();
 		try {
 			Conection.openConnection();
 			PreparedStatement stm =  Conection.conn.prepareStatement(sqlComand);
 			stm.setString(1, topicId);
 			ResultSet r = stm.executeQuery(); 
 			while(r.next()) {
-				exam=new Exam(r.getString("id_exam"),r.getString("description"));
-				Topic topic = TopicDAO.getById(r.getString("id_topic"));
-				exam.setTopic(topic);
+				Topic topic =new Topic(r.getString("id_topic"),r.getString("topicDescription"));
+				exam=new Exam(r.getString("id_exam"),r.getString("description")); 
 				exams.add(exam);
 			}
 			stm.close();
@@ -186,17 +187,19 @@ public class ExamDao {
 	
 	
 	
-	public static ArrayList<Question> getQuestions(String examId){
-		String sqlComand="select q.* from  examQuestion eq inner join question q on q.id_question=eq.id_question where id_exam=?";
+	public static List<Question> getQuestions(String examId){
+		String sqlComand="select q.*, t.description from  examQuestion eq inner join question q on q.id_question=eq.id_question "
+				+ "left join topic t on t.id_topic=q.id_topic where id_exam=?";
 		Question question=null;
-		ArrayList<Question> questions=new ArrayList<>();
+		List<Question> questions=new ArrayList<>();
 		try {
 			Conection.openConnection();
 			PreparedStatement stm =  Conection.conn.prepareStatement(sqlComand);
 			stm.setString(1, examId);
 			ResultSet r = stm.executeQuery(); 
 			while(r.next()) {
-				question=new Question(r.getString("id_question"),r.getString("question"),r.getString("answer1"),r.getString("answer2"),r.getString("answer3"),r.getString("answer4"),r.getInt("correctanswer"),r.getString("id_topic"));
+				Topic topic=new Topic(r.getString("id_topic"),r.getString("description" ));
+				question=new Question(r.getString("id_question"),r.getString("question"),r.getString("answer1"),r.getString("answer2"),r.getString("answer3"),r.getString("answer4"),r.getInt("correctanswer"),topic);
 				questions.add(question);
 			}
 			stm.close();

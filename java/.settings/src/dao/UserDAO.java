@@ -3,13 +3,13 @@ package dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-
+import java.util.ArrayList;
+import java.util.List;
 import java.util.TreeMap;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import model.User;
-import model.UserFx;
+import model.User; 
 
 public class UserDAO {
 
@@ -18,9 +18,9 @@ public class UserDAO {
 	 * get all users
 	 * @return ObservableList of users
 	 */
-	public static ObservableList<UserFx> getUsers() {
+	public static List<User> getUsers() {
 
-		ObservableList<UserFx> resultado=  FXCollections.observableArrayList();
+		List<User> resultado=  new ArrayList<User>();
 		String sqlComand= "select * from usr";
 		Statement stm;
 		try {
@@ -28,8 +28,8 @@ public class UserDAO {
 			stm = Conection.conn.createStatement();
 			ResultSet r = stm.executeQuery(sqlComand); 
 			while(r.next()) {
-				UserFx ufx = new UserFx(r.getString("nif"),r.getString("fname"),r.getString("lname"),r.getString("userName"),r.getString("address"),r.getString("city"),r.getString("zip"),r.getString("phone"),r.getString("email") ,r.getString("psswd"),r.getString("role"));
-				resultado.add(ufx);
+				User user = new User(r.getString("nif"),r.getString("fname"),r.getString("lname"),r.getString("userName"),r.getString("address"),r.getString("city"),r.getString("zip"),r.getString("phone"),r.getString("email") ,r.getString("psswd"),r.getString("role"));
+				resultado.add(user);
 
 			}
 			stm.close();
@@ -74,9 +74,9 @@ public class UserDAO {
 	 * 
 	 */
 
-	public static ObservableList<UserFx> searchByNif(String nif) {
+	public static List<User> searchByNif(String nif) {
 
-		ObservableList<UserFx> resultado=  FXCollections.observableArrayList();
+		List<User> resultado= new ArrayList<User>();
 		String sqlComand= "select * from usr where nif like ? ";
 
 		try {
@@ -85,8 +85,8 @@ public class UserDAO {
 			stm.setString(1,"%"+nif+"%");
 			ResultSet r = stm.executeQuery();
 			while(r.next()) {
-				UserFx ufx = new  UserFx(r.getString("nif"),r.getString("fname"),r.getString("lname"),r.getString("userName"),r.getString("address"),r.getString("city"),r.getString("zip"),r.getString("phone"),r.getString("email") ,r.getString("psswd"),r.getString("role"));
-				resultado.add(ufx);
+				User user = new  User(r.getString("nif"),r.getString("fname"),r.getString("lname"),r.getString("userName"),r.getString("address"),r.getString("city"),r.getString("zip"),r.getString("phone"),r.getString("email") ,r.getString("psswd"),r.getString("role"));
+				resultado.add(user);
 			}
 			stm.close();
 			r.close();
@@ -108,26 +108,25 @@ public class UserDAO {
 	 * 					false: if the user was not created
 	 */
 	
-	public static boolean insertUser(String role,String[] userData) {
+	public static boolean insertUser(User usr) {
 		String sqlComand="";
-		if(role.equalsIgnoreCase("ADMIN")) {
-			sqlComand="insert into usr(nif,userName,fname,lname,address,city,zip,phone,psswd,role) values(?,?,?,?,?,?,?,?,?,'TEACHER')";		
-		}else {
-			sqlComand="insert into usr(nif,userName,fname,lname,address,city,zip,phone,psswd,role) values(?,?,?,?,?,?,?,?,?,'STUDENT')";	
-		}
+	
+			sqlComand="insert into usr(nif, userName, fname, lname, address, city, zip, phone, psswd, email, role) values(?,?,?,?,?,?,?,?,?,?,?)";		 
 
 		try {
 			Conection.openConnection();
 			PreparedStatement pstm= Conection.conn.prepareStatement(sqlComand);
-			pstm.setString(1,userData[0] );
-			pstm.setString(2,userData[1] );
-			pstm.setString(3,userData[2] );
-			pstm.setString(4,userData[3] );
-			pstm.setString(5,userData[4] );
-			pstm.setString(6,userData[5] );
-			pstm.setString(7,userData[6] );
-			pstm.setString(8,userData[7] );
-			pstm.setString(9,userData[8] );
+			pstm.setString(1,usr.getNif());
+			pstm.setString(2,usr.getUserName() );
+			pstm.setString(3,usr.getFname());
+			pstm.setString(4,usr.getLname());
+			pstm.setString(5,usr.getAdress());
+			pstm.setString(6,usr.getCity());
+			pstm.setString(7,usr.getZip());
+			pstm.setString(8,usr.getPhone());
+			pstm.setString(9,usr.getPsswd());
+			pstm.setString(10,usr.getEmail());
+			pstm.setString(11,usr.getRole());
 			pstm.executeUpdate();
 			pstm.close();
 			Conection.closeConnection();
@@ -149,7 +148,7 @@ public class UserDAO {
 			pstm.setString(2, psswd);
 			ResultSet r =pstm.executeQuery();
 			if(r.next()) {
-				usr = new User(r.getString("nif"),r.getString("fname"),r.getString("lname"),r.getString("userName"),r.getString("address"),r.getString("city"),r.getString("zip"),r.getString("phone"),r.getString("psswd"),r.getString("role"));
+				usr = new User(r.getString("nif"),r.getString("fname"),r.getString("lname"),r.getString("userName"),r.getString("address"),r.getString("city"),r.getString("zip"),r.getString("phone"),r.getString("psswd"),r.getString("email"),r.getString("role"));
 			}
 			pstm.close();
 			Conection.closeConnection();
@@ -170,6 +169,22 @@ public class UserDAO {
 			PreparedStatement pstm= Conection.conn.prepareStatement(sqlComand);
 			pstm.setString(1,passwd );
 			pstm.setString(2,username );
+			pstm.executeUpdate();
+			pstm.close();
+			Conection.closeConnection();
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	
+	public static boolean changeUserName(String usernameOld, String usernameNew) {
+		String sqlComand="update usr set userName=? where userName=?";		
+		try {
+			Conection.openConnection();
+			PreparedStatement pstm= Conection.conn.prepareStatement(sqlComand);
+			pstm.setString(1,usernameNew );
+			pstm.setString(2,usernameOld );
 			pstm.executeUpdate();
 			pstm.close();
 			Conection.closeConnection();

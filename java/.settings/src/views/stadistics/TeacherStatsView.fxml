@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="821.0" prefWidth="1175.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.StatsController">
+   <children>
+      <TabPane layoutX="20.0" layoutY="29.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="783.0" prefWidth="1133.0" style="-fx-background-color: transparent;" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="29.0">
+         <tabs>
+            <Tab styleClass="btn2" text="Examenes">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="examsStatsTable" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="754.0" prefWidth="1133.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <columns>
+                              <TableColumn fx:id="studentCol" minWidth="0.0" prefWidth="400.0" text="fecha" />
+                              <TableColumn fx:id="dateCol" minWidth="0.0" prefWidth="200.0" text="fecha" />
+                              <TableColumn fx:id="topicCol" prefWidth="200.0" text="Topic" />
+                              <TableColumn fx:id="hitsCol" maxWidth="100.0" minWidth="0.0" prefWidth="100.0" resizable="false" text="aciertos" />
+                              <TableColumn fx:id="missesCol" maxWidth="100.0" prefWidth="100.0" resizable="false" text="fallos" />
+                              <TableColumn fx:id="blankCol" maxWidth="100.0" minWidth="0.0" prefWidth="100.0" resizable="false" text="en blanco" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab styleClass="btn2" text="Preguntas">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="statQuestionTable" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="754.0" prefWidth="1133.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <columns>
+                              <TableColumn fx:id="descriptioStatQCol" minWidth="0.0" prefWidth="300.0" text="descripcion" />
+                              <TableColumn fx:id="studentStatQCol" minWidth="0.0" prefWidth="300.0" text="Alumno" />
+                              <TableColumn fx:id="topicStatQCol" prefWidth="200.0" text="Topic" />
+                              <TableColumn fx:id="hitsStatQCol" maxWidth="100.0" minWidth="0.0" prefWidth="100.0" resizable="false" text="aciertos" />
+                              <TableColumn fx:id="missesStatQCol" maxWidth="100.0" prefWidth="100.0" resizable="false" text="fallos" />
+                              <TableColumn fx:id="blankStatQCol" maxWidth="100.0" minWidth="0.0" prefWidth="100.0" resizable="false" text="en blanco" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

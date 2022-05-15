@@ -1,38 +1,34 @@
 package controllers;
 
-import java.io.File;
-import java.io.IOException;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import javax.swing.JFileChooser;
 
 import dao.UserDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button; 
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane; 
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
-import javafx.util.Callback; 
-import model.UserFx;
-import test.Test;
+import javafx.util.Callback;
+import model.User; 
+import utils.ControlUtils;
 
 public class TeacherController implements Initializable{
 
@@ -41,21 +37,28 @@ public class TeacherController implements Initializable{
 	private TextField fnameText,lnameText,nifText,phoneText,adressText,zipText,emailText,cityText;
 
 	@FXML
+	private TextField fnameText2,lnameText2,nifText2,phoneText2,adressText2,zipText2,emailText2,cityText2, usernameText,psswdText;
+
+	@FXML
 	private Text userNameHide;
 	@FXML
 	private Button openImg,showStudentBtn,returnBtn,createStudentBtn,saveStudentBtn,cancelStudentBtn;
 
 	@FXML
-	private TableColumn<UserFx,String> fnameCol,lnameCol,nifCol,phoneCol,emailCol,addresCol,cityCol;
+	private TableColumn<User,String> fnameCol,lnameCol,nifCol,phoneCol,emailCol,addresCol,cityCol;
 
 	@FXML
-	private AnchorPane showStudentPane,showStudentsPane;
+	private AnchorPane showStudentPane,showStudentsPane,createPane;
 
 	@FXML
-	private TableView<UserFx> studentsList;
+	private TableView<User> studentsList;
 
 	@FXML
-	private TableColumn<UserFx,String> editCol;
+	private TableColumn<User,String> editCol;
+	
+	@FXML
+	private RadioButton studentRole,studentRole2,teacherRole,teacherRole2;
+
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -66,10 +69,11 @@ public class TeacherController implements Initializable{
 		emailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
 		addresCol.setCellValueFactory(new PropertyValueFactory<>("adress"));
 		cityCol.setCellValueFactory(new PropertyValueFactory<>("city"));
-		//add cell of button edit 
-		Callback<TableColumn<UserFx, String>, TableCell<UserFx, String>> cellFoctory = (TableColumn<UserFx, String> param) -> {
-			// make cell containing buttons
-			final TableCell<UserFx, String> cell = new TableCell<UserFx, String>() {
+
+
+		Callback<TableColumn<User, String>, TableCell<User, String>> cellFoctory = (TableColumn<User, String> param) -> {
+
+			final TableCell<User, String> cell = new TableCell<User, String>() {
 				@Override
 				public void updateItem(String item, boolean empty) {
 					super.updateItem(item, empty);
@@ -80,8 +84,20 @@ public class TeacherController implements Initializable{
 
 					} else {
 
-						Button deleteIcon = new Button("edit");
-						Button editIcon = new Button("rm");
+////						Image editIgm = new Image("src\\resources\\img\\edit.png");
+//						ImageView view = new ImageView(editIgm);
+////						Image deleteImg = new Image("src/resources/img/ltrash.png");
+//						System.out.println(deleteImg.getUrl());
+//						ImageView view2 = new ImageView(deleteImg);
+//						view.setFitHeight(22);
+//						view.setPreserveRatio(true);
+//						view2.setFitHeight(22);
+//						view2.setPreserveRatio(true);
+						Button deleteIcon = new Button();
+						Button editIcon = new Button();
+//						
+//						deleteIcon.setGraphic(view);
+//						editIcon.setGraphic(view2);
 
 						deleteIcon.setStyle(
 								" -fx-cursor: hand ;"
@@ -94,20 +110,29 @@ public class TeacherController implements Initializable{
 										+ "-fx-fill:#00E676;"
 								);
 						deleteIcon.setOnMouseClicked((MouseEvent event) -> {
+							//							UserFx ufx = getTableRow().getItem();
+							//					        UserDAO.
+							//TODO
 
 						});
 						editIcon.setOnMouseClicked((MouseEvent event) -> {
 							showStudentPane.toFront();
-							UserFx ufx =studentsList.getSelectionModel().getSelectedItem();
-							fnameText.setText(ufx.getFname());
-							lnameText.setText(ufx.getLname());
-							nifText.setText(ufx.getNif());
-							emailText.setText(ufx.getEmail());
-							cityText.setText(ufx.getCity());
-							zipText.setText(ufx.getZip());
-							phoneText.setText(ufx.getPhone());
-							lnameText.setText(ufx.getLname());
-							userNameHide.setText(ufx.getUserName());
+							User usr = getTableRow().getItem();
+							fnameText.setText(usr.getFname());
+							lnameText.setText(usr.getLname());
+							nifText.setText(usr.getNif());
+							emailText.setText(usr.getEmail());
+							cityText.setText(usr.getCity());
+							zipText.setText(usr.getZip());
+							phoneText.setText(usr.getPhone());
+							lnameText.setText(usr.getLname());
+							userNameHide.setText(usr.getUserName());
+							adressText.setText(usr.getAdress());
+							if(usr.isStudent()) {
+								studentRole.setSelected(true);
+							}else {
+								teacherRole.setSelected(true);
+							}
 						});
 
 						HBox managebtn = new HBox(editIcon, deleteIcon);
@@ -124,10 +149,12 @@ public class TeacherController implements Initializable{
 		};
 
 		editCol.setCellFactory(cellFoctory);
+
+
 		ExecutorService service = Executors.newFixedThreadPool(4);
 		service.submit(new Runnable() {
 			public void run() {
-				studentsList.setItems(UserDAO.getUsers());
+				studentsList.getItems().addAll(UserDAO.getUsers());
 				service.shutdownNow();
 			}
 		});
@@ -140,8 +167,8 @@ public class TeacherController implements Initializable{
 	}
 
 	public void imgSelect(ActionEvent event) {
-		FileChooser fx=new FileChooser();
-		File selectedFile=fx.showOpenDialog(null);
+		//		FileChooser fx=new FileChooser();
+		//		File selectedFile=fx.showOpenDialog(null);
 	}
 
 
@@ -154,13 +181,32 @@ public class TeacherController implements Initializable{
 		zipText.setEditable(true);
 		phoneText.setEditable(true);
 		adressText.setEditable(true);
+		saveStudentBtn.setVisible(true);
+		cancelStudentBtn.setVisible(true);
 	}
 
 	public void saveStudent(ActionEvent event) { 
-		String[] userInfo= {nifText.getText(), fnameText.getText(), lnameText.getText(), adressText.getText(), cityText.getText(),zipText.getText(), phoneText.getText(),emailText.getText()};
+		String[] userInfo= {nifText.getText(), fnameText.getText(), lnameText.getText(), adressText.getText(), cityText.getText(),zipText.getText(), phoneText.getText(),emailText.getText(),studentRole.isSelected()?"STUDENT":"TEACHER"};
 		System.out.println(UserDAO.updateUser(userInfo,userNameHide.getText()));
+		TextField[] texts={nifText, fnameText, lnameText, adressText, cityText,zipText, phoneText,emailText};
+		ControlUtils.resetTextBox(texts);
+		showStudentsPane.toFront();	
 	}
-	
+
+	public void createStudent(ActionEvent event) { 
+		User student=new User(nifText2.getText(), fnameText2.getText(), lnameText2.getText(),usernameText.getText(), adressText2.getText(), cityText2.getText(),zipText2.getText(), phoneText2.getText(), psswdText.getText(),emailText2.getText(),studentRole2.isSelected()?"STUDENT":"TEACHER");
+		System.out.println(UserDAO.insertUser(student));
+		TextField[] texts={nifText2, fnameText2, lnameText2,usernameText, adressText2, cityText2,zipText2, phoneText2, psswdText,emailText2};
+		ControlUtils.resetTextBox(texts);
+		showStudentsPane.toFront();
+
+	}
+
+	public void createNewStudent() {
+		createPane.toFront();
+	}
+
+
 	public void cancelStudentEdit(ActionEvent event) {
 		showStudentsPane.toFront();
 	}

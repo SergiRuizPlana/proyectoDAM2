@@ -1,0 +1,195 @@
+.panelBtn {
+	-fx-background-color: #45526C;
+}
+
+.header{
+	 -fx-background-color:  linear-gradient(to right, #1E6F5C, #29BB89);
+}
+
+.left{
+	 -fx-background-color:  linear-gradient(to bottom, #1E6F5C,  #71EFA3);
+}
+
+.panelBtn:hover {
+	-fx-background-color: #5AA897;
+}
+
+.btn{
+	-fx-background-color: #9DF3C4;
+	-fx-background-radius:15px;
+	-fx-border-radius:15px;
+}
+
+.btn:hover{
+	-fx-background-color: transparent;
+	-fx-background-radius:15px;
+	-fx-border-radius:15px;
+	-fx-border-color:#9DF3C4;
+}
+
+.btn2{
+	-fx-text-fill:white;
+	-fx-background-color: #1FAB89;
+}
+
+.btn2:hover{
+	-fx-background-color: transparent;
+	-fx-border-color:#1FAB89;
+}
+
+.radiu1{
+	-fx-background-radius:5px;
+	-fx-border-radius:5px;
+}
+
+.radiu2{
+	-fx-background-radius:10px;
+	-fx-border-radius:10px;
+}
+
+.radiu3{
+	-fx-background-radius:15px;
+	-fx-border-radius:15px;
+}
+
+.radiu4{
+	-fx-background-radius:20px;
+	-fx-border-radius:20px;
+}
+
+.btnLogout{
+    -fx-text-fill: rgb(8, 8, 8);
+ 
+}
+
+.btnLogout:hover{
+    -fx-text-fill: rgb(29, 28, 28);
+    -fx-font-size:15px;
+    -fx-underline: true;
+}
+
+.textField{
+		-fx-background-color: transparent;
+		-fx-border-width: 0px 0px 3px 0px;
+		-fx-border-color:#fff;
+	
+}
+
+.table-view {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header-background .filler {
+    -fx-background-color: transparent;
+}
+
+.table-view .corner {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header-background{
+    -fx-background-color: linear-gradient(to bottom, #1dbadd5b, #93f9b85b);
+    -fx-background-radius: 7px 7px 0px 0px;
+
+
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+
+.table-view .table-cell{
+    -fx-border-color: transparent;
+    -fx-padding: 2 0 2 10px;
+}
+
+.table-row-cell: hover {
+    -fx-background-color: #93f9b911;
+    -fx-text-background-color: red;
+}
+
+.table-row-cell: odd{
+    -fx-background-color: #d9ffcc;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+
+.table-row-cell: even{
+    -fx-background-color: #ccffe6;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+
+.table-row-cell:selected { 
+    -fx-text-background-color: black;
+ }
+
+
+.table-view .virtual-flow .scroll-bar:vertical,
+.table-view .virtual-flow .scroll-bar:vertical .track,
+.table-view .virtual-flow .scroll-bar:vertical .track-background,
+.table-view .virtual-flow .scroll-bar:horizontal,
+.table-view .virtual-flow .scroll-bar:horizontal .track,
+.table-view .virtual-flow .scroll-bar:horizontal .track-background {
+    -fx-background-color: transparent;
+}
+
+.table-view .virtual-flow .scroll-bar .increment-button,
+.table-view .virtual-flow .scroll-bar .decrement-button {
+    -fx-opacity: 0;
+    -fx-padding: 2;
+}
+
+.table-view .virtual-flow .scroll-bar:vertical .thumb{
+    -fx-background-color:  linear-gradient(to bottom, #1dbbdd44, #93f9b944);
+}
+
+.table-view .virtual-flow .scroll-bar:horizontal .thumb {
+    -fx-background-color:  linear-gradient(to right, #1dbbdd44, #93f9b944);
+}
+
+
+.table-row-cell: highlighted {
+    -fx-background-color: #81c483;
+    -fx-background-radius: 15px;
+}
+
+
+.tab-pane {
+    -fx-tab-min-height: 1.8333em; /* 22 */
+    -fx-tab-max-height: 1.8333em; /* 22 */
+}
+.tab-pane > .tab-header-area > .headers-region > .tab > .tab-container > .tab-label {
+	-fx-background-color:#29BB89;
+    -fx-text-fill: white;
+    -fx-font-size:13px;
+}
+.tab-pane > .tab-header-area > .headers-region > .tab {
+    -fx-padding: 0.083333em 0.5em 0.0769em 0.5em; /* 1 6 0.99 6 */
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab:hover {
+    -fx-color: -fx-hover-base;
+}
+.tab-pane > .tab-header-area > .headers-region > .tab:selected {
+    -fx-background-color: -fx-outer-border, -fx-inner-border, -fx-background;
+    -fx-background-insets: 0 1 1 0, 1 2 0 1, 2 3 0 2;
+}
+.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+    -fx-border-width: 1, 1;
+    -fx-border-color: -fx-focus-color, -fx-faint-focus-color;
+    -fx-border-insets: -4 -4 -6 -5, -2 -2 -5 -3;
+    -fx-border-radius: 2, 1; /* looks sharper if outer border has a tighter radius (2 instead of 3) */
+}
+.tab-pane:focused > .tab-header-area > .headers-region > .tab:bottom:selected .focus-indicator {
+    -fx-border-insets: -6 -5 -4 -4, -5 -3 -2 -2;
+}
+
+.tab-pane > .tab-header-area > .tab-header-background {
+    /* TODO should not be using text-box-border I think? */
+    -fx-background-color: transparent;
+}
+ 
+
+

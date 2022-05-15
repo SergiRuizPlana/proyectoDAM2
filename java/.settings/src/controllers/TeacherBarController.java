@@ -1,34 +1,11 @@
 package controllers;
-
-import java.io.File;
-import java.io.IOException;
+ 
 import java.net.URL;
-import java.util.ResourceBundle;
-
-import javax.swing.JFileChooser;
-
-import dao.UserDAO;
+import java.util.ResourceBundle; 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button; 
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane; 
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
-import javafx.util.Callback; 
-import model.UserFx;
+import javafx.fxml.FXML; 
+import javafx.fxml.Initializable; 
+import javafx.scene.control.Button;  
 import test.Test;
 
 public class TeacherBarController implements Initializable{
@@ -41,8 +18,7 @@ public class TeacherBarController implements Initializable{
 
 
 
-	@FXML
-	private Button examsBtn;
+
 
 	@FXML
 	private Button questionsBtn;
@@ -62,13 +38,11 @@ public class TeacherBarController implements Initializable{
 	
 	public void click(ActionEvent event) {
 		if(event.getSource()==studentBtn) {
-			Test.getHomeController().changeView("teacher\\TeacherView.fxml", false);
-		}else if(event.getSource()==examsBtn) {
-			Test.getHomeController().changeView("exams\\ExamsList.fxml", false);
+			Test.getHomeController().changeView("teacher\\TeacherView.fxml", false);	
 		}else if(event.getSource()==questionsBtn) {
-			Test.getHomeController().changeView("questions\\QuestionsList.fxml", false);
+			Test.getHomeController().changeView("question\\QuestionsList.fxml", false);
 		}else if(event.getSource()==statsBtn) {
-			Test.getHomeController().changeView("student\\StatsList.fxml", false);
+			Test.getHomeController().changeView("stadistics\\TeacherStatsView.fxml", false);
 		}
 		
 		

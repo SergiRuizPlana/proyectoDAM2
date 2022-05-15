@@ -11,14 +11,25 @@ public class Question {
 	private String answer4;
 	private int correctanswer; 
 	//	private Byte[] img; 
-	private String topic;
+	private Topic topic;
 
 
 
 	public Question(String id_question, String question, String answer1, String answer2, String answer3, String answer4,
-			int correctanswer, String topic) {
+			int correctanswer, Topic topic) {
 		super();
 		this.id_question = id_question;
+		this.question = question;
+		this.answer1 = answer1;
+		this.answer2 = answer2;
+		this.answer3 = answer3;
+		this.answer4 = answer4;
+		this.correctanswer = correctanswer;
+		this.topic = topic;
+	}
+	public Question(String question, String answer1, String answer2, String answer3, String answer4,
+			int correctanswer, Topic topic) {
+		super();
 		this.question = question;
 		this.answer1 = answer1;
 		this.answer2 = answer2;
@@ -53,11 +64,11 @@ public class Question {
 		this.correctanswer = correctanswer;
 	}
 
-	public String getTopic() {
+	public Topic getTopic() {
 		return topic;
 	}
 
-	public void setTopic(String topic) {
+	public void setTopic(Topic topic) {
 		this.topic = topic;
 	}
 
@@ -95,9 +106,7 @@ public class Question {
 
 	@Override
 	public String toString() {
-		return "Question [id_question=" + id_question + ", question=" + question + ", answer1=" + answer1 + ", answer2="
-				+ answer2 + ", answer3=" + answer3 + ", answer4=" + answer4 + ", correctanswer=" + correctanswer
-				+ ", topic=" + topic + "]";
+		return  question  ;
 	}
 
 	

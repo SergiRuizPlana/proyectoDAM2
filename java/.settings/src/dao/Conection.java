@@ -13,12 +13,16 @@ public class Conection {
 	private static final String jdbcURL = "jdbc:sqlserver://gestioEmpresa.mssql.somee.com;packet size=4096;user=code24_SQLLogin_1;password=9kwyyyqmim;data source=gestioEmpresa.mssql.somee.com;persist security info=False;initial catalog=gestioEmpresa;encrypt=true;trustServerCertificate=true";
 
 	public static void openConnection() throws Exception {
-		Class.forName(jdbcDriver);
-		conn = DriverManager.getConnection(jdbcURL);
+//		if(!conn.isValid(0)) {
+			Class.forName(jdbcDriver);
+			conn = DriverManager.getConnection(jdbcURL);			
+//		}
 	}
 
 
 	public static void closeConnection() throws Exception {
-		conn.close();
+//		if(conn.isValid(0)) {
+			conn.close();			
+//		}
 	}
 }

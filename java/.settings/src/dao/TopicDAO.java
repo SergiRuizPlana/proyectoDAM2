@@ -4,15 +4,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 import model.Topic;
 
 public class TopicDAO {
 
-	public static ArrayList<Topic> getAll(){
+	public static List<Topic> getAll(){
 		String sqlComand="select * from topic";
 		Topic topic=null;
-		ArrayList<Topic> topics=new ArrayList<>();
+		List<Topic> topics=new ArrayList<>();
 		try {
 			Conection.openConnection();
 			Statement stm =  Conection.conn.createStatement();

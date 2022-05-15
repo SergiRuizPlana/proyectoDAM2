@@ -12,11 +12,12 @@ public class User {
 	private String city;
 	private String zip;
 	private String phone;
+	private String email;
 	private String psswd;
 	private String role;
 
 	public User(String nif, String fname, String lname,String userName, String adress, String city, String zip, String phone,
-			String psswd, String role) {
+			String psswd, String email, String role) {
 		super();
 		this.nif = nif;
 		this.fname = fname;
@@ -27,6 +28,7 @@ public class User {
 		this.zip = zip;
 		this.phone = phone;
 		this.psswd = psswd;
+		this.email=email;
 		this.role = role;
 	}
 
@@ -111,11 +113,35 @@ public class User {
 	}
 
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public boolean isTeacher() {
+		if (this.role.equalsIgnoreCase("TEACHER")) return true;
+		return false;
+	}
+	
+	public boolean isAdmin() {
+		if (this.role.equalsIgnoreCase("ADMIN")) return true;
+		return false;
+	}
+	
+	public boolean isStudent() {
+		if (this.role.equalsIgnoreCase("STUDENT")) return true;
+		return false;
+	}
+	
+	
 	@Override
 	public String toString() {
 		return "User [nif=" + nif + ", fname=" + fname + ", lname=" + lname + ", userName=" + userName + ", adress="
-				+ adress + ", city=" + city + ", zip=" + zip + ", phone=" + phone + ", psswd=" + psswd + ", role="
-				+ role + "]";
+				+ adress + ", city=" + city + ", zip=" + zip + ", phone=" + phone + ", psswd=" + psswd + ", email="
+						+ email + ", role=" + role + "]";
 	}
 
 	public String getFullName() {

@@ -1,10 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="homeBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="764.0" prefWidth="1106.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeController">
+<BorderPane fx:id="homeBorderPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="873.0" prefWidth="1502.0" style="-fx-background-color: #fff;" styleClass="header" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeController">
    <top>
-      <AnchorPane prefHeight="108.0" prefWidth="898.0" style="-fx-background-color: #21825C;" BorderPane.alignment="CENTER" />
+      <AnchorPane prefHeight="119.0" prefWidth="1106.0" styleClass="header" stylesheets="@../styles/styles.css" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="img" fitHeight="100.0" fitWidth="105.0" layoutX="8.0" layoutY="5.0" opacity="0.51" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <effect>
+                  <Blend />
+               </effect>
+               <image>
+                  <Image url="file:/C:/Users/miPc/Documents/proyecto/java/.settings/src/resources/img/logo2.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="currentUserInfo" alignment="TOP_LEFT" graphicTextGap="10.0" layoutX="1324.0" layoutY="25.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#showUserInfo" prefHeight="35.0" prefWidth="164.0" style="-fx-background-color: transparent;" styleClass="btnLogout" visible="false" AnchorPane.rightAnchor="14.0">
+               <graphic>
+                  <ImageView fitHeight="27.0" fitWidth="53.0" preserveRatio="true">
+                     <image>
+                        <Image url="file:/C:/Users/miPc/Documents/proyecto/java/.settings/src/resources/img/user%20(1).png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="logOutBtn" graphicTextGap="6.0" layoutX="1317.0" layoutY="75.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#logOut" prefHeight="29.0" prefWidth="135.0" style="-fx-background-color: transparent;" styleClass="btnLogout" text="cerrar sesion" visible="false" AnchorPane.rightAnchor="50.0">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="24.0">
+                     <image>
+                        <Image url="file:/C:/Users/miPc/Documents/proyecto/java/.settings/src/resources/img/logout.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+         </children></AnchorPane>
    </top>
 </BorderPane>

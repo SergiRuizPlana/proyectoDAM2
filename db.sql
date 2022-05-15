@@ -35,25 +35,22 @@ answer2 VARCHAR(100) not NULL,
 answer3 VARCHAR(100),
 answer4 VARCHAR(100), 
 correctanswer INT not NULL,
-id_topic  uniqueidentifier REFERENCES topic(id_topic)
+id_topic  uniqueidentifier REFERENCES topic(id_topic) ON DELETE CASCADE
 ); 
 
-CREATE TABLE exam(
-id_exam  uniqueidentifier PRIMARY KEY DEFAULT NEWID(),
-id_topic  uniqueidentifier REFERENCES topic(id_topic),
-description VARCHAR(30) NOT NULL
-); id
+
 
 go
+ 
 
 CREATE TABLE statExam(
 id_statExam  uniqueidentifier PRIMARY KEY DEFAULT NEWID(),
 hits INT default 0,
 misses INT default 0,
 blank INT default 0, 
-nif VARCHAR(15) REFERENCES usr(nif),
-id_exam  uniqueidentifier REFERENCES exam(id_exam),
-stat_date DATE DEFAULT GETDATE()
+nif VARCHAR(15) REFERENCES usr(nif) ON DELETE CASCADE, 
+stat_date DATE DEFAULT GETDATE(),
+id_topic uniqueidentifier REFERENCES topic(id_topic) ON DELETE CASCADE
 )
 
 go
@@ -62,17 +59,11 @@ go
 CREATE TABLE statQuestion(
 id_statQuestion  uniqueidentifier PRIMARY KEY DEFAULT NEWID(),
 total_hits INT default 0,
-nif VARCHAR(15) REFERENCES usr(nif),
+nif VARCHAR(15) REFERENCES usr(nif) ON DELETE CASCADE,
 total_misses INT default 0,
 total_blank INT default 0,
-id_question  uniqueidentifier REFERENCES question(id_question)
+id_question  uniqueidentifier REFERENCES question(id_question) ON DELETE CASCADE
 );
 
-go
 
-select * from examQuestion eq 
-CREATE TABLE examQuestion(
-id_exam  uniqueidentifier REFERENCES exam(id_exam),
-id_question  uniqueidentifier REFERENCES question(id_question)
-PRIMARY KEY(id_exam, id_question)
-);
+

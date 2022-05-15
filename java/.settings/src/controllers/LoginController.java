@@ -37,19 +37,12 @@ public class LoginController implements Initializable {
 
 	@FXML
 	public void logClick(ActionEvent event) throws IOException {
-
-//		User user = UserDAO.checkCredentials(username.getText(), pwd.getText());
-		Test.getHomeController().loginTeacher();			
-		//				if(user!=null) {
-		//					if(user.getRole().equalsIgnoreCase("ADMIN")) {
-		//						Test.getHomeController().loginAdmin();					
-		//					}else if(user.getRole().equalsIgnoreCase("TEACHER")) {
-		//						Test.getHomeController().loginTeacher();					
-		//					}else if(user.getRole().equalsIgnoreCase("STUDENT")) {
-		//						Test.getHomeController().loginStudent();						
-		//					}
-		//			
-		//		}
+	User user = UserDAO.checkCredentials(username.getText(), pwd.getText());
+	Test.setCurrentUser(user);
+		if(user!=null) {
+			Test.getHomeController().loginSucces(user);
+			Test.setCurrentUser(user);
+		}
 	}
 
 

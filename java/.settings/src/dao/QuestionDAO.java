@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 import model.Question;
 import model.Topic;
@@ -11,18 +12,18 @@ import model.Topic;
 public class QuestionDAO {
 
 
-	public static boolean addQuestio(String[] question) {
+	public static boolean addQuestio(Question question) {
 		String sqlComand="insert into question (question,answer1,answer2,answer3,answer4,correctanswer,id_topic) values(?,?,?,?,?,?,?)";
 		try {
 			Conection.openConnection();
 			PreparedStatement pstm = Conection.conn.prepareStatement(sqlComand);
-			pstm.setString(1,question[0]);
-			pstm.setString(2,question[1]);
-			pstm.setString(3,question[2]);
-			pstm.setString(4,question[3]);
-			pstm.setString(5,question[4]);
-			pstm.setString(6,question[5]);
-			pstm.setString(7,question[6]);
+			pstm.setString(1,question.getQuestion());
+			pstm.setString(2,question.getAnswer1());
+			pstm.setString(3,question.getAnswer2());
+			pstm.setString(4,question.getAnswer3());
+			pstm.setString(5,question.getAnswer4());
+			pstm.setString(6,question.getCorrectanswer()+"");
+			pstm.setString(7,question.getTopic().getId());
 			pstm.executeUpdate();
 			pstm.close();
 			Conection.closeConnection();
@@ -35,19 +36,46 @@ public class QuestionDAO {
 		return false;
 	}
 
-	public static boolean updateQuestio(String[] question) {
+	public static boolean addQuestiosList(List <Question> questions) {
+		String sqlComand="insert into question (question,answer1,answer2,answer3,answer4,correctanswer,id_topic) values(?,?,?,?,?,?,?)";
+		try {
+			Conection.openConnection();
+			for (Question question : questions) {
+				PreparedStatement pstm = Conection.conn.prepareStatement(sqlComand);
+				pstm.setString(1,question.getQuestion());
+				pstm.setString(2,question.getAnswer1());
+				pstm.setString(3,question.getAnswer2());
+				pstm.setString(4,question.getAnswer3());
+				pstm.setString(5,question.getAnswer4());
+				pstm.setString(6,question.getCorrectanswer()+"");
+				pstm.setString(7,question.getTopic().getId());
+				pstm.executeUpdate();
+				pstm.close();			
+			}
+			Conection.closeConnection();
+			return true;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return false;
+	}
+
+
+	public static boolean updateQuestio(Question question) {
 		String sqlComand="update question set question=?, answer1=?, answer2=?, answer3=?, answer4=?, correctanswer=?,id_topic=? where id_question=?";
 		try {
 			Conection.openConnection();
 			PreparedStatement pstm = Conection.conn.prepareStatement(sqlComand);
-			pstm.setString(1,question[0]);
-			pstm.setString(2,question[1]);
-			pstm.setString(3,question[2]);
-			pstm.setString(4,question[3]);
-			pstm.setString(5,question[4]);
-			pstm.setString(6,question[5]);
-			pstm.setString(7,question[6]);
-			pstm.setString(8,question[7]);
+			pstm.setString(1,question.getQuestion());
+			pstm.setString(2,question.getAnswer1());
+			pstm.setString(3,question.getAnswer2());
+			pstm.setString(4,question.getAnswer3());
+			pstm.setString(5,question.getAnswer4());
+			pstm.setString(6,question.getCorrectanswer()+"");
+			pstm.setString(7,question.getTopic().getId());
+			pstm.setString(8,question.getId_question()); 
 			pstm.executeUpdate();
 			pstm.close();
 			Conection.closeConnection();
@@ -80,7 +108,7 @@ public class QuestionDAO {
 	}
 
 	public static Question obtainById(String id_questio ) {
-		String sqlComand="select * from question where id_question=?";
+		String sqlComand="select q.*, description from question q left join topic t on t.id_topic=q.id_topic where q.id_question=? ";
 		Question question=null;
 		try {
 			Conection.openConnection();
@@ -88,7 +116,8 @@ public class QuestionDAO {
 			pstm.setString(1,id_questio);
 			ResultSet r=pstm.executeQuery();
 			if(r.next()) {
-				question=new Question(r.getString("id_question"), r.getString("question"), r.getString("answer1"), r.getString("answer2"), r.getString("answer3"), r.getString("answer4"), r.getInt("correctanswer"), r.getString("id_topic"));	
+				Topic topic=new Topic(r.getString("id_topic"), r.getString("description"));
+				question=new Question(r.getString("id_question"), r.getString("question"), r.getString("answer1"), r.getString("answer2"), r.getString("answer3"), r.getString("answer4"), r.getInt("correctanswer"), topic);	
 			}
 			pstm.close();
 			Conection.closeConnection();
@@ -100,16 +129,17 @@ public class QuestionDAO {
 		return null;
 	}
 
-	public static ArrayList<Question> obtainFullQuestionList() {
+	public static List<Question> obtainFullQuestionList() {
 		ArrayList<Question> questions=new ArrayList<>();
-		String sqlComand="select * from question";
+		String sqlComand="select q.*, description from question  q left join topic t on t.id_topic=q.id_topic ";
 		Question question=null;
 		try {
 			Conection.openConnection();
 			Statement stm = Conection.conn.createStatement();
 			ResultSet r = stm.executeQuery(sqlComand); 
 			while(r.next()) {
-				question=new Question(r.getString("id_question"), r.getString("question"), r.getString("answer1"), r.getString("answer2"), r.getString("answer3"), r.getString("answer4"), r.getInt("correctanswer"), r.getString("id_topic"));	
+				Topic topic=new Topic(r.getString("id_topic"), r.getString("description"));
+				question=new Question(r.getString("id_question"), r.getString("question"), r.getString("answer1"), r.getString("answer2"), r.getString("answer3"), r.getString("answer4"), r.getInt("correctanswer"),topic);	
 				questions.add(question);
 			}
 			stm.close();
@@ -124,9 +154,9 @@ public class QuestionDAO {
 	}
 
 
-	public static ArrayList<Question> obtainLimitedQuestionList(int limit) {
+	public static List<Question> obtainLimitedQuestionList(int limit) {
 		ArrayList<Question> questions=new ArrayList<>();
-		String sqlComand="select top (?) * from question";
+		String sqlComand="select top (?) q.*,t.description from question q left join topic t on t.id_topic=q.id_topic  ORDER BY newid()";
 		Question question=null;
 		try {
 			Conection.openConnection();
@@ -134,7 +164,8 @@ public class QuestionDAO {
 			pstm.setInt(1, limit);
 			ResultSet r=pstm.executeQuery();
 			while(r.next()) {
-				question=new Question(r.getString("id_question"), r.getString("question"), r.getString("answer1"), r.getString("answer2"), r.getString("answer3"), r.getString("answer4"), r.getInt("correctanswer"), r.getString("id_topic"));	
+				Topic topic=new Topic(r.getString("id_topic"), r.getString("description"));
+				question=new Question(r.getString("id_question"), r.getString("question"), r.getString("answer1"), r.getString("answer2"), r.getString("answer3"), r.getString("answer4"), r.getInt("correctanswer"), topic);	
 				questions.add(question);
 			}
 			pstm.close();
@@ -148,9 +179,35 @@ public class QuestionDAO {
 		return null;
 	}
 
-	public static ArrayList<Question> obtainListbyTopic(String idTopic) {
+	public static List<Question> obtainLimitedQuestionListByTopic(int limit,String topicId) {
 		ArrayList<Question> questions=new ArrayList<>();
-		String sqlComand="select * from question where id_topic=?";
+		String sqlComand="select top (?) q.*, description from question  q left join topic t on t.id_topic=q.id_topic where q.id_topic=? ORDER BY newid()";
+		Question question=null;
+		try {
+			Conection.openConnection();
+			PreparedStatement pstm = Conection.conn.prepareStatement(sqlComand);
+			pstm.setInt(1, limit);
+			pstm.setString(2,topicId);
+			ResultSet r=pstm.executeQuery();
+			while(r.next()) {
+				Topic topic=new Topic(r.getString("id_topic"), r.getString("description"));
+				question=new Question(r.getString("id_question"), r.getString("question"), r.getString("answer1"), r.getString("answer2"), r.getString("answer3"), r.getString("answer4"), r.getInt("correctanswer"), topic);	
+				questions.add(question);
+			}
+			pstm.close();
+			Conection.closeConnection();
+			return questions;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+
+	public static List<Question> obtainListbyTopic(String idTopic) {
+		ArrayList<Question> questions=new ArrayList<>();
+		String sqlComand="select q.*, description from question  q left join topic t on t.id_topic=q.id_topic where q.id_topic=?";
 		Question question=null;
 		try {
 			Conection.openConnection();
@@ -158,7 +215,8 @@ public class QuestionDAO {
 			pstm.setString(1, idTopic);
 			ResultSet r=pstm.executeQuery();
 			while(r.next()) {
-				question=new Question(r.getString("id_question"), r.getString("question"), r.getString("answer1"), r.getString("answer2"), r.getString("answer3"), r.getString("answer4"), r.getInt("correctanswer"), r.getString("id_topic"));	
+				Topic topic=new Topic(r.getString("id_topic"), r.getString("description"));
+				question=new Question(r.getString("id_question"), r.getString("question"), r.getString("answer1"), r.getString("answer2"), r.getString("answer3"), r.getString("answer4"), r.getInt("correctanswer"), topic);	
 				questions.add(question);
 			}
 			pstm.close();
@@ -174,8 +232,8 @@ public class QuestionDAO {
 
 
 
-	public static ArrayList<Topic> listOfTopics() {
-		ArrayList<Topic> topics=new ArrayList<>();
+	public static List<Topic> listOfTopics() {
+		List<Topic> topics=new ArrayList<>();
 		String sqlComand="select distinct t.id_topic, t.description from question q inner join topic t on t.id_topic=q.id_topic ";
 		Topic topic=null;
 		try {
@@ -196,6 +254,8 @@ public class QuestionDAO {
 
 		return null;
 	}
+
+
 
 
 

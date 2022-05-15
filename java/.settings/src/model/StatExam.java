@@ -4,18 +4,18 @@ import java.util.Date;
 
 public class StatExam {
 
-	private String examId;
 	private String nif;
 	private int hits;
 	private int  misses;
 	private int blank;
 	private Date statDate;
+	private Topic topic;
+	private String student;
 	
 	
-	
-	public StatExam(String examId, String nif, int hits, int misses, int blank,Date statDate) {
+
+	public StatExam( String nif, int hits, int misses, int blank,Date statDate,Topic topic) {
 		super();
-		this.examId = examId;
 		this.nif = nif;
 		this.hits = hits;
 		this.misses = misses;
@@ -25,26 +25,38 @@ public class StatExam {
 
 
 
-	public String getExam() {
-		return examId;
-	}
-
-
-
-	public void setExam(String exam) {
-		this.examId = exam;
-	}
-
-
-
-	public String getStudent() {
+	public String getNif() {
 		return nif;
 	}
 
 
 
-	public void setStudent(String nif) {
+	public void setNif(String nif) {
 		this.nif = nif;
+	}
+
+
+
+	public Topic getTopic() {
+		return topic;
+	}
+
+
+
+	public void setTopic(Topic topic) {
+		this.topic = topic;
+	}
+
+
+
+	public String getStudent() {
+		return student;
+	}
+
+
+
+	public void setStudent(String student) {
+		this.student = student;
 	}
 
 
@@ -99,7 +111,7 @@ public class StatExam {
 
 	@Override
 	public String toString() {
-		return "StatExam [exam=" + examId + ", nif=" + nif + ", hits=" + hits + ", misses=" + misses + ", blank="
+		return "StatExam [  nif=" + nif + ", hits=" + hits + ", misses=" + misses + ", blank="
 				+ blank + ", statDate=" + statDate + "]";
 	}
 

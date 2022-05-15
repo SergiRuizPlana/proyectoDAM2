@@ -1,5 +1,7 @@
 package test;
 
+import java.net.URL;
+
 import controllers.HomeController;
 import controllers.LoginController;
 import dao.ExamDao;
@@ -16,15 +18,19 @@ import javafx.stage.Stage;
 import model.Exam;
 import model.Question;
 import model.StatQuestion;
+import model.User;
+import utils.ControlUtils;
 
 public class Test  extends Application{
 
+	public static  User currentUser;
 	private static HomeController homeC;
 	private static LoginController loginC;
 	public static Stage stage;
 	public static void main(String[] args) {
 		launch(args);
-
+		
+ 
 	}
 
 	@Override
@@ -33,16 +39,32 @@ public class Test  extends Application{
 		FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("views\\Home.fxml"));
 		Parent root = loader.load();
 		homeC=loader.getController();
-		primaryStage.setScene(new Scene(root));
+		String css = getClass().getClassLoader().getResource("styles\\styles.css").toExternalForm(); 
+		Scene scene= new Scene(root);
+		scene.getStylesheets().add(css);
+		primaryStage.setMaximized(true);
+		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
-	
-	
+
+
 	public static HomeController getHomeController() {
 		return homeC;
 	}
-	
+
 	public static Stage getStage() {
 		return stage;
 	}
+
+	public static User getCurrentUser() {
+		return currentUser;
+	}
+
+	public static void setCurrentUser(User currentUser) {
+		Test.currentUser = currentUser;
+	}
+	
+	
+	
+	
 }

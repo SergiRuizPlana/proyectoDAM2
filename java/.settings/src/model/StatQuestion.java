@@ -1,14 +1,17 @@
 package model;
 
 
+
 public class StatQuestion {
 
 	private String questionId;
 	private int total_hits; 
 	private int total_misses;
 	private int total_blank;
+	private String question;
+	private String student;
+	private Topic topic;
 
-	
 	public StatQuestion(String questionId, int total_hits, int total_misses, int total_blank) {
 		super();
 		this.questionId = questionId;
@@ -18,15 +21,43 @@ public class StatQuestion {
 	}
 
 
-	public String getQuestion() {
+	public String getQuestionId() {
 		return questionId;
 	}
 
 
-	public void setQuestion(String question) {
-		this.questionId = question;
+	public void setQuestionId(String questionId) {
+		this.questionId = questionId;
 	}
 
+
+	public String getQuestion() {
+		return question;
+	}
+	public void setQuestion(String question) {
+		this.question = question;
+	}
+
+
+
+	public Topic getTopic() {
+		return topic;
+	}
+
+
+	public void setTopic(Topic topic) {
+		this.topic = topic;
+	}
+
+
+	public String getStudent() {
+		return student;
+	}
+
+
+	public void setStudent(String student) {
+		this.student = student;
+	}
 
 
 	public int getTotal_hits() {
