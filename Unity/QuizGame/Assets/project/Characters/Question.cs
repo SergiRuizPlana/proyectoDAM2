@@ -1,29 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using UnityEngine; 
 using System.Data.SqlClient;
-using UnityEngine.UI;
+using UnityEngine.UI; 
+
+public class Question  
+{ 
+    public string question { get; set; }
+    public string answer1 { get; set; }
+    public string answer2 { get; set; }
+    public string answer3 { get; set; }
+    public string answer4 { get; set; }
+    public int correctAnswer { get; set; }
+
+    Question(string question, string answer1, string answer2, string answer3,string answer4, int correctAnswer){
+        this.question = question;
+        this.answer1 = answer1;
+        this.answer2 = answer2;
+        this.answer3 = answer3;
+        this.answer4 = answer4;
+        this.correctAnswer = correctAnswer;
+    }
 
 
-
-public class SetQuestions : MonoBehaviour
-{
-
-    // after the sql query is executed we will have a filled users array
-    List <Question> questions = new List<Question> ();
-    
-    // Use this for initialization
-    void Start()
-    {
-        // initialize global users array
-         questions = ConnectToDB();
-    } 
-
-    // function to connect to the db and the users list
-    List <Question> ConnectToDB()
-    { 
-        try
-        {
+    public static List <Question> ConnectToDB(){  
+        List <Question> questions = new List<Question>();
+        try{
             // connect to the databases
             using (SqlConnection connection = new SqlConnection("workstation id=gestioEmpresa.mssql.somee.com;packet size=4096;user id=code24_SQLLogin_1;pwd=9kwyyyqmim;data source=gestioEmpresa.mssql.somee.com;persist security info=False;initial catalog=gestioEmpresa"))
             {
@@ -31,7 +33,7 @@ public class SetQuestions : MonoBehaviour
                 connection.Open();
                 Debug.Log("connection established");
                 // sql command
-                string sql = "SELECT * from question";
+                string sql = "SELECT * from questions";
                 // execute sql command
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
@@ -44,35 +46,24 @@ public class SetQuestions : MonoBehaviour
                             // to avoid SqlNullValueException
                             if (!reader.IsDBNull(0) & !reader.IsDBNull(1)  & !reader.IsDBNull(3))
                             {
-                                // Skills list to be attached to each user object
-                                //List skills = new List();
                                 //// get output parameters
-                                //string username = reader.GetString(0);
-                                //string aboutString = reader.GetString(1);
-                                //string skillsString = reader.GetString(3);
+                                string questionText = reader.GetString(1)   ;
+                                string answer1Text = reader.GetString(2);
+                                string answer2Text = reader.GetString(3);
+                                string answer3Text = reader.GetString(4);
+                                string answer4Text = reader.GetString(5);
+                                int correctAnswerNum= reader.GetOrdinal("correctAnswer");
 
                                Debug.Log(reader.GetString(1));
-                                // as we are getting a list of skills as 
-                                // a single string delimited by comma
-                                // we split the string
-                                //string[] skillsList = skillsString.Split(',');
-                                // we now iterate through each skill to initialize our
-                                // skill object and put it into skills list
-                                //foreach (string skillName in skillsList)
-                                //{
-                                //    // initialize a skill object with a trimmed string
-                                //    Skill skill = new Skill(skillName.Trim());
-                                //    // append to the skills array
-                                //    skills.Add(skill);
-                                //}
-                                //// initialize User oobject
-                                //User user = new User(username.Trim(), aboutString.Trim(), skills);
-                                //users.Add(user);
+ 
+                                 Question question = new Question(questionText.Trim(), answer1Text.Trim(),answer2Text.Trim(),answer3Text.Trim(),answer4Text.Trim(), correctAnswerNum);
+                                questions.Add(question);
                             }
                         }
                     }
                 }
             }
+            return questions;
         }
         catch (SqlException e)
         {
@@ -82,12 +73,4 @@ public class SetQuestions : MonoBehaviour
     }
 }
 
-public class Question{
-    public string question { get; set; }
-    public string answer1 { get; set; }
-    public string answer2 { get; set; }
-    public string answer3 { get; set; }
-    public string answer4 { get; set; }
-    public int correctAnswer { get; set ;}
 
-}
