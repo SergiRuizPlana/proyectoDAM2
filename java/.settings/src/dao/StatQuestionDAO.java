@@ -4,7 +4,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
  
 
@@ -13,21 +12,25 @@ import model.Topic;
 
 public class StatQuestionDAO {
 
-	public static StatQuestion obtainById(String id_question,String nif ) {
-		String sqlComand="select * from statQuestion where id_question=? and nif=?";
+	public static List<StatQuestion> obtainByTopicAndName(Topic topic,String name ) {
+		String sqlComand="select * from statsQuestions s inner join usrs u on u.nif=s.nif inner join questions q on q.id_question=s.id_question left join topics t on t.id_topic=q.id_topic where q.id_topic=? and CONCAT(fname,CONCAT(' ',lname)) like ?";
 		StatQuestion statQuestion=null;
+		List<StatQuestion> statQuestions=new ArrayList<>();
 		try {
 			Conection.openConnection();
 			PreparedStatement pstm = Conection.conn.prepareStatement(sqlComand);
-			pstm.setString(1, id_question);
-			pstm.setString(2,nif);
+			pstm.setString(1, topic.getId());
+			pstm.setString(2,"%"+name+"%");
 			ResultSet r = pstm.executeQuery(); 
 			if(r.next()) {
 				statQuestion=new StatQuestion(r.getString("id_question"),r.getInt("total_hits"), r.getInt("total_misses"), r.getInt("total_blank"));
+				statQuestion.setTopic(topic);
+				statQuestion.setStudent(r.getString("fname")+" "+r.getString("lname"));
+				statQuestions.add(statQuestion);
 			}
 			pstm.close();
 			Conection.closeConnection();
-			return statQuestion;
+			return statQuestions;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -36,8 +39,83 @@ public class StatQuestionDAO {
 		return null;
 	}
 	
+	public static List<StatQuestion> obtainByName(String name ) {
+		String sqlComand="select * from statsQuestions s inner join usrs u on u.nif=s.nif  inner join questions q on q.id_question=s.id_question left join topics t on t.id_topic=q.id_topic where  CONCAT(fname,CONCAT(' ',lname)) like ?";
+		StatQuestion statQuestion=null;
+		List<StatQuestion> statQuestions=new ArrayList<>();
+		try {
+			Conection.openConnection();
+			PreparedStatement pstm = Conection.conn.prepareStatement(sqlComand);
+			pstm.setString(1,"%"+name+"%");
+			ResultSet r = pstm.executeQuery(); 
+			if(r.next()) {
+				statQuestion=new StatQuestion(r.getString("id_question"),r.getInt("total_hits"), r.getInt("total_misses"), r.getInt("total_blank"));
+				Topic topic=new Topic(r.getString("id_topic"),r.getString("description"));
+				statQuestion.setTopic(topic);
+				statQuestion.setStudent(r.getString("fname")+" "+r.getString("lname"));
+				statQuestions.add(statQuestion);
+			}
+			pstm.close();
+			Conection.closeConnection();
+			return statQuestions;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+		
+		return null;
+	}
+	
+	public static List<StatQuestion> obtainByTopic(Topic topic) {
+		String sqlComand="select * from statsQuestions s i inner join usrs u on u.nif=s.nif inner join questions q on q.id_question=s.id_question left join topics t on t.id_topic=q.id_topic  where id_topic=? ";
+		StatQuestion statQuestion=null;
+		List<StatQuestion> statQuestions=new ArrayList<>();
+		try {
+			Conection.openConnection();
+			PreparedStatement pstm = Conection.conn.prepareStatement(sqlComand);
+			pstm.setString(1, topic.getId()); 
+			ResultSet r = pstm.executeQuery(); 
+			if(r.next()) {
+				statQuestion=new StatQuestion(r.getString("id_question"),r.getInt("total_hits"), r.getInt("total_misses"), r.getInt("total_blank"));
+				statQuestion.setTopic(topic);
+				statQuestion.setStudent(r.getString("fname")+" "+r.getString("lname"));
+				statQuestions.add(statQuestion);
+			}
+			pstm.close();
+			Conection.closeConnection();
+			return statQuestions;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+		
+		return null;
+	}
+	
+	public static int getTotalQuestions(String nif ) {
+		String sqlComand="select count(id_question) as total from statsQuestions where nif=?";
+ 
+		try {
+			Conection.openConnection();
+			PreparedStatement pstm = Conection.conn.prepareStatement(sqlComand);
+			pstm.setString(1,nif);
+			ResultSet r = pstm.executeQuery(); 
+			if(r.next()) {
+				return  r.getInt("total");
+			}
+			pstm.close();
+			Conection.closeConnection();
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+		
+		return 0;
+	}
+	
 	public static List<StatQuestion> obtainByUser(String nif ) {
-		String sqlComand="select s.*, t.id_topic,t.description,q.question from statQuestion s inner join question q on q.id_question=s.id_question left join Topic t on t.id_topic=q.id_topic where  nif=?";
+		String sqlComand="select s.*, t.id_topic,t.description,q.question from statsQuestions s inner join questions q on q.id_question=s.id_question left join topics t on t.id_topic=q.id_topic where  nif=?";
 		StatQuestion statQuestion=null;
 		List<StatQuestion> statQuestions=new ArrayList<>();
 		try {
@@ -64,7 +142,7 @@ public class StatQuestionDAO {
 	}
 	
 	public static  boolean insertStatQuestion(String id_question,String nif,int hits,int misses,int blank) {
-		String sqlComand="insert into statQuestion (id_question,nif,total_hits,total_misses,total_blank) values (?,?,?,?,?)";
+		String sqlComand="insert into statsQuestions (id_question,nif,total_hits,total_misses,total_blank) values (?,?,?,?,?)";
 
 		try {
 			Conection.openConnection();
@@ -88,7 +166,7 @@ public class StatQuestionDAO {
 	}
 	
 	public static  boolean updateStatQuestion(String questionId,String nif,int hits,int misses,int blank) {
-		String sqlComand="update statQuestion set total_hits+=?, total_misses+=?,total_blank+=? where id_question=? and nif=?";
+		String sqlComand="update statsQuestions set total_hits+=?, total_misses+=?,total_blank+=? where id_question=? and nif=?";
 
 		try {
 			Conection.openConnection();
@@ -113,7 +191,7 @@ public class StatQuestionDAO {
 	
 	
 	public static  List<StatQuestion> getAll() {
-		String sqlComand="select s.*, t.id_topic,t.description,q.question,u.fname,u.lname from statQuestion  s inner join question q on q.id_question=s.id_question left join Topic t on t.id_topic=q.id_topic  inner join usr u on u.nif=s.nif";
+		String sqlComand="select s.*, t.id_topic,t.description,q.question,u.fname,u.lname from statsQuestions  s inner join questions q on q.id_question=s.id_question left join topics t on t.id_topic=q.id_topic  inner join usr u on u.nif=s.nif";
 		StatQuestion statQuestion=null;
 		List<StatQuestion> statQuestions=new ArrayList<>();
 		try {

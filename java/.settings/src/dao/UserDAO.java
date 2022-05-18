@@ -4,15 +4,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.TreeMap;
+import java.util.List; 
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import model.User; 
 
 public class UserDAO {
-
 
 	/***
 	 * get all users
@@ -21,7 +17,7 @@ public class UserDAO {
 	public static List<User> getUsers() {
 
 		List<User> resultado=  new ArrayList<User>();
-		String sqlComand= "select * from usr";
+		String sqlComand= "select * from usrs where role='STUDENT'";
 		Statement stm;
 		try {
 			Conection.openConnection();
@@ -43,41 +39,14 @@ public class UserDAO {
 	}
 
 
-
 	/***
-	 * Get all userNames and their passwords
-	 * @return
-	 */
-	public  static TreeMap<String,String> getUsersNamesAndPsswd(){
-		TreeMap <String,String> users=new TreeMap <String,String>();
-		String sqlComand= "select userName,psswd from usr";
-		Statement stm2;
-		try {
-			Conection.openConnection();
-			stm2 = Conection.conn.createStatement();
-			ResultSet r2 = stm2.executeQuery(sqlComand); 
-			while(r2.next()) {
-				users.put(r2.getString(1),r2.getString(2));
-			}
-			stm2.close();
-			Conection.closeConnection();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		System.out.println(users);
-		return users;
-	}
-
-
-
-	/***
-	 * 
+	 * Deprecated
 	 */
 
 	public static List<User> searchByNif(String nif) {
 
 		List<User> resultado= new ArrayList<User>();
-		String sqlComand= "select * from usr where nif like ? ";
+		String sqlComand= "select * from usrs where nif like ? ";
 
 		try {
 			Conection.openConnection();
@@ -99,19 +68,19 @@ public class UserDAO {
 		return null;
 	}
 
-	
+
+
+
+
 	/***
 	 * 
-	 * @param role: the role of current user
-	 * @param userData array of all user info (nif, username, fname, lname, address, city, zip, phone, psswd) IN THIS ORDER!!
+	 * @param usr. the user to insert
 	 * @return true: if the user was created successfully 
 	 * 					false: if the user was not created
 	 */
-	
+
 	public static boolean insertUser(User usr) {
-		String sqlComand="";
-	
-			sqlComand="insert into usr(nif, userName, fname, lname, address, city, zip, phone, psswd, email, role) values(?,?,?,?,?,?,?,?,?,?,?)";		 
+		String  sqlComand="insert into usrs (nif, userName, fname, lname, address, city, zip, phone, psswd, email, role) values(?,?,?,?,?,?,?,?,?,?,?)";		 
 
 		try {
 			Conection.openConnection();
@@ -135,11 +104,18 @@ public class UserDAO {
 			e.printStackTrace();
 			return false;
 		}
-	
+
 	}
 
+
+	/***
+	 * Check if there is an user with the credentials passed
+	 * @param userName
+	 * @param psswd
+	 * @return the user if exists, null if not exists
+	 */
 	public static User checkCredentials(String userName,String psswd) {
-		String sqlComand="select * from usr where userName=? and psswd=?";
+		String sqlComand="select * from usrs where userName=? and psswd=?";
 		User usr=null;
 		try {
 			Conection.openConnection();
@@ -159,11 +135,16 @@ public class UserDAO {
 		}
 		return null;
 	}
-	
-	
-	
+
+
+	/***
+	 * change an user password 
+	 * @param username
+	 * @param passwd
+	 * @return
+	 */
 	public static boolean changePasswd(String username, String passwd) {
-		String sqlComand="update usr set psswd=? where userName=?";		
+		String sqlComand="update usrs set psswd=? where userName=?";		
 		try {
 			Conection.openConnection();
 			PreparedStatement pstm= Conection.conn.prepareStatement(sqlComand);
@@ -177,9 +158,17 @@ public class UserDAO {
 			return false;
 		}
 	}
-	
+
+
+
+	/***
+	 * change an user userName
+	 * @param usernameOld
+	 * @param usernameNew
+	 * @return
+	 */
 	public static boolean changeUserName(String usernameOld, String usernameNew) {
-		String sqlComand="update usr set userName=? where userName=?";		
+		String sqlComand="update usrs set userName=? where userName=?";		
 		try {
 			Conection.openConnection();
 			PreparedStatement pstm= Conection.conn.prepareStatement(sqlComand);
@@ -193,15 +182,15 @@ public class UserDAO {
 			return false;
 		}
 	}
-	
+
 	/***
-	 * 
+	 * update an user
 	 * @param userInfo 
 	 * @return
 	 */
-	
-	public  static boolean updateUser(String[] userInfo,String userName) {
-		String sqlComand="update usr set nif=?, fname=?, lname=?, address=?, city=?, zip=?, phone=?, email=? where userName=?";		
+
+	public  static boolean updateUser(String[] userInfo,String nif) {
+		String sqlComand="update usrs set nif=?, fname=?, lname=?, address=?, city=?, zip=?, phone=?, email=?,role=? where nif=?";		
 		try {
 			Conection.openConnection();
 			PreparedStatement pstm= Conection.conn.prepareStatement(sqlComand);
@@ -213,18 +202,42 @@ public class UserDAO {
 			pstm.setString(6,userInfo[5] );
 			pstm.setString(7,userInfo[6] );
 			pstm.setString(8,userInfo[7] );
-			pstm.setString(9,userName );
+			pstm.setString(9,userInfo[8] );
+			pstm.setString(10,nif );
 			pstm.executeUpdate();
 			pstm.close();
 			Conection.closeConnection();
 			return true;
 		} catch (Exception e) {
-		e.printStackTrace();
+			e.printStackTrace();
 			return false;
 		}
-		
+
 	}
 
+
+
+	/***
+	 * delete an user
+	 * @param nif
+	 * @return
+	 */
+	public static boolean deleteUser(String nif) {
+		String sql ="delete from usrs where nif=?";
+		try {
+			Conection.openConnection();
+			PreparedStatement pstm= Conection.conn.prepareStatement(sql);
+			pstm.setString(1,nif );
+			pstm.executeUpdate();
+			pstm.close();
+			Conection.closeConnection();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+
+	}
 
 
 }

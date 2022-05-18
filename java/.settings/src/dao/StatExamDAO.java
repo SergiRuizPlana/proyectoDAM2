@@ -13,10 +13,10 @@ import model.Topic;
 public class StatExamDAO {
 
 	public static boolean insertStatExam(String nif,int hits,int misses,int blank,String idTopic) {
-		String sqlComand="insert into statExam (nif,hits,misses,blank,id_topic) values (?,?,?,?,?)";
-		
+		String sqlComand="insert into statsExams (nif,hits,misses,blank,id_topic) values (?,?,?,?,?)";
+		System.out.println(idTopic);
 		if(idTopic.equals("")) {
-			sqlComand="insert into statExam (nif,hits,misses,blank) values (?,?,?,?)";
+			sqlComand="insert into statsExams (nif,hits,misses,blank) values (?,?,?,?)";
 		}
 		try {
 			Conection.openConnection();
@@ -39,22 +39,25 @@ public class StatExamDAO {
 		return false;
 	}
 
-	public static StatExam obtainByNifAndTopic(String nif,String topicId) {
-		String sqlComand="select * from statExam where nif=? and id_topic=?";
+	public static List<StatExam> obtainByNameAndTopic(String name,String topicId) {
+		String sqlComand="select * from statsExams s left join topics t on t.id_topic=s.id_topic inner join usrs u on u.nif=s.nif  where CONCAT(fname,CONCAT(' ',lname)) like ?  and t.id_topic=?";
 		StatExam statExam=null;
+		List<StatExam>statExams=new ArrayList<>();
 		try {
 			Conection.openConnection();
 			PreparedStatement pstm = Conection.conn.prepareStatement(sqlComand);
-			pstm.setString(1, nif);
+			pstm.setString(1,"%"+name+"%");
 			pstm.setString(2, topicId);
 			ResultSet r = pstm.executeQuery(); 
 			if(r.next()) {
-				Topic topic=TopicDAO.getById(topicId);
+				Topic topic= new Topic(r.getString("id_topic"),r.getString("description"));
 				statExam=new StatExam(r.getString("nif"), r.getInt("hits"), r.getInt("misses"), r.getInt("blank"), r.getDate("stat_date"),topic);
+				statExam.setStudent(r.getString("fname")+" "+r.getString("lname"));
+				statExams.add(statExam);
 			}
 			pstm.close();
 			Conection.closeConnection();
-			return statExam;
+			return statExams;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -63,10 +66,10 @@ public class StatExamDAO {
 	}
 
 
-
+	
 	public static List<StatExam> obtainAllStats() {
 		List<StatExam>statExams=new ArrayList<>();
-		String sqlComand="select s.nif,s.hits,s.misses,s.blank,s.stat_date,u.fname,u.lname ,t.id_topic,t.description  from statExam s left join topic t on t.id_topic=s.id_topic inner join usr u  on u.nif=s.nif";
+		String sqlComand="select s.nif,s.hits,s.misses,s.blank,s.stat_date,u.fname,u.lname ,t.id_topic,t.description  from statsExams s left join topics t on t.id_topic=s.id_topic inner join usrs u  on u.nif=s.nif";
 		StatExam statExam=null;
 		try {
 			Conection.openConnection();
@@ -75,6 +78,7 @@ public class StatExamDAO {
 			while(r.next()) {
 				Topic topic= new Topic(r.getString("id_topic"),r.getString("description"));
 				statExam=new StatExam(r.getString("nif"), r.getInt("hits"), r.getInt("misses"), r.getInt("blank"), r.getDate("stat_date"),topic);
+				statExam.setStudent(r.getString("fname")+" "+r.getString("lname"));
 				statExam.setStudent(r.getString("fname")+" "+r.getString("lname"));
 				statExams.add(statExam);
 			}
@@ -88,9 +92,59 @@ public class StatExamDAO {
 		return null;
 	}
 	
-	public static List<StatExam> obtainAllStatsByUser(String nif) {
+	public static List<StatExam> obtainAllStatsByUser(String name) {
+		List<StatExam>statExams=new ArrayList<>(); 
+		String sqlComand="select * from statsExams s inner join usrs u on u.nif=s.nif left join topics t on t.id_topic=s.id_topic where CONCAT(fname,CONCAT(' ',lname)) like ? ";
+		StatExam statExam=null;
+		try {
+			Conection.openConnection();
+			PreparedStatement pstm = Conection.conn.prepareStatement(sqlComand);
+			pstm.setString(1,"%"+name+"%");
+			ResultSet r = pstm.executeQuery(); 
+			while(r.next()) {
+				Topic topic= new Topic(r.getString("id_topic"),r.getString("description"));
+				statExam=new StatExam(r.getString("nif"), r.getInt("hits"), r.getInt("misses"), r.getInt("blank"), r.getDate("stat_date"),topic);
+				statExam.setStudent(r.getString("fname")+" "+r.getString("lname"));
+				statExams.add(statExam);
+			}
+			pstm.close();
+			Conection.closeConnection();
+			return statExams;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+		return null;
+	}
+	
+	public static List<StatExam> obtainAllStatsByTopic(Topic topic) {
+		List<StatExam>statExams=new ArrayList<>(); 
+		String sqlComand="select * from statsExams s inner join usr su on u.nif=s.nif  left join topics t on t.id_topic=s.id_topic where  t.id_topic=?";
+		StatExam statExam=null;
+		try {
+			Conection.openConnection();
+			PreparedStatement pstm = Conection.conn.prepareStatement(sqlComand);
+			pstm.setString(1,topic.getId());
+			ResultSet r = pstm.executeQuery(); 
+			while(r.next()) {
+				statExam=new StatExam(r.getString("nif"), r.getInt("hits"), r.getInt("misses"), r.getInt("blank"), r.getDate("stat_date"),topic);
+				statExam.setStudent(r.getString("fname")+" "+r.getString("lname"));
+				statExams.add(statExam);
+				
+			}
+			pstm.close();
+			Conection.closeConnection();
+			return statExams;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+		return null;
+	}
+	
+	public static List<StatExam> obtainLastFive(String nif) {
 		List<StatExam>statExams=new ArrayList<>();
-		String sqlComand="select s.nif,s.hits,s.misses,s.blank,s.stat_date ,t.id_topic,t.description  from statExam s left join topic t on t.id_topic=s.id_topic where s.nif=?";
+		String sqlComand="select top 5 s.nif,s.hits,s.misses,s.blank,s.stat_date ,t.id_topic,t.description  from statsExams s left join topics t on t.id_topic=s.id_topic where s.nif=? order by s.stat_date desc";
 		StatExam statExam=null;
 		try {
 			Conection.openConnection();
@@ -115,7 +169,7 @@ public class StatExamDAO {
 	
 
 	public static Double getStatsbyUser(String nif) {
-		String sqlComand="select sum(hits),sum(hits+misses) from statExam where nif=? group by nif";
+		String sqlComand="select sum(hits),sum(hits+misses) from statsExams where nif=? group by nif";
 		int totalQuestions=0,totalCorrect=0;
 		try {
 			Conection.openConnection();
@@ -138,7 +192,7 @@ public class StatExamDAO {
 
 
 	public static Double getStatsbyTopic(String topicId) {
-		String sqlComand="select sum(hits),sum(hits+misses) from statExam  where id_topic=? group by id_topic";
+		String sqlComand="select sum(hits),sum(hits+misses) from statsExams  where id_topic=? group by id_topic";
 		int totalQuestions=1,totalCorrect=0;
 		try {
 			Conection.openConnection();
@@ -160,7 +214,7 @@ public class StatExamDAO {
 	}
 
 	public static int getTotalExams(String nif) {
-		String sqlComand="select count(nif) from statExam where nif=? ";
+		String sqlComand="select count(nif) from statsExams where nif=? ";
 		int totalExams=0;
 		try {
 			Conection.openConnection();

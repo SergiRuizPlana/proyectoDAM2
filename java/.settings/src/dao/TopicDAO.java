@@ -11,7 +11,7 @@ import model.Topic;
 public class TopicDAO {
 
 	public static List<Topic> getAll(){
-		String sqlComand="select * from topic";
+		String sqlComand="select * from topics";
 		Topic topic=null;
 		List<Topic> topics=new ArrayList<>();
 		try {
@@ -36,7 +36,7 @@ public class TopicDAO {
 	
 	
 	public static boolean insertTopic(String description) {
-		String sqlComand="insert into topic (description) values (?)";
+		String sqlComand="insert into topics (description) values (?)";
 
 		try {
 			Conection.openConnection();
@@ -55,7 +55,7 @@ public class TopicDAO {
 	}
 	
 	public static boolean updateTopic(String topicId,String description) {
-		String sqlComand="update topic set description=? where id_topic=?";
+		String sqlComand="update topics set description=? where id_topic=?";
 
 		try {
 			Conection.openConnection();
@@ -74,7 +74,7 @@ public class TopicDAO {
 	}
 	
 	public static boolean deleteTopic(String topicId) {
-		String sqlComand="delete from topic where id_topic=?";
+		String sqlComand="delete from topics where id_topic=?";
 
 		try {
 			Conection.openConnection();
@@ -93,7 +93,7 @@ public class TopicDAO {
 	
 	
 	public static Topic getById(String topicId) {
-		String sqlComand="select * from topic where id_topic=?";
+		String sqlComand="select * from topics where id_topic=?";
 		Topic topic=null;
 		try {
 			Conection.openConnection();

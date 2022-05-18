@@ -5,44 +5,37 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML; 
 import javafx.fxml.Initializable; 
-import javafx.scene.control.Button;  
-import test.Test;
+import javafx.scene.control.Button;
+import main.Main;
 
 public class TeacherBarController implements Initializable{
 
 
 
 	@FXML
-	private Button showStudentBtn;
+	private Button showStudentBtn,questionsBtn,statsBtn,studentBtn,topicsBtn;
 
 
-
-
-
-
-	@FXML
-	private Button questionsBtn;
-
-	@FXML
-	private Button statsBtn;
-
-	@FXML
-	private Button studentBtn;
-
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 	
 	}
 
-
-	
+/***
+ * Muestra cada vista depende del boton presionado
+ * @param event
+ */
+	@FXML
 	public void click(ActionEvent event) {
 		if(event.getSource()==studentBtn) {
-			Test.getHomeController().changeView("teacher\\TeacherView.fxml", false);	
+			Main.getHomeController().changeView("teacher\\TeacherView.fxml", false);	
 		}else if(event.getSource()==questionsBtn) {
-			Test.getHomeController().changeView("question\\QuestionsList.fxml", false);
+			Main.getHomeController().changeView("question\\QuestionsList.fxml", false);
 		}else if(event.getSource()==statsBtn) {
-			Test.getHomeController().changeView("stadistics\\TeacherStatsView.fxml", false);
+			Main.getHomeController().changeView("stadistics\\TeacherStatsView.fxml", false);
+		}else if(event.getSource()==topicsBtn) {
+			Main.getHomeController().changeView("topics\\TopicsView.fxml", false);
 		}
 		
 		

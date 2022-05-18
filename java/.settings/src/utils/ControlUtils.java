@@ -29,8 +29,10 @@ public class ControlUtils {
 		}
 	}
 
+
+
 	public static List<Question>  getQuestionFromXml(File file) {
- 
+
 		List <Question>questions=new ArrayList<>();
 		try {
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -38,9 +40,13 @@ public class ControlUtils {
 			Document doc = dBuilder.parse(file);
 
 			doc.getDocumentElement().normalize();
-			
+
 			String idTopic= ((Element) doc.getElementsByTagName("questions").item(0)).getAttribute("topicId");
-			Topic topic=TopicDAO.getById(idTopic);
+			Topic topic=null;
+			if(!idTopic.equals("")){
+				topic=TopicDAO.getById(idTopic);
+			}
+
 			NodeList nList = doc.getElementsByTagName("question");
 
 			for(int temp = 0; temp < nList.getLength(); temp++) {
@@ -51,10 +57,10 @@ public class ControlUtils {
 				if(nNode.getNodeType() == Node.ELEMENT_NODE) {
 					Element eElement = (Element) nNode; 
 					questionText = eElement.getElementsByTagName("questionText").item(0).getTextContent().trim();
-					
+
 					Node answers = eElement.getElementsByTagName("answers").item(0);
 					Element eAnswers = (Element) answers;
-					
+
 					correctAnswer=eAnswers.getAttribute("correctAnswer").trim();
 					try {
 						answer1 =eElement.getElementsByTagName("answer1").item(0).getTextContent().trim();
@@ -63,12 +69,12 @@ public class ControlUtils {
 						answer4 =eElement.getElementsByTagName("answer3").item(0).getTextContent().trim();
 					}catch (Exception e) {
 					}
-					
+
 					questions.add(new Question(questionText, answer1, answer2, answer3,answer4, Integer.parseInt(correctAnswer), topic));
 				}
-				
+
 			}
-			
+
 			return questions;
 
 		} catch (IOException | ParserConfigurationException | SAXException e) {

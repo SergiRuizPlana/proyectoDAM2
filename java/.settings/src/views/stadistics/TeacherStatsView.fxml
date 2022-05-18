@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="821.0" prefWidth="1175.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.StatsController">
@@ -48,5 +52,10 @@
             </Tab>
          </tabs>
       </TabPane>
+      <TextField fx:id="studentSearch" disable="true" layoutX="595.0" layoutY="17.0" promptText="Alumno" />
+      <ComboBox fx:id="topicSearch" disable="true" layoutX="788.0" layoutY="17.0" prefWidth="150.0" promptText="Tematica" />
+      <Button fx:id="searchBtn" layoutX="1012.0" layoutY="17.0" mnemonicParsing="false" onAction="#updateData" prefHeight="25.0" prefWidth="60.0" styleClass="btn2" text="Buscar" />
+      <CheckBox fx:id="studentCheck" layoutX="752.0" layoutY="21.0" mnemonicParsing="false" onAction="#checkChanged" prefHeight="17.0" prefWidth="0.0" />
+      <CheckBox fx:id="topicCheck" layoutX="945.0" layoutY="21.0" mnemonicParsing="false" onAction="#checkChanged" prefHeight="17.0" prefWidth="0.0" />
    </children>
 </AnchorPane>

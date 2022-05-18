@@ -35,6 +35,7 @@
 .btn2:hover{
 	-fx-background-color: transparent;
 	-fx-border-color:#1FAB89;
+	-fx-text-fill:black;
 }
 
 .radiu1{
@@ -85,6 +86,10 @@
 
 .table-view .corner {
     -fx-background-color: transparent;
+}
+
+.table-view .table-column{
+  -fx-alignment: CENTER;
 }
 
 .table-view .column-header-background{

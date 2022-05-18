@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -16,7 +21,18 @@
    <children>
       <StackPane layoutX="12.0" layoutY="20.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="817.0" prefWidth="1053.0" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="20.0">
          <children>
-            <AnchorPane fx:id="loadAnim" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="835.0" prefWidth="1070.0" style="-fx-background-color: #fff;">
+            <AnchorPane fx:id="questionsListPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="809.0" prefWidth="1053.0" style="-fx-background-color: #fff;">
+               <children>
+                  <ScrollPane fx:id="questionsPane" prefHeight="790.0" prefWidth="1053.0">
+                     <content>
+                        <VBox fx:id="questionsList" prefHeight="773.0" prefWidth="1048.0" style="-fx-background-radius: 5; -fx-border-radius: 5;" />
+                     </content>
+                  </ScrollPane>
+                  <Button fx:id="submitExambtn" layoutX="924.0" layoutY="799.0" mnemonicParsing="false" onAction="#submitExam" prefHeight="31.0" prefWidth="112.0" styleClass="btn2" text="Finalizar Examen" />
+                  <Button fx:id="returnBtn" layoutX="796.0" layoutY="799.0" mnemonicParsing="false" onAction="#click" prefHeight="31.0" prefWidth="112.0" styleClass="btn2" text="volver" visible="false" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="examForm" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="835.0" prefWidth="1070.0" style="-fx-background-color: #fff;">
                <children>
                   <AnchorPane layoutX="225.0" layoutY="182.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="466.0" prefWidth="628.0" style="-fx-background-color: #5EAAA8; -fx-border-radius: 20; -fx-background-radius: 20;" AnchorPane.bottomAnchor="182.0" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="182.0">
                      <children>
@@ -43,14 +59,53 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="questionsListPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="809.0" prefWidth="1053.0" style="-fx-background-color: #fff;">
+            <AnchorPane fx:id="examsInfo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="839.0" prefWidth="1068.0" style="-fx-background-color: #fff;">
                <children>
-                  <ScrollPane fx:id="questionsPane" prefHeight="790.0" prefWidth="1053.0">
-                     <content>
-                        <VBox fx:id="questionsList" prefHeight="773.0" prefWidth="1048.0" style="-fx-background-radius: 5; -fx-border-radius: 5;" />
-                     </content>
-                  </ScrollPane>
-                  <Button fx:id="submitExambtn" layoutX="924.0" layoutY="799.0" mnemonicParsing="false" onAction="#submitExam" prefHeight="31.0" prefWidth="112.0" styleClass="btn2" text="Finalizar Examen" />
+                  <Pane layoutX="8.0" layoutY="98.0" prefHeight="200.0" prefWidth="1053.0">
+                     <children>
+                        <Separator layoutX="14.0" layoutY="71.0" prefHeight="2.0" prefWidth="1020.0" />
+                        <Text layoutX="14.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total examenes realizados" wrappingWidth="261.71484375">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="612.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total preguntas realizadas" wrappingWidth="295.13671875">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="totalExams" layoutX="41.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="133.13671875">
+                           <font>
+                              <Font size="62.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="totalQuestions" layoutX="647.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="156.421875">
+                           <font>
+                              <Font size="62.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <TableView fx:id="examsStatsTable" layoutX="20.0" layoutY="414.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="192.0" prefWidth="1007.0">
+                     <columns>
+                        <TableColumn fx:id="dateCol" minWidth="0.0" prefWidth="207.0" text="fecha" />
+                        <TableColumn fx:id="topicCol" prefWidth="400.0" text="Topic" />
+                        <TableColumn fx:id="hitsCol" maxWidth="100.0" minWidth="0.0" prefWidth="100.0" resizable="false" text="aciertos" />
+                        <TableColumn fx:id="missesCol" maxWidth="100.0" prefWidth="100.0" resizable="false" text="fallos" />
+                        <TableColumn fx:id="blankCol" maxWidth="100.0" minWidth="0.0" prefWidth="100.0" resizable="false" text="en blanco" />
+                     </columns>
+                  </TableView>
+                  <Text layoutX="20.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ultimos examenes realizados:" wrappingWidth="301.71484375">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="newExam" alignment="CENTER" layoutX="853.0" layoutY="725.0" mnemonicParsing="false" onAction="#click" prefHeight="36.0" prefWidth="156.0" text="Realizar nuevo examen">
+                     <styleClass>
+                        <String fx:value="btn2" />
+                        <String fx:value="radiu2" />
+                     </styleClass>
+                  </Button>
                </children>
             </AnchorPane>
          </children>

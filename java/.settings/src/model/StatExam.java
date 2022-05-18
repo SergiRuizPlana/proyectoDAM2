@@ -21,6 +21,7 @@ public class StatExam {
 		this.misses = misses;
 		this.blank = blank;
 		this.statDate=statDate;
+		this.topic=topic;
 	}
 
 

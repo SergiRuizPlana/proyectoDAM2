@@ -36,7 +36,7 @@
             <Font size="17.0" />
          </font>
       </Button>
-      <Button fx:id="questionsBtn" mnemonicParsing="false" onAction="#click" prefHeight="53.0" prefWidth="166.0" styleClass="panelBtn" stylesheets="@../../styles/styles.css" text="Preguntes">
+      <Button fx:id="questionsBtn" mnemonicParsing="false" onAction="#click" prefHeight="53.0" prefWidth="166.0" styleClass="panelBtn" stylesheets="@../../styles/styles.css" text="Preguntas">
          <VBox.margin>
             <Insets bottom="25.0" />
          </VBox.margin>
@@ -60,10 +60,31 @@
             <Font size="17.0" />
          </font>
       </Button>
-      <Button fx:id="statsBtn" mnemonicParsing="false" onAction="#click" prefHeight="53.0" prefWidth="166.0" styleClass="panelBtn" stylesheets="@../../styles/styles.css" text="Stadisticas">
+      <Button fx:id="statsBtn" mnemonicParsing="false" onAction="#click" prefHeight="53.0" prefWidth="166.0" styleClass="panelBtn" stylesheets="@../../styles/styles.css" text="Estadisticas">
          <VBox.margin>
             <Insets bottom="25.0" />
          </VBox.margin>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.6700000166893005" green="0.5918333530426025" blue="0.43549999594688416" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Button fx:id="topicsBtn" mnemonicParsing="false" onAction="#click" prefHeight="53.0" prefWidth="166.0" styleClass="panelBtn" stylesheets="@../../styles/styles.css" text="Tematicas">
          <textFill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>

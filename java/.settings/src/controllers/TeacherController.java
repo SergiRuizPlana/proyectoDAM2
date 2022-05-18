@@ -12,8 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
+import javafx.scene.control.Button; 
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -27,6 +26,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
+import main.Main;
 import model.User; 
 import utils.ControlUtils;
 
@@ -41,6 +41,7 @@ public class TeacherController implements Initializable{
 
 	@FXML
 	private Text userNameHide;
+
 	@FXML
 	private Button openImg,showStudentBtn,returnBtn,createStudentBtn,saveStudentBtn,cancelStudentBtn;
 
@@ -55,7 +56,7 @@ public class TeacherController implements Initializable{
 
 	@FXML
 	private TableColumn<User,String> editCol;
-	
+
 	@FXML
 	private RadioButton studentRole,studentRole2,teacherRole,teacherRole2;
 
@@ -84,20 +85,19 @@ public class TeacherController implements Initializable{
 
 					} else {
 
-////						Image editIgm = new Image("src\\resources\\img\\edit.png");
-//						ImageView view = new ImageView(editIgm);
-////						Image deleteImg = new Image("src/resources/img/ltrash.png");
-//						System.out.println(deleteImg.getUrl());
-//						ImageView view2 = new ImageView(deleteImg);
-//						view.setFitHeight(22);
-//						view.setPreserveRatio(true);
-//						view2.setFitHeight(22);
-//						view2.setPreserveRatio(true);
+						Image editIgm = new Image("/resources/img/edit.png");
+						ImageView view = new ImageView(editIgm);
+						Image deleteImg = new Image("/resources/img/trash.png"); 
+						ImageView view2 = new ImageView(deleteImg);
+						view.setFitHeight(22);
+						view.setPreserveRatio(true);
+						view2.setFitHeight(22);
+						view2.setPreserveRatio(true);
 						Button deleteIcon = new Button();
 						Button editIcon = new Button();
-//						
-//						deleteIcon.setGraphic(view);
-//						editIcon.setGraphic(view2);
+
+						editIcon.setGraphic(view);
+						deleteIcon.setGraphic(view2);
 
 						deleteIcon.setStyle(
 								" -fx-cursor: hand ;"
@@ -110,11 +110,13 @@ public class TeacherController implements Initializable{
 										+ "-fx-fill:#00E676;"
 								);
 						deleteIcon.setOnMouseClicked((MouseEvent event) -> {
-							//							UserFx ufx = getTableRow().getItem();
-							//					        UserDAO.
-							//TODO
-
+							User usr = getTableRow().getItem();       
+							if(UserDAO.deleteUser(usr.getNif())) {
+								Main.getHomeController().showNotification("Se ha borrado el usuario con exito.", "#00FFAB");
+								updateUserTable();
+							}
 						});
+
 						editIcon.setOnMouseClicked((MouseEvent event) -> {
 							showStudentPane.toFront();
 							User usr = getTableRow().getItem();
@@ -130,9 +132,12 @@ public class TeacherController implements Initializable{
 							adressText.setText(usr.getAdress());
 							if(usr.isStudent()) {
 								studentRole.setSelected(true);
+								teacherRole.setSelected(false);
 							}else {
+								studentRole.setSelected(false);
 								teacherRole.setSelected(true);
 							}
+							Main.getHomeController().showNotification("Los campos esta desactivados, si quieres editar algun campo presione el boton de editar.", "#82DBD8");
 						});
 
 						HBox managebtn = new HBox(editIcon, deleteIcon);
@@ -149,59 +154,82 @@ public class TeacherController implements Initializable{
 		};
 
 		editCol.setCellFactory(cellFoctory);
-
-
-		ExecutorService service = Executors.newFixedThreadPool(4);
-		service.submit(new Runnable() {
-			public void run() {
-				studentsList.getItems().addAll(UserDAO.getUsers());
-				service.shutdownNow();
-			}
-		});
+		updateUserTable();
 
 	}
 
-
+	/***
+	 * mostrar el panel de la lista de alumnos
+	 * @param event
+	 */
 	public void showListPane(ActionEvent event) {
 		showStudentsPane.toFront();
+		enableDisableEditing(false);
 	}
 
-	public void imgSelect(ActionEvent event) {
-		//		FileChooser fx=new FileChooser();
-		//		File selectedFile=fx.showOpenDialog(null);
-	}
-
-
+	/***
+	 * activar los campos para que se puedan editar
+	 * @param event
+	 */
 	public void activeTextBoxes(ActionEvent event) {
-		fnameText.setEditable(true);
-		lnameText.setEditable(true);
-		nifText.setEditable(true);
-		emailText.setEditable(true);
-		cityText.setEditable(true);
-		zipText.setEditable(true);
-		phoneText.setEditable(true);
-		adressText.setEditable(true);
-		saveStudentBtn.setVisible(true);
-		cancelStudentBtn.setVisible(true);
+		enableDisableEditing(true);
 	}
 
+	public void enableDisableEditing(boolean editable) {
+		fnameText.setEditable(editable);
+		lnameText.setEditable(editable);
+		nifText.setEditable(editable);
+		emailText.setEditable(editable);
+		cityText.setEditable(editable);
+		zipText.setEditable(editable);
+		phoneText.setEditable(editable);
+		adressText.setEditable(editable);
+		saveStudentBtn.setVisible(editable);
+		cancelStudentBtn.setVisible(editable);
+	}
+
+
+
+	/***
+	 * guardar alumno despues de editarlo
+	 * @param event
+	 */
 	public void saveStudent(ActionEvent event) { 
 		String[] userInfo= {nifText.getText(), fnameText.getText(), lnameText.getText(), adressText.getText(), cityText.getText(),zipText.getText(), phoneText.getText(),emailText.getText(),studentRole.isSelected()?"STUDENT":"TEACHER"};
-		System.out.println(UserDAO.updateUser(userInfo,userNameHide.getText()));
-		TextField[] texts={nifText, fnameText, lnameText, adressText, cityText,zipText, phoneText,emailText};
-		ControlUtils.resetTextBox(texts);
-		showStudentsPane.toFront();	
+		if(UserDAO.updateUser(userInfo,userNameHide.getText())){
+			TextField[] texts={nifText, fnameText, lnameText, adressText, cityText,zipText, phoneText,emailText};
+			ControlUtils.resetTextBox(texts);
+			showStudentsPane.toFront();	
+			Main.getHomeController().showNotification("Se han guardado los cambio con exito.", "#00FFAB");
+			enableDisableEditing(false);
+			updateUserTable();
+		}else {
+			Main.getHomeController().showNotification("Se ha producido un error al guardar los cambio con exito.", "#FD5D5D");
+		}
 	}
 
+
+	/***
+	 * guardar alumno despues de crearlo
+	 * @param event
+	 */
 	public void createStudent(ActionEvent event) { 
 		User student=new User(nifText2.getText(), fnameText2.getText(), lnameText2.getText(),usernameText.getText(), adressText2.getText(), cityText2.getText(),zipText2.getText(), phoneText2.getText(), psswdText.getText(),emailText2.getText(),studentRole2.isSelected()?"STUDENT":"TEACHER");
-		System.out.println(UserDAO.insertUser(student));
-		TextField[] texts={nifText2, fnameText2, lnameText2,usernameText, adressText2, cityText2,zipText2, phoneText2, psswdText,emailText2};
-		ControlUtils.resetTextBox(texts);
-		showStudentsPane.toFront();
+		if(UserDAO.insertUser(student)){
+			TextField[] texts={nifText2, fnameText2, lnameText2,usernameText, adressText2, cityText2,zipText2, phoneText2, psswdText,emailText2};
+			ControlUtils.resetTextBox(texts);
+			showStudentsPane.toFront();
+			Main.getHomeController().showNotification("Se creado el usuario con exito.", "#00FFAB");
+			updateUserTable();
+		}else {
+			Main.getHomeController().showNotification("Se ha producido un error al guardarel usuario.", "#FD5D5D");
+		}
 
 	}
 
+	/***
+	 * muestra el panel de create el usuario
+	 */
 	public void createNewStudent() {
 		createPane.toFront();
 	}
@@ -209,6 +237,17 @@ public class TeacherController implements Initializable{
 
 	public void cancelStudentEdit(ActionEvent event) {
 		showStudentsPane.toFront();
+		enableDisableEditing(false);
 	}
 
+	public void updateUserTable() {
+		studentsList.getItems().clear();
+		ExecutorService service = Executors.newFixedThreadPool(4);
+		service.submit(new Runnable() {
+			public void run() {
+				studentsList.getItems().addAll(UserDAO.getUsers());
+				service.shutdownNow();
+			}
+		});
+	}
 }

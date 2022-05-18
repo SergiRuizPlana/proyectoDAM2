@@ -17,6 +17,187 @@
    <children>
       <StackPane layoutX="33.0" layoutY="24.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="646.0" prefWidth="1196.0" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="24.0">
          <children>
+            <AnchorPane fx:id="showStudentPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="646.0" prefWidth="1181.0" style="-fx-background-color: #fff;">
+               <children>
+                  <Pane layoutX="36.0" layoutY="35.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="563.0" prefWidth="1110.0" style="-fx-background-color: #9DF3C4;" styleClass="radiu2">
+                     <children>
+                        <TextField fx:id="fnameText" editable="false" layoutX="253.0" layoutY="157.0" promptText="Nombre">
+                           <styleClass>
+                              <String fx:value="radiu1" />
+                              <String fx:value="textField" />
+                           </styleClass>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="lnameText" editable="false" layoutX="655.0" layoutY="157.0" promptText="Apellidos">
+                           <styleClass>
+                              <String fx:value="radiu1" />
+                              <String fx:value="textField" />
+                           </styleClass>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="nifText" editable="false" layoutX="253.0" layoutY="222.0" promptText="NIF">
+                           <styleClass>
+                              <String fx:value="radiu1" />
+                              <String fx:value="textField" />
+                           </styleClass>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="adressText" editable="false" layoutX="656.0" layoutY="276.0" promptText="Adressa">
+                           <styleClass>
+                              <String fx:value="radiu1" />
+                              <String fx:value="textField" />
+                           </styleClass>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="phoneText" editable="false" layoutX="656.0" layoutY="219.0" promptText="Telefono">
+                           <styleClass>
+                              <String fx:value="radiu1" />
+                              <String fx:value="textField" />
+                           </styleClass>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <Text layoutX="124.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" wrappingWidth="76.13671875">
+                           <font>
+                              <Font name="Caladea" size="16.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="536.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="lname" wrappingWidth="76.13671875">
+                           <font>
+                              <Font name="Caladea" size="16.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="124.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nif" wrappingWidth="76.13671875">
+                           <font>
+                              <Font name="Caladea" size="16.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="536.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="adreça" wrappingWidth="76.13671875">
+                           <font>
+                              <Font name="Caladea" size="16.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="536.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="phone" wrappingWidth="76.13671875">
+                           <font>
+                              <Font name="Caladea" size="16.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="124.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email" wrappingWidth="76.13671875">
+                           <font>
+                              <Font name="Caladea" size="16.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="returnBtn" layoutX="937.0" layoutY="21.0" mnemonicParsing="false" onAction="#showListPane" prefHeight="27.0" prefWidth="94.0" stylesheets="@../../styles/styles.css" text="Volver" textFill="WHITE">
+                           <styleClass>
+                              <String fx:value="radiu1" />
+                              <String fx:value="btn2" />
+                           </styleClass>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <TextField fx:id="emailText" editable="false" layoutX="253.0" layoutY="272.0" promptText="Email">
+                           <styleClass>
+                              <String fx:value="radiu1" />
+                              <String fx:value="textField" />
+                           </styleClass>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <Button fx:id="editStudentBtn" layoutX="716.0" layoutY="21.0" mnemonicParsing="false" onAction="#activeTextBoxes" prefHeight="27.0" prefWidth="94.0" stylesheets="@../../styles/styles.css" text="Editar" textFill="WHITE">
+                           <styleClass>
+                              <String fx:value="radiu1" />
+                              <String fx:value="btn2" />
+                           </styleClass>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="deleteStudentBtn" layoutX="822.0" layoutY="21.0" mnemonicParsing="false" onAction="#showListPane" prefHeight="27.0" prefWidth="94.0" stylesheets="@../../styles/styles.css" text="Borrar" textFill="WHITE">
+                           <styleClass>
+                              <String fx:value="radiu1" />
+                              <String fx:value="btn2" />
+                           </styleClass>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Text layoutX="536.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ciudcad" wrappingWidth="76.13671875">
+                           <font>
+                              <Font name="Caladea" size="16.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="cityText" editable="false" layoutX="656.0" layoutY="327.0" promptText="Ciudad">
+                           <styleClass>
+                              <String fx:value="radiu1" />
+                              <String fx:value="textField" />
+                           </styleClass>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="zipText" editable="false" layoutX="253.0" layoutY="327.0" promptText="Codigo Postal">
+                           <styleClass>
+                              <String fx:value="radiu1" />
+                              <String fx:value="textField" />
+                           </styleClass>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <Text layoutX="124.0" layoutY="349.0" strokeType="OUTSIDE" strokeWidth="0.0" text="codiP" wrappingWidth="76.13671875">
+                           <font>
+                              <Font name="Caladea" size="16.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="saveStudentBtn" layoutX="899.0" layoutY="523.0" mnemonicParsing="false" onAction="#saveStudent" prefHeight="27.0" prefWidth="94.0" stylesheets="@../../styles/styles.css" text="Guradar" textFill="WHITE" visible="false">
+                           <styleClass>
+                              <String fx:value="radiu1" />
+                              <String fx:value="btn2" />
+                           </styleClass>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="cancelStudentBtn" layoutX="779.0" layoutY="523.0" mnemonicParsing="false" onAction="#cancelStudentEdit" prefHeight="27.0" prefWidth="94.0" stylesheets="@../../styles/styles.css" text="Cancelar" textFill="WHITE" visible="false">
+                           <styleClass>
+                              <String fx:value="radiu1" />
+                              <String fx:value="btn2" />
+                           </styleClass>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Text fx:id="userNameHide" layoutX="788.0" layoutY="255.79998779296875" strokeType="OUTSIDE" strokeWidth="0.0" visible="false" wrappingWidth="76.13671875">
+                           <font>
+                              <Font name="Caladea" size="16.0" />
+                           </font>
+                        </Text>
+                        <RadioButton fx:id="studentRole" layoutX="247.0" layoutY="382.0" mnemonicParsing="false" selected="true" text="Alumno">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="tyeEdit" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <Text layoutX="127.0" layoutY="396.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo" wrappingWidth="83.0">
+                           <font>
+                              <Font name="Caladea" size="16.0" />
+                           </font>
+                        </Text>
+                        <RadioButton fx:id="teacherRole" layoutX="326.0" layoutY="382.0" mnemonicParsing="false" text="Profesor" toggleGroup="$tyeEdit" />
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
             <AnchorPane fx:id="createPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="646.0" prefWidth="1194.0" style="-fx-background-color: #fff;">
                <children>
                   <Pane layoutX="68.0" layoutY="49.0" prefHeight="549.0" prefWidth="1058.0" style="-fx-background-color: #9DF3C4;" styleClass="radiu2">
@@ -119,7 +300,7 @@
                               <Font name="Caladea" size="16.0" />
                            </font>
                         </Text>
-                        <RadioButton fx:id="studenteRole2" layoutX="308.0" layoutY="366.0" mnemonicParsing="false" selected="true" text="Alumno">
+                        <RadioButton fx:id="studentRole2" layoutX="308.0" layoutY="366.0" mnemonicParsing="false" selected="true" text="Alumno">
                            <toggleGroup>
                               <ToggleGroup fx:id="type" />
                            </toggleGroup>
@@ -134,203 +315,9 @@
                   </Pane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="showStudentPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="646.0" prefWidth="1181.0" style="-fx-background-color: #fff;">
-               <children>
-                  <Pane layoutX="36.0" layoutY="35.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="563.0" prefWidth="1110.0" style="-fx-background-color: #9DF3C4;" styleClass="radiu2">
-                     <children>
-                        <TextField fx:id="fnameText" editable="false" layoutX="253.0" layoutY="157.0" promptText="Nombre">
-                           <styleClass>
-                              <String fx:value="radiu1" />
-                              <String fx:value="textField" />
-                           </styleClass>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </TextField>
-                        <TextField fx:id="lnameText" editable="false" layoutX="655.0" layoutY="157.0" promptText="Apellidos">
-                           <styleClass>
-                              <String fx:value="radiu1" />
-                              <String fx:value="textField" />
-                           </styleClass>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </TextField>
-                        <TextField fx:id="nifText" editable="false" layoutX="253.0" layoutY="222.0" promptText="NIF">
-                           <styleClass>
-                              <String fx:value="radiu1" />
-                              <String fx:value="textField" />
-                           </styleClass>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </TextField>
-                        <TextField fx:id="adressText" editable="false" layoutX="656.0" layoutY="276.0" promptText="Adressa">
-                           <styleClass>
-                              <String fx:value="radiu1" />
-                              <String fx:value="textField" />
-                           </styleClass>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </TextField>
-                        <TextField fx:id="phoneText" editable="false" layoutX="656.0" layoutY="219.0" promptText="Telefono">
-                           <styleClass>
-                              <String fx:value="radiu1" />
-                              <String fx:value="textField" />
-                           </styleClass>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </TextField>
-                        <Text layoutX="124.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" wrappingWidth="76.13671875">
-                           <font>
-                              <Font name="Caladea" size="16.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="536.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="lname" wrappingWidth="76.13671875">
-                           <font>
-                              <Font name="Caladea" size="16.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="124.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nif" wrappingWidth="76.13671875">
-                           <font>
-                              <Font name="Caladea" size="16.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="536.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="adreça" wrappingWidth="76.13671875">
-                           <font>
-                              <Font name="Caladea" size="16.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="536.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="phone" wrappingWidth="76.13671875">
-                           <font>
-                              <Font name="Caladea" size="16.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="124.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email" wrappingWidth="76.13671875">
-                           <font>
-                              <Font name="Caladea" size="16.0" />
-                           </font>
-                        </Text>
-                        <Button fx:id="returnBtn" layoutX="937.0" layoutY="21.0" mnemonicParsing="false" onAction="#showListPane" prefHeight="27.0" prefWidth="94.0" stylesheets="@../../styles/styles.css" text="Volver" textFill="WHITE">
-                           <styleClass>
-                              <String fx:value="radiu1" />
-                              <String fx:value="btn2" />
-                           </styleClass>
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="openImg" layoutX="975.0" layoutY="412.0" mnemonicParsing="false" onAction="#imgSelect" prefHeight="27.0" prefWidth="94.0" stylesheets="@../../styles/styles.css" text="IMG" textFill="WHITE" visible="false">
-                           <styleClass>
-                              <String fx:value="radiu1" />
-                              <String fx:value="btn2" />
-                           </styleClass>
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Button>
-                        <TextField fx:id="emailText" editable="false" layoutX="253.0" layoutY="272.0" promptText="Email">
-                           <styleClass>
-                              <String fx:value="radiu1" />
-                              <String fx:value="textField" />
-                           </styleClass>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </TextField>
-                        <Button fx:id="editStudentBtn" layoutX="716.0" layoutY="21.0" mnemonicParsing="false" onAction="#activeTextBoxes" prefHeight="27.0" prefWidth="94.0" stylesheets="@../../styles/styles.css" text="Editar" textFill="WHITE">
-                           <styleClass>
-                              <String fx:value="radiu1" />
-                              <String fx:value="btn2" />
-                           </styleClass>
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="deleteStudentBtn" layoutX="822.0" layoutY="21.0" mnemonicParsing="false" onAction="#showListPane" prefHeight="27.0" prefWidth="94.0" stylesheets="@../../styles/styles.css" text="Borrar" textFill="WHITE">
-                           <styleClass>
-                              <String fx:value="radiu1" />
-                              <String fx:value="btn2" />
-                           </styleClass>
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Button>
-                        <Text layoutX="536.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ciudcad" wrappingWidth="76.13671875">
-                           <font>
-                              <Font name="Caladea" size="16.0" />
-                           </font>
-                        </Text>
-                        <TextField fx:id="cityText" editable="false" layoutX="656.0" layoutY="327.0" promptText="Ciudad">
-                           <styleClass>
-                              <String fx:value="radiu1" />
-                              <String fx:value="textField" />
-                           </styleClass>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </TextField>
-                        <TextField fx:id="zipText" editable="false" layoutX="253.0" layoutY="327.0" promptText="Codigo Postal">
-                           <styleClass>
-                              <String fx:value="radiu1" />
-                              <String fx:value="textField" />
-                           </styleClass>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </TextField>
-                        <Text layoutX="124.0" layoutY="349.0" strokeType="OUTSIDE" strokeWidth="0.0" text="codiP" wrappingWidth="76.13671875">
-                           <font>
-                              <Font name="Caladea" size="16.0" />
-                           </font>
-                        </Text>
-                        <Button fx:id="saveStudentBtn" layoutX="899.0" layoutY="523.0" mnemonicParsing="false" onAction="#saveStudent" prefHeight="27.0" prefWidth="94.0" stylesheets="@../../styles/styles.css" text="Guradar" textFill="WHITE" visible="false">
-                           <styleClass>
-                              <String fx:value="radiu1" />
-                              <String fx:value="btn2" />
-                           </styleClass>
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="cancelStudentBtn" layoutX="779.0" layoutY="523.0" mnemonicParsing="false" onAction="#cancelStudentEdit" prefHeight="27.0" prefWidth="94.0" stylesheets="@../../styles/styles.css" text="Cancelar" textFill="WHITE" visible="false">
-                           <styleClass>
-                              <String fx:value="radiu1" />
-                              <String fx:value="btn2" />
-                           </styleClass>
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Button>
-                        <Text fx:id="userNameHide" layoutX="788.0" layoutY="255.79998779296875" strokeType="OUTSIDE" strokeWidth="0.0" visible="false" wrappingWidth="76.13671875">
-                           <font>
-                              <Font name="Caladea" size="16.0" />
-                           </font>
-                        </Text>
-                        <RadioButton fx:id="studentRole" layoutX="247.0" layoutY="382.0" mnemonicParsing="false" selected="true" text="Alumno">
-                           <toggleGroup>
-                              <ToggleGroup fx:id="type1" />
-                           </toggleGroup>
-                        </RadioButton>
-                        <Text layoutX="127.0" layoutY="396.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo" wrappingWidth="83.0">
-                           <font>
-                              <Font name="Caladea" size="16.0" />
-                           </font>
-                        </Text>
-                        <RadioButton fx:id="teacherRole" layoutX="326.0" layoutY="382.0" mnemonicParsing="false" text="Profesor">
-                           <toggleGroup>
-                              <ToggleGroup fx:id="type1" />
-                           </toggleGroup>
-                        </RadioButton>
-                     </children>
-                  </Pane>
-               </children>
-            </AnchorPane>
             <AnchorPane fx:id="showStudentsPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="640.0" prefWidth="1179.0" style="-fx-background-color: #fff;" styleClass="radiu2">
                <children>
-                  <TableView fx:id="studentsList" layoutX="29.0" layoutY="55.0" prefHeight="558.0" prefWidth="1121.0" style="-fx-background-color: #fff;">
+                  <TableView fx:id="studentsList" layoutX="17.0" layoutY="57.0" prefHeight="558.0" prefWidth="1145.0" style="-fx-background-color: #fff;">
                      <columns>
                         <TableColumn fx:id="fnameCol" prefWidth="205.0" text="Nom" />
                         <TableColumn fx:id="lnameCol" prefWidth="162.0" text="Cognom" />
@@ -339,10 +326,10 @@
                         <TableColumn fx:id="emailCol" prefWidth="137.0" text="correo" />
                         <TableColumn fx:id="addresCol" prefWidth="103.0" text="adreça" />
                         <TableColumn fx:id="cityCol" prefWidth="131.0" text="ciutat" />
-                        <TableColumn fx:id="editCol" prefWidth="87.0" />
+                        <TableColumn fx:id="editCol" prefWidth="112.0" />
                      </columns>
                   </TableView>
-                  <Button fx:id="createStudentBtn" layoutX="1049.0" layoutY="14.0" mnemonicParsing="false" onAction="#createNewStudent" styleClass="btn2" text="Crear nuevo" textFill="WHITE">
+                  <Button fx:id="createStudentBtn" layoutX="1064.0" layoutY="14.0" mnemonicParsing="false" onAction="#createNewStudent" styleClass="btn2" text="Crear nuevo" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font></Button>

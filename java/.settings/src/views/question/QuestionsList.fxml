@@ -16,114 +16,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="930.0" prefWidth="1286.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.QuestionController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="844.0" prefWidth="1286.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.QuestionController">
    <children>
-      <Pane layoutX="37.0" layoutY="19.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="897.0" prefWidth="1224.0">
+      <Pane layoutX="37.0" layoutY="19.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="859.0" prefWidth="1224.0">
          <children>
-            <StackPane layoutX="44.0" layoutY="36.0" prefHeight="826.0" prefWidth="1150.0">
+            <StackPane layoutX="37.0" layoutY="14.0" prefHeight="826.0" prefWidth="1150.0">
                <children>
-                  <AnchorPane fx:id="createPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="818.0" prefWidth="1148.0" style="-fx-background-color: #9DF3C4;">
-                     <children>
-                        <VBox layoutX="27.0" layoutY="14.0" prefHeight="697.0" prefWidth="1001.0">
-                           <children>
-                              <AnchorPane prefHeight="145.0" prefWidth="1013.0">
-                                 <children>
-                                    <TextArea fx:id="questionText1" layoutX="35.0" layoutY="31.0" prefHeight="82.0" prefWidth="879.0" />
-                                    <Text layoutX="35.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pregunta" wrappingWidth="135.13671875">
-                                       <font>
-                                          <Font size="15.0" />
-                                       </font></Text>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane prefHeight="145.0" prefWidth="949.0">
-                                 <children>
-                                    <TextArea fx:id="answerText11" layoutX="35.0" layoutY="46.0" prefHeight="67.0" prefWidth="879.0" />
-                                    <Text layoutX="35.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Resposta1" wrappingWidth="135.13671875">
-                                       <font>
-                                          <Font size="15.0" />
-                                       </font></Text>
-                                    <RadioButton fx:id="correctAnswer11" layoutX="933.0" layoutY="70.0" mnemonicParsing="false" selected="true">
-                                       <toggleGroup>
-                                          <ToggleGroup fx:id="correctAnswer" />
-                                       </toggleGroup>
-                                    </RadioButton>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane prefHeight="145.0" prefWidth="949.0">
-                                 <children>
-                                    <TextArea fx:id="answerText21" layoutX="35.0" layoutY="56.0" prefHeight="57.0" prefWidth="879.0" />
-                                    <Text layoutX="35.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Resposta2" wrappingWidth="135.13671875">
-                                       <font>
-                                          <Font size="15.0" />
-                                       </font></Text>
-                                    <RadioButton fx:id="correctAnswer21" layoutX="936.0" layoutY="73.0" mnemonicParsing="false">
-                                       <toggleGroup>
-                                          <ToggleGroup fx:id="correctAnswer" />
-                                       </toggleGroup>
-                                    </RadioButton>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane prefHeight="145.0" prefWidth="949.0">
-                                 <children>
-                                    <TextArea fx:id="answerText31" layoutX="35.0" layoutY="46.0" prefHeight="67.0" prefWidth="879.0" />
-                                    <Text layoutX="35.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Resposta3" wrappingWidth="135.13671875">
-                                       <font>
-                                          <Font size="15.0" />
-                                       </font></Text>
-                                    <RadioButton fx:id="correctAnswer31" layoutX="938.0" layoutY="71.0" mnemonicParsing="false">
-                                       <toggleGroup>
-                                          <ToggleGroup fx:id="correctAnswer" />
-                                       </toggleGroup>
-                                    </RadioButton>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane prefHeight="145.0" prefWidth="1001.0">
-                                 <children>
-                                    <TextArea fx:id="answerText41" layoutX="35.0" layoutY="46.0" prefHeight="67.0" prefWidth="879.0" />
-                                    <Text layoutX="35.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Resposta4" wrappingWidth="135.13671875">
-                                       <font>
-                                          <Font size="15.0" />
-                                       </font></Text>
-                                    <RadioButton fx:id="correctAnswer41" layoutX="938.0" layoutY="72.0" mnemonicParsing="false">
-                                       <toggleGroup>
-                                          <ToggleGroup fx:id="correctAnswer" />
-                                       </toggleGroup>
-                                    </RadioButton>
-                                 </children>
-                              </AnchorPane>
-                              <ComboBox fx:id="topicList1" prefWidth="150.0" promptText="Tematica">
-                                 <VBox.margin>
-                                    <Insets left="40.0" />
-                                 </VBox.margin></ComboBox>
-                           </children>
-                        </VBox>
-                        <Button fx:id="cancelBtn" cancelButton="true" layoutX="973.0" layoutY="735.0" mnemonicParsing="false" onAction="#cancel" prefHeight="33.0" prefWidth="80.0" styleClass="btn2" text="cancel" />
-                        <Button fx:id="saveBtn" defaultButton="true" layoutX="1069.0" layoutY="735.0" mnemonicParsing="false" onAction="#save" prefHeight="33.0" prefWidth="71.0" styleClass="btn2" text="save" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane fx:id="listPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="795.0" prefWidth="1093.0" style="-fx-background-color: #fff;">
-                     <children>
-                        <TableView fx:id="questionsList" layoutX="85.0" layoutY="76.0" prefHeight="699.0" prefWidth="957.0" AnchorPane.bottomAnchor="76.0" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="134.0" AnchorPane.topAnchor="76.0">
-                           <columns>
-                              <TableColumn fx:id="questionCol" prefWidth="582.0" text="Pregunta" />
-                              <TableColumn fx:id="topicCol" minWidth="0.0" prefWidth="144.0" text="Categoria" />
-                              <TableColumn fx:id="answersCol" prefWidth="127.0" text="TotalRespostes" />
-                              <TableColumn fx:id="editCol" prefWidth="88.0" />
-                           </columns>
-                        </TableView>
-                        <Button fx:id="importXml" layoutX="184.0" layoutY="26.0" mnemonicParsing="false" onAction="#importXmlFile" text="importar de xml">
-                           <styleClass>
-                              <String fx:value="btn2" />
-                              <String fx:value="radiu2" />
-                           </styleClass></Button>
-                        <Button fx:id="createQuestionBtn" layoutX="85.0" layoutY="26.0" mnemonicParsing="false" onAction="#createQuestion" text="Crear nueva">
-                           <styleClass>
-                              <String fx:value="btn2" />
-                              <String fx:value="radiu2" />
-                           </styleClass></Button>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane fx:id="editPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="851.0" prefWidth="1013.0" style="-fx-background-color: #9DF3C4;">
+                  <AnchorPane fx:id="editPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="799.0" prefWidth="1149.0" style="-fx-background-color: #9DF3C4;">
                      <children>
                         <VBox layoutX="12.0" layoutY="46.0" prefHeight="754.0" prefWidth="1013.0">
                            <children>
@@ -183,32 +82,139 @@
                                        </font>
                                     </Text>
                                     <RadioButton fx:id="correctAnswer4" layoutX="934.0" layoutY="71.0" mnemonicParsing="false" toggleGroup="$correctAnswer5" />
-                                    <ComboBox fx:id="topicList" disable="true" layoutX="35.0" layoutY="149.0" prefWidth="150.0" promptText="Tematica" />
+                                    <ComboBox fx:id="topicList" disable="true" layoutX="35.0" layoutY="136.0" prefWidth="150.0" promptText="Tematica" />
                                  </children>
                               </AnchorPane>
                            </children>
                         </VBox>
-                        <Button fx:id="cancelEditBtn" layoutX="854.0" layoutY="808.0" mnemonicParsing="false" onAction="#cancel" text="cancel" visible="false" />
-                        <Button fx:id="saveEditBtn" layoutX="930.0" layoutY="808.0" mnemonicParsing="false" text="save" visible="false" />
-                        <Button fx:id="EditBtn" layoutX="780.0" layoutY="14.0" mnemonicParsing="false" onAction="#enableEditing" text="Editar">
+                        <Button fx:id="cancelEditBtn" layoutX="975.0" layoutY="752.0" mnemonicParsing="false" onAction="#cancel" styleClass="btn2" text="Cancelar" />
+                        <Button fx:id="saveEditBtn" layoutX="1051.0" layoutY="752.0" mnemonicParsing="false" onAction="#save" prefHeight="25.0" prefWidth="80.0" styleClass="btn2" text="Guradar" />
+                        <Button fx:id="EditBtn" layoutX="904.0" layoutY="14.0" mnemonicParsing="false" onAction="#enableEditing" text="Editar">
                            <styleClass>
                               <String fx:value="btn2" />
                               <String fx:value="radiu1" />
                            </styleClass>
                         </Button>
-                        <Button fx:id="deleteBtn" layoutX="850.0" layoutY="14.0" mnemonicParsing="false" onAction="#delete" text="Eliminar">
+                        <Button fx:id="deleteBtn" layoutX="974.0" layoutY="14.0" mnemonicParsing="false" onAction="#delete" text="Eliminar">
                            <styleClass>
                               <String fx:value="btn2" />
                               <String fx:value="radiu1" />
                            </styleClass>
                         </Button>
-                        <Button fx:id="returnBtn" layoutX="923.0" layoutY="14.0" mnemonicParsing="false" onAction="#cancel" text="Volver">
+                        <Button fx:id="returnBtn" layoutX="1047.0" layoutY="14.0" mnemonicParsing="false" onAction="#cancel" text="Volver">
                            <styleClass>
                               <String fx:value="btn2" />
                               <String fx:value="radiu1" />
                            </styleClass>
                         </Button>
                         <Text fx:id="idQuestionText" layoutX="743.0" layoutY="838.0" strokeType="OUTSIDE" strokeWidth="0.0" visible="false" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="createPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="801.0" prefWidth="1148.0" style="-fx-background-color: #9DF3C4;">
+                     <children>
+                        <VBox layoutX="27.0" layoutY="14.0" prefHeight="697.0" prefWidth="1001.0">
+                           <children>
+                              <AnchorPane prefHeight="145.0" prefWidth="1013.0">
+                                 <children>
+                                    <TextArea fx:id="questionText1" layoutX="35.0" layoutY="31.0" prefHeight="82.0" prefWidth="879.0" />
+                                    <Text layoutX="35.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pregunta" wrappingWidth="135.13671875">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="145.0" prefWidth="949.0">
+                                 <children>
+                                    <TextArea fx:id="answerText11" layoutX="35.0" layoutY="46.0" prefHeight="67.0" prefWidth="879.0" />
+                                    <Text layoutX="35.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Resposta1" wrappingWidth="135.13671875">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <RadioButton fx:id="correctAnswer11" layoutX="933.0" layoutY="70.0" mnemonicParsing="false" selected="true">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="correctAnswer" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="145.0" prefWidth="949.0">
+                                 <children>
+                                    <TextArea fx:id="answerText21" layoutX="35.0" layoutY="56.0" prefHeight="57.0" prefWidth="879.0" />
+                                    <Text layoutX="35.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Resposta2" wrappingWidth="135.13671875">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <RadioButton fx:id="correctAnswer21" layoutX="936.0" layoutY="73.0" mnemonicParsing="false">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="correctAnswer" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="145.0" prefWidth="949.0">
+                                 <children>
+                                    <TextArea fx:id="answerText31" layoutX="35.0" layoutY="46.0" prefHeight="67.0" prefWidth="879.0" />
+                                    <Text layoutX="35.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Resposta3" wrappingWidth="135.13671875">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <RadioButton fx:id="correctAnswer31" layoutX="938.0" layoutY="71.0" mnemonicParsing="false">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="correctAnswer" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="145.0" prefWidth="1001.0">
+                                 <children>
+                                    <TextArea fx:id="answerText41" layoutX="35.0" layoutY="46.0" prefHeight="67.0" prefWidth="879.0" />
+                                    <Text layoutX="35.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Resposta4" wrappingWidth="135.13671875">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <RadioButton fx:id="correctAnswer41" layoutX="938.0" layoutY="72.0" mnemonicParsing="false">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="correctAnswer" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                 </children>
+                              </AnchorPane>
+                              <ComboBox fx:id="topicList1" prefWidth="150.0" promptText="Tematica">
+                                 <VBox.margin>
+                                    <Insets left="40.0" />
+                                 </VBox.margin>
+                              </ComboBox>
+                           </children>
+                        </VBox>
+                        <Button fx:id="cancelBtn" cancelButton="true" layoutX="973.0" layoutY="735.0" mnemonicParsing="false" onAction="#cancel" prefHeight="33.0" prefWidth="80.0" styleClass="btn2" text="cancel" />
+                        <Button fx:id="saveBtn" defaultButton="true" layoutX="1069.0" layoutY="735.0" mnemonicParsing="false" onAction="#save" prefHeight="33.0" prefWidth="71.0" styleClass="btn2" text="save" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="listPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="795.0" prefWidth="1093.0" style="-fx-background-color: #fff;">
+                     <children>
+                        <TableView fx:id="questionsList" layoutX="85.0" layoutY="76.0" prefHeight="699.0" prefWidth="1001.0" AnchorPane.bottomAnchor="76.0" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="64.0" AnchorPane.topAnchor="76.0">
+                           <columns>
+                              <TableColumn fx:id="questionCol" prefWidth="582.0" text="Pregunta" />
+                              <TableColumn fx:id="topicCol" minWidth="0.0" prefWidth="144.0" text="Categoria" />
+                              <TableColumn fx:id="answersCol" prefWidth="127.0" text="TotalRespostes" />
+                              <TableColumn fx:id="editCol" prefWidth="135.0" />
+                           </columns>
+                        </TableView>
+                        <Button fx:id="importXml" layoutX="184.0" layoutY="26.0" mnemonicParsing="false" onAction="#importXmlFile" text="importar de xml">
+                           <styleClass>
+                              <String fx:value="btn2" />
+                              <String fx:value="radiu2" />
+                           </styleClass></Button>
+                        <Button fx:id="createQuestionBtn" layoutX="85.0" layoutY="26.0" mnemonicParsing="false" onAction="#createQuestion" text="Crear nueva">
+                           <styleClass>
+                              <String fx:value="btn2" />
+                              <String fx:value="radiu2" />
+                           </styleClass></Button>
                      </children>
                   </AnchorPane>
                </children>

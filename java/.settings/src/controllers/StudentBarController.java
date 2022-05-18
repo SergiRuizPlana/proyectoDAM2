@@ -8,8 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 import javafx.scene.control.Button;
-
-import test.Test;
+import main.Main;
 
 public class StudentBarController implements Initializable{
 
@@ -23,15 +22,19 @@ public class StudentBarController implements Initializable{
 
 	}
 
+	/***
+	 * Muestra cada vista depende del boton presionado
+	 * @param event
+	 */
 	public void click(ActionEvent event) {
 		if(event.getSource()==examsBtn) {
-			Test.getHomeController().changeView("exams\\StudentExamView.fxml", false);
+			Main.getHomeController().changeView("exams\\StudentExamView.fxml", false);
 		}else if(event.getSource()==statsExamsBtn) {
-			Test.getHomeController().changeView("stadistics\\StudentStatsView.fxml", false);
+			Main.getHomeController().changeView("stadistics\\StudentStatsView.fxml", false);
 		}else if(event.getSource()==statsQuesdtionBtn) {
-			Test.getHomeController().changeView("question\\StatQuestionsList.fxml", false);
+			Main.getHomeController().changeView("question\\StatQuestionsList.fxml", false);
 		} 	
 	}
-	
- 
+
+
 }
