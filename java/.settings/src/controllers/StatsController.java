@@ -79,7 +79,7 @@ public class StatsController implements  Initializable{
 					examsStatsTable.getItems().addAll(StatExamDAO.obtainAllStats());
 					statQuestionTable.getItems().addAll(StatQuestionDAO.getAll());
 				}else {
-					examsStatsTable.getItems().addAll(StatExamDAO.obtainAllStatsByUser(Main.getCurrentUser().getNif()));
+					examsStatsTable.getItems().addAll(StatExamDAO.obtainAllStatsByNif(Main.getCurrentUser().getNif()));
 					statQuestionTable.getItems().addAll(StatQuestionDAO.obtainByUser(Main.getCurrentUser().getNif()));					
 				}
 				service.shutdownNow();
@@ -118,13 +118,13 @@ public class StatsController implements  Initializable{
 		ExecutorService service = Executors.newFixedThreadPool(4);
 		service.submit(new Runnable() {
 			public void run() {
-				if(studentCheck.isSelected() && topicCheck.isSelected()) {
+				if(studentCheck.isSelected() && topicCheck.isSelected() && topicSearch.getSelectionModel().getSelectedItem()!=null) {
 					examsStatsTable.getItems().addAll(StatExamDAO.obtainByNameAndTopic(studentSearch.getText(), topicSearch.getSelectionModel().getSelectedItem().getId()));
 					statQuestionTable.getItems().addAll(StatQuestionDAO.obtainByTopicAndName(topicSearch.getSelectionModel().getSelectedItem(),studentSearch.getText()));
-				}else if(studentCheck.isSelected()) {
+				}else if(studentCheck.isSelected() && !topicCheck.isSelected()) {
 					examsStatsTable.getItems().addAll(StatExamDAO.obtainAllStatsByUser(studentSearch.getText()));
 					statQuestionTable.getItems().addAll(StatQuestionDAO.obtainByName(studentSearch.getText()));
-				}else if(topicCheck.isSelected()) {
+				}else if(topicCheck.isSelected() && topicSearch.getSelectionModel().getSelectedItem()!=null) {
 					examsStatsTable.getItems().addAll(StatExamDAO.obtainAllStatsByTopic(topicSearch.getSelectionModel().getSelectedItem()));
 					statQuestionTable.getItems().addAll(StatQuestionDAO.obtainByTopic(topicSearch.getSelectionModel().getSelectedItem()));
 				}else {

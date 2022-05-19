@@ -1,54 +1,99 @@
 <?xml version="1.0"?>
-<questions>
+<questions topicId="FC74A893-EF2E-4D82-8AF0-62D912F2B7A5">
 
-<question topicID="4C596518-A2BF-47C8-A821-6FA2A4F7CA47">
-    <questionText> question1 </questionText>
+<question>
+    <questionText> El resultado de 5-3 es : </questionText>
     <answers correctAnswer="1">
-        <answer1>answer1</answer1>
-        <answer2>answer2</answer2>
+        <answer1>2</answer1>
+        <answer2>1</answer2>
     </answers>
     
 </question>
 
-<question topicID="">
-    <questionText>  question2 </questionText>
-    <answers correctAnswer="3">
-        <answer1>answer1</answer1>
-        <answer2>answer22</answer2>
-        <answer3>answer1</answer3>
-    </answers>
-    
-</question>
-
-<question topicID="661DA9B5-D306-4804-9900-66A9653614EB">
-    <questionText> question3 </questionText>
-    <answers correctAnswer="1">
-        <answer1>answer1</answer1>
-        <answer2>answer23</answer2>
-        <answer3>answer33</answer3>
-        <answer4>answer43</answer4>
-    </answers>
-    
-</question>
-
-<question topicID="">
-    <questionText> question14 </questionText>
+<question >
+    <questionText>  El resultado de 3*3 es: </questionText>
     <answers correctAnswer="2">
-        <answer1>answer14</answer1>
-        <answer2>answer24</answer2>
-        <answer3>answer34</answer3> 
+        <answer1>0</answer1>
+        <answer2>9</answer2>
+        <answer3>6</answer3>
     </answers>
     
 </question>
 
-<question topicID="D354381B-04C6-40B5-9C6A-8E32C0E67C78">
-    <questionText>  question123 </questionText>
-    <answers correctAnswer="4">
-        <answer1>answer15</answer1>
-        <answer2>answer245</answer2>
-        <answer3>answer334</answer3>
-        <answer4>answer466</answer4>
+<question>
+    <questionText> El resultado de  1*0 es: </questionText>
+    <answers correctAnswer="3">
+        <answer1>5</answer1>
+        <answer2>30</answer2>
+        <answer3>0</answer3>
+        <answer4>1</answer4>
     </answers>
     
 </question>
+
+<question >
+    <questionText> El resultado de 25/5 es: </questionText>
+    <answers correctAnswer="2">
+        <answer1>0</answer1>
+        <answer2>5</answer2>
+        <answer3>3</answer3> 
+    </answers>
+    
+</question>
+
+<question >
+    <questionText>  El resultado de  9*2 </questionText>
+    <answers correctAnswer="4">
+        <answer1>19</answer1>
+        <answer2>17</answer2>
+        <answer3>14</answer3>
+        <answer4>18</answer4>
+    </answers>
+    
+</question>
+
+<question >
+    <questionText>  El resultado de  100/25 </questionText>
+    <answers correctAnswer="3">
+        <answer1>10</answer1>
+        <answer2>25</answer2>
+        <answer3>4</answer3>
+        <answer4>5</answer4>
+    </answers>
+    
+</question>
+
+<question >
+    <questionText>  El resultado de  6*6 </questionText>
+    <answers correctAnswer="4">
+        <answer1>19</answer1>
+        <answer2>44</answer2>
+        <answer3>14</answer3>
+        <answer4>36</answer4>
+    </answers>
+    
+</question>
+
+<question >
+    <questionText>  El resultado de  8*3 </questionText>
+    <answers correctAnswer="2">
+        <answer1>12</answer1>
+        <answer2>24</answer2>
+        <answer3>14</answer3>
+        <answer4>32</answer4>
+    </answers>
+    
+</question>
+
+<question >
+    <questionText>  El resultado de  199+9 es:</questionText>
+    <answers correctAnswer="3">
+        <answer1>209</answer1>
+        <answer2>2006</answer2>
+        <answer3>208</answer3>
+        <answer4>206</answer4>
+    </answers>
+    
+</question>
+
 </questions>

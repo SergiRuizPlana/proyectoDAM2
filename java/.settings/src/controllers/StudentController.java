@@ -59,7 +59,7 @@ public class StudentController implements Initializable{
 	private VBox questionsList;
 
 	@FXML
-	private AnchorPane questionsListPane,examForm,examsInfo;
+	private AnchorPane questionsListPane,examForm,examsInfo,loadingPane;
 
 	@FXML
 	private Text totalQuestions,totalExams;
@@ -197,9 +197,9 @@ public class StudentController implements Initializable{
 			ExecutorService service = Executors.newFixedThreadPool(4);
 			service.submit(new Runnable() {
 				public void run() {
-					for (Question question : examQuestions) {
-						StatQuestionDAO.insertStatQuestion(question.getId_question(),Main.getCurrentUser().getNif(),0, 0, 0);
-					}		
+//					for (Question question : examQuestions) {
+////						StatQuestionDAO.insertStatQuestion(question.getId_question(),Main.getCurrentUser().getNif(),0, 0, 0);
+//					}		
 					service.shutdownNow();
 				}
 			});
@@ -218,6 +218,7 @@ public class StudentController implements Initializable{
 	 */
 	@FXML
 	void submitExam(ActionEvent event) {
+		loadingPane.toFront();
 		int[] results=new int[3];
 		String nif =Main.currentUser.getNif();
 
@@ -291,6 +292,7 @@ public class StudentController implements Initializable{
 		returnBtn.setVisible(true);
 		submitExambtn.setVisible(false);
 		updateData();
+		loadingPane.toBack();
 	}
 
 

@@ -14,7 +14,6 @@ public class StatExamDAO {
 
 	public static boolean insertStatExam(String nif,int hits,int misses,int blank,String idTopic) {
 		String sqlComand="insert into statsExams (nif,hits,misses,blank,id_topic) values (?,?,?,?,?)";
-		System.out.println(idTopic);
 		if(idTopic.equals("")) {
 			sqlComand="insert into statsExams (nif,hits,misses,blank) values (?,?,?,?)";
 		}
@@ -91,6 +90,30 @@ public class StatExamDAO {
 		}		
 		return null;
 	}
+	public static List<StatExam> obtainAllStatsByNif(String nif) {
+		List<StatExam>statExams=new ArrayList<>(); 
+		String sqlComand="select * from statsExams s inner join usrs u on u.nif=s.nif left join topics t on t.id_topic=s.id_topic where  u.nif=? ";
+		StatExam statExam=null;
+		try {
+			Conection.openConnection();
+			PreparedStatement pstm = Conection.conn.prepareStatement(sqlComand);
+			pstm.setString(1,nif);
+			ResultSet r = pstm.executeQuery(); 
+			while(r.next()) {
+				Topic topic= new Topic(r.getString("id_topic"),r.getString("description"));
+				statExam=new StatExam(r.getString("nif"), r.getInt("hits"), r.getInt("misses"), r.getInt("blank"), r.getDate("stat_date"),topic);
+				statExam.setStudent(r.getString("fname")+" "+r.getString("lname"));
+				statExams.add(statExam);
+			}
+			pstm.close();
+			Conection.closeConnection();
+			return statExams;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+		return null;
+	}
 	
 	public static List<StatExam> obtainAllStatsByUser(String name) {
 		List<StatExam>statExams=new ArrayList<>(); 
@@ -119,7 +142,7 @@ public class StatExamDAO {
 	
 	public static List<StatExam> obtainAllStatsByTopic(Topic topic) {
 		List<StatExam>statExams=new ArrayList<>(); 
-		String sqlComand="select * from statsExams s inner join usr su on u.nif=s.nif  left join topics t on t.id_topic=s.id_topic where  t.id_topic=?";
+		String sqlComand="select * from statsExams s inner join usrs u on u.nif=s.nif  left join topics t on t.id_topic=s.id_topic where  t.id_topic=?";
 		StatExam statExam=null;
 		try {
 			Conection.openConnection();

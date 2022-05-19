@@ -19,6 +19,15 @@ public class StatQuestion {
 		this.total_misses = total_misses;
 		this.total_blank = total_blank;
 	}
+	
+	public StatQuestion(String questionId,String question, int total_hits, int total_misses, int total_blank) {
+		super();
+		this.questionId = questionId;
+		this.question=question;
+		this.total_hits = total_hits;
+		this.total_misses = total_misses;
+		this.total_blank = total_blank;
+	}
 
 
 	public String getQuestionId() {

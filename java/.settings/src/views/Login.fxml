@@ -42,7 +42,7 @@
                   </AnchorPane>
                   <ImageView fitHeight="495.0" fitWidth="742.0" GridPane.columnIndex="1">
                      <image>
-                        <Image url="file:/C:/Users/miPc/Documents/proyecto/java/.settings/src/resources/img/online-test-man-fill-in-online-assessment-form-on-smartphone-screen-via-internet-illustration-vector-PhotoRoom.png" />
+                        <Image url="@/resources/img/online-test-man-fill-in-online-assessment-form-on-smartphone-screen-via-internet-illustration-vector-PhotoRoom.png" />
                      </image>
                   </ImageView>
                </children>

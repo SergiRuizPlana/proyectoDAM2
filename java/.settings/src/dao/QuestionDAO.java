@@ -13,7 +13,7 @@ public class QuestionDAO {
 
 
 	public static boolean addQuestio(Question question) {
-		String sqlComand="insert into questions (question,answer1,answer2,answer3,answer4,correctanswer,id_topic) values(?,?,?,?,?,?,?)";
+		String sqlComand="insert into questions (question, answer1, answer2, answer3, answer4, correctanswer,i d_topic) values (?,?,?,?,?,?,?)";
 		try {
 			Conection.openConnection();
 			PreparedStatement pstm = Conection.conn.prepareStatement(sqlComand);
@@ -163,7 +163,7 @@ public class QuestionDAO {
 
 	public static List<Question> obtainLimitedQuestionList(int limit) {
 		ArrayList<Question> questions=new ArrayList<>();
-		String sqlComand="select top (?) q.*,t.description from questions q left join topics t on t.id_topic=q.id_topic  ORDER BY newid()";
+		String sqlComand="select top (?) q.*, t.description from questions q left join topics t on t.id_topic=q.id_topic  ORDER BY newid()";
 		Question question=null;
 		try {
 			Conection.openConnection();

@@ -66,7 +66,7 @@ public class ControlUtils {
 						answer1 =eElement.getElementsByTagName("answer1").item(0).getTextContent().trim();
 						answer2 =eElement.getElementsByTagName("answer2").item(0).getTextContent().trim();
 						answer3 =eElement.getElementsByTagName("answer3").item(0).getTextContent().trim();
-						answer4 =eElement.getElementsByTagName("answer3").item(0).getTextContent().trim();
+						answer4 =eElement.getElementsByTagName("answer4").item(0).getTextContent().trim();
 					}catch (Exception e) {
 					}
 

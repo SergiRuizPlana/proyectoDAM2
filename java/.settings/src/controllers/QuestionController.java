@@ -141,7 +141,7 @@ public class QuestionController implements Initializable {
 								}else {
 									correctAnswer4.setSelected(true);
 								}
-								topicList1.getItems().clear();
+								topicList.getItems().clear();
 								topicList.getItems().addAll(TopicDAO.getAll());
 								topicList.getSelectionModel().select(qst.getTopic());
 								Main.getHomeController().showNotification("Los campos esta desactivados, si quieres editar algun campo presione el boton de editar.", "#82DBD8");
@@ -202,8 +202,6 @@ public class QuestionController implements Initializable {
 		List <Question> questions=ControlUtils.getQuestionFromXml(selectedFile);
 		if(questions!=null) {
 			if(QuestionDAO.addQuestiosList(questions)) {
-				questionsList.getItems().clear();
-				questionsList.getItems().addAll(QuestionDAO.obtainFullQuestionList());
 				Main.getHomeController().showNotification("Se han insertado las preguntas con exito.", "#00FFAB");
 				questionsList.getItems().clear();
 				questionsList.getItems().addAll(QuestionDAO.obtainFullQuestionList());
