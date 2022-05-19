@@ -1,10 +1,13 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - Animation
-    - Camera
+    - CollisionDetecte
+    - GetQuestions
     - Move
-    - StairClimb
+    - PlayerController
+    - PlayerFollow
+    - Rotate
+    - SubmitQuestion
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro.dll:
@@ -13,7 +16,6 @@ ScriptsOnlyBuild:
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
-    - TMPro.TextMeshProUGUI
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
@@ -31,9 +33,10 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.InputField
     - UnityEngine.UI.Text
   sceneClasses:
-    Assets/RPGPP_LT/Scene/rpgpp_lt_scene_1.0.unity:
+    Assets/project/Scene/Game_scene.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -64,6 +67,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
     - Class: 90
@@ -77,48 +84,56 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1442}
+      Script: {instanceID: 1462}
     - Class: 114
-      Script: {instanceID: 1480}
+      Script: {instanceID: 1564}
     - Class: 114
-      Script: {instanceID: 1712}
+      Script: {instanceID: 1738}
     - Class: 114
-      Script: {instanceID: 1988}
+      Script: {instanceID: 2014}
     - Class: 114
-      Script: {instanceID: 1998}
+      Script: {instanceID: 2024}
     - Class: 114
-      Script: {instanceID: 2156}
+      Script: {instanceID: 2160}
     - Class: 114
-      Script: {instanceID: 2290}
+      Script: {instanceID: 2254}
     - Class: 114
-      Script: {instanceID: 2402}
+      Script: {instanceID: 2260}
     - Class: 114
-      Script: {instanceID: 2444}
+      Script: {instanceID: 2320}
     - Class: 114
-      Script: {instanceID: 2568}
+      Script: {instanceID: 2432}
     - Class: 114
-      Script: {instanceID: 2752}
+      Script: {instanceID: 2590}
     - Class: 114
-      Script: {instanceID: 2838}
+      Script: {instanceID: 2602}
     - Class: 114
-      Script: {instanceID: 3668}
+      Script: {instanceID: 2786}
     - Class: 114
-      Script: {instanceID: 3698}
+      Script: {instanceID: 2872}
     - Class: 114
-      Script: {instanceID: 3782}
+      Script: {instanceID: 3610}
     - Class: 114
-      Script: {instanceID: 4042}
+      Script: {instanceID: 3706}
     - Class: 114
-      Script: {instanceID: 4414}
+      Script: {instanceID: 3770}
+    - Class: 114
+      Script: {instanceID: 3820}
+    - Class: 114
+      Script: {instanceID: 4082}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
       Script: {instanceID: 0}
     - Class: 128
       Script: {instanceID: 0}
+    - Class: 135
+      Script: {instanceID: 0}
     - Class: 136
       Script: {instanceID: 0}
     - Class: 137
+      Script: {instanceID: 0}
+    - Class: 143
       Script: {instanceID: 0}
     - Class: 154
       Script: {instanceID: 0}
@@ -140,19 +155,52 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 850595691
       Script: {instanceID: 0}
+    Assets/project/Scene/logIn.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1462}
+    - Class: 114
+      Script: {instanceID: 2024}
+    - Class: 114
+      Script: {instanceID: 2320}
+    - Class: 114
+      Script: {instanceID: 2602}
+    - Class: 114
+      Script: {instanceID: 2644}
+    - Class: 114
+      Script: {instanceID: 2872}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
   scriptHashData:
-  - hash:
-      serializedVersion: 2
-      Hash: a2fa36dfba822cdfa21d0cc46be3610f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Camera
-  - hash:
-      serializedVersion: 2
-      Hash: 5ab533713adae59372fb3e10a585c186
-    assemblyName: Unity.Timeline.dll
-    namespaceName: UnityEngine.Timeline
-    className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
       Hash: a6e561615949734e9f12f9b61661f43e
@@ -161,10 +209,22 @@ ScriptsOnlyBuild:
     className: Image
   - hash:
       serializedVersion: 2
+      Hash: 5ab533713adae59372fb3e10a585c186
+    assemblyName: Unity.Timeline.dll
+    namespaceName: UnityEngine.Timeline
+    className: AnimationPlayableAsset
+  - hash:
+      serializedVersion: 2
       Hash: 77aaaaa51f7a8d8ff333a879741e47d2
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_InputField
+  - hash:
+      serializedVersion: 2
+      Hash: 9077227df75ec73065f2b25cf7ef6df6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Rotate
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -245,10 +305,22 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
-      Hash: 15e4654bc27062ede9c1233f1d3bcd8e
+      Hash: 14ffa5b2f467cfbc431a8bee8ff00daf
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: StairClimb
+    className: GetQuestions
+  - hash:
+      serializedVersion: 2
+      Hash: 2cbc5e2c1a730bd76030233d99b09180
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerController
+  - hash:
+      serializedVersion: 2
+      Hash: 3da7347202729aab71d6f46ba820e0a1
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CollisionDetecte
   - hash:
       serializedVersion: 2
       Hash: a1aa98c78061c6f03a8c124cda576e67
@@ -294,9 +366,21 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: move2
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestRunner.Utils
     className: TestRunCallbackListener
+  - hash:
+      serializedVersion: 2
+      Hash: a1beadb40554ab8aeb37c4c4efa2312b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerFollow
   - hash:
       serializedVersion: 2
       Hash: ae83e830e7a90c0aff918c4c2e520825
@@ -371,16 +455,16 @@ ScriptsOnlyBuild:
     className: Button
   - hash:
       serializedVersion: 2
-      Hash: 0cf1a64f0be9502d0076e0afb6dea018
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: BasicRigidBodyPush
-  - hash:
-      serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextContainer
+  - hash:
+      serializedVersion: 2
+      Hash: 15e4654bc27062ede9c1233f1d3bcd8e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: StairClimb
   - hash:
       serializedVersion: 2
       Hash: 8aa3d6ccbcb54ee8db6c1229854adaaa
@@ -491,6 +575,12 @@ ScriptsOnlyBuild:
     className: Mask
   - hash:
       serializedVersion: 2
+      Hash: d3b4458d282f38b10b8145f93c07991f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SubmitQuestion
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -515,16 +605,16 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
-      Hash: 0e4d3f4d46b5b41ee288b645571fb726
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Move
-  - hash:
-      serializedVersion: 2
       Hash: 18c222bef9ae745ce69ddde9b74337ca
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: PhysicsRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: 0e4d3f4d46b5b41ee288b645571fb726
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Move
   - hash:
       serializedVersion: 2
       Hash: 0fb27be807aa299702f28ad0bcad1f46
@@ -563,6 +653,12 @@ ScriptsOnlyBuild:
     className: TMP_ScrollbarEventHandler
   - hash:
       serializedVersion: 2
+      Hash: 0cf1a64f0be9502d0076e0afb6dea018
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BasicRigidBodyPush
+  - hash:
+      serializedVersion: 2
       Hash: 8220b46879dc5e37db1b940c938f5744
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -585,13 +681,8 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: TouchInputModule
-  - hash:
-      serializedVersion: 2
-      Hash: 659d6ceab26f9e4237abaaf29249f293
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Animation
   platform: 19
   scenePathNames:
-  - Assets/RPGPP_LT/Scene/rpgpp_lt_scene_1.0.unity
+  - Assets/project/Scene/Game_scene.unity
+  - Assets/project/Scene/logIn.unity
   playerPath: C:/Users/miPc/Documents/QuizGame.exe

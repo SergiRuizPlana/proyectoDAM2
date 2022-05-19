@@ -21,7 +21,7 @@ public class UserDAO {
 	public static List<User> getUsers() {
 
 		List<User> resultado=  new ArrayList<User>();
-		String sqlComand= "select * from usr";
+		String sqlComand= "select * from usrs";
 		Statement stm;
 		try {
 			Conection.openConnection();
@@ -50,7 +50,7 @@ public class UserDAO {
 	 */
 	public  static TreeMap<String,String> getUsersNamesAndPsswd(){
 		TreeMap <String,String> users=new TreeMap <String,String>();
-		String sqlComand= "select userName,psswd from usr";
+		String sqlComand= "select userName,psswd from usrs";
 		Statement stm2;
 		try {
 			Conection.openConnection();

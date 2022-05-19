@@ -1,5 +1,9 @@
 sceneSetups:
-- path: Assets/YughuesFreeMetalMaterials/Demo/Sc_DEMO_YFMM_Preview.unity
+- path: Assets/project/Scene/Game_scene.unity
   isLoaded: 1
   isActive: 1
+  isSubScene: 0
+- path: Assets/project/Scene/logIn.unity
+  isLoaded: 1
+  isActive: 0
   isSubScene: 0
