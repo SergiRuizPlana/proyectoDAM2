@@ -6,10 +6,8 @@ public class Move : MonoBehaviour
 {
     public Animator playerAnim;
     public bool walking;
-    public GameObject player;
-	 
-	 private AudioSource run = player.GetComponents<AudioSource>()[1];
-	 private AudioSource walk = player.GetComponents<AudioSource>()[0];
+    public AudioSource walk;
+
     void FixedUpdate()
     {
         if (Input.GetKey(KeyCode.W))
@@ -56,19 +54,11 @@ public class Move : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.A))
         {
-            if (walk.isPlaying)
-            {
-            walk.Pause();
-			run.Play();
-               
-            }
+             
         }
         if (Input.GetKey(KeyCode.D))
         {
-            if (run.isPlaying)
-            {
-				run.Pause();
-			}
+             
         }
 
        
