@@ -8,9 +8,11 @@ public class Move : MonoBehaviour
     public bool walking;
     public AudioSource walk;
 
+    public AudioSource run;
+
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W)||Input.GetKey(KeyCode.S) ||Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
         {
             if (!walk.isPlaying)
             {
@@ -18,7 +20,7 @@ public class Move : MonoBehaviour
             }
            
         }
-        if (Input.GetKeyUp(KeyCode.W))
+        if (Input.GetKeyUp(KeyCode.W)||Input.GetKeyUp(KeyCode.S) ||Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.A))
         {
 			if (walk.isPlaying)
             {
@@ -46,19 +48,38 @@ public class Move : MonoBehaviour
         {
             playerAnim.SetTrigger("back");
             playerAnim.ResetTrigger("idle");
+           
         }
         if (Input.GetKeyUp(KeyCode.S))
         {
             playerAnim.ResetTrigger("back");
             playerAnim.SetTrigger("idle"); 
         }
-        if (Input.GetKey(KeyCode.A))
+        if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)) && !Input.GetKeyDown(KeyCode.LeftShift))
         {
-             
+             playerAnim.SetTrigger("walk");
+            playerAnim.ResetTrigger("idle"); 
+            
         }
-        if (Input.GetKey(KeyCode.D))
+
+        if ((Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D)) && !walking )
         {
-             
+           playerAnim.ResetTrigger("walk");
+            playerAnim.SetTrigger("idle"); 
+            
+        }
+       
+        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && Input.GetKey(KeyCode.LeftShift))
+        {
+             playerAnim.SetTrigger("run");
+            playerAnim.ResetTrigger("walk"); 
+        }
+
+
+        if ((Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D)) && Input.GetKeyUp(KeyCode.LeftShift))
+        {
+             playerAnim.ResetTrigger("run");
+             playerAnim.SetTrigger("walk"); 
         }
 
        
@@ -69,12 +90,19 @@ public class Move : MonoBehaviour
             {          
                 playerAnim.SetTrigger("run");
                 playerAnim.ResetTrigger("walk");
+                 walk.Pause();
+                 run.Play();
             }
             if (Input.GetKeyUp(KeyCode.LeftShift))
             {
                 playerAnim.ResetTrigger("run");
                 playerAnim.SetTrigger("walk");
+                run.Pause();
+                walk.Play();
             }
+        }else{
+            run.Pause();
+             walk.Pause();
         }
     }
  

@@ -13,9 +13,11 @@ public class GetQuestions : MonoBehaviour{
     
     void Start() {
          questions = Question.ConnectToDB();
-         for (int i = 0; i <8; i++){
+         for (int i = 0; i <30; i++) {
 
             GameObject question =questionParent.transform.GetChild(i).gameObject.transform.GetChild(0).gameObject; 
+            if(i<questions.Count) {
+
             question.transform.GetChild(0).gameObject.transform.GetChild(0).GetComponent<Text>().text=questions[i].answer1;   
             question.transform.GetChild(1).gameObject.transform.GetChild(0).GetComponent<Text>().text=questions[i].answer2;   
             question.transform.GetChild(2).gameObject.transform.GetChild(0).GetComponent<Text>().text=questions[i].answer3;   
@@ -23,6 +25,9 @@ public class GetQuestions : MonoBehaviour{
             question.transform.GetChild(4).GetComponent<Text>().text=questions[i].question;   
             question.transform.GetChild(5).GetComponent<Text>().text=questions[i].id_question;  
             question.transform.GetChild(6).GetComponent<Text>().text=questions[i].correctAnswer+"";     
+            }else{
+                questionParent.transform.GetChild(i).gameObject.SetActive(false);
+            }
          }
     } 
 

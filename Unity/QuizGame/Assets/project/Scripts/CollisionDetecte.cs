@@ -19,7 +19,7 @@ public class CollisionDetecte : MonoBehaviour
     }
 
        void OnCollisionEnter(Collision obj){
-           Debug.Log("IJidji");
+       
         question.SetActive(true);  
         sphere.SetActive(false);
     }
