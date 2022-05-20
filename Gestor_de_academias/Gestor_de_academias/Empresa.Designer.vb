@@ -26,6 +26,7 @@ Partial Class Empresa
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Empresa))
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
@@ -41,7 +42,6 @@ Partial Class Empresa
         Me.CategoriaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TotaltestsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TestsrealitzatsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TestsdisponiblesDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PreutotalDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EmpresaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Gestio_empresesDataSet = New Gestor_de_academias.Gestio_empresesDataSet()
@@ -107,6 +107,7 @@ Partial Class Empresa
         Me.FKalbaracif22AA2996BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.AlbaraTableAdapter = New Gestor_de_academias.Gestio_empresesDataSetTableAdapters.albaraTableAdapter()
         Me.EmpresaBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ContracteTableAdapter = New Gestor_de_academias.Gestio_empresesDataSetTableAdapters.contracteTableAdapter()
         Me.Panel2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmpresaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -127,46 +128,59 @@ Partial Class Empresa
         Me.Panel2.ForeColor = System.Drawing.Color.Black
         Me.Panel2.Location = New System.Drawing.Point(32, 103)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1490, 561)
+        Me.Panel2.Size = New System.Drawing.Size(1360, 537)
         Me.Panel2.TabIndex = 18
         '
         'DataGridView1
         '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.AllowUserToOrderColumns = True
         Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(253, Byte), Integer))
         Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.RoyalBlue
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.WhiteSmoke
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CifDataGridViewTextBoxColumn1, Me.NomDataGridViewTextBoxColumn, Me.AdrecaDataGridViewTextBoxColumn, Me.CpDataGridViewTextBoxColumn, Me.CiutatDataGridViewTextBoxColumn, Me.RegioDataGridViewTextBoxColumn, Me.PaisDataGridViewTextBoxColumn, Me.TelfDataGridViewTextBoxColumn, Me.EmailDataGridViewTextBoxColumn, Me.CategoriaDataGridViewTextBoxColumn, Me.TotaltestsDataGridViewTextBoxColumn, Me.TestsrealitzatsDataGridViewTextBoxColumn, Me.TestsdisponiblesDataGridViewTextBoxColumn, Me.PreutotalDataGridViewTextBoxColumn})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CifDataGridViewTextBoxColumn1, Me.NomDataGridViewTextBoxColumn, Me.AdrecaDataGridViewTextBoxColumn, Me.CpDataGridViewTextBoxColumn, Me.CiutatDataGridViewTextBoxColumn, Me.RegioDataGridViewTextBoxColumn, Me.PaisDataGridViewTextBoxColumn, Me.TelfDataGridViewTextBoxColumn, Me.EmailDataGridViewTextBoxColumn, Me.CategoriaDataGridViewTextBoxColumn, Me.TotaltestsDataGridViewTextBoxColumn, Me.TestsrealitzatsDataGridViewTextBoxColumn, Me.PreutotalDataGridViewTextBoxColumn})
         Me.DataGridView1.DataSource = Me.EmpresaBindingSource
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridView1.EnableHeadersVisualStyles = False
         Me.DataGridView1.GridColor = System.Drawing.Color.CornflowerBlue
-        Me.DataGridView1.Location = New System.Drawing.Point(40, 40)
+        Me.DataGridView1.Location = New System.Drawing.Point(23, 13)
         Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(253, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.CornflowerBlue
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.DataGridView1.RowHeadersVisible = False
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(253, Byte), Integer))
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Candara Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ButtonFace
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.CornflowerBlue
-        Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        Me.DataGridView1.RowHeadersVisible = False
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(253, Byte), Integer))
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.CornflowerBlue
+        Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(1407, 150)
+        Me.DataGridView1.Size = New System.Drawing.Size(1325, 499)
         Me.DataGridView1.TabIndex = 26
         '
         'CifDataGridViewTextBoxColumn1
@@ -174,60 +188,70 @@ Partial Class Empresa
         Me.CifDataGridViewTextBoxColumn1.DataPropertyName = "cif"
         Me.CifDataGridViewTextBoxColumn1.HeaderText = "CIF"
         Me.CifDataGridViewTextBoxColumn1.Name = "CifDataGridViewTextBoxColumn1"
+        Me.CifDataGridViewTextBoxColumn1.ReadOnly = True
         '
         'NomDataGridViewTextBoxColumn
         '
         Me.NomDataGridViewTextBoxColumn.DataPropertyName = "nom"
         Me.NomDataGridViewTextBoxColumn.HeaderText = "Nom"
         Me.NomDataGridViewTextBoxColumn.Name = "NomDataGridViewTextBoxColumn"
+        Me.NomDataGridViewTextBoxColumn.ReadOnly = True
         '
         'AdrecaDataGridViewTextBoxColumn
         '
         Me.AdrecaDataGridViewTextBoxColumn.DataPropertyName = "adreca"
         Me.AdrecaDataGridViewTextBoxColumn.HeaderText = "Adreça"
         Me.AdrecaDataGridViewTextBoxColumn.Name = "AdrecaDataGridViewTextBoxColumn"
+        Me.AdrecaDataGridViewTextBoxColumn.ReadOnly = True
         '
         'CpDataGridViewTextBoxColumn
         '
         Me.CpDataGridViewTextBoxColumn.DataPropertyName = "cp"
         Me.CpDataGridViewTextBoxColumn.HeaderText = "C. Postal"
         Me.CpDataGridViewTextBoxColumn.Name = "CpDataGridViewTextBoxColumn"
+        Me.CpDataGridViewTextBoxColumn.ReadOnly = True
         '
         'CiutatDataGridViewTextBoxColumn
         '
         Me.CiutatDataGridViewTextBoxColumn.DataPropertyName = "ciutat"
         Me.CiutatDataGridViewTextBoxColumn.HeaderText = "Ciutat"
         Me.CiutatDataGridViewTextBoxColumn.Name = "CiutatDataGridViewTextBoxColumn"
+        Me.CiutatDataGridViewTextBoxColumn.ReadOnly = True
         '
         'RegioDataGridViewTextBoxColumn
         '
         Me.RegioDataGridViewTextBoxColumn.DataPropertyName = "regio"
         Me.RegioDataGridViewTextBoxColumn.HeaderText = "Regió"
         Me.RegioDataGridViewTextBoxColumn.Name = "RegioDataGridViewTextBoxColumn"
+        Me.RegioDataGridViewTextBoxColumn.ReadOnly = True
         '
         'PaisDataGridViewTextBoxColumn
         '
         Me.PaisDataGridViewTextBoxColumn.DataPropertyName = "pais"
         Me.PaisDataGridViewTextBoxColumn.HeaderText = "Pais"
         Me.PaisDataGridViewTextBoxColumn.Name = "PaisDataGridViewTextBoxColumn"
+        Me.PaisDataGridViewTextBoxColumn.ReadOnly = True
         '
         'TelfDataGridViewTextBoxColumn
         '
         Me.TelfDataGridViewTextBoxColumn.DataPropertyName = "telf"
         Me.TelfDataGridViewTextBoxColumn.HeaderText = "Telèfon"
         Me.TelfDataGridViewTextBoxColumn.Name = "TelfDataGridViewTextBoxColumn"
+        Me.TelfDataGridViewTextBoxColumn.ReadOnly = True
         '
         'EmailDataGridViewTextBoxColumn
         '
         Me.EmailDataGridViewTextBoxColumn.DataPropertyName = "email"
         Me.EmailDataGridViewTextBoxColumn.HeaderText = "E-mail"
         Me.EmailDataGridViewTextBoxColumn.Name = "EmailDataGridViewTextBoxColumn"
+        Me.EmailDataGridViewTextBoxColumn.ReadOnly = True
         '
         'CategoriaDataGridViewTextBoxColumn
         '
         Me.CategoriaDataGridViewTextBoxColumn.DataPropertyName = "categoria"
         Me.CategoriaDataGridViewTextBoxColumn.HeaderText = "Categoria"
         Me.CategoriaDataGridViewTextBoxColumn.Name = "CategoriaDataGridViewTextBoxColumn"
+        Me.CategoriaDataGridViewTextBoxColumn.ReadOnly = True
         '
         'TotaltestsDataGridViewTextBoxColumn
         '
@@ -242,13 +266,6 @@ Partial Class Empresa
         Me.TestsrealitzatsDataGridViewTextBoxColumn.HeaderText = "Tests realitzats"
         Me.TestsrealitzatsDataGridViewTextBoxColumn.Name = "TestsrealitzatsDataGridViewTextBoxColumn"
         Me.TestsrealitzatsDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'TestsdisponiblesDataGridViewTextBoxColumn
-        '
-        Me.TestsdisponiblesDataGridViewTextBoxColumn.DataPropertyName = "tests_disponibles"
-        Me.TestsdisponiblesDataGridViewTextBoxColumn.HeaderText = "Tests disponibles"
-        Me.TestsdisponiblesDataGridViewTextBoxColumn.Name = "TestsdisponiblesDataGridViewTextBoxColumn"
-        Me.TestsdisponiblesDataGridViewTextBoxColumn.ReadOnly = True
         '
         'PreutotalDataGridViewTextBoxColumn
         '
@@ -278,7 +295,7 @@ Partial Class Empresa
         Me.Panel3.Controls.Add(Me.ComboBox2)
         Me.Panel3.Controls.Add(Me.Panel4)
         Me.Panel3.Controls.Add(Me.IconButton1)
-        Me.Panel3.Location = New System.Drawing.Point(422, 86)
+        Me.Panel3.Location = New System.Drawing.Point(1183, 94)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(317, 255)
         Me.Panel3.TabIndex = 25
@@ -301,11 +318,11 @@ Partial Class Empresa
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label15.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.ForeColor = System.Drawing.Color.White
         Me.Label15.Location = New System.Drawing.Point(37, 191)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(136, 17)
+        Me.Label15.Size = New System.Drawing.Size(139, 16)
         Me.Label15.TabIndex = 33
         Me.Label15.Text = "Modificar categoria"
         '
@@ -325,33 +342,34 @@ Partial Class Empresa
         '
         'TextBox1
         '
-        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(39, 214)
+        Me.TextBox1.Location = New System.Drawing.Point(39, 217)
         Me.TextBox1.Margin = New System.Windows.Forms.Padding(3, 3, 3, 10)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(138, 21)
+        Me.TextBox1.Size = New System.Drawing.Size(138, 14)
         Me.TextBox1.TabIndex = 33
         '
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label14.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.ForeColor = System.Drawing.Color.White
         Me.Label14.Location = New System.Drawing.Point(37, 131)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(126, 17)
+        Me.Label14.Size = New System.Drawing.Size(129, 16)
         Me.Label14.TabIndex = 37
         Me.Label14.Text = "Eliminar categoria"
         '
         'ComboBox2
         '
+        Me.ComboBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(220, Byte), Integer))
         Me.ComboBox2.DataSource = Me.CategoriaBindingSource
         Me.ComboBox2.DisplayMember = "descripcio"
         Me.ComboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ComboBox2.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(39, 159)
+        Me.ComboBox2.Location = New System.Drawing.Point(39, 158)
         Me.ComboBox2.Margin = New System.Windows.Forms.Padding(3, 3, 3, 10)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(138, 24)
@@ -387,22 +405,22 @@ Partial Class Empresa
         '
         'catdescripcio
         '
-        Me.catdescripcio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.catdescripcio.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.catdescripcio.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.catdescripcio.Location = New System.Drawing.Point(24, 70)
         Me.catdescripcio.Margin = New System.Windows.Forms.Padding(3, 3, 3, 10)
         Me.catdescripcio.Name = "catdescripcio"
-        Me.catdescripcio.Size = New System.Drawing.Size(138, 21)
+        Me.catdescripcio.Size = New System.Drawing.Size(138, 14)
         Me.catdescripcio.TabIndex = 29
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label12.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.ForeColor = System.Drawing.Color.White
         Me.Label12.Location = New System.Drawing.Point(22, 43)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(40, 17)
+        Me.Label12.Size = New System.Drawing.Size(38, 16)
         Me.Label12.TabIndex = 30
         Me.Label12.Text = "Nom"
         '
@@ -446,7 +464,7 @@ Partial Class Empresa
         Me.EditCat.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.EditCat.IconSize = 27
         Me.EditCat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.EditCat.Location = New System.Drawing.Point(1384, 66)
+        Me.EditCat.Location = New System.Drawing.Point(1261, 66)
         Me.EditCat.Name = "EditCat"
         Me.EditCat.Size = New System.Drawing.Size(112, 31)
         Me.EditCat.TabIndex = 29
@@ -467,7 +485,7 @@ Partial Class Empresa
         Me.EditEmpresa.IconFont = FontAwesome.Sharp.IconFont.Regular
         Me.EditEmpresa.IconSize = 25
         Me.EditEmpresa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.EditEmpresa.Location = New System.Drawing.Point(1266, 66)
+        Me.EditEmpresa.Location = New System.Drawing.Point(1143, 66)
         Me.EditEmpresa.Name = "EditEmpresa"
         Me.EditEmpresa.Size = New System.Drawing.Size(112, 31)
         Me.EditEmpresa.TabIndex = 24
@@ -487,7 +505,7 @@ Partial Class Empresa
         Me.createEmpresa.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.createEmpresa.IconSize = 20
         Me.createEmpresa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.createEmpresa.Location = New System.Drawing.Point(1148, 66)
+        Me.createEmpresa.Location = New System.Drawing.Point(1025, 66)
         Me.createEmpresa.Name = "createEmpresa"
         Me.createEmpresa.Size = New System.Drawing.Size(112, 31)
         Me.createEmpresa.TabIndex = 23
@@ -498,10 +516,11 @@ Partial Class Empresa
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.ForeColor = System.Drawing.Color.White
         Me.Label11.Location = New System.Drawing.Point(423, 9)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(69, 17)
+        Me.Label11.Size = New System.Drawing.Size(67, 16)
         Me.Label11.TabIndex = 17
         Me.Label11.Text = "Categoria"
         '
@@ -532,7 +551,7 @@ Partial Class Empresa
         Me.Panel1.Controls.Add(Me.empresaAdresa)
         Me.Panel1.Controls.Add(Me.empresaCif)
         Me.Panel1.Controls.Add(Me.empresaNombre)
-        Me.Panel1.Location = New System.Drawing.Point(35, 89)
+        Me.Panel1.Location = New System.Drawing.Point(1339, 83)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(317, 483)
         Me.Panel1.TabIndex = 13
@@ -541,85 +560,85 @@ Partial Class Empresa
         'Label19
         '
         Me.Label19.AutoSize = True
-        Me.Label19.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label19.ForeColor = System.Drawing.Color.White
         Me.Label19.Location = New System.Drawing.Point(27, 269)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(33, 17)
+        Me.Label19.Size = New System.Drawing.Size(34, 16)
         Me.Label19.TabIndex = 36
         Me.Label19.Text = "Pais"
         '
         'Pais
         '
-        Me.Pais.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Pais.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.Pais.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Pais.Location = New System.Drawing.Point(107, 267)
+        Me.Pais.Location = New System.Drawing.Point(107, 269)
         Me.Pais.Margin = New System.Windows.Forms.Padding(3, 3, 3, 10)
         Me.Pais.Name = "Pais"
-        Me.Pais.Size = New System.Drawing.Size(138, 21)
+        Me.Pais.Size = New System.Drawing.Size(138, 14)
         Me.Pais.TabIndex = 35
         '
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label18.ForeColor = System.Drawing.Color.White
         Me.Label18.Location = New System.Drawing.Point(27, 234)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(45, 17)
+        Me.Label18.Size = New System.Drawing.Size(45, 16)
         Me.Label18.TabIndex = 34
         Me.Label18.Text = "Regió"
         '
         'Regio
         '
-        Me.Regio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Regio.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.Regio.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Regio.Location = New System.Drawing.Point(107, 232)
+        Me.Regio.Location = New System.Drawing.Point(107, 234)
         Me.Regio.Margin = New System.Windows.Forms.Padding(3, 3, 3, 10)
         Me.Regio.Name = "Regio"
-        Me.Regio.Size = New System.Drawing.Size(138, 21)
+        Me.Regio.Size = New System.Drawing.Size(138, 14)
         Me.Regio.TabIndex = 33
         '
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label17.ForeColor = System.Drawing.Color.White
         Me.Label17.Location = New System.Drawing.Point(27, 201)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(49, 17)
+        Me.Label17.Size = New System.Drawing.Size(47, 16)
         Me.Label17.TabIndex = 32
         Me.Label17.Text = "Ciutat"
         '
         'Ciutat
         '
-        Me.Ciutat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Ciutat.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.Ciutat.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Ciutat.Location = New System.Drawing.Point(107, 199)
+        Me.Ciutat.Location = New System.Drawing.Point(107, 201)
         Me.Ciutat.Margin = New System.Windows.Forms.Padding(3, 3, 3, 10)
         Me.Ciutat.Name = "Ciutat"
-        Me.Ciutat.Size = New System.Drawing.Size(138, 21)
+        Me.Ciutat.Size = New System.Drawing.Size(138, 14)
         Me.Ciutat.TabIndex = 31
         '
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label16.ForeColor = System.Drawing.Color.White
         Me.Label16.Location = New System.Drawing.Point(27, 168)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(66, 17)
+        Me.Label16.Size = New System.Drawing.Size(64, 16)
         Me.Label16.TabIndex = 30
         Me.Label16.Text = "C. Postal"
         '
         'CPostal
         '
-        Me.CPostal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.CPostal.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.CPostal.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CPostal.Location = New System.Drawing.Point(107, 166)
+        Me.CPostal.Location = New System.Drawing.Point(107, 168)
         Me.CPostal.Margin = New System.Windows.Forms.Padding(3, 3, 3, 10)
         Me.CPostal.Name = "CPostal"
-        Me.CPostal.Size = New System.Drawing.Size(138, 21)
+        Me.CPostal.Size = New System.Drawing.Size(138, 14)
         Me.CPostal.TabIndex = 29
         '
         'createLabel
@@ -641,7 +660,7 @@ Partial Class Empresa
         Me.CategoriaCreate.IconColor = System.Drawing.Color.SeaShell
         Me.CategoriaCreate.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.CategoriaCreate.IconSize = 30
-        Me.CategoriaCreate.Location = New System.Drawing.Point(251, 361)
+        Me.CategoriaCreate.Location = New System.Drawing.Point(251, 365)
         Me.CategoriaCreate.Name = "CategoriaCreate"
         Me.CategoriaCreate.Size = New System.Drawing.Size(38, 28)
         Me.CategoriaCreate.TabIndex = 28
@@ -679,71 +698,72 @@ Partial Class Empresa
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.White
         Me.Label10.Location = New System.Drawing.Point(28, 367)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(75, 17)
+        Me.Label10.Size = New System.Drawing.Size(74, 16)
         Me.Label10.TabIndex = 16
         Me.Label10.Text = "Categoria"
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.White
         Me.Label9.Location = New System.Drawing.Point(27, 302)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(53, 17)
+        Me.Label9.Size = New System.Drawing.Size(54, 16)
         Me.Label9.TabIndex = 15
         Me.Label9.Text = "Telèfon"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.White
         Me.Label8.Location = New System.Drawing.Point(29, 335)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(43, 17)
+        Me.Label8.Size = New System.Drawing.Size(44, 16)
         Me.Label8.TabIndex = 14
         Me.Label8.Text = "Email"
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.White
         Me.Label7.Location = New System.Drawing.Point(27, 135)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(55, 17)
+        Me.Label7.Size = New System.Drawing.Size(57, 16)
         Me.Label7.TabIndex = 14
         Me.Label7.Text = "Adreça"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.White
         Me.Label6.Location = New System.Drawing.Point(28, 68)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(40, 17)
+        Me.Label6.Size = New System.Drawing.Size(38, 16)
         Me.Label6.TabIndex = 14
         Me.Label6.Text = "Nom"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.White
         Me.Label5.Location = New System.Drawing.Point(29, 101)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(28, 17)
+        Me.Label5.Size = New System.Drawing.Size(28, 16)
         Me.Label5.TabIndex = 14
         Me.Label5.Text = "CIF"
         '
         'empresaCategoria
         '
+        Me.empresaCategoria.BackColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(220, Byte), Integer))
         Me.empresaCategoria.DataSource = Me.CategoriaBindingSource
         Me.empresaCategoria.DisplayMember = "descripcio"
         Me.empresaCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -758,56 +778,57 @@ Partial Class Empresa
         '
         'EmpresaEmail
         '
-        Me.EmpresaEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.EmpresaEmail.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.EmpresaEmail.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EmpresaEmail.Location = New System.Drawing.Point(107, 333)
+        Me.EmpresaEmail.Location = New System.Drawing.Point(107, 335)
         Me.EmpresaEmail.Margin = New System.Windows.Forms.Padding(3, 3, 3, 10)
         Me.EmpresaEmail.Name = "EmpresaEmail"
-        Me.EmpresaEmail.Size = New System.Drawing.Size(138, 21)
+        Me.EmpresaEmail.Size = New System.Drawing.Size(138, 14)
         Me.EmpresaEmail.TabIndex = 10
         '
         'empresaPhone
         '
-        Me.empresaPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.empresaPhone.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.empresaPhone.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.empresaPhone.Location = New System.Drawing.Point(107, 300)
+        Me.empresaPhone.Location = New System.Drawing.Point(107, 302)
         Me.empresaPhone.Margin = New System.Windows.Forms.Padding(3, 3, 3, 10)
         Me.empresaPhone.Name = "empresaPhone"
-        Me.empresaPhone.Size = New System.Drawing.Size(138, 21)
+        Me.empresaPhone.Size = New System.Drawing.Size(138, 14)
         Me.empresaPhone.TabIndex = 9
         '
         'empresaAdresa
         '
-        Me.empresaAdresa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.empresaAdresa.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.empresaAdresa.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.empresaAdresa.Location = New System.Drawing.Point(107, 133)
+        Me.empresaAdresa.Location = New System.Drawing.Point(107, 135)
         Me.empresaAdresa.Margin = New System.Windows.Forms.Padding(3, 3, 3, 10)
         Me.empresaAdresa.Name = "empresaAdresa"
-        Me.empresaAdresa.Size = New System.Drawing.Size(138, 21)
+        Me.empresaAdresa.Size = New System.Drawing.Size(138, 14)
         Me.empresaAdresa.TabIndex = 8
         '
         'empresaCif
         '
-        Me.empresaCif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.empresaCif.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.empresaCif.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.empresaCif.Location = New System.Drawing.Point(107, 100)
+        Me.empresaCif.Location = New System.Drawing.Point(107, 102)
         Me.empresaCif.Margin = New System.Windows.Forms.Padding(3, 3, 3, 10)
         Me.empresaCif.Name = "empresaCif"
-        Me.empresaCif.Size = New System.Drawing.Size(138, 21)
+        Me.empresaCif.Size = New System.Drawing.Size(138, 14)
         Me.empresaCif.TabIndex = 7
         '
         'empresaNombre
         '
-        Me.empresaNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.empresaNombre.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.empresaNombre.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.empresaNombre.Location = New System.Drawing.Point(107, 67)
+        Me.empresaNombre.Location = New System.Drawing.Point(107, 69)
         Me.empresaNombre.Margin = New System.Windows.Forms.Padding(3, 3, 3, 10)
         Me.empresaNombre.Name = "empresaNombre"
-        Me.empresaNombre.Size = New System.Drawing.Size(138, 21)
+        Me.empresaNombre.Size = New System.Drawing.Size(138, 14)
         Me.empresaNombre.TabIndex = 6
         '
         'ComboBox1
         '
+        Me.ComboBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(96, Byte), Integer), CType(CType(171, Byte), Integer), CType(CType(251, Byte), Integer))
         Me.ComboBox1.DataSource = Me.CategoriaBindingSource
         Me.ComboBox1.DisplayMember = "descripcio"
         Me.ComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -822,73 +843,81 @@ Partial Class Empresa
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.White
         Me.Label4.Location = New System.Drawing.Point(319, 9)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(39, 17)
+        Me.Label4.Size = New System.Drawing.Size(39, 16)
         Me.Label4.TabIndex = 9
         Me.Label4.Text = "Email"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.White
         Me.Label3.Location = New System.Drawing.Point(214, 10)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(53, 17)
+        Me.Label3.Size = New System.Drawing.Size(53, 16)
         Me.Label3.TabIndex = 8
         Me.Label3.Text = "Adreça"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.White
         Me.Label2.Location = New System.Drawing.Point(107, 9)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(36, 17)
+        Me.Label2.Size = New System.Drawing.Size(36, 16)
         Me.Label2.TabIndex = 7
         Me.Label2.Text = "Nom"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
         Me.Label1.Location = New System.Drawing.Point(2, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(26, 17)
+        Me.Label1.Size = New System.Drawing.Size(27, 16)
         Me.Label1.TabIndex = 6
         Me.Label1.Text = "CIF"
         '
         'emailEmpFilter
         '
+        Me.emailEmpFilter.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.emailEmpFilter.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.emailEmpFilter.Location = New System.Drawing.Point(321, 34)
         Me.emailEmpFilter.Name = "emailEmpFilter"
-        Me.emailEmpFilter.Size = New System.Drawing.Size(100, 21)
+        Me.emailEmpFilter.Size = New System.Drawing.Size(100, 14)
         Me.emailEmpFilter.TabIndex = 5
         '
         'adresaEmpFilter
         '
+        Me.adresaEmpFilter.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.adresaEmpFilter.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.adresaEmpFilter.Location = New System.Drawing.Point(215, 34)
         Me.adresaEmpFilter.Name = "adresaEmpFilter"
-        Me.adresaEmpFilter.Size = New System.Drawing.Size(100, 21)
+        Me.adresaEmpFilter.Size = New System.Drawing.Size(100, 14)
         Me.adresaEmpFilter.TabIndex = 4
         '
         'nomEmpFilter
         '
+        Me.nomEmpFilter.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.nomEmpFilter.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.nomEmpFilter.Location = New System.Drawing.Point(109, 34)
         Me.nomEmpFilter.Name = "nomEmpFilter"
-        Me.nomEmpFilter.Size = New System.Drawing.Size(100, 21)
+        Me.nomEmpFilter.Size = New System.Drawing.Size(100, 14)
         Me.nomEmpFilter.TabIndex = 3
         '
         'cifEmpFilter
         '
+        Me.cifEmpFilter.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.cifEmpFilter.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cifEmpFilter.Location = New System.Drawing.Point(3, 34)
         Me.cifEmpFilter.Name = "cifEmpFilter"
-        Me.cifEmpFilter.Size = New System.Drawing.Size(100, 21)
+        Me.cifEmpFilter.Size = New System.Drawing.Size(100, 14)
         Me.cifEmpFilter.TabIndex = 2
         '
         'EmpresaTableAdapter
@@ -903,7 +932,6 @@ Partial Class Empresa
         Me.TableAdapterManager.categoria_testTableAdapter = Nothing
         Me.TableAdapterManager.categoriaTableAdapter = Me.CategoriaTableAdapter
         Me.TableAdapterManager.contracteTableAdapter = Nothing
-        Me.TableAdapterManager.testTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = Gestor_de_academias.Gestio_empresesDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
         'CategoriaTableAdapter
@@ -940,7 +968,7 @@ Partial Class Empresa
         Me.categEmpFilter.Controls.Add(Me.Label3)
         Me.categEmpFilter.Controls.Add(Me.nomEmpFilter)
         Me.categEmpFilter.Controls.Add(Me.Label4)
-        Me.categEmpFilter.Location = New System.Drawing.Point(51, 33)
+        Me.categEmpFilter.Location = New System.Drawing.Point(32, 30)
         Me.categEmpFilter.Name = "categEmpFilter"
         Me.categEmpFilter.Size = New System.Drawing.Size(707, 67)
         Me.categEmpFilter.TabIndex = 20
@@ -981,14 +1009,19 @@ Partial Class Empresa
         Me.EmpresaBindingSource1.DataMember = "empresa"
         Me.EmpresaBindingSource1.DataSource = Me.Gestio_empresesDataSet
         '
+        'ContracteTableAdapter
+        '
+        Me.ContracteTableAdapter.ClearBeforeFill = True
+        '
         'Empresa
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(96, Byte), Integer), CType(CType(171, Byte), Integer), CType(CType(251, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1551, 1061)
-        Me.Controls.Add(Me.Panel3)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ClientSize = New System.Drawing.Size(1668, 824)
         Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.EditCat)
         Me.Controls.Add(Me.categEmpFilter)
         Me.Controls.Add(Me.Panel2)
@@ -1093,6 +1126,6 @@ Partial Class Empresa
     Friend WithEvents CategoriaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents TotaltestsDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents TestsrealitzatsDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents TestsdisponiblesDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents PreutotalDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ContracteTableAdapter As Gestio_empresesDataSetTableAdapters.contracteTableAdapter
 End Class

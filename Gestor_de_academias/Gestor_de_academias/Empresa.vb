@@ -24,11 +24,6 @@ Public Class Empresa
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles createEmpresa.Click
         createLabel.Text = "Afegir nova empresa"
-        EditCat.Visible = False
-        categEmpFilter.Visible = False
-        Panel2.Visible = False
-        createEmpresa.Visible = False
-        EditEmpresa.Visible = False
         empresaCif.Text = ""
         empresaNombre.Text = ""
         empresaAdresa.Text = ""
@@ -42,7 +37,7 @@ Public Class Empresa
 
     Private Sub SearchEmp_Click(sender As Object, e As EventArgs) Handles searchEmp.Click
         Dim condicion = ""
-        'Try
+
         If cifEmpFilter.Text <> "" Then
                 condicion += "where e.cif like '%" & cifEmpFilter.Text & "%' "
             End If
@@ -80,15 +75,13 @@ Public Class Empresa
             End If
 
             Dim dt As New DataTable
-            Dim da As New SqlDataAdapter("pc_buscarEmpresa", startconexion.myConn)
-            da.SelectCommand.CommandType = CommandType.StoredProcedure
+        Dim da As New SqlDataAdapter("pc_buscarEmpresa", Form1.myConn)
+        da.SelectCommand.CommandType = CommandType.StoredProcedure
         da.SelectCommand.Parameters.Add("@condicion", SqlDbType.VarChar).Value = condicion
 
         da.Fill(dt)
             DataGridView1.DataSource = dt
-        'Catch ex As Exception
-        '    MsgBox("no")
-        'End Try
+
 
     End Sub
 
@@ -101,9 +94,18 @@ Public Class Empresa
         EditEmpresa.Visible = True
         Try
             If insert Then
+                Dim dt As New Gestio_empresesDataSet.empresaDataTable
+                Me.EmpresaTableAdapter.FillBy1(dt, empresaCif.Text)
+                For i = 0 To dt.Rows.Count - 1
+                    If dt.Rows(i).Item("cif").ToString.Contains(empresaCif.Text) Then
+                        MessageBox.Show("Aquesta empresa ja està donada d'alta.")
+                    Else
+                        Me.EmpresaTableAdapter.InsertQuery(empresaCif.Text, empresaNombre.Text, empresaAdresa.Text, CPostal.Text, Ciutat.Text, Regio.Text, Pais.Text, empresaPhone.Text, EmpresaEmail.Text, empresaCategoria.SelectedValue)
+                    End If
+                Next
                 Me.EmpresaTableAdapter.InsertQuery(empresaCif.Text, empresaNombre.Text, empresaAdresa.Text, CPostal.Text, Ciutat.Text, Regio.Text, Pais.Text, empresaPhone.Text, EmpresaEmail.Text, empresaCategoria.SelectedValue)
             Else
-                Me.EmpresaTableAdapter.UpdateQuery(empresaNombre.Text, empresaAdresa.Text, empresaPhone.Text, EmpresaEmail.Text, empresaCategoria.SelectedValue, cifEmpresa)
+                Me.EmpresaTableAdapter.UpdateQuery(empresaNombre.Text, empresaAdresa.Text, CPostal.Text, Ciutat.Text, Regio.Text, Pais.Text, empresaPhone.Text, EmpresaEmail.Text, empresaCategoria.SelectedValue, cifEmpresa)
             End If
             Me.EmpresaTableAdapter.Fill(Me.Gestio_empresesDataSet.empresa)
             DataGridView1.DataSource = Me.Gestio_empresesDataSet.empresa
@@ -119,11 +121,6 @@ Public Class Empresa
     Private Sub EditEmpresa_Click(sender As Object, e As EventArgs) Handles EditEmpresa.Click
         Try
             Panel1.Visible = True
-            EditCat.Visible = False
-            categEmpFilter.Visible = False
-            Panel2.Visible = False
-            createEmpresa.Visible = False
-            EditEmpresa.Visible = False
             cifEmpresa = DataGridView1.SelectedRows(0).Cells.Item(0).Value
 
             createLabel.Text = "Editar " & DataGridView1.SelectedRows(0).Cells.Item(1).Value
@@ -131,10 +128,14 @@ Public Class Empresa
             empresaCif.Enabled = False
             empresaNombre.Text = DataGridView1.SelectedRows(0).Cells.Item(1).Value
             empresaAdresa.Text = DataGridView1.SelectedRows(0).Cells.Item(2).Value
-            empresaPhone.Text = DataGridView1.SelectedRows(0).Cells.Item(3).Value
-            EmpresaEmail.Text = DataGridView1.SelectedRows(0).Cells.Item(4).Value
+            CPostal.Text = DataGridView1.SelectedRows(0).Cells.Item(3).Value
+            Ciutat.Text = DataGridView1.SelectedRows(0).Cells.Item(4).Value
+            Regio.Text = DataGridView1.SelectedRows(0).Cells.Item(5).Value
+            Pais.Text = DataGridView1.SelectedRows(0).Cells.Item(6).Value
+            empresaPhone.Text = DataGridView1.SelectedRows(0).Cells.Item(7).Value
+            EmpresaEmail.Text = DataGridView1.SelectedRows(0).Cells.Item(8).Value
 
-            Dim myCommand = New SqlCommand(" Select cod_categoria from categoria where descripcio=@descripcio ", startconexion.myConn)
+            Dim myCommand = New SqlCommand(" Select cod_categoria from categoria where descripcio=@descripcio ", Form1.myConn)
             myCommand.Parameters.Add("@descripcio", SqlDbType.VarChar).Value = DataGridView1.SelectedRows(0).Cells.Item(5).Value
             Dim da As New SqlDataAdapter(myCommand)
             Dim dt As New DataTable
@@ -247,13 +248,7 @@ Public Class Empresa
     End Sub
 
     Private Sub EditCat_Click(sender As Object, e As EventArgs) Handles EditCat.Click
-        Panel1.Visible = False
         Panel3.Visible = True
-        EditCat.Visible = False
-        categEmpFilter.Visible = False
-        Panel2.Visible = False
-        createEmpresa.Visible = False
-        EditEmpresa.Visible = False
     End Sub
 
     Private Sub FillByToolStripButton_Click(sender As Object, e As EventArgs)

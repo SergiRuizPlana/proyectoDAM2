@@ -180,7 +180,6 @@ C:\Users\PC-Dell\Documents\proyectoDAM2\Gestor_de_academias\Gestor_de_academias\
 C:\Users\PC-Dell\Documents\proyectoDAM2\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.Contrato.resources
 C:\Users\PC-Dell\Documents\proyectoDAM2\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.Form1.resources
 C:\Users\PC-Dell\Documents\proyectoDAM2\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.Empresa.resources
-C:\Users\PC-Dell\Documents\proyectoDAM2\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.startconexion.resources
 C:\Users\PC-Dell\Documents\proyectoDAM2\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.Resources.resources
 C:\Users\PC-Dell\Documents\proyectoDAM2\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.vbproj.GenerateResource.cache
 C:\Users\PC-Dell\Documents\proyectoDAM2\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.vbproj.CoreCompileInputs.cache
@@ -190,3 +189,7 @@ C:\Users\PC-Dell\Documents\proyectoDAM2\Gestor_de_academias\Gestor_de_academias\
 C:\Users\PC-Dell\Documents\proyectoDAM2\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.Modelo_albaran.resources
 C:\Users\miPc\Documents\proyecto\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.Modelo_albaran.resources
 C:\Users\PC-Dell\Documents\proyectoDAM2\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.Modelo_contrato.resources
+C:\Users\PC-Dell\Documents\proyectoDAM2\Gestor_de_academias\Gestor_de_academias\bin\Debug\Microsoft.VisualBasic.PowerPacks.dll
+C:\Users\PC-Dell\Documents\proyectoDAM2\Gestor_de_academias\Gestor_de_academias\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
+C:\Users\PC-Dell\Documents\proyectoDAM2\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.Tests.resources
+C:\Users\PC-Dell\Documents\proyectoDAM2\Gestor_de_academias\Gestor_de_academias\obj\Debug\Gestor_de_academias.Form2.resources
