@@ -13,9 +13,12 @@ public class QuestionDAO {
 
 
 	public static boolean addQuestio(Question question) {
-		String sqlComand="insert into questions (question, answer1, answer2, answer3, answer4, correctanswer,i d_topic) values (?,?,?,?,?,?,?)";
+		String sqlComand="insert into questions (question,answer1,answer2,answer3,answer4,correctanswer,id_topic) values(?,?,?,?,?,?,?)";
 		try {
 			Conection.openConnection();
+				if(question.getTopic()==null) {
+					sqlComand="insert into questions (question,answer1,answer2,answer3,answer4,correctanswer) values(?,?,?,?,?,?)";					
+				}
 			PreparedStatement pstm = Conection.conn.prepareStatement(sqlComand);
 			pstm.setString(1,question.getQuestion());
 			pstm.setString(2,question.getAnswer1());
@@ -23,7 +26,9 @@ public class QuestionDAO {
 			pstm.setString(4,question.getAnswer3());
 			pstm.setString(5,question.getAnswer4());
 			pstm.setString(6,question.getCorrectanswer()+"");
-			pstm.setString(7,question.getTopic().getId());
+			if(question.getTopic()!=null) {
+				pstm.setString(7,question.getTopic().getId());
+			}
 			pstm.executeUpdate();
 			pstm.close();
 			Conection.closeConnection();

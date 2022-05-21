@@ -29,11 +29,6 @@ public class LoginController implements Initializable {
 	@FXML
 	private Text infoMessage;
 
-
-
-
-
-
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		 
